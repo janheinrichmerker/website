@@ -1,8 +1,7 @@
 ---
 layout: page
 title: Datenschutzerklärung
-permalink: /privacy
-redirect_from: "/privacy/bla/"
+permalink: /privacy/
 ---
 
 # Datenschutz
