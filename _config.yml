@@ -17,3 +17,9 @@ meta:
   description: Android development with love.
 
 markdown: kramdown
+
+gems:
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from
