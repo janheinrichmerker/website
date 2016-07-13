@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Impressum/Disclaimer
-permalink: /disclaimer
+permalink: /disclaimer/
 ---
 
 # Impressum
