@@ -2,6 +2,7 @@
 layout: page
 title: Impressum/Disclaimer
 permalink: /disclaimer
+redirect_from: "/disclaimer/"
 ---
 
 # Impressum

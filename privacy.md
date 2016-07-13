@@ -2,6 +2,7 @@
 layout: page
 title: Datenschutzerklärung
 permalink: /privacy
+redirect_from: "/privacy/"
 ---
 
 # Datenschutz
