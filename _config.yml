@@ -1,9 +1,18 @@
 name: Heinrich Reimer
-markdown: kramdown
-author: Heinrich Reimer
+description: Android development with love.
 license: All rights reserved.
 url: https://heinrichreimer.com
+author:
+  name: Heinrich Reimer
+  adress:
+    street: Turmfalkenweg 1
+    zip: 38124
+    city: Braunschweig
+    country: Germany
+  email: heinrich@heinrichreimer.com
 
 meta:
   title: Heinrich Reimer
   description: Android development with love.
+
+markdown: kramdown
