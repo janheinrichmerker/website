@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Datenschutzerklärung
-permalink: /privacy/
+permalink: /privacy
 ---
 
 # Datenschutz
