@@ -13,16 +13,8 @@ permalink: /disclaimer
 {{ site.author.adress.country }}
 
 ## Kontakt:
-<table>
-    <tr>
-        <td>Telefon:</td>
-        <td>+49 1749273954</td>
-    </tr>
-    <tr>
-        <td>E-Mail:</td>
-        <td>[{{ site.author.email }}][3]</td>
-    </tr>
-</table>
+Telefon: {{ site.author.telephone }}
+E-Mail: [{{ site.author.email }}][3]
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
 
@@ -51,4 +43,4 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
 
 [1]: http://www.e-recht24.de/impressum-generator.html
 [2]: http://www.e-recht24.de/muster-disclaimer.html
-[3]: mailto:\"{{ site.author.name }}\" <{{ site.author.email }}>
+[3]: mailto:"{{ site.author.name }}" <{{ site.author.email }}>
