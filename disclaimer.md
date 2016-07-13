@@ -7,12 +7,14 @@ permalink: /disclaimer
 # Impressum
 
 ## Angaben gemäß § 5 TMG:
+
 {{ site.author.name }}
 {{ site.author.adress.street }}
 {{ site.author.adress.zip }} {{ site.author.adress.city }}
 {{ site.author.adress.country }}
 
 ## Kontakt:
+
 Telefon: {{ site.author.telephone }}
 E-Mail: [{{ site.author.email }}][3]
 
