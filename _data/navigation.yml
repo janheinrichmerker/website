@@ -1,10 +1,10 @@
 items:
   - title: Home
-    link: /#home
+    link: {{site.url}}#home
   - title: Apps
-    link: /#apps
+    link: {{site.url}}#apps
   - title: Libraries
-    link: /#libraries
+    link: {{site.url}}#libraries
   - title: Blog
     link: https://blog.heinrichreimer.com
   - title: Google+
