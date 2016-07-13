@@ -1,0 +1,10 @@
+items:
+  - icon: create
+    title: Design
+    description: I create stunning designs following Google's Material guidelines and always focussing user experience. Design is art!
+  - icon: code
+    title: Development
+    description: I develop Android apps using the latest SDKs and tools e.g. Android Studio. I focus on keeping code clean and minimizing data and battery usage. Performance matters!
+  - icon: supervisor_account
+    title: Consulting
+    description: I help your startup or company in designing and developing any type of Android app. I write code reviews and analyze app designs. Nothing is impossible!

@@ -1,0 +1,6 @@
+image: res/images/title.jpg
+title: Heinrich Reimer
+subtitle: Android development with love.
+button:
+  title: Get in touch
+  link: mailto:heinrich@heinrichreimer.com

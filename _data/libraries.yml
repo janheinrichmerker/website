@@ -1,0 +1,24 @@
+title: Libraries
+button: View it on GitHub
+items: 
+  - name: material-drawer
+    description: Custom drawer implementation for Material design apps.
+    image: /res/images/banner_material_drawer.png
+    link: https://github.com/HeinrichReimer/material-drawer
+  - name: material-intro
+    description: A simple material design app intro with cool animations and a simple API.
+    image: /res/images/banner_material_intro.png
+    link: https://github.com/HeinrichReimer/material-intro
+  - name: material-singleinputform
+    description: A single EditText instead of a classical form.
+    image: /res/images/banner_material_singleinputform.png
+    link: https://github.com/HeinrichReimer/material-singleinputform
+  - name: android-issue-reporter
+    description: A powerful and simple library to open issues on GitHub directly from your app.
+    image: /res/images/banner_android_issue_reporter.png
+    link: https://github.com/HeinrichReimer/android-issue-reporter
+cta: 
+  title: Love open-source?
+  description: Never miss a new library.
+  button: Follow me on GitHub
+  link: https://github.com/HeinrichReimer

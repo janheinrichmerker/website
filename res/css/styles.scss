@@ -1,0 +1,386 @@
+@import "import/material/color-definitions";
+
+$color-primary: $palette-grey-800;
+$color-primary-dark: $palette-grey-900;
+$color-accent: $palette-orange-800;
+$color-primary-contrast: $color-dark-contrast;
+$color-accent-contrast: $color-dark-contrast;
+
+$footer-bg-color: $palette-grey-100;
+$footer-color: rgba($color-black, 0.54);
+
+@import "import/material";
+@import "import/materialdesignicons";
+@import "import/prism";
+
+$font-family-header: "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif;
+
+body {
+    background: $palette-grey-50;
+}
+
+hr {
+    border-color: rgba($color-black, .12);
+}
+
+blockquote {
+    border-left: 4px solid rgba($color-black, .12);
+    margin-left: 0.5em;
+    padding-left: 1em;
+    &:before {
+        content: none !important;
+    }
+    &:after {
+        content: none !important;
+    }
+}
+
+h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
+.mdl-typography--display-4, .mdl-typography--display-5 {
+    font-family: $font-family-header;
+    font-weight: 500;
+}
+
+/* Layout */
+.mdl-layout__drawer, .mdl-layout__obfuscator {
+    position: fixed;
+}
+
+.mdl-layout__drawer-button > i {
+    position: relative;
+    top: 2px;
+}
+
+.mdl-layout-title {
+    font-family: $font-family-header;
+}
+
+/* Navigation */
+.mdl-navigation__link.mdl-button {
+    line-height: 38px;
+    min-width: 0;
+    margin: 0 8px;
+    padding: 0 16px;
+}
+
+.mdl-navigation__link.mdl-button--icon {
+    font-size: 20px;
+    line-height: 32px;
+    min-width: 0;
+    padding: 8px;
+}
+
+/* Cover */
+.cover {
+    position: relative;
+    background: no-repeat local center center;
+    background-size: cover;
+    min-height: 400px;
+    height: 100vh;
+    text-align: center;
+    box-shadow: inset 0 -8px 10px 1px rgba($color-black, .14), inset 0 -3px 14px 2px rgba($color-black, .12), inset 0 -5px 5px -3px rgba($color-black, .2);
+    margin-bottom: 32px;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba($color-black, 0.25);
+    }
+
+    &.cover-author {
+        min-height: 200px;
+        height: 50vh;
+    }
+    &.has-image {
+        padding-bottom: 104px;
+        margin-bottom: 104px;
+    }
+    .cover-image {
+        position: absolute;
+        bottom: 0;
+        width: 192px;
+        height: 192px;
+        transform: translate(-50%, 50%);
+        border-radius: 50%;
+    }
+
+    > .cover-inner {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        color: rgba($color-white, .7);
+        > h1 {
+            text-decoration: none;
+            color: $color-white;
+            a {
+                text-decoration: none;
+                color: $color-white;
+            }
+        }
+        > p {
+            a {
+                text-decoration: none;
+                color: rgba($color-white, .7);
+                font-weight: 400;
+                font-style: italic;
+                &.mdl-button{
+                    color: $color-white;
+                    font-weight: 500;
+                    font-style: normal;
+                }
+            }
+            i.material-icons {
+                position: relative;
+                top: 0.15em;
+            }
+        }
+        > .mdl-button--icon {
+            width: 96px;
+            height: 96px;
+            i.material-icons {
+                transform: translate(-48px,-44px);
+                text-align: center;
+                font-size: 96px;
+                line-height: 96px;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+/* Grid */
+.mdl-grid {
+    max-width: 1200px;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+}
+
+/* Philosophy section */
+.philosophy {
+    > .philosophy-cell {
+        text-align: center;
+    }
+}
+
+/* Work section */
+.apps, .libraries {
+    > .mdl-card {
+        min-height: 24px;
+        align-self: flex-start;
+    }
+    > .mdl-card > .mdl-card__media > img {
+        width: 100%;
+    }
+    > .cta-cell {
+        position: relative;
+        text-transform: none;
+        text-align: center;
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 100%; /* Aspect ratio: 1:1*/
+        }
+        > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            > div {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+            }
+        }
+        &.logo-cell > div > div {
+            padding-bottom: 48px;
+        }
+    }
+}
+
+/* Skills section */
+.skills > .skills-cell > .skills-bar {
+    width: 100%;
+    height: 5px;
+    > div {
+        height: 100%;
+    }
+}
+
+/* Contact section */
+.contact form {
+    width: 100%;
+    margin-bottom: 144px;
+}
+
+/* Blog */
+.mdl-layout__content > .posts, .mdl-layout__content > .post {
+    max-width: 1200px;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+}
+
+.posts .post {
+    margin: 8px;
+    .meta a {
+        color: $text-color-primary;
+    }
+}
+
+.post {
+    > header p, > header a {
+        color: $text-color-primary;
+        font-weight: 400;
+    }
+    > section img {
+        display: block;
+        max-width: 100%;
+        max-height: 600px;
+        margin: 8px auto;
+        border-radius: 4px;
+    }
+    .author {
+        position: relative;
+        min-height: 96px;
+        margin: 8px 0;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 400;
+        }
+        h4 {
+            margin-left: 112px;
+            margin-bottom: 8px;
+            font-family: $font-family-header;
+        }
+        p {
+            margin-left: 112px;
+            margin-bottom: 8px;
+            &.author-meta {
+                margin-left: 108px;
+                font-size: 18px;
+                color: rgba(0, 0, 0, .54);
+                a {
+                    color: rgba(0, 0, 0, .54);
+                }
+                i.material-icons {
+                    position: relative;
+                    top: 4px;
+                }
+            }
+        }
+    }
+}
+
+img.author-thumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.read-next section {
+        text-align: center;
+}
+
+nav.pagination {
+    color: rgba($color-black, 0.87);
+    min-height: 0;
+    text-align: center;
+    > span {
+        display: inline-block;
+        margin-top: 12px;
+    }
+    > a {
+        color: rgba($color-black, 0.87);
+        text-decoration: none;
+        width: 160px;
+        &.pagination-older {
+            float: left;
+            text-align: left;
+            margin-right: -160px;
+        }
+        &.pagination-newer {
+            float: right;
+            text-align: right;
+            margin-left: -160px;
+        }
+        .mdl-button {
+            color: rgba($color-black, 0.54);
+            background-color: $palette-grey-300;
+            margin: 8px;
+        }
+    }
+}
+
+/* Footer */
+.mdl-mini-footer {
+    border-top: 1px solid rgba($footer-color, 0.2);
+    padding: 16px;
+    text-align: center;
+    a {
+        color: $footer-color;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+    .mdl-layout__drawer-button {
+        display: none;
+    }
+    .mdl-layout__header-row {
+        padding: 0 0 0 24px;
+    }
+}
+
+/* Small tablet */
+@media screen and (max-width: 840px) {
+    .cover > .cover-inner {
+        > h1 {
+            font-size: 48px;
+        }
+        > .mdl-typography--headline {
+            font-size: 22px;
+        }
+        > img {
+            width: 30%;
+        }
+    }
+
+    .read-next section h3 {
+        font-size: 28px;
+        line-height: 34px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .cover > .cover-inner {
+        > h1 {
+            font-size: 44px;
+        }
+        > .mdl-typography--headline {
+            font-size: 18px;
+        }
+        > img {
+            width: 40%;
+        }
+    }
+
+    .post > header p {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
