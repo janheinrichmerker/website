@@ -46,10 +46,10 @@
 
     <header id="app-bar" class="mdl-layout__header mdl-layout--overlay-drawer-button">
         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">{{ site.title }}</span>
+            <span class="mdl-layout-title">{{ site.name }}</span>
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-                {% for navigation in site.navigation.items %}
+                {% for navigation in site.data.navigation.items %}
                     {% if navigation.icon %}
                         <a class="mdl-navigation__link mdl-button mdl-js-button mdl-button--icon mdl-button--colored"
                            href="{{ navigation.link }}" target="_blank"><i class="mdi mdi-{{ navigation.icon }}"></i></a>
@@ -62,7 +62,7 @@
     </header>
 
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">{{ site.title }}</span>
+        <span class="mdl-layout-title">{{ site.name }}</span>
         <nav class="mdl-navigation">
             {% for navigation in site.data.navigation.items %}
                 <a class="mdl-navigation__link" href="{{ navigation.link }}">{{ navigation.title }}</a>
