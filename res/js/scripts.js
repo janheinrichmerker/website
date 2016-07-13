@@ -1,6 +1,6 @@
 $(function() { //Document is ready
     //Scroll-to links
-    $("a[href^='#']").each(function() {
+    $("a[href^='#'], a[href^='/#']").each(function () {
         $(this).click(function(event) {
             scrollTo($(this).attr("href"));
             event.preventDefault();
