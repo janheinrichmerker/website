@@ -1,7 +1,3 @@
-<?php
-//Load configuration from JSON file
-$config = json_decode(file_get_contents("res/config.json"));
-?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
@@ -11,8 +7,8 @@ $config = json_decode(file_get_contents("res/config.json"));
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ site.name }}</title>
-    <meta name="description" content="{{ site.name }}">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -68,7 +64,7 @@ $config = json_decode(file_get_contents("res/config.json"));
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">{{ site.title }}</span>
         <nav class="mdl-navigation">
-            {% for navigation in site.navigation.items %}
+            {% for navigation in site.data.navigation.items %}
                 <a class="mdl-navigation__link" href="{{ navigation.link }}">{{ navigation.title }}</a>
             {% endfor %}
         </nav>

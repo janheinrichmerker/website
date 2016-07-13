@@ -4,12 +4,12 @@ title: Heinrich Reimer
 description: Android development with love.
 ---
 
-<div class="cover" id="home" style="background-image: url('{{ site.cover.image }}')">
+<div class="cover" id="home" style="background-image: url('{{ site.data.cover.image }}')">
     <div class="cover-inner">
-        <h1 class="mdl-typography--display-4">{{ site.cover.title }}</h1>
-        <p class="mdl-typography--headline">{{ site.cover.subtitle }}</p>
+        <h1 class="mdl-typography--display-4">{{ site.data.cover.title }}</h1>
+        <p class="mdl-typography--headline">{{ site.data.cover.subtitle }}</p>
         <p><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-              href="{{ site.cover.button.link }}">{{ site.cover.button.title }}</a></p>
+              href="{{ site.data.cover.button.link }}">{{ site.data.cover.button.title }}</a></p>
         <a class="mdl-button mdl-js-button mdl-button--icon" href="#philosophy">
             <i class="material-icons">keyboard_arrow_down</i>
         </a>
@@ -17,7 +17,7 @@ description: Android development with love.
 </div>
 
 <div class="mdl-grid philosophy" id="philosophy">
-    {% for philosophy in site.philosophy.items %}
+    {% for philosophy in site.data.philosophy.items %}
         <div class="mdl-cell mdl-cell--4-col philosophy-cell">
             <h2><i class="material-icons">{{ philosophy.icon }}</i></h2>
             <h3>{{ philosophy.title }}</h3>
@@ -29,8 +29,8 @@ description: Android development with love.
 <hr>
 
 <div class="mdl-grid apps" id="apps">
-    <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.apps.title }}</h2>
-    {% for app in site.apps.items %}
+    <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.apps.title }}</h2>
+    {% for app in site.data.apps.items %}
     <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
         <div class="mdl-card__media">
             <img src="{{ app.image }}">
@@ -39,17 +39,17 @@ description: Android development with love.
         <div class="mdl-card__supporting-text">{{ app.description }}</div>
         <div class="mdl-card__actions mdl-card--border">
             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-               href="{{ app.link }}" target="_blank">{{ site.apps.button }}</a>
+               href="{{ app.link }}" target="_blank">{{ site.data.apps.button }}</a>
         </div>
     </div>
     {% endfor %}
     <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
         <div>
             <div>
-                <h3>{{ site.apps.cta.title }}</h3>
-                <p class="mdl-typography--subhead">{{ site.apps.cta.description }}</p>
+                <h3>{{ site.data.apps.cta.title }}</h3>
+                <p class="mdl-typography--subhead">{{ site.data.apps.cta.description }}</p>
                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-                   href="{{ site.apps.cta.link }}">{{ site.apps.cta.button }}</a>
+                   href="{{ site.data.apps.cta.link }}">{{ site.data.apps.cta.button }}</a>
             </div>
         </div>
     </div>
@@ -58,8 +58,9 @@ description: Android development with love.
 <hr>
 
 <div class="mdl-grid libraries" id="libraries">
-    <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.libraries.title }}</h2>
-    {% for library in site.libraries.items %}
+    <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.libraries.title
+        }}</h2>
+    {% for library in site.data.libraries.items %}
     <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
         <div class="mdl-card__media">
             <img src="{{ library.image }}">
@@ -68,17 +69,17 @@ description: Android development with love.
         <div class="mdl-card__supporting-text">{{ library.description }}</div>
         <div class="mdl-card__actions mdl-card--border">
             <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-               href="{{ library.link }}" target="_blank">{{ site.libraries.button }}</a>
+               href="{{ library.link }}" target="_blank">{{ site.data.libraries.button }}</a>
         </div>
     </div>
     {% endfor %}
     <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
         <div>
             <div>
-                <h3>{{ site.libraries.cta.title }}</h3>
-                <p class="mdl-typography--subhead">{{ site.libraries.cta.description }}</p>
+                <h3>{{ site.data.libraries.cta.title }}</h3>
+                <p class="mdl-typography--subhead">{{ site.data.libraries.cta.description }}</p>
                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-                   href="{{ site.libraries.cta.link }}">{{ site.libraries.cta.button }}</a>
+                   href="{{ site.data.libraries.cta.link }}">{{ site.data.libraries.cta.button }}</a>
             </div>
         </div>
     </div>
