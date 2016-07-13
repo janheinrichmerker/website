@@ -1,5 +1,4 @@
 RewriteEngine On
 
-#Deny access to SCSS and JOSN source files
-RewriteRule ^(res/.+\.json)$ - [F,L,NC]
-RewriteRule ^(res/.+\.scss)$ - [F,L,NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
