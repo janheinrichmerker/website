@@ -8,21 +8,21 @@ permalink: /disclaimer
 
 ## Angaben gemäß § 5 TMG:
 
-{{ site.author.name }}
-{{ site.author.adress.street }}
-{{ site.author.adress.zip }} {{ site.author.adress.city }}
+{{ site.author.name }}  
+{{ site.author.adress.street }}  
+{{ site.author.adress.zip }} {{ site.author.adress.city }}  
 {{ site.author.adress.country }}
 
 ## Kontakt:
 
-Telefon: {{ site.author.telephone }}
+Telefon: {{ site.author.telephone }}  
 E-Mail: [{{ site.author.email }}][3]
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
 
-{{ site.author.name }}
-{{ site.author.adress.street }}
-{{ site.author.adress.zip }} {{ site.author.adress.city }}
+{{ site.author.name }}  
+{{ site.author.adress.street }}  
+{{ site.author.adress.zip }} {{ site.author.adress.city }}  
 {{ site.author.adress.country }}
 
 
