@@ -2,7 +2,7 @@ $(function() { //Document is ready
     //Scroll-to links
     $("a[href^='#'], a[href^='/#']").each(function () {
         $(this).click(function(event) {
-            scrollTo($(this).attr("href"));
+            scrollTo($(this).attr("href").replace("/", ""));
             event.preventDefault();
         });
     });
