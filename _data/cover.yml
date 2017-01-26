@@ -1,5 +1,5 @@
 image: res/images/title.jpg
-image: res/images/logos/logo_brand.svg
+logo: res/images/logos/logo_brand.svg
 title: Heinrich Reimer
 subtitle: Android development with love.
 button:
