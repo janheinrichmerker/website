@@ -18,11 +18,11 @@ permalink: /
 </div>
 
 <div class="mdl-grid philosophy" id="philosophy">
-    {% for philosophy in site.data.philosophy.items %}
+    {% for service in site.categories.services %}
         <div class="mdl-cell mdl-cell--4-col philosophy-cell">
-            <h2><i class="material-icons">{{ philosophy.icon }}</i></h2>
-            <h3>{{ philosophy.title }}</h3>
-            <p class="mdl-typography--subhead">{{ philosophy.description }}</p>
+            <h2><i class="material-icons">{{ service.icon }}</i></h2>
+            <h3>{{ service.title }}</h3>
+            <p class="mdl-typography--subhead">{{ service.description }}</p>
         </div>
     {% endfor %}
 </div>
@@ -31,7 +31,7 @@ permalink: /
 
 <div class="mdl-grid apps" id="apps">
     <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.apps.title }}</h2>
-    {% for app in site.data.apps.items %}
+    {% for app in site.categories.apps %}
     <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
         <div class="mdl-card__media">
             <img src="{{ app.image }}">
@@ -61,7 +61,7 @@ permalink: /
 <div class="mdl-grid libraries" id="libraries">
     <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.libraries.title
         }}</h2>
-    {% for library in site.data.libraries.items %}
+    {% for library in site.categories.libraries %}
     <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
         <div class="mdl-card__media">
             <img src="{{ library.image }}">

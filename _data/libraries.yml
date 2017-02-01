@@ -1,26 +1,5 @@
 title: Libraries
 button: View it on GitHub
-items: 
-  - name: android-issue-reporter
-    description: A powerful and simple library to open issues on GitHub directly from your app.
-    image: /res/images/banner_android_issue_reporter.png
-    link: https://github.com/HeinrichReimer/android-issue-reporter
-  - name: android-canteen-balance
-    description: Helper library to read out the current balance of canteen cards using NFC.
-    image: /res/images/banner_android_canteen_balance.png
-    link: https://github.com/HeinrichReimer/android-canteen-balance
-  - name: material-intro
-    description: A simple material design app intro with cool animations and a simple API.
-    image: /res/images/banner_material_intro.png
-    link: https://github.com/HeinrichReimer/material-intro
-  - name: material-drawer
-    description: Custom drawer implementation for Material design apps.
-    image: /res/images/banner_material_drawer.png
-    link: https://github.com/HeinrichReimer/material-drawer
-  - name: material-singleinputform
-    description: A single EditText instead of a classical form.
-    image: /res/images/banner_material_singleinputform.png
-    link: https://github.com/HeinrichReimer/material-singleinputform
 cta: 
   title: Love open-source?
   description: Never miss a new library.

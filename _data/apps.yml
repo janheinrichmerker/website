@@ -1,38 +1,5 @@
-title: Apps
+title: Android Apps
 button: View it on Google Play
-items: 
-  - name: Pairs
-    description: Simple, clean card match memory game with multiple image sets.
-    image: /res/images/banner_pairs.png
-    link: https://play.google.com/store/apps/details?id=com.playsprout.pairs
-  - name: Meine Mensa
-    description: Canteen plan for Studentenwerk Halle.
-    image: /res/images/banner_meine_mensa.png
-    link: https://play.google.com/store/apps/details?id=com.heinrichreimer.meinemensa
-  - name: Klasse! Wir singen
-    description: Germany's big singing campaign.
-    image: /res/images/banner_klasse_wir_singen.png
-    link: https://play.google.com/store/apps/details?id=de.klassewirsingen.app
-  - name: Johannes Foto
-    description: Photos from johannes-foto.de.
-    image: /res/images/banner_johannes_foto.png
-    link: https://play.google.com/store/apps/details?id=com.heinrichreimersoftware.johannesfoto
-  - name: I love you ❤️
-    description: Show your partner how much you love each other ❤️
-    image: /res/images/banner_i_love_you.png
-    link: https://play.google.com/store/apps/details?id=com.heinrichreimersoftware.iloveyou
-  - name: Equalizer
-    description: Equalizer with useful features and beautiful design.
-    image: /res/images/banner_equalizer.png
-    link: https://play.google.com/store/apps/details?id=eu.pinpong.equalizer
-  - name: RapScript
-    description: The freestyle rap word generator.
-    image: /res/images/banner_rapscript.png
-    link: https://play.google.com/store/apps/details?id=net.rapscript.rapscriptandroid
-  - name: Exposure
-    description: Optimal exposure adjustments for your camera.
-    image: /res/images/banner_exposure.png
-    link: https://play.google.com/store/apps/details?id=com.heinrichreimersoftware.exposure
 cta: 
   title: More to come
   description: Never miss a new app.
