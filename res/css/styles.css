@@ -16080,6 +16080,11 @@ h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typogra
     font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 600; }
 
+body, .mdl-typography--headline, .mdl-typography--subhead {
+    font-family: "Kreon", "Georgia", "Times New Roman", serif;
+    font-weight: 300;
+}
+
 /* Layout */
 .mdl-layout__drawer, .mdl-layout__obfuscator {
   position: fixed; }
