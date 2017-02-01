@@ -16,6 +16,28 @@ meta:
   title: Heinrich Reimer
   description: Android development with love.
 
+collections:
+- apps
+- libraries
+- services
+
+defaults:
+  - scope:
+      path: ""
+      type: apps
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: libraries
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: services
+    values:
+      layout: page
+
 markdown: kramdown
 
 gems:
