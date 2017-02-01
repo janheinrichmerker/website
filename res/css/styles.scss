@@ -13,15 +13,25 @@ $footer-color: rgba($color-black, 0.54);
 @import "import/materialdesignicons";
 @import "import/prism";
 
+//1
+$font-family-header: "Montserrat", "Roboto", "Helvetica", "Arial", sans-serif; // at 700, first title 400
+
+//2
+$font-family-header: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif; // at 600, first title 500, card titles 400
+$font-family-links: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif; // at 600
+$font-family-body: "Kreon", "Georgia", "Times New Roman", serif; //make fonts slightly thinner ~300
+
+////////////
+$font-family-body: "Kreon", "Georgia", "Times New Roman", serif; //make fonts slightly thinner ~300
+$font-family-body: "Buenard", "Georgia", "Times New Roman", serif; //make font slightly bigger ~16px
+$font-family-body: "Cabin", "Roboto", "Helvetica", "Arial", sans-serif;
+
+//////////////
+
 $font-family-header: "Work Sans", "Roboto", "Helvetica", "Arial", sans-serif;
-$font-family-header: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-$font-family-header: "Buenard", "Roboto", "Helvetica", "Arial", sans-serif;
-$font-family-header: "Cabin", "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif;
 
 $font-family-button: "Anonymous Pro", "Roboto", "Helvetica", "Arial", monospace;
 $font-family-button: "Roboto Mono", "Roboto", "Helvetica", "Arial", monospace;
-
-$font-family-body: "Kreon", "Georgia", "Times New Roman", serif;
 
 body {
     background: $palette-grey-50;
