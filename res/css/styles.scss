@@ -13,6 +13,11 @@ $footer-color: rgba($color-black, 0.54);
 @import "import/materialdesignicons";
 @import "import/prism";
 
+// 3
+$font-family-header: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600, first title 500, card titles 400
+$font-family-button: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600
+$font-family-body: "Kreon", "Georgia", "Times New Roman", serif !default; //make fonts slightly thinner ~300
+
 ////////////
 
 $font-family-body: "Buenard", "Georgia", "Times New Roman", serif !default; //make font slightly bigger ~16px
@@ -34,11 +39,6 @@ $font-family-header: "Montserrat", "Roboto", "Helvetica", "Arial", sans-serif !d
 $font-family-header: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600, first title 500, card titles 400
 $font-family-button: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600
 $font-family-body: "Slabo 27px", "Georgia", "Times New Roman", serif !default;
-
-// 3
-$font-family-header: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600, first title 500, card titles 400
-$font-family-button: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600
-$font-family-body: "Kreon", "Georgia", "Times New Roman", serif !default; //make fonts slightly thinner ~300
 
 body {
     background: $palette-grey-50;
