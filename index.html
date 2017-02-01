@@ -31,7 +31,7 @@ permalink: /
 
 <div class="mdl-grid apps" id="apps">
     <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.apps.title }}</h2>
-    {% for app in site.categories.apps %}
+    {% for app in site.posts %}
     <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
         <div class="mdl-card__media">
             <img src="{{ app.image }}">
