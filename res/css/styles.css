@@ -16111,7 +16111,7 @@ blockquote {
 
 h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
 .mdl-typography--display-4, .mdl-typography--display-5 {
-  font-family: "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Cabin", "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 500; }
 
 /* Layout */
@@ -16123,7 +16123,8 @@ h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typogra
   top: 2px; }
 
 .mdl-layout-title {
-  font-family: "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif; }
+  font-family: "Cabin", "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif;
+}
 
 /* Navigation */
 .mdl-navigation__link.mdl-button {
@@ -16143,25 +16144,12 @@ h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typogra
   position: relative;
   background: no-repeat local center center;
   background-size: cover;
-  min-height: 400px;
-  height: 100vh;
   text-align: center;
   box-shadow: inset 0 -8px 10px 1px rgba(0, 0, 0, 0.14), inset 0 -3px 14px 2px rgba(0, 0, 0, 0.12), inset 0 -5px 5px -3px rgba(0, 0, 0, 0.2);
   margin-bottom: 32px; }
-  .cover:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.25); }
   .cover.cover-author {
     min-height: 200px;
     height: 50vh; }
-  .cover.has-image {
-    padding-bottom: 104px;
-    margin-bottom: 104px; }
   .cover .cover-image {
     position: absolute;
     bottom: 0;
@@ -16292,7 +16280,8 @@ h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typogra
   .post .author h4 {
     margin-left: 112px;
     margin-bottom: 8px;
-    font-family: "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif; }
+    font-family: "Cabin", "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif;
+  }
   .post .author p {
     margin-left: 112px;
     margin-bottom: 8px; }
