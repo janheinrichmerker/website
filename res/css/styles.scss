@@ -13,7 +13,13 @@ $footer-color: rgba($color-black, 0.54);
 @import "import/materialdesignicons";
 @import "import/prism";
 
+$font-family-header: "Work Sans", "Roboto", "Helvetica", "Arial", sans-serif;
+$font-family-header: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+$font-family-header: "Buenard", "Roboto", "Helvetica", "Arial", sans-serif;
 $font-family-header: "Cabin", "Roboto Mono", "Roboto", "Helvetica", "Arial", sans-serif;
+
+$font-family-button: "Anonymous Pro", "Roboto", "Helvetica", "Arial", monospace;
+$font-family-button: "Roboto Mono", "Roboto", "Helvetica", "Arial", monospace;
 
 body {
     background: $palette-grey-50;
