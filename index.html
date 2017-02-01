@@ -18,7 +18,7 @@ permalink: /
 </div>
 
 <div class="mdl-grid philosophy" id="philosophy">
-    {% for service in site.data.services %}
+    {% for service in site.categories.services %}
         <div class="mdl-cell mdl-cell--4-col philosophy-cell">
             <h2><i class="material-icons">{{ service.icon }}</i></h2>
             <h3>{{ service.title }}</h3>
