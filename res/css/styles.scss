@@ -21,6 +21,8 @@ $font-family-header: "Cabin", "Roboto Mono", "Roboto", "Helvetica", "Arial", san
 $font-family-button: "Anonymous Pro", "Roboto", "Helvetica", "Arial", monospace;
 $font-family-button: "Roboto Mono", "Roboto", "Helvetica", "Arial", monospace;
 
+$font-family-body: "Kreon", "Georgia", "Times New Roman", serif;
+
 body {
     background: $palette-grey-50;
 }
@@ -84,19 +86,6 @@ h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typogra
     text-align: center;
     box-shadow: inset 0 -8px 10px 1px rgba($color-black, .14), inset 0 -3px 14px 2px rgba($color-black, .12), inset 0 -5px 5px -3px rgba($color-black, .2);
     margin-bottom: 32px;
-
-    &.cover-author {
-        min-height: 200px;
-        height: 50vh;
-    }
-    .cover-image {
-        position: absolute;
-        bottom: 0;
-        width: 192px;
-        height: 192px;
-        transform: translate(-50%, 50%);
-        border-radius: 50%;
-    }
 
     > .cover-inner {
         position: absolute;

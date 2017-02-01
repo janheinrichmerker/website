@@ -16150,13 +16150,6 @@ h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typogra
   .cover.cover-author {
     min-height: 200px;
     height: 50vh; }
-  .cover .cover-image {
-    position: absolute;
-    bottom: 0;
-    width: 192px;
-    height: 192px;
-    transform: translate(-50%, 50%);
-    border-radius: 50%; }
   .cover > .cover-inner {
     position: absolute;
     top: 50%;
