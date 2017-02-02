@@ -858,6 +858,14 @@ app-drawer-layout app-header-layout app-header {
     };
 }
 
+app-drawer-layout app-header-layout app-header #backgroundRearLayer {
+    background: #212121;
+}
+
+app-drawer-layout app-header-layout app-header #backgroundFrontLayer {
+    background: #dd1155;
+}
+
 app-drawer-layout app-header-layout app-header app-toolbar {
     color: white;
 }
