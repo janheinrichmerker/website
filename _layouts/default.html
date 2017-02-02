@@ -24,6 +24,12 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=XBrebwpyp8">
     <meta name="theme-color" content="#424242">
 
+    <!-- Web components -->
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="/bower_components/app-layout/app-layout.html">
+    <link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium|Roboto+Mono:400,500,700&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:700|Arimo:400,700|Buenard:400,700|Cabin:400,500,600|Inconsolata:700|Kreon:300,400,700|Montserrat|Poppins:500,600,700|Roboto+Slab:300,400|Slabo+13px|Slabo+27px|Work+Sans:300,400,500,600,700"
@@ -35,6 +41,18 @@
 
 </head>
 <body>
+
+<app-header reveals>
+    <app-toolbar>
+        <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+        <div main-title>My app</div>
+        <paper-icon-button icon="delete"></paper-icon-button>
+        <paper-icon-button icon="search"></paper-icon-button>
+        <paper-icon-button icon="close"></paper-icon-button>
+    </app-toolbar>
+</app-header>
+<app-drawer id="drawer" swipe-open></app-drawer>
+<sample-content size="10"></sample-content>
 
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 

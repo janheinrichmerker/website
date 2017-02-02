@@ -76,6 +76,10 @@ body, .mdl-typography--headline, .mdl-typography--subhead {
   font-weight: 300;
 }
 
+.mdl-typography--subhead {
+    font-size: 17px;
+}
+
 /* Layout */
 .mdl-layout__drawer, .mdl-layout__obfuscator {
     position: fixed;
