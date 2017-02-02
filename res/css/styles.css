@@ -850,14 +850,12 @@ hr {
 
 app-drawer-layout app-header-layout app-header {
     background-color: rgba(0, 0, 0, 0.12);
-}
-
-app-drawer-layout app-header-layout app-header --app-header-background-rear-layer {
-    background: #212121;
-}
-
-app-drawer-layout app-header-layout app-header --app-header-background-front-layer {
-    background: #dd1155;
+    --app-header-background-rear-layer: {
+        background: #212121;
+    };
+    --app-header-background-front-layer: {
+        background: #dd1155;
+    };
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar {
