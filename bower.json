@@ -33,6 +33,8 @@
     "paper-item": "PolymerElements/paper-item#^1.2.1",
     "paper-menu": "PolymerElements/paper-menu#^1.2.2",
     "prism-element": "PolymerElements/prism-highlighter#^1.2.0",
-    "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.7"
+    "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.7",
+    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0.11",
+    "paper-header-panel": "PolymerElements/paper-header-panel#^1.1.7"
   }
 }
