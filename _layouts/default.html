@@ -48,58 +48,67 @@
 </head>
 <body>
 
-<app-header condenses reveals effects="waterfall">
-    <app-toolbar>
-        <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
-        <h1 main-title>{{ site.name }}</h1>
-        <paper-icon-button icon="delete"></paper-icon-button>
-        <paper-icon-button icon="search"></paper-icon-button>
-        <paper-icon-button icon="close"></paper-icon-button>
-        {% for navigation in site.data.navigation.items %}
-        <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
-            {% if navigation.icon %}
-            <paper-icon-button icon="{{ navigation.icon }}"></paper-icon-button>
-            {% else %}
-            <paper-button>{{ navigation.title }}</paper-button>
-            {% endif %}
-        </a>
-        {% endfor %}
-    </app-toolbar>
-</app-header>
+<app-drawer-layout>
 
-<app-drawer id="drawer" swipe-open>
-    <paper-menu>
-        {% for navigation in site.data.navigation.items %}
-        <a href="{{ navigation.link }}" tabindex="-1">
-            {% if navigation.icon %}
-            <paper-icon-item>
-                <iron-icon icon="{{ navigation.icon }}" item-icon></iron-icon>
-                {{ navigation.title }}
-            </paper-icon-item>
-            {% else %}
-            <paper-item>{{ navigation.title }}</paper-item>
-            {% endif %}
-        </a>
-        {% endfor %}
-    </paper-menu>
-</app-drawer>
+    <app-drawer id="drawer" swipe-open>
+        <app-toolbar>{{ site.name }}</app-toolbar>
+        <paper-menu>
+            {% for navigation in site.data.navigation.items %}
+            <a href="{{ navigation.link }}" tabindex="-1">
+                {% if navigation.icon %}
+                <paper-icon-item>
+                    <iron-icon icon="{{ navigation.icon }}" item-icon></iron-icon>
+                    {{ navigation.title }}
+                </paper-icon-item>
+                {% else %}
+                <paper-item>{{ navigation.title }}</paper-item>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </paper-menu>
+    </app-drawer>
 
-<main class="mdl-layout__content">
+    <app-header-layout>
 
-    {{ content }}
+        <app-header condenses reveals effects="waterfall">
+            <app-toolbar>
+                <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+                <h1 main-title>{{ site.name }}</h1>
+                <paper-icon-button icon="delete"></paper-icon-button>
+                <paper-icon-button icon="search"></paper-icon-button>
+                <paper-icon-button icon="close"></paper-icon-button>
+                {% for navigation in site.data.navigation.items %}
+                <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
+                    {% if navigation.icon %}
+                    <paper-icon-button icon="{{ navigation.icon }}"></paper-icon-button>
+                    {% else %}
+                    <paper-button>{{ navigation.title }}</paper-button>
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </app-toolbar>
+        </app-header>
 
-    <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer--left-section">
-            © {{ site.time | date: '%Y' }} {{ site.author.name }}. {{ site.license }}
+        <main class="mdl-layout__content">
 
-        </div>
-        <div class="mdl-mini-footer--right-section">
-            <a href="/disclaimer" title="Imprint / Disclaimer">Imprint / Disclaimer</a> •
-            <a href="/privacy" title="Privacy">Privacy</a>
-        </div>
-    </footer>
+            {{ content }}
 
-</main>
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer--left-section">
+                    © {{ site.time | date: '%Y' }} {{ site.author.name }}. {{ site.license }}
+
+                </div>
+                <div class="mdl-mini-footer--right-section">
+                    <a href="/disclaimer" title="Imprint / Disclaimer">Imprint / Disclaimer</a> •
+                    <a href="/privacy" title="Privacy">Privacy</a>
+                </div>
+            </footer>
+
+        </main>
+
+    </app-header-layout>
+
+</app-drawer-layout>
 
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
