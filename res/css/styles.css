@@ -140,7 +140,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: white;
+  color: rgba(0, 0, 0, 0.87);
   font-size: 1em;
   line-height: 1.4;
 }
@@ -290,11 +290,9 @@ textarea {
 @media only screen and (min-width: 35em) {
   /* Style adjustments for viewports that meet the condition */
 }
-
 @media print, (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
-
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -368,7 +366,6 @@ textarea {
     page-break-after: avoid;
   }
 }
-
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -427,6 +424,20 @@ main {
 */
 *[hidden] {
   display: none !important;
+}
+
+blockquote {
+  border-left: 4px solid rgba(0, 0, 0, 0.12);
+  margin-left: 0.5em;
+  padding-left: 1em;
+}
+
+blockquote:before {
+  content: none !important;
+}
+
+blockquote:after {
+  content: none !important;
 }
 
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+c+cpp+ruby+css-extras+diff+git+groovy+handlebars+java+json+kotlin+latex+markdown+php+php-extras+python+scss+sql&plugins=line-highlight+autolinker+wpd+file-highlight+previewer-base+previewer-color+previewer-gradient+previewer-easing+previewer-time+previewer-angle */
@@ -874,14 +885,14 @@ body {
 hr {
   border-color: rgba(0, 0, 0, 0.12); }
 
-blockquote {
-  border-left: 4px solid rgba(0, 0, 0, 0.12);
-  margin-left: 0.5em;
-  padding-left: 1em; }
-  blockquote:before {
-    content: none !important; }
-  blockquote:after {
-    content: none !important; }
+paper-toolbar, app-toolbar {
+  background: #212121;
+}
+
+a[tabindex="-1"] {
+  text-decoration: none;
+  color: inherit;
+}
 
 h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
 .mdl-typography--display-4, .mdl-typography--display-5 {

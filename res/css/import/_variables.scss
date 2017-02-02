@@ -10,6 +10,6 @@ $button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; //
 $color-primary: $palette-grey-900;
 $color-primary-dark: $color-black;
 $color-accent: #dd1155;
-$text-color-primary: $color-dark-contrast;
-$text-color-secondary: $color-dark-contrast;
+$text-color-primary: rgba($color-black, 0.87);
+$text-color-secondary: rgba($color-black, 0.54);
 $text-link-color: $color-accent !default;

@@ -45,17 +45,16 @@ hr {
     border-color: rgba($color-black, .12);
 }
 
-blockquote {
-    border-left: 4px solid rgba($color-black, .12);
-    margin-left: 0.5em;
-    padding-left: 1em;
-    &:before {
-        content: none !important;
-    }
-    &:after {
-        content: none !important;
-    }
+paper-toolbar, app-toolbar {
+    background: $color-primary;
 }
+
+a[tabindex="-1"] {
+    text-decoration: none;
+    color: inherit;
+}
+
+
 
 h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
 .mdl-typography--display-4, .mdl-typography--display-5 {

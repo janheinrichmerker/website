@@ -52,3 +52,15 @@ main {
 *[hidden] {
     display: none !important;
 }
+
+blockquote {
+    border-left: 4px solid rgba($color-black, .12);
+    margin-left: 0.5em;
+    padding-left: 1em;
+    &:before {
+        content: none !important;
+    }
+    &:after {
+        content: none !important;
+    }
+}
