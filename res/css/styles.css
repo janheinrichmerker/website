@@ -848,12 +848,13 @@ body {
 hr {
   border-color: rgba(0, 0, 0, 0.12); }
 
-.page-index app-drawer-layout app-header-layout app-header {
-    background-color: rgba(33, 33, 33, 0.5);
+paper-button {
+    font-weight: 500 !important;
 }
 
-.page-index app-drawer-layout app-header-layout app-header #backgroundRearLayer {
-    background: #212121;
+a[tabindex="-1"] {
+    text-decoration: none;
+    color: inherit;
 }
 
 app-drawer-layout app-header-layout app-header {
@@ -868,6 +869,13 @@ app-drawer-layout app-header-layout app-header app-toolbar {
     color: white;
 }
 
+app-drawer-layout app-header-layout app-header app-toolbar h1 {
+    font-family: "Kreon", "Georgia", "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
 app-drawer-layout app-header-layout .content {
     margin-top: -64px;
 }
@@ -875,14 +883,21 @@ app-drawer-layout app-drawer {
     box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
   z-index: 16; }
 
-app-drawer-layout app-drawer app-toolbar {
-    background: #212121;
-    color: white;
+app-drawer-layout app-drawer app-toolbar h1 {
+    font-family: "Kreon", "Georgia", "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.02em;
 }
 
-a[tabindex="-1"] {
-  text-decoration: none;
-  color: inherit; }
+.page-index app-drawer-layout app-header-layout app-header {
+    background-color: rgba(33, 33, 33, 0.12);
+}
+
+.page-index app-drawer-layout app-header-layout app-header #backgroundRearLayer {
+    background: #212121;
+}
 
 h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
 .mdl-typography--display-4, .mdl-typography--display-5 {

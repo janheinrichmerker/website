@@ -45,21 +45,13 @@ hr {
     border-color: rgba($color-black, .12);
 }
 
-.page-index {
+paper-button {
+    @include typo-weight-medium;
+}
 
-    app-drawer-layout {
-
-        app-header-layout {
-
-            app-header {
-                background-color: rgba($color-primary, 0.5);
-
-                #backgroundRearLayer {
-                    background: $color-primary;
-                }
-            }
-        }
-    }
+a[tabindex="-1"] {
+    text-decoration: none;
+    color: inherit;
 }
 
 app-drawer-layout {
@@ -73,11 +65,12 @@ app-drawer-layout {
                 background: 0;
             }
 
-            #backgroundRearLayer {
-            }
-
             app-toolbar {
                 color: $text-color-primary-inverse;
+
+                h1 {
+                    @include typo-title();
+                }
             }
         }
 
@@ -91,15 +84,29 @@ app-drawer-layout {
         z-index: 16;
 
         app-toolbar {
-            background: $color-primary;
-            color: $text-color-primary-inverse;
+
+            h1 {
+                @include typo-title();
+            }
         }
     }
 }
 
-a[tabindex="-1"] {
-    text-decoration: none;
-    color: inherit;
+.page-index {
+
+    app-drawer-layout {
+
+        app-header-layout {
+
+            app-header {
+                background-color: rgba($color-primary, 0.12);
+
+                #backgroundRearLayer {
+                    background: $color-primary;
+                }
+            }
+        }
+    }
 }
 
 h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
