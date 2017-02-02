@@ -45,6 +45,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/res/css/styles.min.css">
+    <!-- TODO -->
     <style include="app-grid-style">
 
         :host {
@@ -89,37 +90,37 @@
             <app-toolbar>
                 <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
                 <h1 main-title>{{ site.name }}</h1>
-                <paper-icon-button icon="delete"></paper-icon-button>
-                <paper-icon-button icon="search"></paper-icon-button>
-                <paper-icon-button icon="close"></paper-icon-button>
-                {% for navigation in site.data.navigation.items %}
-                <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
-                    {% if navigation.icon %}
-                    <paper-icon-button icon="{{ navigation.icon }}"></paper-icon-button>
-                    {% else %}
-                    <paper-button>{{ navigation.title }}</paper-button>
-                    {% endif %}
-                </a>
-                {% endfor %}
+                <div class="top-level-navigation">
+                    {% for navigation in site.data.navigation.items %}
+                    <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
+                        {% if navigation.icon %}
+                        <paper-icon-button icon="{{ navigation.icon }}"></paper-icon-button>
+                        {% else %}
+                        <paper-button>{{ navigation.title }}</paper-button>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
             </app-toolbar>
         </app-header>
 
-        <main class="mdl-layout__content">
+        <div class="content">
 
-            {{ content }}
+            <main>
+                {{ content }}
+            </main>
 
-            <footer class="mdl-mini-footer">
-                <div class="mdl-mini-footer--left-section">
+            <footer>
+                <p>
                     © {{ site.time | date: '%Y' }} {{ site.author.name }}. {{ site.license }}
-
-                </div>
-                <div class="mdl-mini-footer--right-section">
+                </p>
+                <p>
                     <a href="/disclaimer" title="Imprint / Disclaimer">Imprint / Disclaimer</a> •
                     <a href="/privacy" title="Privacy">Privacy</a>
-                </div>
+                </p>
             </footer>
 
-        </main>
+        </div>
 
     </app-header-layout>
 

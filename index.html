@@ -30,7 +30,9 @@ permalink: /
 <hr>
 
 <div class="app-grid apps" id="apps">
-    <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.apps.title }}</h2>
+
+    <h2>{{ site.data.apps.title }}</h2>
+
     {% for app in site.apps reversed %}
     <paper-card image="{{ app.image }}">
         <div class="card-content">
@@ -46,6 +48,7 @@ permalink: /
         </div>
     </paper-card>
     {% endfor %}
+
     <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
         <div>
             <div>
@@ -57,26 +60,31 @@ permalink: /
             </div>
         </div>
     </div>
+
 </div>
 
 <hr>
 
-<div class="mdl-grid libraries" id="libraries">
-    <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.libraries.title
-        }}</h2>
+<div class="app-grid libraries" id="libraries">
+
+    <h2>{{ site.data.libraries.title }}</h2>
+
     {% for library in site.libraries reversed %}
-    <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__media">
-            <img src="{{ library.image }}">
+    <paper-card image="{{ app.image }}">
+        <div class="card-content">
+            <h5>{{ library.title }}</h5>
+            <p class="description">{{ library.description }}</p>
         </div>
-        <div class="mdl-card__title"><h5 class="mdl-card__title-text">{{ library.name }}</h5></div>
-        <div class="mdl-card__supporting-text">{{ library.description }}</div>
-        <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-               href="{{ library.link }}" target="_blank">{{ site.data.libraries.button }}</a>
+        <div class="card-actions">
+            <div class="horizontal justified">
+                <a href="{{ library.link }}" target="_blank">
+                    <paper-button>{{ site.data.libraries.button }}</paper-button>
+                </a>
+            </div>
         </div>
-    </div>
+    </paper-card>
     {% endfor %}
+
     <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
         <div>
             <div>
@@ -87,4 +95,5 @@ permalink: /
             </div>
         </div>
     </div>
+
 </div>

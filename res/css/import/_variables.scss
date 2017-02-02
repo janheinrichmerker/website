@@ -1,0 +1,15 @@
+@import "palette";
+
+/* Typography */
+$body-font: "Kreon", "Georgia", "Times New Roman", serif !default; //make fonts slightly thinner ~300
+$body-performance-font: "Georgia", "Times New Roman", serif !default;
+$header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600, first title 500, card titles 400
+$button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600
+
+/* Colors */
+$color-primary: $palette-grey-900;
+$color-primary-dark: $color-black;
+$color-accent: #dd1155;
+$text-color-primary: $color-dark-contrast;
+$text-color-secondary: $color-dark-contrast;
+$text-link-color: $color-accent !default;
