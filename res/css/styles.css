@@ -852,9 +852,10 @@ app-header {
   background-color: rgba(0, 0, 0, 0.12);
   --app-header-background-rear-layer-background: #212121; }
 
-app-drawer {
+#drawer {
   z-index: 16; }
-  app-drawer app-toolbar {
+
+#drawer app-toolbar {
     background: #212121; }
 
 a[tabindex="-1"] {
