@@ -850,13 +850,16 @@ hr {
 
 app-drawer-layout app-header-layout app-header {
   background-color: rgba(0, 0, 0, 0.12);
-  --app-header-background-rear-layer-background: #212121; }
-
+  --app-header-background-rear-layer-background: #212121;
+  --app-header-background-front-layer-background: #dd1155;
+}
 app-drawer-layout app-drawer {
   z-index: 16; }
 
 app-drawer-layout app-drawer app-toolbar {
-    background: #212121; }
+  background: #212121;
+  color: rgba(0, 0, 0, 0.87);
+}
 
 a[tabindex="-1"] {
   text-decoration: none;
