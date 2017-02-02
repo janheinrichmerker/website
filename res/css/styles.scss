@@ -59,6 +59,10 @@ app-drawer-layout {
             --app-header-background-front-layer: {
                 background: $color-accent;
             }
+
+            app-toolbar {
+                color: $text-color-primary-inverse;
+            }
         }
     }
 
@@ -67,7 +71,7 @@ app-drawer-layout {
 
         app-toolbar {
             background: $color-primary;
-            color: $text-color-primary;
+            color: $text-color-primary-inverse;
         }
     }
 }

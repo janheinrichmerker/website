@@ -853,12 +853,16 @@ app-drawer-layout app-header-layout app-header {
   --app-header-background-rear-layer-background: #212121;
   --app-header-background-front-layer-background: #dd1155;
 }
+
+app-drawer-layout app-header-layout app-header app-toolbar {
+  color: white;
+}
 app-drawer-layout app-drawer {
   z-index: 16; }
 
 app-drawer-layout app-drawer app-toolbar {
   background: #212121;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
 }
 
 a[tabindex="-1"] {
