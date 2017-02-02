@@ -50,13 +50,15 @@ app-drawer-layout {
     app-header-layout {
 
         app-header {
-            background-color: rgba($color-black, 0.12);
+            background-color: rgba($color-black, 0.5);
+
+            #backgroundRearLayer, #backgroundFrontLayer {
+                @include material-animation-default(0.3s);
+                transition-property: opacity;
+            }
 
             #backgroundRearLayer {
                 background: $color-primary;
-            }
-            #backgroundFrontLayer {
-                background: $color-accent;
             }
 
             app-toolbar {

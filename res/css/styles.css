@@ -849,21 +849,17 @@ hr {
   border-color: rgba(0, 0, 0, 0.12); }
 
 app-drawer-layout app-header-layout app-header {
-    background-color: rgba(0, 0, 0, 0.12);
-    --app-header-background-rear-layer: {
-        background: #212121;
-    };
-    --app-header-background-front-layer: {
-        background: #dd1155;
-    };
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+app-drawer-layout app-header-layout app-header #backgroundRearLayer, app-drawer-layout app-header-layout app-header #backgroundFrontLayer {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: opacity;
 }
 
 app-drawer-layout app-header-layout app-header #backgroundRearLayer {
     background: #212121;
-}
-
-app-drawer-layout app-header-layout app-header #backgroundFrontLayer {
-    background: #dd1155;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar {
