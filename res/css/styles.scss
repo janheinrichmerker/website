@@ -51,19 +51,20 @@ app-header {
     --app-header-background-rear-layer: {
         background: $color-primary;
     }
-;
 }
 
-app-drawer app-toolbar {
-    background: $color-primary;
+app-drawer {
+    z-index: 16;
+
+    app-toolbar {
+        background: $color-primary;
+    }
 }
 
 a[tabindex="-1"] {
     text-decoration: none;
     color: inherit;
 }
-
-
 
 h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
 .mdl-typography--display-4, .mdl-typography--display-5 {

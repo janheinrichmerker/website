@@ -142,8 +142,7 @@
 html {
   color: rgba(0, 0, 0, 0.87);
   font-size: 1em;
-  line-height: 1.4;
-}
+  line-height: 1.4; }
 
 /*
  * Remove text-shadow in selection highlight:
@@ -154,8 +153,7 @@ html {
  */
 ::selection {
   background: #b3d4fc;
-  text-shadow: none;
-}
+  text-shadow: none; }
 
 /*
  * A better looking default horizontal rule
@@ -166,8 +164,7 @@ hr {
   border: 0;
   border-top: 1px solid #ccc;
   margin: 1em 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -180,8 +177,7 @@ iframe,
 img,
 svg,
 video {
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 /*
  * Remove default fieldset styles.
@@ -189,15 +185,13 @@ video {
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Allow only vertical resizing of textareas.
  */
 textarea {
-  resize: vertical;
-}
+  resize: vertical; }
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -206,8 +200,7 @@ textarea {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0;
-}
+  padding: 0.2em 0; }
 
 /* ==========================================================================
    Author's custom styles
@@ -219,8 +212,7 @@ textarea {
  * Hide visually and from screen readers:
  */
 .hidden {
-  display: none !important;
-}
+  display: none !important; }
 
 /*
  * Hide only visually, but have it available for screen readers:
@@ -234,8 +226,7 @@ textarea {
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
-}
+  width: 1px; }
 
 /*
  * Extends the .visuallyhidden class to allow the element
@@ -249,15 +240,13 @@ textarea {
   margin: 0;
   overflow: visible;
   position: static;
-  width: auto;
-}
+  width: auto; }
 
 /*
  * Hide visually and from screen readers, but maintain layout
  */
 .invisible {
-  visibility: hidden;
-}
+  visibility: hidden; }
 
 /*
  * Clearfix: contain floats
@@ -275,12 +264,10 @@ textarea {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */
-}
+  /* 2 */ }
 
 .clearfix:after {
-  clear: both;
-}
+  clear: both; }
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -288,11 +275,9 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 @media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+  /* Style adjustments for viewports that meet the condition */ }
 @media print, (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
+  /* Style adjustments for high resolution devices */ }
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -306,21 +291,17 @@ textarea {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster: http://www.sanbeiji.com/archives/953 */
-    box-shadow: none !important;
-  }
+    box-shadow: none !important; }
 
   a,
   a:visited {
-    text-decoration: underline;
-  }
+    text-decoration: underline; }
 
   a[href]:after {
-    content: " (" attr(href) ")";
-  }
+    content: " (" attr(href) ")"; }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+    content: " (" attr(title) ")"; }
 
   /*
    * Don't show links that are fragment identifiers,
@@ -328,44 +309,36 @@ textarea {
    */
   a[href^="#"]:after,
   a[href^="javascript:"]:after {
-    content: "";
-  }
+    content: ""; }
 
   pre,
   blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid;
-  }
+    page-break-inside: avoid; }
 
   /*
    * Printing Tables:
    * http://css-discuss.incutio.com/wiki/Printing_Tables
    */
   thead {
-    display: table-header-group;
-  }
+    display: table-header-group; }
 
   tr,
   img {
-    page-break-inside: avoid;
-  }
+    page-break-inside: avoid; }
 
   img {
-    max-width: 100% !important;
-  }
+    max-width: 100% !important; }
 
   p,
   h2,
   h3 {
     orphans: 3;
-    widows: 3;
-  }
+    widows: 3; }
 
   h2,
   h3 {
-    page-break-after: avoid;
-  }
-}
+    page-break-after: avoid; } }
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -386,8 +359,7 @@ textarea {
 a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu,
 .mdl-icon-toggle, .mdl-item, .mdl-radio, .mdl-slider, .mdl-switch, .mdl-tabs__tab {
   -webkit-tap-highlight-color: transparent;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 /*
  * Make html take up the entire screen
@@ -397,8 +369,7 @@ html {
   width: 100%;
   height: 100%;
   -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}
+  touch-action: manipulation; }
 
 /*
 * Make body take up the entire screen
@@ -407,38 +378,30 @@ html {
 body {
   width: 100%;
   min-height: 100%;
-  margin: 0;
-}
+  margin: 0; }
 
 /*
  * Main display reset for IE support.
  * Source: http://weblog.west-wind.com/posts/2015/Jan/12/main-HTML5-Tag-not-working-in-Internet-Explorer-91011
  */
 main {
-  display: block;
-}
+  display: block; }
 
 /*
 * Apply no display to elements with the hidden attribute.
 * IE 9 and 10 support.
 */
 *[hidden] {
-  display: none !important;
-}
+  display: none !important; }
 
 blockquote {
   border-left: 4px solid rgba(0, 0, 0, 0.12);
   margin-left: 0.5em;
-  padding-left: 1em;
-}
-
-blockquote:before {
-  content: none !important;
-}
-
-blockquote:after {
-  content: none !important;
-}
+  padding-left: 1em; }
+  blockquote:before {
+    content: none !important; }
+  blockquote:after {
+    content: none !important; }
 
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+c+cpp+ruby+css-extras+diff+git+groovy+handlebars+java+json+kotlin+latex+markdown+php+php-extras+python+scss+sql&plugins=line-highlight+autolinker+wpd+file-highlight+previewer-base+previewer-color+previewer-gradient+previewer-easing+previewer-time+previewer-angle */
 /**
@@ -887,17 +850,16 @@ hr {
 
 app-header {
   background-color: rgba(0, 0, 0, 0.12);
-  --app-header-background-rear-layer-background: #212121;
-}
+  --app-header-background-rear-layer-background: #212121; }
 
-app-drawer app-toolbar {
-  background: #212121;
-}
+app-drawer {
+  z-index: 16; }
+  app-drawer app-toolbar {
+    background: #212121; }
 
 a[tabindex="-1"] {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
 .mdl-typography--display-4, .mdl-typography--display-5 {
@@ -909,16 +871,13 @@ h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typogra
   font-weight: 600; }
 
 body, .mdl-typography--headline, .mdl-typography--subhead {
-  font-weight: 300;
-}
+  font-weight: 300; }
 
 .mdl-typography--subhead {
-  font-size: 17px;
-}
+  font-size: 17px; }
 
 .mdl-layout-title {
-  font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-}
+  font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif; }
 
 /* Layout */
 .mdl-layout__drawer, .mdl-layout__obfuscator {
