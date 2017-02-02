@@ -885,7 +885,12 @@ body {
 hr {
   border-color: rgba(0, 0, 0, 0.12); }
 
-paper-toolbar, app-toolbar {
+app-header {
+  background-color: rgba(0, 0, 0, 0.12);
+  --app-header-background-rear-layer-background: #212121;
+}
+
+app-drawer app-toolbar {
   background: #212121;
 }
 

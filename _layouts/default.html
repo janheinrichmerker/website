@@ -89,23 +89,25 @@
         </paper-menu>
     </app-drawer>
 
-    <paper-header-panel main mode="waterfall">
+    <paper-header-panel>
 
-        <app-toolbar>
-            <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
-            <h1 main-title>{{ site.name }}</h1>
-            <div class="top-level-navigation">
-                {% for navigation in site.data.navigation.items %}
-                <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
-                    {% if navigation.icon %}
-                    <paper-icon-button icon="{{ navigation.icon }}"></paper-icon-button>
-                    {% else %}
-                    <paper-button>{{ navigation.title }}</paper-button>
-                    {% endif %}
-                </a>
-                {% endfor %}
-            </div>
-        </app-toolbar>
+        <app-header effects="waterfall, blend-background">
+            <app-toolbar>
+                <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+                <h1 main-title>{{ site.name }}</h1>
+                <div class="top-level-navigation">
+                    {% for navigation in site.data.navigation.items %}
+                    <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
+                        {% if navigation.icon %}
+                        <paper-icon-button icon="{{ navigation.icon }}"></paper-icon-button>
+                        {% else %}
+                        <paper-button>{{ navigation.title }}</paper-button>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+            </app-toolbar>
+        </app-header>
 
         <div class="content">
 

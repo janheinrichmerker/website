@@ -45,7 +45,16 @@ hr {
     border-color: rgba($color-black, .12);
 }
 
-paper-toolbar, app-toolbar {
+app-header {
+    background-color: rgba($color-black, 0.12);
+
+    --app-header-background-rear-layer: {
+        background: $color-primary;
+    }
+;
+}
+
+app-drawer app-toolbar {
     background: $color-primary;
 }
 
