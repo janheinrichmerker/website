@@ -848,14 +848,14 @@ body {
 hr {
   border-color: rgba(0, 0, 0, 0.12); }
 
-app-header {
+app-drawer-layout app-header-layout app-header {
   background-color: rgba(0, 0, 0, 0.12);
   --app-header-background-rear-layer-background: #212121; }
 
-#drawer {
+app-drawer-layout app-drawer {
   z-index: 16; }
 
-#drawer app-toolbar {
+app-drawer-layout app-drawer app-toolbar {
     background: #212121; }
 
 a[tabindex="-1"] {

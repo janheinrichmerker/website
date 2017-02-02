@@ -45,19 +45,25 @@ hr {
     border-color: rgba($color-black, .12);
 }
 
-app-header {
-    background-color: rgba($color-black, 0.12);
+app-drawer-layout {
 
-    --app-header-background-rear-layer: {
-        background: $color-primary;
+    app-header-layout {
+
+        app-header {
+            background-color: rgba($color-black, 0.12);
+
+            --app-header-background-rear-layer: {
+                background: $color-primary;
+            }
+        }
     }
-}
 
-#drawer {
-    z-index: 16;
+    app-drawer {
+        z-index: 16;
 
-    app-toolbar {
-        background: $color-primary;
+        app-toolbar {
+            background: $color-primary;
+        }
     }
 }
 

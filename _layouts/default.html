@@ -70,10 +70,10 @@
 </head>
 <body>
 
-<app-drawer-layout fullbleed>
+<app-drawer-layout fullbleed responsiveWidth="1024px">
 
     <app-drawer swipe-open>
-        <paper-toolbar>{{ site.name }}</paper-toolbar>
+        <app-toolbar>{{ site.name }}</app-toolbar>
         <paper-menu>
             {% for navigation in site.data.navigation.items %}
             <a href="{{ navigation.link }}" tabindex="-1">
@@ -93,7 +93,7 @@
     <app-header-layout>
 
         <app-header effects="waterfall">
-            <paper-toolbar>
+            <app-toolbar>
                 <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
                 <h1 main-title>{{ site.name }}</h1>
                 <div class="top-level-navigation">
@@ -107,7 +107,7 @@
                     </a>
                     {% endfor %}
                 </div>
-            </paper-toolbar>
+            </app-toolbar>
         </app-header>
 
         <div class="content">
