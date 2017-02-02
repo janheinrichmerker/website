@@ -52,11 +52,11 @@ app-drawer-layout {
         app-header {
             background-color: rgba($color-black, 0.12);
 
-            --app-header-background-rear-layer: {
+            --app-header-background-rear-layer {
                 background: $color-primary;
             }
 
-            --app-header-background-front-layer: {
+            --app-header-background-front-layer {
                 background: $color-accent;
             }
 

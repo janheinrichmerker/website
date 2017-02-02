@@ -849,20 +849,26 @@ hr {
   border-color: rgba(0, 0, 0, 0.12); }
 
 app-drawer-layout app-header-layout app-header {
-  background-color: rgba(0, 0, 0, 0.12);
-  --app-header-background-rear-layer-background: #212121;
-  --app-header-background-front-layer-background: #dd1155;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+app-drawer-layout app-header-layout app-header --app-header-background-rear-layer {
+    background: #212121;
+}
+
+app-drawer-layout app-header-layout app-header --app-header-background-front-layer {
+    background: #dd1155;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar {
-  color: white;
+    color: white;
 }
 app-drawer-layout app-drawer {
   z-index: 16; }
 
 app-drawer-layout app-drawer app-toolbar {
-  background: #212121;
-  color: white;
+    background: #212121;
+    color: white;
 }
 
 a[tabindex="-1"] {
