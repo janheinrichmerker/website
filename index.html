@@ -34,8 +34,8 @@ permalink: /
     <h2>{{ site.data.apps.title }}</h2>
 
     {% for app in site.apps reversed %}
-    <paper-material>
-        <paper-card image="{{ app.image }}">
+
+    <paper-card image="{{ app.image }}" elevation="2">
             <div class="card-content">
                 <h5>{{ app.title }}</h5>
                 <p class="description">{{ app.description }}</p>
@@ -48,7 +48,6 @@ permalink: /
                 </div>
             </div>
         </paper-card>
-    </paper-material>
     {% endfor %}
 
     <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
@@ -72,8 +71,7 @@ permalink: /
     <h2>{{ site.data.libraries.title }}</h2>
 
     {% for library in site.libraries reversed %}
-    <paper-material>
-        <paper-card image="{{ app.image }}">
+    <paper-card image="{{ app.image }}" elevation="2">
             <div class="card-content">
                 <h5>{{ library.title }}</h5>
                 <p class="description">{{ library.description }}</p>
@@ -86,7 +84,6 @@ permalink: /
                 </div>
             </div>
         </paper-card>
-    </paper-material>
     {% endfor %}
 
     <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
