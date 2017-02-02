@@ -68,11 +68,11 @@
     </style>
 
 </head>
-<body>
+<body class="page-{{ page.title | slugify }} {% if page.url == '/' %}page-index{% endif %}">
 
 <app-drawer-layout fullbleed responsiveWidth="1024px">
 
-    <app-drawer swipe-open elevation="16">
+    <app-drawer swipe-open>
         <app-toolbar>
             <h1 main-title>{{ site.name }}</h1>
         </app-toolbar>
@@ -94,7 +94,7 @@
 
     <app-header-layout>
 
-        <app-header fixed effects="waterfall blend-background" scalar="0.6">
+        <app-header fixed effects="waterfall fade-background" scalar="0.6">
             <app-toolbar>
                 <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
                 <h1 main-title>{{ site.name }}</h1>

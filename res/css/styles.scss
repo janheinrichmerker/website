@@ -45,29 +45,49 @@ hr {
     border-color: rgba($color-black, .12);
 }
 
+.page-index {
+
+    app-drawer-layout {
+
+        app-header-layout {
+
+            app-header {
+                background-color: rgba($color-primary, 0.5);
+
+                #backgroundRearLayer {
+                    background: $color-primary;
+                }
+            }
+        }
+    }
+}
+
 app-drawer-layout {
 
     app-header-layout {
 
         app-header {
-            background-color: rgba($color-black, 0.5);
+            background-color: $color-primary;
 
             #backgroundRearLayer, #backgroundFrontLayer {
-                @include material-animation-default(0.3s);
-                transition-property: opacity;
+                background: 0;
             }
 
             #backgroundRearLayer {
-                background: $color-primary;
             }
 
             app-toolbar {
                 color: $text-color-primary-inverse;
             }
         }
+
+        .content {
+            margin-top: -64px;
+        }
     }
 
     app-drawer {
+        @include shadow-16dp;
         z-index: 16;
 
         app-toolbar {

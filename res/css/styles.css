@@ -848,24 +848,31 @@ body {
 hr {
   border-color: rgba(0, 0, 0, 0.12); }
 
+.page-index app-drawer-layout app-header-layout app-header {
+    background-color: rgba(33, 33, 33, 0.5);
+}
+
+.page-index app-drawer-layout app-header-layout app-header #backgroundRearLayer {
+    background: #212121;
+}
+
 app-drawer-layout app-header-layout app-header {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #212121;
 }
 
 app-drawer-layout app-header-layout app-header #backgroundRearLayer, app-drawer-layout app-header-layout app-header #backgroundFrontLayer {
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-property: opacity;
-}
-
-app-drawer-layout app-header-layout app-header #backgroundRearLayer {
-    background: #212121;
+    background: 0;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar {
     color: white;
 }
+
+app-drawer-layout app-header-layout .content {
+    margin-top: -64px;
+}
 app-drawer-layout app-drawer {
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
   z-index: 16; }
 
 app-drawer-layout app-drawer app-toolbar {
