@@ -71,7 +71,7 @@
 
 <paper-drawer-panel id="drawer-panel" responsive-width="1280px">
 
-    <app-drawer id="drawer" swipe-open drawer>
+    <div id="drawer" swipe-open drawer>
         <app-toolbar>{{ site.name }}</app-toolbar>
         <paper-menu>
             {% for navigation in site.data.navigation.items %}
@@ -87,12 +87,12 @@
             </a>
             {% endfor %}
         </paper-menu>
-    </app-drawer>
+    </div>
 
     <paper-header-panel main mode="waterfall">
 
         <paper-toolbar>
-                <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                 <h1 main-title>{{ site.name }}</h1>
                 <div class="top-level-navigation">
                     {% for navigation in site.data.navigation.items %}
