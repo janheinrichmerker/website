@@ -17,7 +17,7 @@ permalink: /
     </div>
 </div>
 
-<div class="mdl-grid philosophy" id="philosophy">
+<div class="app-grid services" id="services">
     {% for service in site.services %}
         <div class="mdl-cell mdl-cell--4-col philosophy-cell">
             <h2><i class="material-icons">{{ service.icon }}</i></h2>
@@ -29,28 +29,31 @@ permalink: /
 
 <hr>
 
-<div class="mdl-grid apps" id="apps">
+<div class="app-grid apps" id="apps">
     <h2 class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">{{ site.data.apps.title }}</h2>
     {% for app in site.apps reversed %}
-    <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__media">
-            <img src="{{ app.image }}">
+    <paper-card image="{{ app.image }}">
+        <div class="card-content">
+            <h5>{{ app.title }}</h5>
+            <p class="description">{{ app.description }}</p>
         </div>
-        <div class="mdl-card__title"><h5 class="mdl-card__title-text">{{ app.title }}</h5></div>
-        <div class="mdl-card__supporting-text">{{ app.description }}</div>
-        <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-               href="{{ app.link }}" target="_blank">{{ site.data.apps.button }}</a>
+        <div class="card-actions">
+            <div class="horizontal justified">
+                <a href="{{ app.link }}" target="_blank">
+                    <paper-button>{{ site.data.apps.button }}</paper-button>
+                </a>
+            </div>
         </div>
-    </div>
+    </paper-card>
     {% endfor %}
     <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
         <div>
             <div>
                 <h3>{{ site.data.apps.cta.title }}</h3>
                 <p class="mdl-typography--subhead">{{ site.data.apps.cta.description }}</p>
-                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-                   href="{{ site.data.apps.cta.link }}">{{ site.data.apps.cta.button }}</a>
+                <a href="{{ site.data.apps.cta.link }}">
+                    <paper-button raised>{{ site.data.apps.cta.button }}</paper-button>
+                </a>
             </div>
         </div>
     </div>

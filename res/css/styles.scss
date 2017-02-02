@@ -9,8 +9,8 @@ $color-accent-contrast: $color-dark-contrast;
 $footer-bg-color: $palette-grey-100;
 $footer-color: rgba($color-black, 0.54);
 
-@import "import/material";
-@import "import/materialdesignicons";
+//@import "import/material";
+//@import "import/materialdesignicons";
 @import "import/prism";
 
 // 3
@@ -255,13 +255,13 @@ body, .mdl-typography--headline, .mdl-typography--subhead {
 .posts .post {
     margin: 8px;
     .meta a {
-        color: $text-color-primary;
+        //color: $text-color-primary;
     }
 }
 
 .post {
     > header p, > header a {
-        color: $text-color-primary;
+        //color: $text-color-primary;
         font-weight: 400;
     }
     > section img {

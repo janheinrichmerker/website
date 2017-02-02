@@ -6,8 +6,8 @@ items:
   - title: Libraries
     link: /#libraries
   - title: Google+
-    icon: google-plus
+    icon: mdi:google-plus
     link: https://plus.google.com/+HeinrichReimer
   - title: GitHub
-    icon: github-circle
+    icon: mdi:github-circle
     link: https://github.com/HeinrichReimer
