@@ -20,7 +20,7 @@ permalink: /
 
 <div class="app-grid services" id="services">
     {% for service in site.services %}
-    <div class="mdl-cell mdl-cell--4-col">
+    <div class="item">
         <iron-icon icon="{{ service.icon }}"></iron-icon>
         <h3>{{ service.title }}</h3>
         <h6>{{ service.description }}</h6>
@@ -35,23 +35,22 @@ permalink: /
     <h2>{{ site.data.apps.title }}</h2>
 
     {% for app in site.apps reversed %}
-
-    <paper-card image="{{ app.image }}" elevation="2">
-            <div class="card-content">
-                <h5>{{ app.title }}</h5>
-                <p class="description">{{ app.description }}</p>
+    <paper-card class="item" image="{{ app.image }}" elevation="2">
+        <div class="card-content">
+            <h5>{{ app.title }}</h5>
+            <p class="description">{{ app.description }}</p>
+        </div>
+        <div class="card-actions">
+            <div class="horizontal justified">
+                <a href="{{ app.link }}" target="_blank">
+                    <paper-button>{{ site.data.apps.button }}</paper-button>
+                </a>
             </div>
-            <div class="card-actions">
-                <div class="horizontal justified">
-                    <a href="{{ app.link }}" target="_blank">
-                        <paper-button>{{ site.data.apps.button }}</paper-button>
-                    </a>
-                </div>
-            </div>
-        </paper-card>
+        </div>
+    </paper-card>
     {% endfor %}
 
-    <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
+    <div class="item">
         <div>
             <div>
                 <h3>{{ site.data.apps.cta.title }}</h3>
@@ -72,22 +71,22 @@ permalink: /
     <h2>{{ site.data.libraries.title }}</h2>
 
     {% for library in site.libraries reversed %}
-    <paper-card image="{{ app.image }}" elevation="2">
-            <div class="card-content">
-                <h5>{{ library.title }}</h5>
-                <p class="description">{{ library.description }}</p>
+    <paper-card class="item" image="{{ app.image }}" elevation="2">
+        <div class="card-content">
+            <h5>{{ library.title }}</h5>
+            <p class="description">{{ library.description }}</p>
+        </div>
+        <div class="card-actions">
+            <div class="horizontal justified">
+                <a href="{{ library.link }}" target="_blank">
+                    <paper-button>{{ site.data.libraries.button }}</paper-button>
+                </a>
             </div>
-            <div class="card-actions">
-                <div class="horizontal justified">
-                    <a href="{{ library.link }}" target="_blank">
-                        <paper-button>{{ site.data.libraries.button }}</paper-button>
-                    </a>
-                </div>
-            </div>
-        </paper-card>
+        </div>
+    </paper-card>
     {% endfor %}
 
-    <div class="mdl-cell mdl-cell--4-col app-cell cta-cell">
+    <div class="item">
         <div>
             <div>
                 <h3>{{ site.data.libraries.cta.title }}</h3>

@@ -52,12 +52,22 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/res/css/styles.min.css">
+
     <!-- TODO -->
     <style include="app-grid-style">
 
         :host {
             --app-grid-columns: 3;
             --app-grid-item-height: 100px;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .item {
+            background-color: white;
         }
 
         @media (max-width: 640px) {
