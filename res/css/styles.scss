@@ -39,17 +39,8 @@ body {
     background: $palette-grey-50;
 }
 
-hr {
-    border-color: rgba($color-black, .12);
-}
-
 paper-button {
-    @include typo-weight-medium;
-}
-
-a[tabindex="-1"] {
-    text-decoration: none !important;
-    color: inherit !important;
+    @include typo-button;
 }
 
 /* Grid */

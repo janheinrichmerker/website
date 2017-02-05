@@ -6,16 +6,27 @@ $body-performance-font: "Georgia", "Times New Roman", serif !default;
 $header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600, first title 500, card titles 400
 $button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600
 
-/* Colors */
-$color-primary: $palette-grey-900;
-$color-primary-dark: $color-black;
-$color-accent: #dd1155;
-$text-color-primary: rgba($color-black, 0.87);
-$text-color-secondary: rgba($color-black, 0.54);
-$text-color-primary-inverse: $color-white;
-$text-color-secondary-inverse: rgba($color-white, 0.7);
-$text-link-color: $color-accent !default;
+/* Theme colors */
+$color-primary: $palette-grey-900 !default;
+$color-primary-dark: $color-black !default;
+$color-accent: #dd1155 !default;
+
+/* Background colors */
+$window-background: $palette-grey-50 !default;
+$drawer-background: $color-white !default;
+
+/* Text colors */
+$text-color-primary: rgba($color-black, 0.87) !default;
+$text-color-secondary: rgba($color-black, 0.54) !default;
+$text-color-primary-inverse: $color-white !default;
+$text-color-secondary-inverse: rgba($color-white, 0.7) !default;
+
+$text-color-link-blend: 0.7;
+$text-color-primary-link: mix($text-color-primary, $color-accent, $text-color-link-blend) !default;
+$text-color-secondary-link: mix($text-color-secondary, $color-accent, $text-color-link-blend) !default;
+$text-color-primary-inverse-link: mix($text-color-primary-inverse, $color-accent, $text-color-link-blend) !default;
+$text-color-secondary-inverse-link: mix($text-color-secondary-inverse, $color-accent, $text-color-link-blend) !default;
 
 /* Footer colors */
-$footer-background: $palette-grey-100;
-$footer-color: rgba($color-black, 0.54);
+$footer-background: $palette-grey-100 !default;
+$footer-color: rgba($color-black, 0.54) !default;

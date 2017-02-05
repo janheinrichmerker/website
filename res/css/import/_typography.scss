@@ -87,8 +87,13 @@ p {
 }
 
 a {
-    color: $text-link-color;
+    color: $text-color-primary-link;
     font-weight: 500;
+
+    &[tabindex="-1"] {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
 }
 
 blockquote {

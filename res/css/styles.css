@@ -17,7 +17,9 @@
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* Typography */
-/* Colors */
+/* Theme colors */
+/* Background colors */
+/* Text colors */
 /* Footer colors */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -131,7 +133,9 @@
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* Typography */
-/* Colors */
+/* Theme colors */
+/* Background colors */
+/* Text colors */
 /* Footer colors */
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -405,6 +409,10 @@ blockquote {
   blockquote:after {
     content: none !important; }
 
+hr {
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -438,7 +446,9 @@ blockquote {
 /* ==========  Color Palettes  ========== */
 /* colors.scss */
 /* Typography */
-/* Colors */
+/* Theme colors */
+/* Background colors */
+/* Text colors */
 /* Footer colors */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -579,8 +589,13 @@ p {
 }
 
 a {
-    color: #dd1155;
+    color: rgba(220, 17, 85, 0.99909);
     font-weight: 500;
+}
+
+a[tabindex="-1"] {
+    text-decoration: none !important;
+    color: inherit !important;
 }
 
 blockquote {
@@ -1069,16 +1084,14 @@ $font-family-body: "Slabo 27px", "Georgia", "Times New Roman", serif !default;
 body {
   background: #fafafa; }
 
-hr {
-  border-color: rgba(0, 0, 0, 0.12); }
-
 paper-button {
     font-weight: 500 !important;
-}
-
-a[tabindex="-1"] {
-    text-decoration: none !important;
-    color: inherit !important;
+    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
 }
 
 /* Grid */
@@ -1110,6 +1123,7 @@ app-drawer-layout app-header-layout app-header app-toolbar h1 {
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar paper-button {
+    font-weight: 500 !important;
     font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 14px;
     font-weight: 500;
