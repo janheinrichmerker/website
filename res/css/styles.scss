@@ -216,6 +216,7 @@ app-drawer-layout {
                 margin-top: 8px;
             }
             p {
+                font-family: $body-font;
                 margin-bottom: 0;
             }
         }
@@ -229,11 +230,13 @@ app-drawer-layout {
     }
 
     .cta-cell {
-        display: table-cell;
+        padding: 64px 16px;
         position: relative;
         text-align: center;
-        min-height: 200px;
-        vertical-align: middle;
+
+        p {
+            @include typo-subhead;
+        }
     }
 }
 
