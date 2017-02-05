@@ -1168,6 +1168,11 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     width: 96px;
     height: 96px;
     margin-left: -48px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: 0.3s color ease;
+}
+
+.cover paper-icon-button:hover {
     color: white;
 }
 

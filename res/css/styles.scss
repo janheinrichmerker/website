@@ -172,7 +172,12 @@ app-drawer-layout {
         width: 96px;
         height: 96px;
         margin-left: -48px;
-        color: $text-color-primary-inverse;
+        color: $text-color-secondary-inverse;
+        transition: 0.3s color ease;
+
+        &:hover {
+            color: $text-color-primary-inverse;
+        }
     }
 }
 
