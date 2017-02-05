@@ -75,7 +75,7 @@ app-drawer-layout {
                 paper-button {
                     @include typo-button;
                     min-width: 0;
-                    font-size: 18px;
+                    font-size: 18px !important;
                 }
 
                 paper-icon-button {
@@ -106,6 +106,15 @@ app-drawer-layout {
                 display: none;
             }
         }
+    }
+
+    &.narrow app-header-layout app-header app-toolbar {
+        paper-button, paper-icon-button {
+            display: none;
+        }
+    }
+    &:not(.narrow) app-drawer app-toolbar {
+        display: none;
     }
 }
 

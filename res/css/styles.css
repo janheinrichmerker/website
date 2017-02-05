@@ -1106,7 +1106,8 @@ app-drawer-layout app-header-layout app-header {
       line-height: 1;
       letter-spacing: 0;
       min-width: 0;
-      font-size: 18px; }
+        font-size: 18px !important;
+    }
     app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button {
       position: relative;
       top: -1px; }
@@ -1123,6 +1124,14 @@ app-drawer-layout app-drawer {
     letter-spacing: 0.01em; }
   app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
     display: none; }
+
+app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-button, app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-icon-button {
+    display: none;
+}
+
+app-drawer-layout:not(.narrow) app-drawer app-toolbar {
+    display: none;
+}
 
 .page-index app-drawer-layout app-header-layout app-header {
   background-color: rgba(33, 33, 33, 0.12); }

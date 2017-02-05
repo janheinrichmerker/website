@@ -1,9 +1,24 @@
 $(function() { //Document is ready
-    var drawer = $("app-drawer").get(0);
+    var drawerLayout = $("app-drawer-layout");
+    var drawer = drawerLayout.find("app-drawer");
+    var headerLayout = drawerLayout.find("app-header-layout");
 
-    $(drawer).on("narrow-changed", function () {
-        console.log("New narrow state: " + drawer.narrow)
+    //App layout is narrow?
+    updateDrawerLayoutNarrowClass();
+    drawerLayout.on("narrow-changed", function () {
+        console.log("New narrow state: " + drawerLayout.get(0).narrow);
+        updateDrawerLayoutNarrowClass();
     });
+
+    //App layout is narrow?
+    function updateDrawerLayoutNarrowClass() {
+        if (drawerLayout.get(0).narrow) {
+            drawerLayout.addClass("narrow");
+        }
+        else {
+            drawerLayout.removeClass("narrow");
+        }
+    }
 
     //Scroll-to links
     $("a[href^='#'], a[href^='/#']").each(function () {
@@ -14,13 +29,13 @@ $(function() { //Document is ready
     });
     
     //Close drawer when user clicks a link
-    $("app-drawer paper-item").click(function () {
-        if (drawer.narrow) {
-            drawer.close();
+    drawer.find("paper-item").click(function () {
+        if (drawerLayout.get(0).narrow) {
+            drawer.get(0).close();
         }
     });
-});
 
-function scrollTo(reference) {
-    $("body").scrollTo(reference);
-}
+    function scrollTo(reference) {
+        headerLayout.scrollTo(reference);
+    }
+});
