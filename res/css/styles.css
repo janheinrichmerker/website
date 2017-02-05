@@ -410,7 +410,7 @@ blockquote {
     content: none !important; }
 
 hr {
-  border-color: rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
 /**
@@ -501,12 +501,12 @@ html, body {
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+    line-height: 20px;
 }
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
-  padding: 0;
+    padding: 0;
 }
 
 /**
@@ -519,7 +519,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
   line-height: 1.35;
   letter-spacing: -0.02em;
   opacity: 0.54;
-  font-size: 0.6em;
+    font-size: 0.6em;
 }
 
 h1 {
@@ -529,7 +529,7 @@ h1 {
   line-height: 1.35;
   letter-spacing: -0.02em;
   margin-top: 24px;
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 h2 {
@@ -538,7 +538,7 @@ h2 {
   font-weight: 400;
   line-height: 48px;
   margin-top: 24px;
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 h3 {
@@ -547,7 +547,7 @@ h3 {
   font-weight: 400;
   line-height: 40px;
   margin-top: 24px;
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 h4 {
@@ -557,7 +557,7 @@ h4 {
   line-height: 32px;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 24px;
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 h5 {
@@ -567,7 +567,7 @@ h5 {
   line-height: 1;
   letter-spacing: 0.01em;
   margin-top: 24px;
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 h6 {
@@ -577,7 +577,7 @@ h6 {
   line-height: 24px;
   letter-spacing: 0.04em;
   margin-top: 24px;
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 [main-title] {
@@ -585,7 +585,7 @@ h6 {
   font-size: 20px;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.01em;
+    letter-spacing: 0.01em;
 }
 
 p {
@@ -593,21 +593,21 @@ p {
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0;
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 a {
   color: rgba(220, 17, 85, 0.99909);
-  font-weight: 500;
+    font-weight: 500;
 }
 
 a[tabindex="-1"] {
     text-decoration: none !important;
-  color: inherit !important;
+    color: inherit !important;
 }
 
 a[tabindex="-1"]:active, a[tabindex="-1"]:hover, a[tabindex="-1"]:focus {
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 blockquote {
@@ -617,26 +617,26 @@ blockquote {
   font-weight: 300;
   font-style: italic;
   line-height: 1.35;
-  letter-spacing: 0.08em;
+    letter-spacing: 0.08em;
 }
 
 blockquote:before {
     position: absolute;
     left: -0.5em;
-  content: 'ÔÇ£';
+    content: 'ÔÇ£';
 }
 
 blockquote:after {
     content: 'ÔÇØ';
-  margin-left: -0.05em;
+    margin-left: -0.05em;
 }
 
 mark {
-  background-color: #f4ff81;
+    background-color: #f4ff81;
 }
 
 dt {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 address {
@@ -644,14 +644,14 @@ address {
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
-  font-style: normal;
+    font-style: normal;
 }
 
 ul, ol {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0;
+    letter-spacing: 0;
 }
 
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+c+cpp+ruby+css-extras+diff+git+groovy+handlebars+java+json+kotlin+latex+markdown+php+php-extras+python+scss+sql&plugins=line-highlight+autolinker+wpd+file-highlight+previewer-base+previewer-color+previewer-gradient+previewer-easing+previewer-time+previewer-angle */
@@ -1103,57 +1103,57 @@ paper-button {
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: 0;
+    letter-spacing: 0;
 }
 
 /* Grid */
 .app-grid {
   max-width: 1200px;
   width: calc(100% - 32px);
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 /* Layout */
 app-drawer-layout app-header-layout app-header {
-  background-color: #212121;
+    background-color: #212121;
 }
 
 app-drawer-layout app-header-layout app-header #backgroundRearLayer, app-drawer-layout app-header-layout app-header #backgroundFrontLayer {
-  background: 0;
+    background: 0;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar {
     color: white;
     font-size: 18px;
     padding-top: 1px;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar [main-title] {
-  font-size: 22px;
+    font-size: 22px;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar paper-button {
-  font-weight: 500 !important;
-  font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 0;
-  min-width: 0;
+    font-weight: 500 !important;
+    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
+    min-width: 0;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button {
-  position: relative;
-  top: -1px;
+    position: relative;
+    top: -1px;
 }
 app-drawer-layout app-header-layout .content {
-  margin-top: -64px;
+    margin-top: -64px;
 }
 app-drawer-layout app-drawer {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  z-index: 8;
+    z-index: 8;
 }
 
 app-drawer-layout app-drawer app-toolbar h1 {
@@ -1161,15 +1161,19 @@ app-drawer-layout app-drawer app-toolbar h1 {
     font-size: 20px;
     font-weight: 600;
     line-height: 1;
-  letter-spacing: 0.01em;
+    letter-spacing: 0.01em;
+}
+
+app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
+    display: none;
 }
 
 .page-index app-drawer-layout app-header-layout app-header {
-  background-color: rgba(33, 33, 33, 0.12);
+    background-color: rgba(33, 33, 33, 0.12);
 }
 
 .page-index app-drawer-layout app-header-layout app-header #backgroundRearLayer {
-  background: #212121;
+    background: #212121;
 }
 
 /* Cover */
@@ -1188,12 +1192,12 @@ app-drawer-layout app-drawer app-toolbar h1 {
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
 }
 
 .cover .cover-inner h1 {
-  color: white;
+    color: white;
 }
 
 /* Services section */

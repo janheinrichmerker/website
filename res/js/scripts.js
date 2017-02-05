@@ -1,4 +1,6 @@
 $(function() { //Document is ready
+    var drawer = $("app-drawer").get(0);
+
     //Scroll-to links
     $("a[href^='#'], a[href^='/#']").each(function () {
         $(this).click(function(event) {
@@ -9,7 +11,9 @@ $(function() { //Document is ready
     
     //Close drawer when user clicks a link
     $("app-drawer paper-item").click(function () {
-        $("app-drawer").get(0).close();
+        if (drawer.narrow) {
+            drawer.close();
+        }
     });
 });
 

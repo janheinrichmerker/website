@@ -1,5 +1,5 @@
 ---
-icon: business
+icon: mdi:supervisor-account
 title: Consulting
 description: |
   I help your startup or company in designing and developing any type of Android app or website.
