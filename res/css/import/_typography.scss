@@ -94,11 +94,11 @@ a {
     color: $text-color-primary-link;
     font-weight: 500;
 
-    &[tabindex="-1"] {
+    &[tabindex="-1"], &[tabindex="0"] {
         text-decoration: none !important;
         color: inherit !important;
 
-        &:active, &:hover, &:focus {
+        &:visited, &:hover, &:focus, &:active {
             text-decoration: none !important;
         }
     }

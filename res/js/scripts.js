@@ -1,6 +1,10 @@
 $(function() { //Document is ready
     var drawer = $("app-drawer").get(0);
 
+    $(drawer).on("narrow-changed", function () {
+        console.log("New narrow state: " + drawer.narrow)
+    });
+
     //Scroll-to links
     $("a[href^='#'], a[href^='/#']").each(function () {
         $(this).click(function(event) {
