@@ -3,6 +3,8 @@ $(function() { //Document is ready
     var drawer = drawerLayout.find("app-drawer");
     var headerLayout = drawerLayout.find("app-header-layout");
 
+    drawerLayout.get(0).responsiveWidth = "1024px";
+
     //App layout is narrow?
     updateDrawerLayoutNarrowClass();
     drawerLayout.on("narrow-changed", function () {
