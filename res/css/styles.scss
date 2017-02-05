@@ -203,6 +203,8 @@ app-drawer-layout {
 .apps, .libraries {
 
     paper-card {
+        align-self: flex-start;
+
         .card-content {
             h5 {
                 margin-top: 8px;
@@ -221,30 +223,11 @@ app-drawer-layout {
     }
 
     .cta-cell {
+        display: table-cell;
         position: relative;
-        text-transform: none;
         text-align: center;
-        &:before {
-            content: "";
-            display: block;
-            padding-top: 100%; /* Aspect ratio: 1:1*/
-        }
-        > div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            > div {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 100%;
-            }
-        }
-        &.logo-cell > div > div {
-            padding-bottom: 48px;
-        }
+        min-height: 200px;
+        vertical-align: middle;
     }
 }
 

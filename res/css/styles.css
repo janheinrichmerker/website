@@ -1195,12 +1195,18 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
   text-align: center; }
 
 /* Work section */
+.apps paper-card, .libraries paper-card {
+    align-self: flex-start;
+}
+
 .apps paper-card .card-content h5, .libraries paper-card .card-content h5 {
     margin-top: 8px;
 }
+
 .apps paper-card .card-content p, .libraries paper-card .card-content p {
     margin-bottom: 0;
 }
+
 .apps paper-card .card-actions, .libraries paper-card .card-actions {
     padding-left: 8px;
     padding-right: 8px;
@@ -1210,31 +1216,12 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     margin: 0;
 }
 .apps .cta-cell, .libraries .cta-cell {
+    display: table-cell;
   position: relative;
-  text-transform: none;
-  text-align: center; }
-
-.apps .cta-cell:before, .libraries .cta-cell:before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-    /* Aspect ratio: 1:1*/ }
-
-.apps .cta-cell > div, .libraries .cta-cell > div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0; }
-
-.apps .cta-cell > div > div, .libraries .cta-cell > div > div {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%; }
-
-.apps .cta-cell.logo-cell > div > div, .libraries .cta-cell.logo-cell > div > div {
-    padding-bottom: 48px; }
+    text-align: center;
+    min-height: 200px;
+    vertical-align: middle;
+}
 
 /* Contact section */
 .contact form {
