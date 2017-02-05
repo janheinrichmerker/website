@@ -1084,14 +1084,13 @@ paper-button {
 
 paper-button[raised][filled] {
     background: #212121;
-  color: white;
+    color: white;
 }
 
 /* Grid */
 iron-grid {
-  max-width: 1200px;
-  width: calc(100% - 32px);
-  margin: 0 auto; }
+    max-width: 1200px;
+}
 
 /* Layout */
 app-drawer-layout app-header-layout app-header {
@@ -1114,7 +1113,7 @@ app-drawer-layout app-header-layout app-header {
       line-height: 1;
       letter-spacing: 0;
       min-width: 0;
-      font-size: 18px !important;
+        font-size: 18px !important;
     }
     app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button {
       position: relative;
@@ -1133,10 +1132,10 @@ app-drawer-layout app-drawer {
   app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
     display: none; }
 app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-button, app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-icon-button:not([drawer-toggle]) {
-  display: none;
+    display: none;
 }
 app-drawer-layout:not(.narrow) app-drawer app-toolbar {
-  display: none;
+    display: none;
 }
 
 .page-index app-drawer-layout app-header-layout app-header {
@@ -1145,11 +1144,11 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     background: #212121; }
 
 .page-index app-drawer-layout app-header-layout app-header [main-title] {
-  transition: 0.3s opacity ease;
+    transition: 0.3s opacity ease;
 }
 
 .page-index app-drawer-layout app-header-layout app-header:not([shadow]) [main-title] {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* Cover */
@@ -1161,14 +1160,14 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
   height: 100vh;
   box-shadow: inset 0 -8px 10px 1px rgba(0, 0, 0, 0.14), inset 0 -3px 14px 2px rgba(0, 0, 0, 0.12), inset 0 -5px 5px -3px rgba(0, 0, 0, 0.2);
   margin-bottom: 32px;
-  text-align: center;
+    text-align: center;
 }
   .cover .cover-inner {
     position: absolute;
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.7);
   }
 
 .cover .cover-inner h1, .cover .cover-inner paper-button {
@@ -1181,16 +1180,16 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     height: 96px;
     margin-left: -48px;
     color: rgba(255, 255, 255, 0.7);
-  transition: 0.3s color ease;
+    transition: 0.3s color ease;
 }
 
 .cover paper-icon-button:hover {
-  color: white;
+    color: white;
 }
 
 .cover paper-icon-button iron-icon {
-  position: relative;
-  top: 4px;
+    position: relative;
+    top: 4px;
 }
 
 /* Services section */
@@ -1199,31 +1198,31 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 /* Work section */
 .apps paper-card, .libraries paper-card {
-  align-self: flex-start;
+    align-self: flex-start;
 }
 
 .apps paper-card .card-content h5, .libraries paper-card .card-content h5 {
-  margin-top: 8px;
+    margin-top: 8px;
 }
 
 .apps paper-card .card-content p, .libraries paper-card .card-content p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .apps paper-card .card-actions, .libraries paper-card .card-actions {
     padding-left: 8px;
-  padding-right: 8px;
+    padding-right: 8px;
 }
 
 .apps paper-card .card-actions paper-button, .libraries paper-card .card-actions paper-button {
-  margin: 0;
+    margin: 0;
 }
 .apps .cta-cell, .libraries .cta-cell {
   display: table-cell;
   position: relative;
   text-align: center;
   min-height: 200px;
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 /* Footer */
@@ -1236,28 +1235,23 @@ footer {
   flex-flow: row wrap;
   justify-content: space-between;
   color: rgba(0, 0, 0, 0.54);
-  background-color: whitesmoke;
+    background-color: whitesmoke;
 }
 
 footer a {
-  color: rgba(0, 0, 0, 0.54);
-}
-
-footer iron-icon {
-  width: 16px;
-  height: 16px;
+    color: rgba(0, 0, 0, 0.54);
 }
 
 footer section.left, footer section.right {
-  display: inline-block;
+    display: inline-block;
 }
 
 footer section.left {
-  order: 0;
+    order: 0;
 }
 
 footer section.right {
-  order: 1;
+    order: 1;
 }
 
 /* Contact section */
@@ -1302,7 +1296,7 @@ footer section.right {
   .cover > .cover-inner > .mdl-typography--headline {
     font-size: 22px; }
   .cover > .cover-inner > img {
-    width: 30%;
+      width: 30%;
   }
 }
 /* Mobile */

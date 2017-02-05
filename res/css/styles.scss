@@ -51,8 +51,6 @@ paper-button {
 /* Grid */
 iron-grid {
     max-width: 1200px;
-    width: calc(100% - 32px);
-    margin: 0 auto;
 }
 
 /* Layout */
@@ -245,11 +243,6 @@ footer {
 
     a {
         color: $footer-color;
-    }
-
-    iron-icon {
-        width: 16px;
-        height: 16px;
     }
 
     section {
