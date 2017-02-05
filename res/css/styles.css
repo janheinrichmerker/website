@@ -1118,6 +1118,10 @@ app-drawer-layout app-header-layout app-header {
     app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button {
       position: relative;
       top: -1px; }
+
+app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button paper-ripple {
+    color: white;
+}
 app-drawer-layout app-header-layout .content {
   margin-top: -64px; }
 app-drawer-layout app-drawer {
@@ -1156,7 +1160,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
   position: relative;
   background: no-repeat local center center;
   background-size: cover;
-  min-height: 600px;
+    min-height: 680px;
   height: 100vh;
   box-shadow: inset 0 -8px 10px 1px rgba(0, 0, 0, 0.14), inset 0 -3px 14px 2px rgba(0, 0, 0, 0.12), inset 0 -5px 5px -3px rgba(0, 0, 0, 0.2);
   margin-bottom: 32px;
@@ -1190,6 +1194,10 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 .cover paper-icon-button iron-icon {
     position: relative;
     top: 4px;
+}
+
+.cover paper-icon-button paper-ripple {
+    color: white;
 }
 
 /* Services section */
