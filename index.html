@@ -10,7 +10,7 @@ permalink: /
         <h1>{{ site.data.cover.title }}</h1>
         <h4>{{ site.data.cover.subtitle }}</h4>
         <a href="{{ site.data.cover.button.link }}" tabindex="-1">
-            <paper-button raised>{{ site.data.cover.button.title }}</paper-button>
+            <paper-button raised filled>{{ site.data.cover.button.title }}</paper-button>
         </a>
     </div>
     <a href="#services">
@@ -56,7 +56,7 @@ permalink: /
                 <h3>{{ site.data.apps.cta.title }}</h3>
                 <p>{{ site.data.apps.cta.description }}</p>
                 <a href="{{ site.data.apps.cta.link }}" tabindex="-1">
-                    <paper-button raised>{{ site.data.apps.cta.button }}</paper-button>
+                    <paper-button raised filled>{{ site.data.apps.cta.button }}</paper-button>
                 </a>
             </div>
         </div>
@@ -71,7 +71,7 @@ permalink: /
     <h2 class="s12">{{ site.data.libraries.title }}</h2>
 
     {% for library in site.libraries reversed %}
-    <paper-card class="s12 m6 l4 xl4" image="{{ app.image }}" elevation="2">
+    <paper-card class="s12 m6 l4 xl4" image="{{ library.image }}" elevation="2">
         <div class="card-content">
             <h5>{{ library.title }}</h5>
             <p class="description">{{ library.description }}</p>
@@ -92,7 +92,7 @@ permalink: /
                 <h3>{{ site.data.libraries.cta.title }}</h3>
                 <p>{{ site.data.libraries.cta.description }}</p>
                 <a href="{{ site.data.libraries.cta.link }}" tabindex="-1">
-                    <paper-button raised>{{ site.data.libraries.cta.button }}</paper-button>
+                    <paper-button raised filled>{{ site.data.libraries.cta.button }}</paper-button>
                 </a>
             </div>
         </div>

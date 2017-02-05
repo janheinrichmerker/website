@@ -41,6 +41,10 @@ body {
 
 paper-button {
     @include typo-button;
+
+    &[raised][filled] {
+        background: $color-primary;
+    }
 }
 
 /* Grid */
@@ -164,10 +168,6 @@ app-drawer-layout {
 
         h1, paper-button {
             color: $text-color-primary-inverse;
-        }
-
-        paper-button {
-            background: $color-primary;
         }
     }
 

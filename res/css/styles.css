@@ -1079,6 +1079,10 @@ paper-button {
   line-height: 1;
   letter-spacing: 0; }
 
+paper-button[raised][filled] {
+    background: #212121;
+}
+
 /* Grid */
 .app-grid {
   max-width: 1200px;
@@ -1165,8 +1169,6 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 .cover .cover-inner h1, .cover .cover-inner paper-button {
       color: white; }
-    .cover .cover-inner paper-button {
-      background: #212121; }
 
 .cover paper-icon-button {
     position: absolute;
@@ -1195,11 +1197,9 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 .apps paper-card .card-content h5, .libraries paper-card .card-content h5 {
     margin-top: 8px;
 }
-
 .apps paper-card .card-content p, .libraries paper-card .card-content p {
     margin-bottom: 0;
 }
-
 .apps paper-card .card-actions, .libraries paper-card .card-actions {
     padding-left: 8px;
     padding-right: 8px;
@@ -1208,7 +1208,6 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 .apps paper-card .card-actions paper-button, .libraries paper-card .card-actions paper-button {
     margin: 0;
 }
-
 .apps .cta-cell, .libraries .cta-cell {
   position: relative;
   text-transform: none;
