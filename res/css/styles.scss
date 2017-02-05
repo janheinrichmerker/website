@@ -2,11 +2,9 @@
 @import "import/palette";
 @import "import/mixins";
 @import "import/resets";
+@import "import/typography";
 @import "import/prism";
 
-
-$footer-bg-color: $palette-grey-100;
-$footer-color: rgba($color-black, 0.54);
 
 /*
 // 3
@@ -50,10 +48,18 @@ paper-button {
 }
 
 a[tabindex="-1"] {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none !important;
+    color: inherit !important;
 }
 
+/* Grid */
+.app-grid {
+    max-width: 1200px;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+}
+
+/* Layout */
 app-drawer-layout {
 
     app-header-layout {
@@ -69,7 +75,12 @@ app-drawer-layout {
                 color: $text-color-primary-inverse;
 
                 h1 {
-                    @include typo-title();
+                    @include typo-title;
+                }
+
+                paper-button {
+                    @include typo-button;
+                    min-width: 0;
                 }
             }
         }
@@ -80,8 +91,8 @@ app-drawer-layout {
     }
 
     app-drawer {
-        @include shadow-16dp;
-        z-index: 16;
+        @include shadow-8dp;
+        z-index: 8;
 
         app-toolbar {
 
@@ -107,54 +118,6 @@ app-drawer-layout {
             }
         }
     }
-}
-
-h1, h2, h3, .mdl-typography--display-1, .mdl-typography--display-2, .mdl-typography--display-3,
-.mdl-typography--display-4, .mdl-typography--display-5 {
-    font-family: $header-font;
-    font-weight: 600;
-}
-
-.mdl-button {
-    font-family: $button-font;
-    font-weight: 600;
-}
-
-body, .mdl-typography--headline, .mdl-typography--subhead {
-    font-weight: 300;
-}
-
-.mdl-typography--subhead {
-    font-size: 17px;
-}
-
-.mdl-layout-title {
-    font-family: $header-font;
-}
-
-/* Layout */
-.mdl-layout__drawer, .mdl-layout__obfuscator {
-    position: fixed;
-}
-
-.mdl-layout__drawer-button > i {
-    position: relative;
-    top: 2px;
-}
-
-/* Navigation */
-.mdl-navigation__link.mdl-button {
-    line-height: 38px;
-    min-width: 0;
-    margin: 0 8px;
-    padding: 0 16px;
-}
-
-.mdl-navigation__link.mdl-button--icon {
-    font-size: 20px;
-    line-height: 32px;
-    min-width: 0;
-    padding: 8px;
 }
 
 /* Cover */
@@ -212,13 +175,6 @@ body, .mdl-typography--headline, .mdl-typography--subhead {
             }
         }
     }
-}
-
-/* Grid */
-.mdl-grid {
-    max-width: 1200px;
-    width: calc(100% - 32px);
-    margin: 0 auto;
 }
 
 /* Philosophy section */
