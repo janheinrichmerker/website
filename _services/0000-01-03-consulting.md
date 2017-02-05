@@ -1,5 +1,5 @@
 ---
-icon: supervisor_account
+icon: business
 title: Consulting
 description: |
   I help your startup or company in designing and developing any type of Android app or website.

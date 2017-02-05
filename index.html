@@ -15,7 +15,7 @@ permalink: /
         </a>
     </div>
     <a href="#services">
-        <paper-icon-button-light icon="keyboard_arrow_down"></paper-icon-button-light>
+        <paper-icon-button icon="keyboard_arrow_down"></paper-icon-button>
     </a>
 </div>
 
@@ -23,10 +23,9 @@ permalink: /
     {% for service in site.services %}
     <div class="mdl-cell mdl-cell--4-col">
         <iron-icon icon="{{ service.icon }}"></iron-icon>
-            <h2><i class="material-icons">{{ service.icon }}</i></h2>
-            <h3>{{ service.title }}</h3>
-            <p class="mdl-typography--subhead">{{ service.description }}</p>
-        </div>
+        <h3>{{ service.title }}</h3>
+        <h6>{{ service.description }}</h6>
+    </div>
     {% endfor %}
 </div>
 
