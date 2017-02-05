@@ -29,4 +29,7 @@ $text-color-secondary-inverse-link: mix($text-color-secondary-inverse, $color-ac
 
 /* Footer colors */
 $footer-background: $palette-grey-100 !default;
-$footer-color: rgba($color-black, 0.54) !default;
+$footer-color: $text-color-secondary !default;
+
+/* Divider colors */
+$divider-color: rgba($color-black, 0.12) !default;

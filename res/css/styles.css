@@ -21,6 +21,7 @@
 /* Background colors */
 /* Text colors */
 /* Footer colors */
+/* Divider colors */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -137,6 +138,7 @@
 /* Background colors */
 /* Text colors */
 /* Footer colors */
+/* Divider colors */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -449,6 +451,7 @@ hr {
 /* Background colors */
 /* Text colors */
 /* Footer colors */
+/* Divider colors */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -1221,6 +1224,34 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     text-align: center;
     min-height: 200px;
     vertical-align: middle;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, 0.54);
+    background-color: whitesmoke;
+}
+
+footer a {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+footer section.left, footer section.right {
+    display: inline-block;
+}
+
+footer section.left {
+    order: 0;
+}
+
+footer section.right {
+    order: 1;
 }
 
 /* Contact section */

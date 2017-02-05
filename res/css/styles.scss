@@ -231,6 +231,42 @@ app-drawer-layout {
     }
 }
 
+/* Footer */
+footer {
+    border-top: 1px solid $divider-color;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    color: $footer-color;
+    background-color: $footer-background;
+
+    a {
+        color: $footer-color;
+    }
+
+    section {
+        &.left, &.right {
+            display: inline-block;
+        }
+
+        &.left {
+            order: 0;
+        }
+
+        &.right {
+            order: 1;
+        }
+    }
+}
+
+
+
+
+
+
+
 /* Contact section */
 .contact form {
     width: 100%;

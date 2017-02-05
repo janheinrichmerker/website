@@ -108,13 +108,22 @@
             </main>
 
             <footer>
-                <p>
-                    © {{ site.time | date: '%Y' }} {{ site.author.name }}. {{ site.license }}
-                </p>
-                <p>
+                <section>
+                    © {{ site.time | date: '%Y' }} {{ site.author.name }}. {{ site.license }} •
                     <a href="/disclaimer" title="Imprint / Disclaimer">Imprint / Disclaimer</a> •
                     <a href="/privacy" title="Privacy">Privacy</a>
-                </p>
+                </section>
+                <section>
+                    Made using
+                    <iron-icon icon="polymer"></iron-icon>
+                    <a href="https://www.polymer-project.org/1.0/" title="Polymer Project">Polymer</a>,
+                    <a href="https://jekyllrb.com/" title="Jekyll Static Site Generator">Jekyll</a>.
+                    Proudly hosted by
+                    <!-- TODO uncomment line when hosted on Uberspace server
+                    <a href="https://uberspace.de/" title="Uberspace.de">Uberspace</a>
+                    -->
+                    <a href="https://uberspace.de/" title="Github Pages">GitHub</a>.
+                </section>
             </footer>
 
         </div>
