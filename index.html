@@ -18,31 +18,31 @@ permalink: /
     </a>
 </div>
 
-<div class="app-grid services" id="services">
+<iron-grid class="services" id="services">
     {% for service in site.services %}
-    <div class="item">
+    <section class="s12 m6 l4 xl4">
         <iron-icon icon="{{ service.icon }}"></iron-icon>
         <h3>{{ service.title }}</h3>
         <h6>{{ service.description }}</h6>
-    </div>
+    </section>
     {% endfor %}
-</div>
+</iron-grid>
 
 <hr>
 
-<div class="app-grid apps" id="apps">
+<iron-grid class="apps" id="apps">
 
-    <h2>{{ site.data.apps.title }}</h2>
+    <h2 class="s12">{{ site.data.apps.title }}</h2>
 
     {% for app in site.apps reversed %}
-    <paper-card class="item" image="{{ app.image }}" elevation="2">
+    <paper-card class="s12 m6 l4 xl4" image="{{ app.image }}" elevation="2">
         <div class="card-content">
             <h5>{{ app.title }}</h5>
             <p class="description">{{ app.description }}</p>
         </div>
         <div class="card-actions">
             <div class="horizontal justified">
-                <a href="{{ app.link }}" target="_blank">
+                <a href="{{ app.link }}" target="_blank" tabindex="-1">
                     <paper-button>{{ site.data.apps.button }}</paper-button>
                 </a>
             </div>
@@ -50,35 +50,35 @@ permalink: /
     </paper-card>
     {% endfor %}
 
-    <div class="item">
+    <div class="s12 m6 l4 xl4 cta-cell">
         <div>
             <div>
                 <h3>{{ site.data.apps.cta.title }}</h3>
-                <p class="mdl-typography--subhead">{{ site.data.apps.cta.description }}</p>
-                <a href="{{ site.data.apps.cta.link }}">
+                <p>{{ site.data.apps.cta.description }}</p>
+                <a href="{{ site.data.apps.cta.link }}" tabindex="-1">
                     <paper-button raised>{{ site.data.apps.cta.button }}</paper-button>
                 </a>
             </div>
         </div>
     </div>
 
-</div>
+</iron-grid>
 
 <hr>
 
-<div class="app-grid libraries" id="libraries">
+<iron-grid class="libraries" id="libraries">
 
-    <h2>{{ site.data.libraries.title }}</h2>
+    <h2 class="s12">{{ site.data.libraries.title }}</h2>
 
     {% for library in site.libraries reversed %}
-    <paper-card class="item" image="{{ app.image }}" elevation="2">
+    <paper-card class="s12 m6 l4 xl4" image="{{ app.image }}" elevation="2">
         <div class="card-content">
             <h5>{{ library.title }}</h5>
             <p class="description">{{ library.description }}</p>
         </div>
         <div class="card-actions">
             <div class="horizontal justified">
-                <a href="{{ library.link }}" target="_blank">
+                <a href="{{ library.link }}" target="_blank" tabindex="-1">
                     <paper-button>{{ site.data.libraries.button }}</paper-button>
                 </a>
             </div>
@@ -86,15 +86,16 @@ permalink: /
     </paper-card>
     {% endfor %}
 
-    <div class="item">
+    <div class="s12 m6 l4 xl4 cta-cell">
         <div>
             <div>
                 <h3>{{ site.data.libraries.cta.title }}</h3>
-                <p class="mdl-typography--subhead">{{ site.data.libraries.cta.description }}</p>
-                <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-                   href="{{ site.data.libraries.cta.link }}">{{ site.data.libraries.cta.button }}</a>
+                <p>{{ site.data.libraries.cta.description }}</p>
+                <a href="{{ site.data.libraries.cta.link }}" tabindex="-1">
+                    <paper-button raised>{{ site.data.libraries.cta.button }}</paper-button>
+                </a>
             </div>
         </div>
     </div>
 
-</div>
+</iron-grid>

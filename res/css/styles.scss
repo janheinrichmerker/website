@@ -193,33 +193,33 @@ app-drawer-layout {
 
 /* Services section */
 .services {
-    > .mdl-cell {
+    section {
         text-align: center;
     }
 }
 
 /* Work section */
 .apps, .libraries {
-    > .mdl-card {
-        min-height: 24px;
-        align-self: flex-start;
-        > .mdl-card__media > img {
-            width: 100%;
-        }
-        > .mdl-card__title {
-            padding-bottom: 0;
-            > .mdl-card__title-text {
-                font-size: 25px;
-                font-weight: 400;
-                line-height: 1.25;
+
+    paper-card {
+        .card-content {
+            h5 {
+                margin-top: 8px;
+            }
+            p {
+                margin-bottom: 0;
             }
         }
-        > .mdl-card__supporting-text {
-            font-size: 17px;
-            line-height: 1.5;
+        .card-actions {
+            padding-left: 8px;
+            padding-right: 8px;
+            paper-button {
+                margin: 0;
+            }
         }
     }
-    > .cta-cell {
+
+    .cta-cell {
         position: relative;
         text-transform: none;
         text-align: center;

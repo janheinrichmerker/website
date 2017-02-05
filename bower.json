@@ -35,6 +35,7 @@
     "prism-element": "PolymerElements/prism-highlighter#^1.2.0",
     "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.7",
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0.11",
-    "paper-header-panel": "PolymerElements/paper-header-panel#^1.1.7"
+    "paper-header-panel": "PolymerElements/paper-header-panel#^1.1.7",
+    "iron-grid": "The5heepDev/iron-grid"
   }
 }

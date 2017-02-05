@@ -1106,7 +1106,7 @@ app-drawer-layout app-header-layout app-header {
       line-height: 1;
       letter-spacing: 0;
       min-width: 0;
-      font-size: 18px !important;
+        font-size: 18px !important;
     }
     app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button {
       position: relative;
@@ -1125,10 +1125,10 @@ app-drawer-layout app-drawer {
   app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
     display: none; }
 app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-button, app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-icon-button:not([drawer-toggle]) {
-  display: none;
+    display: none;
 }
 app-drawer-layout:not(.narrow) app-drawer app-toolbar {
-  display: none;
+    display: none;
 }
 
 .page-index app-drawer-layout app-header-layout app-header {
@@ -1137,11 +1137,11 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     background: #212121; }
 
 .page-index app-drawer-layout app-header-layout app-header [main-title] {
-  transition: 0.3s opacity ease;
+    transition: 0.3s opacity ease;
 }
 
 .page-index app-drawer-layout app-header-layout app-header:not([shadow]) {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* Cover */
@@ -1153,14 +1153,14 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
   height: 100vh;
   box-shadow: inset 0 -8px 10px 1px rgba(0, 0, 0, 0.14), inset 0 -3px 14px 2px rgba(0, 0, 0, 0.12), inset 0 -5px 5px -3px rgba(0, 0, 0, 0.2);
   margin-bottom: 32px;
-  text-align: center;
+    text-align: center;
 }
   .cover .cover-inner {
     position: absolute;
     top: 50%;
     width: 100%;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.7);
   }
 
 .cover .cover-inner h1, .cover .cover-inner paper-button {
@@ -1175,58 +1175,65 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     height: 96px;
     margin-left: -48px;
     color: rgba(255, 255, 255, 0.7);
-  transition: 0.3s color ease;
+    transition: 0.3s color ease;
 }
 
 .cover paper-icon-button:hover {
-  color: white;
+    color: white;
 }
 
 .cover paper-icon-button iron-icon {
-  position: relative;
-  top: 4px;
+    position: relative;
+    top: 4px;
 }
 
 /* Services section */
-.services > .mdl-cell {
+.services section {
   text-align: center; }
 
 /* Work section */
-.apps > .mdl-card, .libraries > .mdl-card {
-  min-height: 24px;
-  align-self: flex-start; }
-  .apps > .mdl-card > .mdl-card__media > img, .libraries > .mdl-card > .mdl-card__media > img {
-    width: 100%; }
-  .apps > .mdl-card > .mdl-card__title, .libraries > .mdl-card > .mdl-card__title {
-    padding-bottom: 0; }
-    .apps > .mdl-card > .mdl-card__title > .mdl-card__title-text, .libraries > .mdl-card > .mdl-card__title > .mdl-card__title-text {
-      font-size: 25px;
-      font-weight: 400;
-      line-height: 1.25; }
-  .apps > .mdl-card > .mdl-card__supporting-text, .libraries > .mdl-card > .mdl-card__supporting-text {
-    font-size: 17px;
-    line-height: 1.5; }
-.apps > .cta-cell, .libraries > .cta-cell {
+.apps paper-card .card-content h5, .libraries paper-card .card-content h5 {
+    margin-top: 8px;
+}
+
+.apps paper-card .card-content p, .libraries paper-card .card-content p {
+    margin-bottom: 0;
+}
+
+.apps paper-card .card-actions, .libraries paper-card .card-actions {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.apps paper-card .card-actions paper-button, .libraries paper-card .card-actions paper-button {
+    margin: 0;
+}
+
+.apps .cta-cell, .libraries .cta-cell {
   position: relative;
   text-transform: none;
   text-align: center; }
-  .apps > .cta-cell:before, .libraries > .cta-cell:before {
+
+.apps .cta-cell:before, .libraries .cta-cell:before {
     content: "";
     display: block;
     padding-top: 100%;
     /* Aspect ratio: 1:1*/ }
-  .apps > .cta-cell > div, .libraries > .cta-cell > div {
+
+.apps .cta-cell > div, .libraries .cta-cell > div {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0; }
-    .apps > .cta-cell > div > div, .libraries > .cta-cell > div > div {
+
+.apps .cta-cell > div > div, .libraries .cta-cell > div > div {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       width: 100%; }
-  .apps > .cta-cell.logo-cell > div > div, .libraries > .cta-cell.logo-cell > div > div {
+
+.apps .cta-cell.logo-cell > div > div, .libraries .cta-cell.logo-cell > div > div {
     padding-bottom: 48px; }
 
 /* Skills section */
