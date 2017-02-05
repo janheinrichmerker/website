@@ -80,6 +80,10 @@ h6 {
     margin-bottom: 16px;
 }
 
+[main-title] {
+    @include typo-title;
+}
+
 p {
     @include typo-body-1;
 
@@ -93,6 +97,10 @@ a {
     &[tabindex="-1"] {
         text-decoration: none !important;
         color: inherit !important;
+
+        &:active, &:hover, &:focus {
+            text-decoration: none !important;
+        }
     }
 }
 
