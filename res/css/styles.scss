@@ -138,7 +138,7 @@ app-drawer-layout {
                 [main-title] {
                     transition: 0.3s opacity ease;
                 }
-                &:not([shadow]) {
+                &:not([shadow]) [main-title] {
                     opacity: 0;
                 }
             }

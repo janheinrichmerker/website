@@ -1144,7 +1144,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     transition: 0.3s opacity ease;
 }
 
-.page-index app-drawer-layout app-header-layout app-header:not([shadow]) {
+.page-index app-drawer-layout app-header-layout app-header:not([shadow]) [main-title] {
     opacity: 0;
 }
 
