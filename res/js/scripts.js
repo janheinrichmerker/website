@@ -6,7 +6,6 @@ $(function() { //Document is ready
     //App layout is narrow?
     updateDrawerLayoutNarrowClass();
     drawerLayout.on("narrow-changed", function () {
-        console.log("New narrow state: " + drawerLayout.get(0).narrow);
         updateDrawerLayoutNarrowClass();
     });
 

@@ -1125,10 +1125,9 @@ app-drawer-layout app-drawer {
   app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
     display: none; }
 
-app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-button, app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-icon-button {
+app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-button, app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-icon-button:not([drawer-toggle]) {
     display: none;
 }
-
 app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     display: none;
 }
