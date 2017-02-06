@@ -94,10 +94,6 @@ app-drawer-layout {
                 }
             }
         }
-
-        .content {
-            margin-top: -64px;
-        }
     }
 
     app-drawer {
@@ -147,6 +143,10 @@ app-drawer-layout {
                 &:not([shadow]) [main-title] {
                     opacity: 0;
                 }
+            }
+
+            .content {
+                margin-top: -64px;
             }
         }
     }
@@ -298,6 +298,9 @@ footer {
 @media screen and (max-width: 960px) {
     app-toolbar {
         height: 56px !important;
+    }
+    .page-index app-drawer-layout app-header-layout .content {
+        margin-top: -56px;
     }
 
     .cover .cover-inner {

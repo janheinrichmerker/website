@@ -1,7 +1,6 @@
 $(function() { //Document is ready
     var drawerLayout = $("app-drawer-layout");
     var drawer = drawerLayout.find("app-drawer");
-    var headerLayout = drawerLayout.find("app-header-layout");
 
     drawerLayout.get(0).responsiveWidth = "1440px";
 
@@ -24,10 +23,15 @@ $(function() { //Document is ready
     //Scroll-to links
     $("a[href^='#'], a[href^='/#']").each(function () {
         $(this).click(function(event) {
-            scrollTo($(this).attr("href").replace("/", ""));
+            var href = $(this).attr("href").replace("/", "");
+            scrollTo(href);
             event.preventDefault();
         });
     });
+    var hash = window.location.hash.slice(1);
+    if (hash && hash.length > 0) {
+        scrollTo("#" + hash)
+    }
     
     //Close drawer when user clicks a link
     drawer.find("paper-item").click(function () {
@@ -37,6 +41,7 @@ $(function() { //Document is ready
     });
 
     function scrollTo(reference) {
+        window.history.pushState(reference, document.title, "/" + reference);
         $("html").scrollTo(reference);
     }
 });
