@@ -1251,6 +1251,7 @@ app-drawer-layout app-header-layout app-header app-toolbar {
 
 app-drawer-layout app-header-layout app-header app-toolbar [main-title] {
     font-size: 22px;
+    padding-left: 8px;
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar paper-button {
@@ -1349,6 +1350,10 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     font-size: 22px;
 }
 
+.cover .cover-inner img {
+    width: 20%;
+}
+
 .cover paper-icon-button {
     position: absolute;
     bottom: 16px;
@@ -1388,7 +1393,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 .apps paper-card .card-content h5, .libraries paper-card .card-content h5 {
     margin-top: 8px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .apps paper-card .card-content p, .libraries paper-card .card-content p {
@@ -1477,48 +1482,39 @@ footer section.right {
     border-radius: 4px;
 }
 
-/* Footer */
-.mdl-mini-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    text-align: center;
-}
-
-.mdl-mini-footer a {
-    color: rgba(0, 0, 0, 0.54);
-}
-
-/* Desktop */
-@media screen and (min-width: 1025px) {
-    .mdl-layout__header-row {
-        padding: 0 0 0 24px;
-    }
-}
 /* Small tablet */
 @media screen and (max-width: 840px) {
-    .cover > .cover-inner > h1 {
+    app-toolbar {
+        height: 56px;
+    }
+
+    .cover .cover-inner h1 {
         font-size: 48px;
     }
 
-    .cover > .cover-inner > .mdl-typography--headline {
-        font-size: 22px;
+    .cover .cover-inner p {
+        font-size: 20px;
     }
 
-    .cover > .cover-inner > img {
+    .cover .cover-inner img {
         width: 30%;
     }
 }
 /* Mobile */
 @media screen and (max-width: 480px) {
-    .cover > .cover-inner > h1 {
+    app-toolbar {
+        padding: 0 8px;
+    }
+
+    .cover .cover-inner h1 {
         font-size: 44px;
     }
 
-    .cover > .cover-inner > .mdl-typography--headline {
-        font-size: 18px;
+    .cover .cover-inner p {
+        font-size: 17px;
     }
 
-    .cover > .cover-inner > img {
+    .cover .cover-inner img {
         width: 40%;
     }
 

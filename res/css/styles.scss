@@ -77,6 +77,7 @@ app-drawer-layout {
 
                 [main-title] {
                     font-size: 22px;
+                    padding-left: 8px;
                 }
 
                 paper-button {
@@ -179,6 +180,10 @@ app-drawer-layout {
             @include typo-subhead(true);
             font-size: 22px;
         }
+
+        img {
+            width: 20%;
+        }
     }
 
     paper-icon-button {
@@ -222,7 +227,7 @@ app-drawer-layout {
         .card-content {
             h5 {
                 margin-top: 8px;
-                font-weight: 400;
+                font-weight: 500;
             }
             p {
                 font-family: $body-font;
@@ -321,33 +326,20 @@ footer {
     }
 }
 
-/* Footer */
-.mdl-mini-footer {
-    border-top: 1px solid rgba($footer-color, 0.2);
-    padding: 16px;
-    text-align: center;
-    a {
-        color: $footer-color;
-    }
-}
-
-/* Desktop */
-@media screen and (min-width: 1025px) {
-    .mdl-layout__header-row {
-        padding: 0 0 0 24px;
-    }
-}
-
 /* Small tablet */
 @media screen and (max-width: 840px) {
-    .cover > .cover-inner {
-        > h1 {
+    app-toolbar {
+        height: 56px;
+    }
+
+    .cover .cover-inner {
+        h1 {
             font-size: 48px;
         }
-        > .mdl-typography--headline {
-            font-size: 22px;
+        p {
+            font-size: 20px;
         }
-        > img {
+        img {
             width: 30%;
         }
     }
@@ -355,14 +347,18 @@ footer {
 
 /* Mobile */
 @media screen and (max-width: 480px) {
-    .cover > .cover-inner {
-        > h1 {
+    app-toolbar {
+        padding: 0 8px;
+    }
+
+    .cover .cover-inner {
+        h1 {
             font-size: 44px;
         }
-        > .mdl-typography--headline {
-            font-size: 18px;
+        p {
+            font-size: 17px;
         }
-        > img {
+        img {
             width: 40%;
         }
     }
