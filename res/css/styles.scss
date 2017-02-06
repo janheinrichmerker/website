@@ -218,12 +218,21 @@ app-drawer-layout {
 .services {
     section {
         text-align: center;
+
+        iron-icon {
+            width: 48px;
+            height: 48px;
+        }
     }
 }
 
 /* Work section */
 .apps, .libraries {
     padding: 8px 0;
+
+    h2 {
+        padding: 0 8px;
+    }
 
     paper-card {
         align-self: flex-start;
@@ -304,15 +313,19 @@ footer {
         margin-top: -56px;
     }
 
-    .cover .cover-inner {
-        h1 {
-            font-size: 48px;
-        }
-        p {
-            font-size: 20px;
-        }
-        img {
-            width: 240px;
+    .cover {
+        min-height: 700px;
+
+        .cover-inner {
+            h1 {
+                font-size: 48px;
+            }
+            p {
+                font-size: 20px;
+            }
+            img {
+                width: 240px;
+            }
         }
     }
 }
@@ -323,15 +336,19 @@ footer {
         padding: 0 8px !important;
     }
 
-    .cover .cover-inner {
-        h1 {
-            font-size: 44px;
-        }
-        p {
-            font-size: 17px;
-        }
-        img {
-            width: 144px;
+    .cover {
+        min-height: 540px;
+
+        .cover-inner {
+            h1 {
+                font-size: 44px;
+            }
+            p {
+                font-size: 17px;
+            }
+            img {
+                width: 144px;
+            }
         }
     }
 }
