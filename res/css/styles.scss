@@ -89,7 +89,7 @@ app-drawer-layout {
                     top: -1px;
 
                     paper-ripple {
-                        color: $text-color-primary-inverse;
+                        color: $text-color-primary-inverse !important;
                     }
                 }
             }
@@ -207,7 +207,7 @@ app-drawer-layout {
         }
 
         paper-ripple {
-            color: $text-color-primary-inverse;
+            color: $text-color-primary-inverse !important;
         }
     }
 }

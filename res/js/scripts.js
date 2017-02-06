@@ -21,6 +21,10 @@ $(function() { //Document is ready
     }
 
     //Scroll-to links
+    function scrollTo(reference) {
+        window.history.pushState(reference, document.title, "/" + reference);
+        $("html").scrollTo(reference);
+    }
     $("a[href^='#'], a[href^='/#']").each(function () {
         $(this).click(function(event) {
             var href = $(this).attr("href").replace("/", "");
@@ -30,7 +34,7 @@ $(function() { //Document is ready
     });
     var hash = window.location.hash.slice(1);
     if (hash && hash.length > 0) {
-        scrollTo("#" + hash)
+        scrollTo("#" + hash);
     }
     
     //Close drawer when user clicks a link
@@ -39,9 +43,4 @@ $(function() { //Document is ready
             drawer.get(0).close();
         }
     });
-
-    function scrollTo(reference) {
-        window.history.pushState(reference, document.title, "/" + reference);
-        $("html").scrollTo(reference);
-    }
 });

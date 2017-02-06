@@ -1270,7 +1270,7 @@ app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button {
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button paper-ripple {
-    color: white;
+    color: white !important;
 }
 app-drawer-layout app-drawer {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
@@ -1310,7 +1310,6 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 .page-index app-drawer-layout app-header-layout app-header:not([shadow]) [main-title] {
     opacity: 0;
 }
-
 .page-index app-drawer-layout app-header-layout .content {
     margin-top: -64px;
 }
@@ -1377,7 +1376,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 }
 
 .cover paper-icon-button paper-ripple {
-    color: white;
+    color: white !important;
 }
 
 /* Services section */
