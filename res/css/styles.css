@@ -1296,7 +1296,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 }
 
 .page-index app-drawer-layout app-header-layout app-header {
-    background-color: rgba(33, 33, 33, 0.12);
+    background: 0;
 }
 
 .page-index app-drawer-layout app-header-layout app-header #backgroundRearLayer {
@@ -1340,6 +1340,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 .cover .cover-inner h1 {
     font-size: 72px;
+    margin-bottom: 0;
 }
 
 .cover .cover-inner p {
@@ -1350,6 +1351,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     letter-spacing: 0.04em;
     opacity: 0.87;
     font-size: 22px;
+    margin-bottom: 32px;
 }
 
 .cover .cover-inner img {
@@ -1395,7 +1397,6 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 .apps paper-card .card-content h5, .libraries paper-card .card-content h5 {
     margin-top: 8px;
-    font-weight: 500;
 }
 
 .apps paper-card .card-content p, .libraries paper-card .card-content p {
