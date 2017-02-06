@@ -37,6 +37,6 @@ $(function() { //Document is ready
     });
 
     function scrollTo(reference) {
-        $("html, body").scrollTo(reference);
+        $("html").scrollTo(reference);
     }
 });
