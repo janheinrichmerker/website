@@ -1224,6 +1224,10 @@ paper-button[raised][filled] {
     color: white;
 }
 
+paper-item, paper-icon-item {
+    font-weight: 500 !important;
+}
+
 /* Grid */
 iron-grid {
     max-width: 1200px;

@@ -48,6 +48,10 @@ paper-button {
     }
 }
 
+paper-item, paper-icon-item {
+    @include typo-weight-medium;
+}
+
 /* Grid */
 iron-grid {
     max-width: 1200px;

@@ -37,6 +37,6 @@ $(function() { //Document is ready
     });
 
     function scrollTo(reference) {
-        headerLayout.scrollTo(reference);
+        $("body").scrollTo(reference);
     }
 });
