@@ -1245,7 +1245,6 @@ app-drawer-layout app-header-layout app-header #backgroundRearLayer, app-drawer-
 app-drawer-layout app-header-layout app-header app-toolbar {
     color: white;
     font-size: 18px;
-    padding-top: 1px;
     box-sizing: border-box;
 }
 
@@ -1485,7 +1484,7 @@ footer section.right {
 /* Small tablet */
 @media screen and (max-width: 840px) {
     app-toolbar {
-        height: 56px;
+        height: 56px !important;
     }
 
     .cover .cover-inner h1 {
@@ -1503,7 +1502,7 @@ footer section.right {
 /* Mobile */
 @media screen and (max-width: 480px) {
     app-toolbar {
-        padding: 0 8px;
+        padding: 0 8px !important;
     }
 
     .cover .cover-inner h1 {
