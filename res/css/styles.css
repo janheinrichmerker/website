@@ -148,7 +148,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-  color: white;
+    color: rgba(0, 0, 0, 0.87);
   font-size: 1em;
     line-height: 1.4;
 }
@@ -416,7 +416,7 @@ body {
   width: 100%;
   min-height: 100%;
   margin: 0;
-    background: #424242;
+    background: #fafafa;
 }
 
 /*
@@ -638,7 +638,7 @@ p {
 }
 
 a {
-  color: #dd1356;
+    color: rgba(220, 17, 85, 0.99909);
     font-weight: 500;
 }
 
@@ -1279,12 +1279,12 @@ app-drawer-layout app-drawer {
 }
 
 app-drawer-layout app-drawer .app-drawer {
-    background: #212121;
+    background: white !important;
 }
 
 app-drawer-layout app-drawer paper-menu {
-    color: white;
-    background: #212121;
+    color: rgba(0, 0, 0, 0.87) !important;
+    background: white !important;
 }
 
 app-drawer-layout app-drawer app-toolbar h1 {
@@ -1462,12 +1462,12 @@ footer {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.54);
     background-color: whitesmoke;
 }
 
 footer a {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.54);
 }
 
 footer section.left, footer section.right {

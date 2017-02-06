@@ -97,12 +97,12 @@ app-drawer-layout {
         z-index: 8;
 
         .app-drawer {
-            background: $drawer-background;
+            background: $drawer-background !important;
         }
 
         paper-menu {
-            color: $text-color-primary;
-            background: $drawer-background;
+            color: $text-color-primary !important;
+            background: $drawer-background !important;
         }
 
         app-toolbar {
