@@ -325,7 +325,7 @@ footer {
 }
 
 /* Small tablet */
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 960px) {
     app-toolbar {
         height: 56px !important;
     }
@@ -344,7 +344,7 @@ footer {
 }
 
 /* Mobile */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
     app-toolbar {
         padding: 0 8px !important;
     }
