@@ -1319,23 +1319,28 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     position: relative;
     background: no-repeat local center center;
     background-size: cover;
-    min-height: 680px;
+    min-height: 800px;
     height: 100vh;
     box-shadow: inset 0 -8px 10px 1px rgba(0, 0, 0, 0.14), inset 0 -3px 14px 2px rgba(0, 0, 0, 0.12), inset 0 -5px 5px -3px rgba(0, 0, 0, 0.2);
     margin-bottom: 32px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .cover .cover-inner {
     position: absolute;
     top: 50%;
     width: 100%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) translateY(-16px);
     color: rgba(255, 255, 255, 0.7);
 }
 
 .cover .cover-inner h1, .cover .cover-inner paper-button {
     color: white;
+}
+
+.cover .cover-inner h1 {
+    font-size: 72px;
 }
 
 .cover .cover-inner p {
@@ -1513,7 +1518,7 @@ footer section.right {
     }
 
     .cover .cover-inner img {
-        width: 240px;
+        width: 144px;
     }
 
     .post > header p {
