@@ -35,10 +35,6 @@ $font-family-button: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !defa
 $font-family-body: "Slabo 27px", "Georgia", "Times New Roman", serif !default;
 */
 
-body {
-    background: $palette-grey-50;
-}
-
 paper-button {
     @include typo-button;
 
@@ -99,7 +95,10 @@ app-drawer-layout {
     app-drawer {
         @include shadow-8dp;
         z-index: 8;
-        background: $drawer-background;
+
+        .app-drawer {
+            background: $drawer-background;
+        }
 
         app-toolbar {
 
