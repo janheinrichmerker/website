@@ -96,9 +96,10 @@ app-drawer-layout {
         @include shadow-8dp;
         z-index: 8;
 
-        .app-drawer {
+        --paper-drawer-panel-left-drawer-container: {
             background: $drawer-background;
         }
+    ;
 
         app-toolbar {
 
