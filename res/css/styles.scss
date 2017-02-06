@@ -95,11 +95,12 @@ app-drawer-layout {
     app-drawer {
         @include shadow-8dp;
         z-index: 8;
+        background: $drawer-background;
 
-        --paper-drawer-panel-left-drawer-container: {
+        paper-menu {
+            color: $text-color-primary;
             background: $drawer-background;
         }
-    ;
 
         app-toolbar {
 
