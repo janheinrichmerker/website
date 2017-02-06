@@ -257,6 +257,12 @@ app-drawer-layout {
     }
 }
 
+/* Contact section */
+.contact form {
+    width: 100%;
+    margin-bottom: 144px;
+}
+
 /* Footer */
 footer {
     margin-top: 48px;
@@ -285,46 +291,6 @@ footer {
         &.right {
             order: 1;
         }
-    }
-}
-
-
-
-
-
-
-
-/* Contact section */
-.contact form {
-    width: 100%;
-    margin-bottom: 144px;
-}
-
-/* Blog */
-.mdl-layout__content > .posts, .mdl-layout__content > .post {
-    max-width: 1200px;
-    width: calc(100% - 32px);
-    margin: 0 auto;
-}
-
-.posts .post {
-    margin: 8px;
-    .meta a {
-        //color: $text-color-primary;
-    }
-}
-
-.post {
-    > header p, > header a {
-        //color: $text-color-primary;
-        font-weight: 400;
-    }
-    > section img {
-        display: block;
-        max-width: 100%;
-        max-height: 600px;
-        margin: 8px auto;
-        border-radius: 4px;
     }
 }
 
@@ -363,10 +329,5 @@ footer {
         img {
             width: 144px;
         }
-    }
-
-    .post > header p {
-        font-size: 18px;
-        line-height: 24px;
     }
 }
