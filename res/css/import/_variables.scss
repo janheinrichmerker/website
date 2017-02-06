@@ -11,14 +11,24 @@ $code-font: "Source Code Pro", "Inconsolata", "Consolas", "Monaco", "Andale Mono
 $color-primary: $palette-grey-900 !default;
 $color-primary-dark: $color-black !default;
 $color-accent: #dd1155 !default;
+$theme-dark: true;
 
 /* Background colors */
+@if ($theme-dark) {
+    $window-background: $palette-grey-800 !default;
+    $drawer-background: $palette-grey-900 !default;
+}
 $window-background: $palette-grey-50 !default;
 $drawer-background: $color-white !default;
 
 /* Text colors */
+@if ($theme-dark) {
+    $text-color-primary: $color-white !default;
+    $text-color-secondary: rgba($color-black, 0.7) !default;
+}
 $text-color-primary: rgba($color-black, 0.87) !default;
 $text-color-secondary: rgba($color-black, 0.54) !default;
+
 $text-color-primary-inverse: $color-white !default;
 $text-color-secondary-inverse: rgba($color-white, 0.7) !default;
 
