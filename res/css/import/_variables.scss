@@ -1,10 +1,11 @@
 @import "palette";
 
 /* Typography */
-$body-font: "Buenard", "Kreon", "Georgia", "Times New Roman", serif !default;
+$body-font: "Kreon", "Georgia", "Times New Roman", serif !default;
 $body-performance-font: "Georgia", "Times New Roman", serif !default;
 $header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default;
 $button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default;
+$code-font: "Source Code Pro", "Inconsolata", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace !default;
 
 /* Theme colors */
 $color-primary: $palette-grey-900 !default;

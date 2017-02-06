@@ -125,3 +125,7 @@ address {
 ul, ol {
     @include typo-body-1;
 }
+
+code {
+    font-family: $code-font;
+}
