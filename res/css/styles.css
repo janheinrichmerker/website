@@ -555,7 +555,7 @@ h1, h2, h3, h4, h5, h6, p {
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
     font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 56px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.35;
     letter-spacing: -0.02em;
     opacity: 0.54;
@@ -565,7 +565,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 h1 {
     font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 56px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.35;
     letter-spacing: -0.02em;
     margin-top: 24px;
@@ -1211,12 +1211,12 @@ body {
 
 paper-button {
     font-weight: 500 !important;
-    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: 1;
-    letter-spacing: 0;
+    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
 }
 
 paper-button[raised][filled] {
@@ -1255,12 +1255,12 @@ app-drawer-layout app-header-layout app-header app-toolbar [main-title] {
 
 app-drawer-layout app-header-layout app-header app-toolbar paper-button {
     font-weight: 500 !important;
-    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: 1;
-    letter-spacing: 0;
+    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
     min-width: 0;
     font-size: 18px !important;
 }
@@ -1337,6 +1337,16 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 .cover .cover-inner h1, .cover .cover-inner paper-button {
     color: white;
+}
+
+.cover .cover-inner p {
+    font-family: "Kreon", "Georgia", "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    opacity: 0.87;
+    font-size: 22px;
 }
 
 .cover paper-icon-button {
