@@ -3,7 +3,7 @@ $(function() { //Document is ready
     var drawer = drawerLayout.find("app-drawer");
     var headerLayout = drawerLayout.find("app-header-layout");
 
-    drawerLayout.get(0).responsiveWidth = "1024px";
+    drawerLayout.get(0).responsiveWidth = "1440px";
 
     //App layout is narrow?
     updateDrawerLayoutNarrowClass();
@@ -37,6 +37,6 @@ $(function() { //Document is ready
     });
 
     function scrollTo(reference) {
-        $("body").scrollTo(reference);
+        $("html, body").scrollTo(reference);
     }
 });

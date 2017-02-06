@@ -1349,7 +1349,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 }
 
 .cover .cover-inner img {
-    width: 20%;
+    width: 240px;
 }
 
 .cover paper-icon-button {
@@ -1382,7 +1382,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 /* Work section */
 .apps, .libraries {
-    margin: 8px 0;
+    padding: 8px 0;
 }
 
 .apps paper-card, .libraries paper-card {
@@ -1495,7 +1495,7 @@ footer section.right {
     }
 
     .cover .cover-inner img {
-        width: 30%;
+        width: 240px;
     }
 }
 /* Mobile */
@@ -1513,7 +1513,7 @@ footer section.right {
     }
 
     .cover .cover-inner img {
-        width: 40%;
+        width: 240px;
     }
 
     .post > header p {
