@@ -1,46 +1,46 @@
 @import "palette";
 
 /* Typography */
-$body-font: "Kreon", "Georgia", "Times New Roman", serif !default;
-$body-performance-font: "Georgia", "Times New Roman", serif !default;
-$header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default;
-$button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default;
-$code-font: "Source Code Pro", "Inconsolata", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace !default;
+$body-font: "Kreon", "Georgia", "Times New Roman", serif;
+$body-performance-font: "Georgia", "Times New Roman", serif;
+$header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+$button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+$code-font: "Source Code Pro", "Inconsolata", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 
 /* Theme colors */
-$color-primary: $palette-grey-900 !default;
-$color-primary-dark: $color-black !default;
-$color-accent: #dd1155 !default;
+$color-primary: $palette-grey-900;
+$color-primary-dark: $color-black;
+$color-accent: #dd1155;
 $theme-dark: true;
 
 /* Background colors */
+$window-background: $palette-grey-50;
+$drawer-background: $color-white;
 @if ($theme-dark) {
-    $window-background: $palette-grey-800 !default;
-    $drawer-background: $palette-grey-900 !default;
+    $window-background: $palette-grey-800;
+    $drawer-background: $palette-grey-900;
 }
-$window-background: $palette-grey-50 !default;
-$drawer-background: $color-white !default;
 
 /* Text colors */
+$text-color-primary: rgba($color-black, 0.87);
+$text-color-secondary: rgba($color-black, 0.54);
 @if ($theme-dark) {
-    $text-color-primary: $color-white !default;
-    $text-color-secondary: rgba($color-black, 0.7) !default;
+    $text-color-primary: $color-white;
+    $text-color-secondary: rgba($color-black, 0.7);
 }
-$text-color-primary: rgba($color-black, 0.87) !default;
-$text-color-secondary: rgba($color-black, 0.54) !default;
 
-$text-color-primary-inverse: $color-white !default;
-$text-color-secondary-inverse: rgba($color-white, 0.7) !default;
+$text-color-primary-inverse: $color-white;
+$text-color-secondary-inverse: rgba($color-white, 0.7);
 
 $text-color-link-blend: 0.7;
-$text-color-primary-link: mix($text-color-primary, $color-accent, $text-color-link-blend) !default;
-$text-color-secondary-link: mix($text-color-secondary, $color-accent, $text-color-link-blend) !default;
-$text-color-primary-inverse-link: mix($text-color-primary-inverse, $color-accent, $text-color-link-blend) !default;
-$text-color-secondary-inverse-link: mix($text-color-secondary-inverse, $color-accent, $text-color-link-blend) !default;
+$text-color-primary-link: mix($text-color-primary, $color-accent, $text-color-link-blend);
+$text-color-secondary-link: mix($text-color-secondary, $color-accent, $text-color-link-blend);
+$text-color-primary-inverse-link: mix($text-color-primary-inverse, $color-accent, $text-color-link-blend);
+$text-color-secondary-inverse-link: mix($text-color-secondary-inverse, $color-accent, $text-color-link-blend);
 
 /* Footer colors */
-$footer-background: $palette-grey-100 !default;
-$footer-color: $text-color-secondary !default;
+$footer-background: $palette-grey-100;
+$footer-color: $text-color-secondary;
 
 /* Divider colors */
-$divider-color: rgba($color-black, 0.12) !default;
+$divider-color: rgba($color-black, 0.12);
