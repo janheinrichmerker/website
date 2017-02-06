@@ -207,6 +207,7 @@ app-drawer-layout {
 
 /* Work section */
 .apps, .libraries {
+    margin: 8px 0;
 
     paper-card {
         align-self: flex-start;
@@ -214,9 +215,11 @@ app-drawer-layout {
         .card-content {
             h5 {
                 margin-top: 8px;
+                font-weight: 400;
             }
             p {
                 font-family: $body-font;
+                font-size: 17px;
                 margin-bottom: 0;
             }
         }

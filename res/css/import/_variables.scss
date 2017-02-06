@@ -1,10 +1,10 @@
 @import "palette";
 
 /* Typography */
-$body-font: "Kreon", "Georgia", "Times New Roman", serif !default; //make fonts slightly thinner ~300
+$body-font: "Kreon", "Georgia", "Times New Roman", serif !default;
 $body-performance-font: "Georgia", "Times New Roman", serif !default;
-$header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600, first title 500, card titles 400
-$button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default; // at 600
+$header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default;
+$button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif !default;
 
 /* Theme colors */
 $color-primary: $palette-grey-900 !default;
