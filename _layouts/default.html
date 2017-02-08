@@ -58,8 +58,11 @@
         <app-toolbar>
             <h1 main-title>{{ site.name }}</h1>
         </app-toolbar>
-        <paper-menu style="background: 0;">
+        <paper-menu>
             {% for navigation in site.data.drawer.items %}
+            {% if navigation.divider %}
+            <hr>
+            {% else %}
             <a href="{{ navigation.link }}" tabindex="-1" {%if navigation.external %} target="_blank" {% endif %}
                title="{{ navigation.title }}">
                 {% if navigation.icon %}
@@ -76,6 +79,7 @@
                 </paper-item>
                 {% endif %}
             </a>
+            {% endif %}
             {% endfor %}
         </paper-menu>
     </app-drawer>

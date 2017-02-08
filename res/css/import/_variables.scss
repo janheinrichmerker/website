@@ -13,15 +13,19 @@ $color-primary-dark: $color-black;
 $color-accent: #dd1155;
 
 /* Background colors */
-$window-background: $palette-grey-50;
+$window-background: #333333;
 $drawer-background: $palette-grey-900;
 
 /* Text colors */
-$text-color-primary: rgba($color-black, 0.87);
-$text-color-secondary: rgba($color-black, 0.54);
+//$text-color-primary: rgba($color-black, 0.87);
+//$text-color-secondary: rgba($color-black, 0.54);
+//$text-color-primary-inverse: $color-white;
+//$text-color-secondary-inverse: rgba($color-white, 0.7);
 
-$text-color-primary-inverse: $color-white;
-$text-color-secondary-inverse: rgba($color-white, 0.7);
+$text-color-primary: $color-white;
+$text-color-secondary: rgba($color-white, 0.7);
+$text-color-primary-inverse: rgba($color-black, 0.87);
+$text-color-secondary-inverse: rgba($color-black, 0.54);
 
 $text-color-link-blend: 0.7;
 $text-color-primary-link: mix($text-color-primary, $color-accent, $text-color-link-blend);
@@ -36,4 +40,5 @@ $footer-background: $palette-grey-100;
 $footer-color: $text-color-secondary;
 
 /* Divider colors */
-$divider-color: rgba($color-black, 0.12);
+$divider-color: rgba($text-color-primary, 0.12);
+$drawer-divider-color: rgba($text-color-drawer, 0.12);

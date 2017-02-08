@@ -114,6 +114,10 @@ app-drawer-layout {
             }
         }
 
+        hr {
+            border-color: $drawer-divider-color;
+        }
+
         .narrow {
             paper-button, paper-icon-button {
                 display: none;
@@ -234,11 +238,19 @@ app-drawer-layout {
 }
 
 /* Work section */
-.apps, .libraries {
+.apps, .websites, .libraries {
     padding: 8px 0;
 
     h2 {
         padding: 0 8px;
+
+        &:after {
+            content: "";
+            display: block;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 4px solid $text-color-secondary;
+        }
     }
 
     paper-card {
