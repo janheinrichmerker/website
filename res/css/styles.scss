@@ -40,7 +40,7 @@ paper-button {
 
     &[raised][filled] {
         background: $color-primary;
-        color: $text-color-primary-inverse;
+        color: $text-color-button;
     }
 }
 
@@ -66,7 +66,7 @@ app-drawer-layout {
             }
 
             app-toolbar {
-                color: $text-color-primary-inverse;
+                color: $text-color-toolbar;
                 box-sizing: border-box;
 
                 [main-title] {
@@ -85,7 +85,7 @@ app-drawer-layout {
                     top: -1px;
 
                     paper-ripple {
-                        color: $text-color-primary-inverse !important;
+                        color: $text-color-toolbar !important;
                     }
                 }
             }
@@ -96,7 +96,7 @@ app-drawer-layout {
         @include shadow-8dp;
         z-index: 8;
         background: $drawer-background !important;
-        color: $text-color-primary !important;
+        color: $text-color-drawer !important;
 
         .app-drawer {
             background: 0 !important;
@@ -179,10 +179,10 @@ app-drawer-layout {
         top: 50%;
         width: 100%;
         transform: translateY(-50%) translateY(-16px);
-        color: $text-color-secondary-inverse;
+        color: $text-color-cover-primary;
 
         h1, paper-button {
-            color: $text-color-primary-inverse;
+            color: $text-color-cover-primary;
         }
 
         h1 {
@@ -191,7 +191,8 @@ app-drawer-layout {
         }
 
         p {
-            @include typo-subhead(true);
+            @include typo-subhead;
+            color: $text-color-cover-secondary;
             font-size: 22px;
             margin-bottom: 32px;
         }
@@ -207,11 +208,11 @@ app-drawer-layout {
         width: 96px;
         height: 96px;
         margin-left: -48px;
-        color: $text-color-secondary-inverse;
+        color: $text-color-cover-secondary;
         transition: 0.3s color ease;
 
         &:hover {
-            color: $text-color-primary-inverse;
+            color: $text-color-cover-primary;
         }
 
         iron-icon {
@@ -220,7 +221,7 @@ app-drawer-layout {
         }
 
         paper-ripple {
-            color: $text-color-primary-inverse !important;
+            color: $text-color-cover-primary !important;
         }
     }
 }
@@ -247,9 +248,10 @@ app-drawer-layout {
         &:after {
             content: "";
             display: block;
+            width: 72px;
             margin-top: 8px;
             margin-bottom: 16px;
-            border: 4px solid $text-color-secondary;
+            border: 2px solid $text-color-primary;
         }
     }
 

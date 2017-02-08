@@ -17,15 +17,20 @@ $window-background: #333333;
 $drawer-background: $palette-grey-900;
 
 /* Text colors */
-//$text-color-primary: rgba($color-black, 0.87);
-//$text-color-secondary: rgba($color-black, 0.54);
-//$text-color-primary-inverse: $color-white;
-//$text-color-secondary-inverse: rgba($color-white, 0.7);
+$text-color-primary-light: $color-white;
+$text-color-secondary-light: rgba($color-white, 0.7);
+$text-color-primary-dark: rgba($color-black, 0.87);
+$text-color-secondary-dark: rgba($color-black, 0.54);
 
-$text-color-primary: $color-white;
-$text-color-secondary: rgba($color-white, 0.7);
-$text-color-primary-inverse: rgba($color-black, 0.87);
-$text-color-secondary-inverse: rgba($color-black, 0.54);
+//$text-color-primary: $text-color-primary-dark;
+//$text-color-secondary: $text-color-secondary-dark;
+//$text-color-primary-inverse: $text-color-primary-light;
+//$text-color-secondary-inverse: $text-color-secondary-light;
+
+$text-color-primary: $text-color-primary-light;
+$text-color-secondary: $text-color-secondary-light;
+$text-color-primary-inverse: $text-color-primary-dark;
+$text-color-secondary-inverse: $text-color-secondary-dark;
 
 $text-color-link-blend: 0.7;
 $text-color-primary-link: mix($text-color-primary, $color-accent, $text-color-link-blend);
@@ -33,7 +38,12 @@ $text-color-secondary-link: mix($text-color-secondary, $color-accent, $text-colo
 $text-color-primary-inverse-link: mix($text-color-primary-inverse, $color-accent, $text-color-link-blend);
 $text-color-secondary-inverse-link: mix($text-color-secondary-inverse, $color-accent, $text-color-link-blend);
 
-$text-color-drawer: $text-color-primary-inverse;
+$text-color-cover-primary: $text-color-primary-light;
+$text-color-cover-secondary: $text-color-secondary-light;
+$text-color-toolbar: $text-color-primary-light;
+$text-color-drawer: $text-color-primary-light;
+$text-color-card: $text-color-primary-inverse;
+$text-color-button: $text-color-primary-inverse;
 
 /* Footer colors */
 $footer-background: $palette-grey-100;

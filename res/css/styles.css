@@ -1244,7 +1244,7 @@ app-drawer-layout app-header-layout app-header #backgroundRearLayer, app-drawer-
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar {
-    color: rgba(0, 0, 0, 0.87);
+    color: white;
     box-sizing: border-box;
 }
 
@@ -1271,7 +1271,7 @@ app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button {
 }
 
 app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button paper-ripple {
-    color: rgba(0, 0, 0, 0.87) !important;
+    color: white !important;
 }
 app-drawer-layout app-drawer {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
@@ -1298,7 +1298,7 @@ app-drawer-layout app-drawer app-toolbar h1 {
 }
 
 app-drawer-layout app-drawer hr {
-    border-color: rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
@@ -1347,11 +1347,11 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     top: 50%;
     width: 100%;
     transform: translateY(-50%) translateY(-16px);
-    color: rgba(0, 0, 0, 0.54);
+    color: white;
 }
 
 .cover .cover-inner h1, .cover .cover-inner paper-button {
-    color: rgba(0, 0, 0, 0.87);
+    color: white;
 }
 
 .cover .cover-inner h1 {
@@ -1365,7 +1365,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0.04em;
-    opacity: 0.87;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 22px;
     margin-bottom: 32px;
 }
@@ -1380,12 +1380,12 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     width: 96px;
     height: 96px;
     margin-left: -48px;
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(255, 255, 255, 0.7);
     transition: 0.3s color ease;
 }
 
 .cover paper-icon-button:hover {
-    color: rgba(0, 0, 0, 0.87);
+    color: white;
 }
 
 .cover paper-icon-button iron-icon {
@@ -1394,7 +1394,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 }
 
 .cover paper-icon-button paper-ripple {
-    color: rgba(0, 0, 0, 0.87) !important;
+    color: white !important;
 }
 
 /* Services section */
@@ -1419,9 +1419,10 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 .apps h2:after, .websites h2:after, .libraries h2:after {
     content: "";
     display: block;
+    width: 72px;
     margin-top: 8px;
     margin-bottom: 16px;
-    border: 4px solid rgba(255, 255, 255, 0.7);
+    border: 2px solid white;
 }
 
 .apps paper-card, .websites paper-card, .libraries paper-card {
