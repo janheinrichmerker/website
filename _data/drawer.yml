@@ -1,0 +1,21 @@
+items:
+  - title: Home
+    link: /#home
+  - title: Apps
+    link: /#apps
+  - title: Libraries
+    link: /#libraries
+
+  - divider: true
+
+  - title: Xing
+    link: /#xing
+    external: true
+  - title: Google+
+    icon: mdi:google-plus
+    link: https://plus.google.com/+HeinrichReimer
+    external: true
+  - title: GitHub
+    icon: mdi:github-circle
+    link: https://github.com/HeinrichReimer
+    external: true

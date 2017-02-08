@@ -58,9 +58,10 @@
         <app-toolbar>
             <h1 main-title>{{ site.name }}</h1>
         </app-toolbar>
-        <paper-menu>
-            {% for navigation in site.data.navigation.items %}
-            <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
+        <paper-menu style="background: 0;">
+            {% for navigation in site.data.drawer.items %}
+            <a href="{{ navigation.link }}" tabindex="-1" {%if navigation.external %} target="_blank" {% endif %}
+               title="{{ navigation.title }}">
                 {% if navigation.icon %}
                 <paper-icon-item>
                     <iron-icon icon="{{ navigation.icon }}" item-icon></iron-icon>
@@ -87,7 +88,8 @@
                 <h1 main-title>{{ site.name }}</h1>
                 <div class="top-level-navigation">
                     {% for navigation in site.data.navigation.items %}
-                    <a href="{{ navigation.link }}" tabindex="-1" target="_blank" title="{{ navigation.title }}">
+                    <a href="{{ navigation.link }}" tabindex="-1" {%if navigation.external %} target="_blank" {% endif
+                       %} title="{{ navigation.title }}">
                         {% if navigation.icon %}
                         <paper-icon-button icon="{{ navigation.icon }}"></paper-icon-button>
                         {% else %}

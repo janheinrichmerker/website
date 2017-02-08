@@ -62,6 +62,38 @@ permalink: /
 
 <hr>
 
+<iron-grid class="websites" id="websites">
+
+    <h2 class="m12">{{ site.data.websites.title }}</h2>
+
+    {% for website in site.websites reversed %}
+    <paper-card class="xs12 s6 m4" image="{{ website.image }}" elevation="2">
+        <div class="card-content">
+            <h5>{{ website.title }}</h5>
+            <p class="description">{{ website.description }}</p>
+        </div>
+        <div class="card-actions">
+            <div class="horizontal justified">
+                <a href="{{ website.link }}" target="_blank" tabindex="-1">
+                    <paper-button>{{ site.data.websites.button }}</paper-button>
+                </a>
+            </div>
+        </div>
+    </paper-card>
+    {% endfor %}
+
+    <div class="xs12 s6 m4 cta-cell">
+        <h3>{{ site.data.websites.cta.title }}</h3>
+        <p>{{ site.data.websites.cta.description }}</p>
+        <a href="{{ site.data.websites.cta.link }}" tabindex="-1" target="_blank">
+            <paper-button raised filled>{{ site.data.websites.cta.button }}</paper-button>
+        </a>
+    </div>
+
+</iron-grid>
+
+<hr>
+
 <iron-grid class="libraries" id="libraries">
 
     <h2 class="m12">{{ site.data.libraries.title }}</h2>

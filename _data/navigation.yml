@@ -5,9 +5,3 @@ items:
     link: /#apps
   - title: Libraries
     link: /#libraries
-  - title: Google+
-    icon: mdi:google-plus
-    link: https://plus.google.com/+HeinrichReimer
-  - title: GitHub
-    icon: mdi:github-circle
-    link: https://github.com/HeinrichReimer
