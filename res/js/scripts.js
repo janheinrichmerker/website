@@ -1,4 +1,6 @@
 $(function() { //Document is ready
+    var html = $("html");
+    var body = $("body");
     var drawerLayout = $("app-drawer-layout");
     var drawer = drawerLayout.find("app-drawer");
 
@@ -22,12 +24,14 @@ $(function() { //Document is ready
 
     //Scroll-to links
     function scrollTo(reference) {
-        window.history.pushState(reference, document.title, "/" + reference);
+        window.history.pushState(reference, document.title, reference);
         $("html").scrollTo(reference);
     }
-    $("a[href^='#'], a[href^='/#']").each(function () {
+
+    var linkSelector = "a[href^='#']" + (body.hasClass("page-index") ? ", a[href^='/#'], a[href^='/index.html#']" : "");
+    $(linkSelector).each(function () {
         $(this).click(function(event) {
-            var href = $(this).attr("href").replace("/", "");
+            var href = $(this).attr("href").replace("/", "").replace("/index.html", "");
             scrollTo(href);
             event.preventDefault();
         });
