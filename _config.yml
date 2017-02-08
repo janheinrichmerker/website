@@ -17,6 +17,7 @@ meta:
   description: Android development with love.
 
 collections:
+- collections
 - apps
 - libraries
 - services
@@ -42,3 +43,4 @@ markdown: kramdown
 
 gems:
   - jekyll-redirect-from
+  - jemoji
