@@ -17,7 +17,6 @@ meta:
   description: Android development with love.
 
 collections:
-- collections
 - apps
 - libraries
 - services
