@@ -19,6 +19,7 @@ meta:
 collections:
 - apps
 - libraries
+- websites
 - services
 
 defaults:
@@ -32,6 +33,9 @@ defaults:
       type: libraries
     values:
       layout: page
+  - scope:
+      path: ""
+      type: websites
   - scope:
       path: ""
       type: services

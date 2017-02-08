@@ -166,6 +166,11 @@ app-drawer-layout {
 
             .content {
                 margin-top: -64px;
+
+                iron-grid {
+                    margin-top: 56px;
+                    margin-bottom: 72px;
+                }
             }
         }
     }
@@ -256,8 +261,8 @@ app-drawer-layout {
         &:after {
             content: "";
             display: block;
-            width: 72px;
-            margin-top: 8px;
+            width: 64px;
+            margin-top: 12px;
             margin-bottom: 16px;
             border: 2px solid $text-color-primary;
         }

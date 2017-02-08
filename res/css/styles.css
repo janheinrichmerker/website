@@ -1335,6 +1335,11 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     margin-top: -64px;
 }
 
+.page-index app-drawer-layout app-header-layout .content iron-grid {
+    margin-top: 56px;
+    margin-bottom: 72px;
+}
+
 /* Cover */
 .cover {
   position: relative;
@@ -1424,8 +1429,8 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 .collection h2:after {
     content: "";
     display: block;
-    width: 72px;
-    margin-top: 8px;
+    width: 64px;
+    margin-top: 12px;
     margin-bottom: 16px;
     border: 2px solid white;
 }

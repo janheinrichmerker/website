@@ -3,7 +3,7 @@
     <h2 class="m12">{{ include.info.title }}</h2>
 
     {% for item in include.items reversed %}
-    <paper-card class="xs12 s6 m4" image="{{ item.image }}" elevation="2">
+    <paper-card class="xs12 s6 m4" {% if item.image %} image="{{ item.image }}" {% endif %} elevation="2">
         <div class="card-content">
             <h5>{{ item.title }}</h5>
             <p class="description">{{ item.description }}</p>
