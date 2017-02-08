@@ -1,11 +1,11 @@
 @import "palette";
 
 /* Typography */
-$body-font: "Kreon", "Georgia", "Times New Roman", serif;
-$body-performance-font: "Georgia", "Times New Roman", serif;
-$header-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-$button-font: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-$code-font: "Source Code Pro", "Inconsolata", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+$font-body: "Kreon", "Georgia", "Times New Roman", serif;
+$font-body-performance: "Georgia", "Times New Roman", serif;
+$font-header: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+$font-button: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+$font-code: "Source Code Pro", "Inconsolata", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
 
 /* Theme colors */
 $color-primary: $palette-grey-900;
@@ -13,8 +13,9 @@ $color-primary-dark: $color-black;
 $color-accent: #dd1155;
 
 /* Background colors */
-$window-background: #333333;
-$drawer-background: $palette-grey-900;
+$background-window: $palette-grey-800;
+$background-drawer: #333333;
+$background-footer: $background-window;
 
 /* Text colors */
 $text-color-primary-light: $color-white;
@@ -22,10 +23,11 @@ $text-color-secondary-light: rgba($color-white, 0.7);
 $text-color-primary-dark: rgba($color-black, 0.87);
 $text-color-secondary-dark: rgba($color-black, 0.54);
 
-//$text-color-primary: $text-color-primary-dark;
-//$text-color-secondary: $text-color-secondary-dark;
-//$text-color-primary-inverse: $text-color-primary-light;
-//$text-color-secondary-inverse: $text-color-secondary-light;
+// Uncomment for light background
+// $text-color-primary: $text-color-primary-dark;
+// $text-color-secondary: $text-color-secondary-dark;
+// $text-color-primary-inverse: $text-color-primary-light;
+// $text-color-secondary-inverse: $text-color-secondary-light;
 
 $text-color-primary: $text-color-primary-light;
 $text-color-secondary: $text-color-secondary-light;
@@ -42,13 +44,12 @@ $text-color-cover-primary: $text-color-primary-light;
 $text-color-cover-secondary: $text-color-secondary-light;
 $text-color-toolbar: $text-color-primary-light;
 $text-color-drawer: $text-color-primary-light;
-$text-color-card: $text-color-primary-inverse;
-$text-color-button: $text-color-primary-inverse;
-
-/* Footer colors */
-$footer-background: $palette-grey-100;
-$footer-color: $text-color-secondary;
+$text-color-card-primary: $text-color-primary-inverse;
+$text-color-card-secondary: $text-color-secondary-inverse;
+$text-color-button: $text-color-primary;
+$text-color-footer: $text-color-secondary;
 
 /* Divider colors */
 $divider-color: rgba($text-color-primary, 0.12);
-$drawer-divider-color: rgba($text-color-drawer, 0.12);
+$divider-color-drawer: rgba($text-color-drawer, 0.12);
+$divider-color-footer: rgba($text-color-footer, 0.12);

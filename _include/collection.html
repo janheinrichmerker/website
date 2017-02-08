@@ -1,0 +1,29 @@
+<iron-grid class="include.info.id" id="include.info.id">
+
+    <h2 class="m12">{{ include.info.title }}</h2>
+
+    {% for library in include.items reversed %}
+    <paper-card class="xs12 s6 m4" image="{{ library.image }}" elevation="2">
+        <div class="card-content">
+            <h5>{{ library.title }}</h5>
+            <p class="description">{{ library.description }}</p>
+        </div>
+        <div class="card-actions">
+            <div class="horizontal justified">
+                <a href="{{ library.link }}" target="_blank" tabindex="-1">
+                    <paper-button>{{ include.info.button }}</paper-button>
+                </a>
+            </div>
+        </div>
+    </paper-card>
+    {% endfor %}
+
+    <div class="xs12 s6 m4 cta-cell">
+        <h3>{{ include.info.cta.title }}</h3>
+        <p>{{ include.info.cta.description }}</p>
+        <a href="{{ include.info.cta.link }}" tabindex="-1" target="_blank">
+            <paper-button raised filled>{{ include.info.cta.button }}</paper-button>
+        </a>
+    </div>
+
+</iron-grid>

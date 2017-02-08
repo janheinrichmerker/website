@@ -17,7 +17,7 @@
 @import "mixins";
 
 html, body {
-    font-family: $body-performance-font;
+    font-family: $font-body-performance;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -127,5 +127,5 @@ ul, ol {
 }
 
 code {
-    font-family: $code-font;
+    font-family: $font-code;
 }

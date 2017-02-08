@@ -48,12 +48,12 @@
 
 @mixin typo-preferred-font($usePreferred: true) {
     @if $usePreferred {
-        font-family: $body-font;
+        font-family: $font-body;
     }
 }
 
 @mixin typo-display-4($colorContrast: false, $usePreferred: true) {
-    font-family: $header-font;
+    font-family: $font-header;
     font-size: 112px;
     font-weight: 600;
     line-height: 1;
@@ -65,7 +65,7 @@
 }
 
 @mixin typo-display-3($colorContrast: false, $usePreferred: true) {
-    font-family: $header-font;
+    font-family: $font-header;
     font-size: 56px;
     font-weight: 600;
     line-height: 1.35;
@@ -77,7 +77,7 @@
 }
 
 @mixin typo-display-2($colorContrast: false, $usePreferred: true) {
-    font-family: $header-font;
+    font-family: $font-header;
     font-size: 45px;
     font-weight: 600;
     line-height: 48px;
@@ -88,7 +88,7 @@
 }
 
 @mixin typo-display-1($colorContrast: false, $usePreferred: true) {
-    font-family: $header-font;
+    font-family: $font-header;
     font-size: 34px;
     font-weight: 600;
     line-height: 40px;
@@ -99,7 +99,7 @@
 }
 
 @mixin typo-headline($colorContrast: false, $usePreferred: true) {
-    font-family: $header-font;
+    font-family: $font-header;
     font-size: 24px;
     font-weight: 600;
     line-height: 32px;
@@ -111,7 +111,7 @@
 }
 
 @mixin typo-title($colorContrast: false, $usePreferred: true) {
-    font-family: $header-font;
+    font-family: $font-header;
     font-size: 20px;
     font-weight: 600;
     line-height: 1;
@@ -225,7 +225,7 @@
 
 @mixin typo-button($colorContrast: false, $usePreferred: true) {
     @include typo-weight-medium;
-    font-family: $header-font !important;
+    font-family: $font-header !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;

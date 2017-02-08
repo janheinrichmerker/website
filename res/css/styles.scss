@@ -48,6 +48,14 @@ paper-item, paper-icon-item {
     @include typo-weight-medium;
 }
 
+paper-card {
+    color: $text-color-card-primary;
+
+    p {
+        color: $text-color-card-secondary;
+    }
+}
+
 /* Grid */
 iron-grid {
     max-width: 1200px;
@@ -95,7 +103,7 @@ app-drawer-layout {
     app-drawer {
         @include shadow-8dp;
         z-index: 8;
-        background: $drawer-background !important;
+        background: $background-drawer !important;
         color: $text-color-drawer !important;
 
         .app-drawer {
@@ -115,7 +123,7 @@ app-drawer-layout {
         }
 
         hr {
-            border-color: $drawer-divider-color;
+            border-color: $divider-color-drawer;
         }
 
         .narrow {
@@ -263,7 +271,7 @@ app-drawer-layout {
                 margin-top: 8px;
             }
             p {
-                font-family: $body-font;
+                font-family: $font-body;
                 font-size: 17px;
                 margin-bottom: 0;
             }
@@ -297,17 +305,17 @@ app-drawer-layout {
 /* Footer */
 footer {
     margin-top: 48px;
-    border-top: 1px solid $divider-color;
+    border-top: 1px solid $divider-color-footer;
     padding: 24px;
     text-align: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    color: $footer-color;
-    background-color: $footer-background;
+    color: $text-color-footer;
+    background-color: $background-footer;
 
     a {
-        color: $footer-color;
+        color: $text-color-footer;
     }
 
     section {
