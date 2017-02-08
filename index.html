@@ -30,11 +30,11 @@ permalink: /
 
 <hr>
 
-{{ include collection.html info=site.data.apps items= site.apps }}
+{% include collection.html info=site.data.apps items= site.apps %}
 
 <hr>
 
-{{ include collection.html info=site.data.websites items= site.websites }}
+{% include collection.html info=site.data.websites items= site.websites %}
 
 <hr>
 
@@ -42,7 +42,7 @@ permalink: /
 
     <h2 class="m12">{{ site.data.libraries.title }}</h2>
 
-    {% for item in {{ site.libraries.items }} reversed %}
+    {% for item in {{ site.libraries }} reversed %}
     <paper-card class="xs12 s6 m4" image="{{ item.image }}" elevation="2">
         <div class="card-content">
             <h5>{{ item.title }}</h5>
