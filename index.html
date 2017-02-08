@@ -30,67 +30,11 @@ permalink: /
 
 <hr>
 
-<iron-grid class="{{ collection.info.id }}" id="{{ collection.info.id }}">
-
-    <h2 class="m12">{{ collection.info.title }}</h2>
-
-    {% for item in {{ collection.items }} reversed %}
-    <paper-card class="xs12 s6 m4" image="{{ item.image }}" elevation="2">
-        <div class="card-content">
-            <h5>{{ item.title }}</h5>
-            <p class="description">{{ item.description }}</p>
-        </div>
-        <div class="card-actions">
-            <div class="horizontal justified">
-                <a href="{{ item.link }}" target="_blank" tabindex="-1">
-                    <paper-button>{{ collection.info.button }}</paper-button>
-                </a>
-            </div>
-        </div>
-    </paper-card>
-    {% endfor %}
-
-    <div class="xs12 s6 m4 cta-cell">
-        <h3>{{ collection.info.cta.title }}</h3>
-        <p>{{ collection.info.cta.description }}</p>
-        <a href="{{ collection.info.cta.link }}" tabindex="-1" target="_blank">
-            <paper-button raised filled>{{ collection.info.cta.button }}</paper-button>
-        </a>
-    </div>
-
-</iron-grid>
+{{ include collection.html info=site.data.apps items= site.apps }}
 
 <hr>
 
-<iron-grid class="{{ collection.info.id }}" id="{{ collection.info.id }}">
-
-    <h2 class="m12">{{ collection.info.title }}</h2>
-
-    {% for item in {{ collection.items }} reversed %}
-    <paper-card class="xs12 s6 m4" image="{{ item.image }}" elevation="2">
-        <div class="card-content">
-            <h5>{{ item.title }}</h5>
-            <p class="description">{{ item.description }}</p>
-        </div>
-        <div class="card-actions">
-            <div class="horizontal justified">
-                <a href="{{ item.link }}" target="_blank" tabindex="-1">
-                    <paper-button>{{ collection.info.button }}</paper-button>
-                </a>
-            </div>
-        </div>
-    </paper-card>
-    {% endfor %}
-
-    <div class="xs12 s6 m4 cta-cell">
-        <h3>{{ collection.info.cta.title }}</h3>
-        <p>{{ collection.info.cta.description }}</p>
-        <a href="{{ collection.info.cta.link }}" tabindex="-1" target="_blank">
-            <paper-button raised filled>{{ collection.info.cta.button }}</paper-button>
-        </a>
-    </div>
-
-</iron-grid>
+{{ include collection.html info=site.data.websites items= site.websites }}
 
 <hr>
 
