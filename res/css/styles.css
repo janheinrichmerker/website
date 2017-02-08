@@ -1413,15 +1413,15 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 }
 
 /* Work section */
-.apps, .websites, .libraries {
+.collection {
     padding: 8px 0;
 }
 
-.apps h2, .websites h2, .libraries h2 {
+.collection h2 {
     padding: 0 8px;
 }
 
-.apps h2:after, .websites h2:after, .libraries h2:after {
+.collection h2:after {
     content: "";
     display: block;
     width: 72px;
@@ -1430,36 +1430,36 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
     border: 2px solid white;
 }
 
-.apps paper-card, .websites paper-card, .libraries paper-card {
+.collection paper-card {
     align-self: flex-start;
 }
 
-.apps paper-card .card-content h5, .websites paper-card .card-content h5, .libraries paper-card .card-content h5 {
+.collection paper-card .card-content h5 {
     margin-top: 8px;
 }
 
-.apps paper-card .card-content p, .websites paper-card .card-content p, .libraries paper-card .card-content p {
+.collection paper-card .card-content p {
     font-family: "Kreon", "Georgia", "Times New Roman", serif;
     font-size: 17px;
     margin-bottom: 0;
 }
 
-.apps paper-card .card-actions, .websites paper-card .card-actions, .libraries paper-card .card-actions {
+.collection paper-card .card-actions {
     padding-left: 8px;
     padding-right: 8px;
 }
 
-.apps paper-card .card-actions paper-button, .websites paper-card .card-actions paper-button, .libraries paper-card .card-actions paper-button {
+.collection paper-card .card-actions paper-button {
     margin: 0;
 }
 
-.apps .cta-cell, .websites .cta-cell, .libraries .cta-cell {
+.collection .cta-cell {
     padding: 64px 16px;
     position: relative;
     text-align: center;
 }
 
-.apps .cta-cell p, .websites .cta-cell p, .libraries .cta-cell p {
+.collection .cta-cell p {
     font-family: "Kreon", "Georgia", "Times New Roman", serif;
     font-size: 17px;
     font-weight: 400;

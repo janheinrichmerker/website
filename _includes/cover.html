@@ -1,0 +1,13 @@
+<div class="cover" id="home" style="background-image: url('{{ site.data.cover.image }}')">
+    <div class="cover-inner">
+        <img src="{{ site.data.cover.logo }}">
+        <h1>{{ site.data.cover.title }}</h1>
+        <p>{{ site.data.cover.subtitle }}</p>
+        <a href="{{ site.data.cover.button.link }}" tabindex="-1">
+            <paper-button raised filled>{{ site.data.cover.button.title }}</paper-button>
+        </a>
+    </div>
+    <a href="#services">
+        <paper-icon-button icon="hardware:keyboard-arrow-down"></paper-icon-button>
+    </a>
+</div>
