@@ -6,7 +6,9 @@
     <paper-card class="xs12 s6 m4" {% if item.image %} image="{{ item.image }}" {% endif %} elevation="2">
         <div class="card-content">
             <h5>{{ item.title }}</h5>
+            {% if item.date %}
             <time>{{ item.date | date: "%b %Y" }}</time>
+            {% endif %}
             <p class="description">{{ item.description }}</p>
         </div>
         <div class="card-actions">
