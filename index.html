@@ -7,11 +7,12 @@ permalink: /
 {% include cover.html %}
 
 <iron-grid class="services" id="services">
-    {% for service in site.services %}
+    {% assign services = site.services | sort:"order" %}
+    {% for service in services %}
     <section class="xs12 s6 m4">
         <iron-icon icon="{{ service.icon }}"></iron-icon>
         <h3>{{ service.title }}</h3>
-        <h6>{{ service.description }}</h6>
+        <h6>{{ service.content }}</h6>
     </section>
     {% endfor %}
 </iron-grid>
