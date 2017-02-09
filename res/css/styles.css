@@ -1230,8 +1230,34 @@ paper-card {
     color: rgba(0, 0, 0, 0.87);
 }
 
-paper-card p {
+paper-card .card-content h5 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+paper-card .card-content time, paper-card .card-content p {
+    font-family: "Kreon", "Georgia", "Times New Roman", serif;
     color: rgba(0, 0, 0, 0.54);
+}
+
+paper-card .card-content time {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+paper-card .card-content p {
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+paper-card .card-actions {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+paper-card .card-actions paper-button {
+    margin: 0;
 }
 
 /* Grid */
@@ -1437,25 +1463,6 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 
 .collection paper-card {
     align-self: flex-start;
-}
-
-.collection paper-card .card-content h5 {
-    margin-top: 8px;
-}
-
-.collection paper-card .card-content p {
-    font-family: "Kreon", "Georgia", "Times New Roman", serif;
-    font-size: 17px;
-    margin-bottom: 0;
-}
-
-.collection paper-card .card-actions {
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.collection paper-card .card-actions paper-button {
-    margin: 0;
 }
 
 .collection .cta-cell {

@@ -46,4 +46,6 @@ markdown: kramdown
 
 gems:
   - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-gist
   - jemoji

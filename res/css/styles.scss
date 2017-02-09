@@ -51,8 +51,31 @@ paper-item, paper-icon-item {
 paper-card {
     color: $text-color-card-primary;
 
-    p {
-        color: $text-color-card-secondary;
+    .card-content {
+        h5 {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        time, p {
+            font-family: $font-body;
+            color: $text-color-card-secondary;
+        }
+        time {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        p {
+            font-size: 17px;
+            margin-bottom: 0;
+        }
+    }
+    .card-actions {
+        padding-left: 8px;
+        padding-right: 8px;
+        paper-button {
+            margin: 0;
+        }
     }
 }
 
@@ -270,24 +293,6 @@ app-drawer-layout {
 
     paper-card {
         align-self: flex-start;
-
-        .card-content {
-            h5 {
-                margin-top: 8px;
-            }
-            p {
-                font-family: $font-body;
-                font-size: 17px;
-                margin-bottom: 0;
-            }
-        }
-        .card-actions {
-            padding-left: 8px;
-            padding-right: 8px;
-            paper-button {
-                margin: 0;
-            }
-        }
     }
 
     .cta-cell {

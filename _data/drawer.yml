@@ -5,6 +5,9 @@ items:
   - title: Apps
     icon: hardware:phone-android
     link: /#apps
+  - title: Websites
+    icon: mdi:earth
+    link: /#websites
   - title: Libraries
     icon: mdi:book
     link: /#libraries

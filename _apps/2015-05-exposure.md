@@ -1,5 +1,4 @@
 ---
-layout: post
 date: 2015-05-01 00:00:00 +0000
 title: Exposure
 description: Optimal exposure adjustments for your camera.
