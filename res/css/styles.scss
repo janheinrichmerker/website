@@ -267,6 +267,13 @@ app-drawer-layout {
     section {
         text-align: center;
 
+        p {
+            @include typo-subhead;
+
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
         iron-icon {
             width: 48px;
             height: 48px;
