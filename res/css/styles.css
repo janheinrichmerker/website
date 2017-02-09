@@ -1307,7 +1307,7 @@ app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button pap
 app-drawer-layout app-drawer {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
   z-index: 8;
-    background: #424242 !important;
+    background: #3e3e3e !important;
     color: white !important;
 }
 
