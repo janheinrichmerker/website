@@ -9,7 +9,7 @@
             {% if item.date %}
             <time>{{ item.date | date: "%b %Y" }}</time>
             {% endif %}
-            <p class="description">{{ item.description }}</p>
+            {{ item.content }}
         </div>
         <div class="card-actions">
             <div class="horizontal justified">
