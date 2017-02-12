@@ -2,6 +2,8 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     {% assign asset_version = 'XBrebwpyp8' %}
+    {% assign comment = '/*' %}
+    {% assign uncomment = '*/' %}
 
     <!-- Compatibility -->
     <meta charset="utf-8">
@@ -27,10 +29,7 @@
     <meta name="theme-color" content="#424242">
 
     <!-- Web components -->
-    {% assign script = 'script' %}
-    <{{ script }}>{% include /bower_components/webcomponentsjs/webcomponents-lite.js %}
-</
-{{ script }}>
+    <script>/*{{ uncomment }}{% include /bower_components/webcomponentsjs/webcomponents-lite.js %}{{ comment }}*/</script>
     <link rel="import" href="/bower_components/app-layout/app-layout.html">
     <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
     <link rel="import" href="/bower_components/iron-grid/iron-grid.html">
@@ -52,8 +51,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Styles -->
-{% assign style = 'style' %}<{{ style }}>{% include /res/css/styles.min.css %}
-</{{ style }}>
+    <style>/*{{ uncomment }}{% include /res/css/styles.min.css %}{{ comment }}*/</style>
 
 </head>
 <body class="page-{{ page.title | slugify }} {% if page.url == '/' %}page-index{% endif %}">
