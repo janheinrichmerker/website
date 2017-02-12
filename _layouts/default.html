@@ -69,7 +69,6 @@
                 <paper-icon-item>
                     <iron-icon icon="{{ navigation.icon }}" item-icon></iron-icon>
                     {{ navigation.title }}
-
                     <paper-ripple></paper-ripple>
                 </paper-icon-item>
                 {% else %}
@@ -86,7 +85,7 @@
 
     <app-header-layout>
 
-        <app-header fixed effects="waterfall fade-background">
+        <app-header fixed effects="{% if page.url == '/' %}waterfall{% endif %} fade-background">
             <app-toolbar>
                 <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
                 <h1 main-title>{{ site.name }}</h1>

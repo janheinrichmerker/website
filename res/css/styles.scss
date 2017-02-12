@@ -67,6 +67,7 @@ paper-card {
         }
         p {
             font-size: 17px;
+            line-height: 20px;
             margin-bottom: 0;
         }
     }
@@ -136,6 +137,13 @@ app-drawer-layout {
         paper-menu {
             color: inherit !important;
             background: 0 !important;
+
+            paper-item, paper-icon-item {
+                &:hover {
+                    background: rgba($text-color-drawer, 0.12);
+                    transition: background 0.3s ease;
+                }
+            }
         }
 
         app-toolbar {

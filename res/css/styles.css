@@ -635,7 +635,7 @@ p {
 }
 
 a {
-    color: #dd1356;
+    color: #f5b8cc;
     font-weight: 500;
 }
 
@@ -1248,6 +1248,7 @@ paper-card .card-content time {
 
 paper-card .card-content p {
     font-size: 17px;
+    line-height: 20px;
     margin-bottom: 0;
 }
 
@@ -1318,6 +1319,11 @@ app-drawer-layout app-drawer .app-drawer {
 app-drawer-layout app-drawer paper-menu {
     color: inherit !important;
     background: 0 !important;
+}
+
+app-drawer-layout app-drawer paper-menu paper-item:hover, app-drawer-layout app-drawer paper-menu paper-icon-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transition: background 0.3s ease;
 }
 
 app-drawer-layout app-drawer app-toolbar h1 {
