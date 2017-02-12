@@ -1,6 +1,8 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
+    {% assign asset_version = 'XBrebwpyp8' %}
+
     <!-- Compatibility -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,21 +13,25 @@
     <meta name="description" content="{{ site.description }}">
 
     <!-- Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=XBrebwpyp8">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=XBrebwpyp8" sizes="32x32">
-    <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v=XBrebwpyp8" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=XBrebwpyp8" sizes="16x16">
-    <link rel="manifest" href="/manifest.json?v=XBrebwpyp8">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=XBrebwpyp8" color="#dd1155">
-    <link rel="shortcut icon" href="/favicon.ico?v=XBrebwpyp8">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v={{ asset_version }}">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png?v={{ asset_version }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v={{ asset_version }}" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png?v={{ asset_version }}" sizes="16x16">
+    <link rel="manifest" href="/manifest.json?v={{ asset_version }}">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v={{ asset_version }}" color="#dd1155">
+    <link rel="shortcut icon" href="/favicon.ico?v={{ asset_version }}">
     <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
     <meta name="application-name" content="{{ site.name }}">
     <meta name="msapplication-TileColor" content="#dd1155">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=XBrebwpyp8">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png?v={{ asset_version }}">
     <meta name="theme-color" content="#424242">
 
     <!-- Web components -->
-    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script>
+        {%
+            include / bower_components / webcomponentsjs / webcomponents - lite.js %
+        }
+    </script>
     <link rel="import" href="/bower_components/app-layout/app-layout.html">
     <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
     <link rel="import" href="/bower_components/iron-grid/iron-grid.html">
@@ -47,7 +53,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/res/css/styles.min.css">
+    <style>
+        {
+        %
+        include
+        /res/
+        css
+        /
+        styles
+        .
+        min
+        .
+        css
+        %
+        }
+    </style>
 
 </head>
 <body class="page-{{ page.title | slugify }} {% if page.url == '/' %}page-index{% endif %}">
