@@ -42,6 +42,16 @@ defaults:
     values:
       layout: page
 
+compress_html:
+  clippings: [div, p, ul, td, h1, h2]
+  comments: ["<!-- ", " -->"]
+  endings: [p, li, td]
+  ignore:
+    envs: []
+  blanklines: false
+  profile: true
+  startings: [html, head, body]
+
 markdown: kramdown
 
 gems:
