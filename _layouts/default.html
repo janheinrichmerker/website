@@ -34,22 +34,22 @@ layout: compress
     {% if jekyll.environment == "production" %}
     <script>{% include js/webcomponents-lite.min.js %}</script>
     {% else %}
-    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js?v={{ asset_version }}"></script>
     {% endif %}
-    <link rel="import" href="/bower_components/app-layout/app-layout.min.html">
-    <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.min.html">
-    <link rel="import" href="/bower_components/iron-grid/iron-grid.min.html">
-    <link rel="import" href="/bower_components/iron-icons/iron-icons.min.html">
-    <link rel="import" href="/bower_components/iron-icons/hardware-icons.min.html">
-    <link rel="import" href="/bower_components/material-design-icons/material-design-icons.min.html">
-    <link rel="import" href="/bower_components/paper-button/paper-button.min.html">
-    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.min.html">
-    <link rel="import" href="/bower_components/paper-menu/paper-menu.min.html">
-    <link rel="import" href="/bower_components/paper-item/paper-item.min.html">
-    <link rel="import" href="/bower_components/paper-item/paper-icon-item.min.html">
-    <link rel="import" href="/bower_components/paper-card/paper-card.min.html">
-    <link rel="import" href="/bower_components/paper-material/paper-material.min.html">
-    <link rel="import" href="/bower_components/prism-element/prism-highlighter.min.html">
+    <link rel="import" href="/bower_components/app-layout/app-layout.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/iron-grid/iron-grid.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/iron-icons/iron-icons.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/iron-icons/hardware-icons.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/material-design-icons/material-design-icons.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/paper-button/paper-button.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/paper-menu/paper-menu.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/paper-item/paper-item.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/paper-item/paper-icon-item.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/paper-card/paper-card.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/paper-material/paper-material.min.html?v={{ asset_version }}">
+    <link rel="import" href="/bower_components/prism-element/prism-highlighter.min.html?v={{ asset_version }}">
 
     <!-- Styles -->
     {% if jekyll.environment == "production" %}
@@ -150,10 +150,10 @@ layout: compress
 <script>{% include js/jquery.scrollto.min.js %}</script>
 <script>{% include js/scripts.min.js %}</script>
 {% else %}
-<script async defer src="/res/js/jquery-2.2.2.min.js"></script>
-<script src="/res/js/webfontloader.min.js"></script>
-<script async defer src="/res/js/jquery.scrollto.min.js"></script>
-<script async defer src="/res/js/scripts.min.js"></script>
+<script async defer src="/res/js/jquery-2.2.2.min.js?v={{ asset_version }}"></script>
+<script src="/res/js/webfontloader.min.js?v={{ asset_version }}"></script>
+<script async defer src="/res/js/jquery.scrollto.min.js?v={{ asset_version }}"></script>
+<script async defer src="/res/js/scripts.min.js?v={{ asset_version }}"></script>
 {% endif %}
 
 </body>
