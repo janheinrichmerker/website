@@ -32,7 +32,7 @@ layout: compress
 
     <!-- Web components -->
     <!-- <script async src="/bower_components/webcomponentsjs/webcomponents-lite.min.js?v={{ asset_version }}"></script> -->
-    {{ '<script>' }}{% include js/webcomponents-lite.min.js %}{{ '</script>' }}
+    <script>{% include webcomponents-lite.min.js %}</script>
     <link rel="import" href="/bower_components/app-layout/app-layout.min.html">
     <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.min.html">
     <link rel="import" href="/bower_components/iron-grid/iron-grid.min.html">
@@ -47,6 +47,14 @@ layout: compress
     <link rel="import" href="/bower_components/paper-card/paper-card.min.html">
     <link rel="import" href="/bower_components/paper-material/paper-material.min.html">
     <link rel="import" href="/bower_components/prism-element/prism-highlighter.min.html">
+
+    <!-- Styles -->
+    <!-- <link rel="stylesheet" href="/res/css/styles.min.css?v={{ asset_version }}"> -->
+    <style>{% include css/styles.min.css %}</style>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Kreon:400,700|Poppins:500,600,700|Source+Code+Pro:500,600"
+          rel="stylesheet">
 
 </head>
 <body class="page-{{ page.title | slugify }} {% if page.url == '/' %}page-index{% endif %}">
@@ -141,10 +149,3 @@ layout: compress
 </body>
 
 </html>
-
-<!-- Styles -->
-<link rel="stylesheet" href="/res/css/styles.min.css?v={{ asset_version }}">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Kreon:400,700|Poppins:500,600,700|Source+Code+Pro:500,600"
-      rel="stylesheet">

@@ -1,3 +1,4 @@
+# Meta information
 name: Heinrich Reimer
 description: Android development with love.
 license: All rights reserved.
@@ -12,16 +13,25 @@ author:
   email: heinrich@heinrichreimer.com
   telephone: +49 1749273954
 
-meta:
-  title: Heinrich Reimer
-  description: Android development with love.
-
+# Collections of posts
 collections:
 - apps
 - libraries
 - websites
 - services
 
+# Needed to include CSS/JS inline
+includes:
+- res
+- bower_components/webcomponentsjs
+
+# Removes files and folders from Jekyll build
+exclude:
+- node_modules
+- bower.json
+- README.md
+
+# Default values
 defaults:
   - scope:
       path: ""
@@ -42,14 +52,17 @@ defaults:
     values:
       layout: page
 
+# HTML compressor configurations
 compress_html:
   clippings: [div, p, ul, td, h1, h2]
   comments: ["<!-- ", " -->"]
   endings: [li, td]
   startings: [html, head, body]
 
+# Markdown parser
 markdown: kramdown
 
+# Jekyll plugins
 gems:
   - jekyll-redirect-from
   - jekyll-sitemap
