@@ -13,6 +13,7 @@ layout: compress
 {% assign is_index = false %}
 {% endif %}
 <body class="page-{{ page.title | slugify }} {% if is_index %}page-index{% endif %}">
+<script async defer src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <app-drawer-layout fullbleed responsiveWidth="1024px">
 
@@ -110,7 +111,6 @@ layout: compress
 <script async defer src="/res/js/scripts.min.js?v={{ asset_version }}"></script>
 <script async defer src="/res/js/prism.min.js?v={{ asset_version }}"></script>
 {% endif %}
-<script async defer src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 
