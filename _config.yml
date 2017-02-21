@@ -36,14 +36,18 @@ keywords:
 # Collections of posts
 collections:
 - apps
+  output: true
 - libraries
 - websites
 - services
-
-# Needed to include CSS/JS inline
-includes:
-- res
-- bower_components/webcomponentsjs
+  apps:
+    output: true
+  libraries:
+    output: true
+  websites:
+    output: true
+  services:
+    output: true
 
 # Removes files and folders from Jekyll build
 exclude:
