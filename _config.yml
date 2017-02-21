@@ -45,11 +45,7 @@ defaults:
 compress_html:
   clippings: [div, p, ul, td, h1, h2]
   comments: ["<!-- ", " -->"]
-  endings: [p, li, td]
-  ignore:
-    envs: []
-  blanklines: false
-  profile: true
+  endings: [li, td]
   startings: [html, head, body]
 
 markdown: kramdown
