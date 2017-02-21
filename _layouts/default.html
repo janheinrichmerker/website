@@ -47,9 +47,6 @@ layout: compress
     <link rel="import" href="/bower_components/paper-material/paper-material.min.html">
     <link rel="import" href="/bower_components/prism-element/prism-highlighter.min.html">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="/res/css/styles.min.css?v={{ asset_version }}">
-
 </head>
 <body class="page-{{ page.title | slugify }} {% if page.url == '/' %}page-index{% endif %}">
 
@@ -143,6 +140,9 @@ layout: compress
 </body>
 
 </html>
+
+<!-- Styles -->
+<link rel="stylesheet" href="/res/css/styles.min.css?v={{ asset_version }}">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Kreon:400,700|Poppins:500,600,700|Source+Code+Pro:500,600"
