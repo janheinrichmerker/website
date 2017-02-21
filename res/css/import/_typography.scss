@@ -129,3 +129,16 @@ ul, ol {
 code {
     font-family: $font-code;
 }
+
+button {
+    color: $text-color-primary-link;
+    font-weight: 500;
+
+    &[tabindex="-1"], &[tabindex="0"] {
+        background: 0;
+        border: 0;
+        padding: 0;
+        margin: 16px 0;
+        color: inherit !important;
+    }
+}

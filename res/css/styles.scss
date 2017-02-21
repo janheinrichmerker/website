@@ -293,10 +293,36 @@ app-drawer-layout {
 }
 
 /* Contact section */
-.contact form {
+#contact {
     width: 100%;
     margin-bottom: 144px;
+    padding: 8px 0;
+
+    h2 {
+        padding: 0 8px;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 64px;
+            margin-top: 12px;
+            margin-bottom: 16px;
+            border: 2px solid $text-color-primary;
+        }
+    }
+
+    re-captcha {
+        .rc-anchor {
+            box-shadow: 0 !important;
+            border: 0 !important;
+        }
+        .rc-anchor-dark {
+            background: 0 !important;
+            border: 0 !important;
+        }
+    }
 }
+
 
 /* Footer */
 footer {

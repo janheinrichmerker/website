@@ -31,13 +31,13 @@ permalink: /
 
 <hr>
 
-<iron-grid id="contact">
+<form id="contact" name="contact" action="http://heinrichreimer.com/res/php/contact.php" method="post">
+    <iron-grid>
 
-    <h2 class="m12">Contact</h2>
+        <h2 class="m12">Contact</h2>
 
-    <p class="m12">Get in touch with me.</p>
+        <p class="m12">Get in touch with me.</p>
 
-    <form id="contact_form" name="contact" action="http://heinrichreimer.com/res/php/contact.php" method="post">
         <paper-input
                 name="name"
                 id="contact_name"
@@ -105,7 +105,6 @@ permalink: /
             <paper-button raised filled>Send</paper-button>
         </button>
 
-    </form>
-
-</iron-grid>
+    </iron-grid>
+</form>
 <paper-toast id="contact_snackbar" duration="4000"></paper-toast>

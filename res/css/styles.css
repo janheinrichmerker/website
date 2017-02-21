@@ -632,6 +632,16 @@ ul, ol {
 code {
   font-family: "Source Code Pro", "Inconsolata", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace; }
 
+button {
+  color: #e75888;
+  font-weight: 500; }
+  button[tabindex="-1"], button[tabindex="0"] {
+    background: 0;
+    border: 0;
+    padding: 0;
+    margin: 16px 0;
+    color: inherit !important; }
+
 /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+groovy+handlebars+java+json+kotlin+latex+markdown+php+python+scss+sql+yaml&plugins=autolinker+wpd+file-highlight+toolbar+jsonp-highlight+previewer-base+previewer-color+previewer-gradient+previewer-easing+previewer-time+previewer-angle+normalize-whitespace+data-uri-highlight+show-language */
 /**
  * okaidia theme for JavaScript, CSS and HTML
@@ -1215,9 +1225,25 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
       letter-spacing: 0.04em; }
 
 /* Contact section */
-.contact form {
+#contact {
   width: 100%;
-  margin-bottom: 144px; }
+  margin-bottom: 144px;
+  padding: 8px 0; }
+  #contact h2 {
+    padding: 0 8px; }
+    #contact h2:after {
+      content: "";
+      display: block;
+      width: 64px;
+      margin-top: 12px;
+      margin-bottom: 16px;
+      border: 2px solid white; }
+  #contact re-captcha .rc-anchor {
+    box-shadow: 0 !important;
+    border: 0 !important; }
+  #contact re-captcha .rc-anchor-dark {
+    background: 0 !important;
+    border: 0 !important; }
 
 /* Footer */
 footer {

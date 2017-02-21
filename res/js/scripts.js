@@ -56,7 +56,7 @@ $(function() { //Document is ready
     });
 
     //Contact form
-    var contactForm = $("#contact_form");
+    var contactForm = $("#contact");
     var contactSnackbar = $("#contact_snackbar");
     contactForm.submit(function(event) {
         $.post("https://heinrichreimer.com/res/php/contact.php", contactForm.serialize())
