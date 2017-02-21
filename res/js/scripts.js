@@ -59,7 +59,7 @@ $(function() { //Document is ready
     var contactForm = $("#contact_form");
     var contactSnackbar = $("#contact_snackbar");
     contactForm.submit(function(event) {
-        $.post("http://heinrichreimer.com/res/php/contact.php", contactForm.serialize())
+        $.post("https://heinrichreimer.com/res/php/contact.php", contactForm.serialize())
             .done(function(data) {
                 contactForm.find(":input").attr("disabled", true);
                 var button = contactForm.find("button[name='submit']");
