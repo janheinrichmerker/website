@@ -2,7 +2,6 @@
 title: Datenschutzerklärung
 permalink: /privacy/
 redirect_from:
-- /privacy/index.html
 - /privacy.html
 - /privacy.md
 ---

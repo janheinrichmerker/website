@@ -2,7 +2,6 @@
 title: Impressum/Disclaimer
 permalink: /disclaimer/
 redirect_from:
-- /disclaimer/index.html
 - /disclaimer.html
 - /disclaimer.md
 ---
