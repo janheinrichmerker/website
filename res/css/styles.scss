@@ -298,8 +298,12 @@ app-drawer-layout {
     margin-bottom: 144px;
     padding: 8px 0;
 
+    iron-grid {
+        padding: 8px;
+    }
+
     h2 {
-        padding: 0 8px;
+        padding: 0;
 
         &:after {
             content: "";
@@ -309,6 +313,43 @@ app-drawer-layout {
             margin-bottom: 16px;
             border: 2px solid $text-color-primary;
         }
+    }
+
+    paper-input, paper-textarea {
+        .input-content {
+            .label-and-input-container label {
+                color: $text-color-secondary;
+            }
+            &.label-is-highlighted .label-and-input-container label {
+                color: $color-primary;
+            }
+            &.is-invalid .label-and-input-container label {
+                color: $palette-red-A700;
+            }
+            &.label-is-floating .label-and-input-container label {
+                color: $text-color-primary;
+            }
+
+            input, textarea {
+                color: $text-color-primary;
+            }
+        }
+        .underline {
+            .unfocused-line {
+                border-color: $divider-color;
+            }
+            .focused-line {
+                border-color: $color-primary;
+            }
+            &.is-invalid .focused-line {
+                border-color: $palette-red-A700;
+            }
+        }
+    }
+
+    paper-button {
+        width: 100%;
+        margin: 16px 0;
     }
 
     re-captcha {

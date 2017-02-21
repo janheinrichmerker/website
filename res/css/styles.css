@@ -1229,8 +1229,10 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
   width: 100%;
   margin-bottom: 144px;
   padding: 8px 0; }
+  #contact iron-grid {
+    padding: 8px; }
   #contact h2 {
-    padding: 0 8px; }
+    padding: 0; }
     #contact h2:after {
       content: "";
       display: block;
@@ -1238,6 +1240,25 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
       margin-top: 12px;
       margin-bottom: 16px;
       border: 2px solid white; }
+  #contact paper-input .input-content .label-and-input-container label, #contact paper-textarea .input-content .label-and-input-container label {
+    color: rgba(255, 255, 255, 0.7); }
+  #contact paper-input .input-content.label-is-highlighted .label-and-input-container label, #contact paper-textarea .input-content.label-is-highlighted .label-and-input-container label {
+    color: #212121; }
+  #contact paper-input .input-content.is-invalid .label-and-input-container label, #contact paper-textarea .input-content.is-invalid .label-and-input-container label {
+    color: #d50000; }
+  #contact paper-input .input-content.label-is-floating .label-and-input-container label, #contact paper-textarea .input-content.label-is-floating .label-and-input-container label {
+    color: white; }
+  #contact paper-input .input-content input, #contact paper-input .input-content textarea, #contact paper-textarea .input-content input, #contact paper-textarea .input-content textarea {
+    color: white; }
+  #contact paper-input .underline .unfocused-line, #contact paper-textarea .underline .unfocused-line {
+    border-color: rgba(255, 255, 255, 0.12); }
+  #contact paper-input .underline .focused-line, #contact paper-textarea .underline .focused-line {
+    border-color: #212121; }
+  #contact paper-input .underline.is-invalid .focused-line, #contact paper-textarea .underline.is-invalid .focused-line {
+    border-color: #d50000; }
+  #contact paper-button {
+    width: 100%;
+    margin: 16px 0; }
   #contact re-captcha .rc-anchor {
     box-shadow: 0 !important;
     border: 0 !important; }

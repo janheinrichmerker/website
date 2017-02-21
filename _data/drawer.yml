@@ -11,6 +11,8 @@ items:
   - title: Libraries
     icon: mdi:book
     link: /#libraries
+  - title: Contact
+    link: /#contact
 
   - divider: true
 

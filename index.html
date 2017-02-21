@@ -41,7 +41,7 @@ permalink: /
         <paper-input
                 name="name"
                 id="contact_name"
-                class="xs12 s9 m6"
+                class="xs12 s9 m7"
                 label="Name"
                 required
                 minlength="10"
@@ -53,7 +53,7 @@ permalink: /
         <paper-input
                 name="email"
                 id="contact_email"
-                class="xs12 s9 m6"
+                class="xs12 s9 m7"
                 label="Email"
                 required
                 minlength="10"
@@ -66,7 +66,7 @@ permalink: /
         <paper-input
                 name="subject"
                 id="contact_subject"
-                class="xs12 s9 m6"
+                class="xs12 s9 m7"
                 label="Subject"
                 list="contact_subject_suggestions"
                 minlength="5"
@@ -75,6 +75,7 @@ permalink: /
                 required
                 auto-validate
                 error-message="Please enter a subject!">
+
             <datalist id="contact_subject_suggestions">
                 <option value="Development: Android">
                 <option value="Design: Android">
@@ -83,12 +84,13 @@ permalink: /
                 <option value="Design: Website">
                 <option value="Consulting: Website">
             </datalist>
+
         </paper-input>
 
         <paper-textarea
                 name="message"
                 id="contact_message"
-                class="xs12 s9 m6"
+                class="xs12 s12 m9"
                 label="Message"
                 required
                 minlength="10"
@@ -98,10 +100,15 @@ permalink: /
                 error-message="Please enter a message!"></paper-textarea>
 
         <re-captcha
+                class="xs12 s12 m9"
                 sitekey="6LenfOESAAAAAOXEwnOWBUm49toxM3JMDqy9QREX"
                 theme="dark"></re-captcha>
 
-        <button name="submit" tabindex="-1" data-finished="Sent">
+        <button
+                name="submit"
+                class="xs12 s6 m4"
+                tabindex="-1"
+                data-finished="Sent">
             <paper-button raised filled>Send</paper-button>
         </button>
 
