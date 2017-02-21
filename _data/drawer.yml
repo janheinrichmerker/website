@@ -12,6 +12,7 @@ items:
     icon: mdi:book
     link: /#libraries
   - title: Contact
+    icon: send
     link: /#contact
 
   - divider: true

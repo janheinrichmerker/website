@@ -321,7 +321,7 @@ app-drawer-layout {
                 color: $text-color-secondary;
             }
             &.label-is-highlighted .label-and-input-container label {
-                color: $color-primary;
+                color: $color-accent;
             }
             &.is-invalid .label-and-input-container label {
                 color: $palette-red-A700;
@@ -339,7 +339,7 @@ app-drawer-layout {
                 border-color: $divider-color;
             }
             .focused-line {
-                border-color: $color-primary;
+                border-color: $color-accent;
             }
             &.is-invalid .focused-line {
                 border-color: $palette-red-A700;

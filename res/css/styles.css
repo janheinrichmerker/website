@@ -1243,7 +1243,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
   #contact paper-input .input-content .label-and-input-container label, #contact paper-textarea .input-content .label-and-input-container label {
     color: rgba(255, 255, 255, 0.7); }
   #contact paper-input .input-content.label-is-highlighted .label-and-input-container label, #contact paper-textarea .input-content.label-is-highlighted .label-and-input-container label {
-    color: #212121; }
+    color: #dd1155; }
   #contact paper-input .input-content.is-invalid .label-and-input-container label, #contact paper-textarea .input-content.is-invalid .label-and-input-container label {
     color: #d50000; }
   #contact paper-input .input-content.label-is-floating .label-and-input-container label, #contact paper-textarea .input-content.label-is-floating .label-and-input-container label {
@@ -1253,7 +1253,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
   #contact paper-input .underline .unfocused-line, #contact paper-textarea .underline .unfocused-line {
     border-color: rgba(255, 255, 255, 0.12); }
   #contact paper-input .underline .focused-line, #contact paper-textarea .underline .focused-line {
-    border-color: #212121; }
+    border-color: #dd1155; }
   #contact paper-input .underline.is-invalid .focused-line, #contact paper-textarea .underline.is-invalid .focused-line {
     border-color: #d50000; }
   #contact paper-button {
