@@ -31,7 +31,11 @@ layout: compress
     <meta name="theme-color" content="#424242">
 
     <!-- Web components -->
+    {% if jekyll.environment == "production" %}
     <script>{% include js/webcomponents-lite.min.js %}</script>
+    {% else %}
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    {% endif %}
     <link rel="import" href="/bower_components/app-layout/app-layout.min.html">
     <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.min.html">
     <link rel="import" href="/bower_components/iron-grid/iron-grid.min.html">
@@ -48,7 +52,11 @@ layout: compress
     <link rel="import" href="/bower_components/prism-element/prism-highlighter.min.html">
 
     <!-- Styles -->
+    {% if jekyll.environment == "production" %}
     <style>{% include css/styles.min.css %}</style>
+    {% else %}
+    <link rel="stylesheet" href="/res/css/styles.min.css">
+    {% endif %}
 
 </head>
 <body class="page-{{ page.title | slugify }} {% if page.url == '/' %}page-index{% endif %}">
@@ -136,10 +144,17 @@ layout: compress
 
 </app-drawer-layout>
 
+{% if jekyll.environment == "production" %}
 <script>{% include js/jquery-2.2.2.min.js %}</script>
 <script>{% include js/webfontloader.min.js %}</script>
 <script>{% include js/jquery.scrollto.min.js %}</script>
 <script>{% include js/scripts.min.js %}</script>
+{% else %}
+<script async defer src="/res/js/jquery-2.2.2.min.js"></script>
+<script src="/res/js/webfontloader.min.js"></script>
+<script async defer src="/res/js/jquery.scrollto.min.js"></script>
+<script async defer src="/res/js/scripts.min.js"></script>
+{% endif %}
 
 </body>
 

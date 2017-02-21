@@ -58,6 +58,9 @@ compress_html:
   comments: ["<!-- ", " -->"]
   endings: [li, td]
   startings: [html, head, body]
+  ignore:
+    envs:
+      development
 
 # Markdown parser
 markdown: kramdown
