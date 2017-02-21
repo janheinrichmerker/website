@@ -1,18 +1,72 @@
-<title>{{ page.title | escape }}</title>
+<!-- Title -->
+{% capture title %}
+{% if page.title %}
+{{ page.title | escape }}
+{% else %}
+{{ site.name }}
+{% endif %}
+{% endcapture %}
+{% assign title = title | strip_html | strip_newlines %}
+<title>{{ title }}</title>
 
-<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<!-- Web app title -->
+<meta name="apple-mobile-web-app-title" content="{{ site.name }}">
+<meta name="application-name" content="{{ site.name }}">
 
-<meta name="keywords" content="" />
-<meta name="author" content="meta-tags generator">
+<!-- Description -->
+{% capture description %}
+{% if page.excerpt %}
+{{ page.excerpt }}
+{% else %}
+{{ site.description }}
+{% endif %}
+{% endcapture %}
+{% assign description = description | strip_html | strip_newlines | truncate: 160 %}
+<meta name="description" content="{{ description }}">
+<meta itemprop="description" content="{{ description }}">
+<meta property="og:description" content="{{ description }}">
+<meta name="twitter:description" content="{{ description }}">
 
-<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-<meta property="og:image" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}screenshot.png">
-<meta property="og:title" content="{{ site.title | escape }}, {{ site.tagline | escape }}">
-<meta property="og:description" content="{{ site.description }}">
-<meta name="twitter:card" content="photo">
-<meta name="twitter:site" content="@pschfr">
-<meta name="twitter:creator" content="@pschfr">
-<meta name="twitter:title" content="{{ site.title | escape }}, {{ site.tagline | escape }}">
+<!-- Keywords -->
+{% capture keywords %}
+{% if page.excerpt %}
+{{ page.tags | join: ', ' }},
+{% endif %}
+{{ site.keywords | join: ', ' }}
+{% endcapture %}
+{% assign keywords = keywords | strip_html | strip_newlines %}
+<meta name="keywords" content="{{ keywords }}">
+
+<!-- Author -->
+<meta name="author" content="{{ site.author.name }}">
+
+<!-- TODO update images below -->
+<!-- Sharing meta data -->
+{% capture baseurl %}{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}{% endcapture %}
+{% capture slogan %}{{ title }} - {{ description }}{% endcapture %}
+<link rel="canonical" href="{{ baseurl }}">
+
+<!-- Facebook sharing meta data -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ slogan }}">
+<meta property="og:url" content="{{ baseurl }}">
+
+<meta property="og:image" content="https://wearepapermill.co/images/social-facebook.jpg">
+<meta property="og:image:url" content="https://wearepapermill.co/images/social-facebook.jpg">
+
+<!-- G+ sharing meta data -->
+<meta itemprop="name" content="{{ slogan }}">
+<link rel="publisher" href="https://plus.google.com/u/0/{{ site.author.google_plus }}">
+
+<meta itemprop="image" content="https://wearepapermill.co/images/social-gplus.jpg">
+
+<!-- Twitter sharing meta data -->
+<meta name="twitter:title" content="{{ slogan }}">
 <meta name="twitter:description" content="{{ site.description }}">
-<meta name="twitter:image:src" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}screenshot.png">
-<meta name="twitter:domain" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<meta name="twitter:domain" content="{{ baseurl }}">
+<meta name="twitter:site" content="{{ site.author.twitter }}">
+<meta name="twitter:creator" content="{{ site.author.twitter }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:image:src" content="https://wearepapermill.co/images/social-twitter.jpg">
