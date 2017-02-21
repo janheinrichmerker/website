@@ -35,17 +35,13 @@ keywords:
 
 # Collections of posts
 collections:
-- apps
-- libraries
-- websites
-- services
-  apps:
+- apps:
     output: true
-  libraries:
+- libraries:
     output: true
-  websites:
+- websites:
     output: true
-  services:
+- services:
     output: true
 
 # Removes files and folders from Jekyll build
@@ -60,7 +56,6 @@ defaults:
       path: ""
     values:
       layout: page
-      sitemap: false
   - scope:
       path: "bower_components/"
     values:
