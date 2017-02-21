@@ -1253,8 +1253,8 @@ paper-card .card-content p {
 }
 
 paper-card .card-actions {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 }
 
 paper-card .card-actions paper-button {
