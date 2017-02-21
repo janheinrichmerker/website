@@ -36,7 +36,6 @@ keywords:
 # Collections of posts
 collections:
 - apps
-  output: true
 - libraries
 - websites
 - services
