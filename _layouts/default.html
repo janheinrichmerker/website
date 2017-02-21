@@ -103,15 +103,14 @@ layout: compress
 <script>{% include js/jquery.scrollto.min.js %}</script>
 <script>{% include js/scripts.min.js %}</script>
 <script>{% include js/prism.min.js %}</script>
-<script>{% include js/mathjax.min.js %}</script>
 {% else %}
 <script async defer src="/res/js/jquery-2.2.2.min.js?v={{ asset_version }}"></script>
 <script src="/res/js/webfontloader.min.js?v={{ asset_version }}"></script>
 <script async defer src="/res/js/jquery.scrollto.min.js?v={{ asset_version }}"></script>
 <script async defer src="/res/js/scripts.min.js?v={{ asset_version }}"></script>
 <script async defer src="/res/js/prism.min.js?v={{ asset_version }}"></script>
-<script async defer src="/res/js/mathjax.min.js?v={{ asset_version }}"></script>
 {% endif %}
+<script async defer src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </body>
 
