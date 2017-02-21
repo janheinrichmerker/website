@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Impressum/Disclaimer
 permalink: /disclaimer/
 ---

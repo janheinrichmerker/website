@@ -2,63 +2,11 @@
 layout: compress
 ---
 
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/html">
-<head>
-    {% assign asset_version = 'XBrebwpyp8' %}
+<!DOCTYPE html>
+<html>
 
-    <!-- Compatibility -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include head.html %}
 
-    <title>{{ page.title }}</title>
-    <meta name="description" content="{{ site.description }}">
-
-    <!-- Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v={{ asset_version }}">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png?v={{ asset_version }}" sizes="32x32">
-    <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v={{ asset_version }}" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png?v={{ asset_version }}" sizes="16x16">
-    <link rel="manifest" href="/manifest.json?v={{ asset_version }}">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v={{ asset_version }}" color="#dd1155">
-    <link rel="shortcut icon" href="/favicon.ico?v={{ asset_version }}">
-    <meta name="apple-mobile-web-app-title" content="{{ site.name }}">
-    <meta name="application-name" content="{{ site.name }}">
-    <meta name="msapplication-TileColor" content="#dd1155">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png?v={{ asset_version }}">
-    <meta name="theme-color" content="#424242">
-
-    <!-- Web components -->
-    {% if jekyll.environment == "production" %}
-    <script>{% include js/webcomponents-lite.min.js %}</script>
-    {% else %}
-    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js?v={{ asset_version }}"></script>
-    {% endif %}
-    <link rel="import" href="/bower_components/app-layout/app-layout.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/iron-grid/iron-grid.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/iron-icons/iron-icons.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/iron-icons/hardware-icons.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/material-design-icons/material-design-icons.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/paper-button/paper-button.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/paper-menu/paper-menu.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/paper-item/paper-item.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/paper-item/paper-icon-item.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/paper-card/paper-card.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/paper-material/paper-material.min.html?v={{ asset_version }}">
-    <link rel="import" href="/bower_components/prism-element/prism-highlighter.min.html?v={{ asset_version }}">
-
-    <!-- Styles -->
-    {% if jekyll.environment == "production" %}
-    <style>{% include css/styles.min.css %}</style>
-    {% else %}
-    <link rel="stylesheet" href="/res/css/styles.min.css">
-    {% endif %}
-
-</head>
 <body class="page-{{ page.title | slugify }} {% if page.url == '/' %}page-index{% endif %}">
 
 <app-drawer-layout fullbleed responsiveWidth="1024px">
@@ -149,11 +97,13 @@ layout: compress
 <script>{% include js/webfontloader.min.js %}</script>
 <script>{% include js/jquery.scrollto.min.js %}</script>
 <script>{% include js/scripts.min.js %}</script>
+<script>{% include js/prism.min.js %}</script>
 {% else %}
 <script async defer src="/res/js/jquery-2.2.2.min.js?v={{ asset_version }}"></script>
 <script src="/res/js/webfontloader.min.js?v={{ asset_version }}"></script>
 <script async defer src="/res/js/jquery.scrollto.min.js?v={{ asset_version }}"></script>
 <script async defer src="/res/js/scripts.min.js?v={{ asset_version }}"></script>
+<script async defer src="/res/js/prism.min.js?v={{ asset_version }}"></script>
 {% endif %}
 
 </body>

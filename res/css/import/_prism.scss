@@ -1,16 +1,16 @@
-/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+c+cpp+ruby+css-extras+diff+git+groovy+handlebars+java+json+kotlin+latex+markdown+php+php-extras+python+scss+sql&plugins=line-highlight+autolinker+wpd+file-highlight+previewer-base+previewer-color+previewer-gradient+previewer-easing+previewer-time+previewer-angle */
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+bash+groovy+handlebars+java+json+kotlin+latex+markdown+php+python+scss+sql+yaml&plugins=autolinker+wpd+file-highlight+toolbar+jsonp-highlight+previewer-base+previewer-color+previewer-gradient+previewer-easing+previewer-time+previewer-angle+normalize-whitespace+data-uri-highlight+show-language */
 /**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
  */
 
 code[class*="language-"],
 pre[class*="language-"] {
-    color: black;
+    color: #f8f8f2;
     background: none;
-    text-shadow: 0 1px white;
-    font-family: $font-code;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -28,35 +28,17 @@ pre[class*="language-"] {
     hyphens: none;
 }
 
-pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-    text-shadow: none;
-    background: #b3d4fc;
-}
-
-pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-code[class*="language-"]::selection, code[class*="language-"] ::selection {
-    text-shadow: none;
-    background: #b3d4fc;
-}
-
-@media print {
-    code[class*="language-"],
-    pre[class*="language-"] {
-        text-shadow: none;
-    }
-}
-
 /* Code blocks */
 pre[class*="language-"] {
     padding: 1em;
     margin: .5em 0;
     overflow: auto;
+    border-radius: 0.3em;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-    background: #f5f2f0;
+    background: #272822;
 }
 
 /* Inline code */
@@ -74,7 +56,7 @@ pre[class*="language-"] {
 }
 
 .token.punctuation {
-    color: #999;
+    color: #f8f8f2;
 }
 
 .namespace {
@@ -83,12 +65,15 @@ pre[class*="language-"] {
 
 .token.property,
 .token.tag,
-.token.boolean,
-.token.number,
 .token.constant,
 .token.symbol,
 .token.deleted {
-    color: #905;
+    color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+    color: #ae81ff;
 }
 
 .token.selector,
@@ -97,32 +82,31 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-    color: #690;
+    color: #a6e22e;
 }
 
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
-.style .token.string {
-    color: #a67f59;
-    background: hsla(0, 0%, 100%, .5);
+.style .token.string,
+.token.variable {
+    color: #f8f8f2;
 }
 
 .token.atrule,
 .token.attr-value,
-.token.keyword {
-    color: #07a;
+.token.function {
+    color: #e6db74;
 }
 
-.token.function {
-    color: #DD4A68;
+.token.keyword {
+    color: #66d9ef;
 }
 
 .token.regex,
-.token.important,
-.token.variable {
-    color: #e90;
+.token.important {
+    color: #fd971f;
 }
 
 .token.important,
@@ -135,54 +119,6 @@ pre[class*="language-"] {
 
 .token.entity {
     cursor: help;
-}
-
-pre[data-line] {
-    position: relative;
-    padding: 1em 0 1em 3em;
-}
-
-.line-highlight {
-    position: absolute;
-    left: 0;
-    right: 0;
-    padding: inherit 0;
-    margin-top: 1em; /* Same as .prism’s padding-top */
-
-    background: hsla(24, 20%, 50%,.08);
-    background: -moz-linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-    background: -webkit-linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-    background: -o-linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-    background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-
-    pointer-events: none;
-
-    line-height: inherit;
-    white-space: pre;
-}
-
-.line-highlight:before,
-.line-highlight[data-end]:after {
-    content: attr(data-start);
-    position: absolute;
-    top: .4em;
-    left: .6em;
-    min-width: 1em;
-    padding: 0 .5em;
-    background-color: hsla(24, 20%, 50%,.4);
-    color: hsl(24, 20%, 95%);
-    font: bold 65%/1.5 sans-serif;
-    text-align: center;
-    vertical-align: .3em;
-    border-radius: 999px;
-    text-shadow: none;
-    box-shadow: 0 1px white;
-}
-
-.line-highlight[data-end]:after {
-    content: attr(data-end);
-    top: auto;
-    bottom: .4em;
 }
 
 .token a {
@@ -199,6 +135,65 @@ pre[class*="language-"] a[href]:hover {
     cursor: help;
     text-decoration: underline;
 }
+pre.code-toolbar {
+    position: relative;
+}
+
+pre.code-toolbar > .toolbar {
+    position: absolute;
+    top: .3em;
+    right: .2em;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+pre.code-toolbar:hover > .toolbar {
+    opacity: 1;
+}
+
+pre.code-toolbar > .toolbar .toolbar-item {
+    display: inline-block;
+}
+
+pre.code-toolbar > .toolbar a {
+    cursor: pointer;
+}
+
+pre.code-toolbar > .toolbar button {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-user-select: none; /* for button */
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+pre.code-toolbar > .toolbar a,
+pre.code-toolbar > .toolbar button,
+pre.code-toolbar > .toolbar span {
+    color: #bbb;
+    font-size: .8em;
+    padding: 0 .5em;
+    background: #f5f2f0;
+    background: rgba(224, 224, 224, 0.2);
+    box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+    border-radius: .5em;
+}
+
+pre.code-toolbar > .toolbar a:hover,
+pre.code-toolbar > .toolbar a:focus,
+pre.code-toolbar > .toolbar button:hover,
+pre.code-toolbar > .toolbar button:focus,
+pre.code-toolbar > .toolbar span:hover,
+pre.code-toolbar > .toolbar span:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
 .prism-previewer,
 .prism-previewer:before,
 .prism-previewer:after {
@@ -215,13 +210,8 @@ pre[class*="language-"] a[href]:hover {
     height: 32px;
     margin-left: -16px;
 
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
-    filter: alpha(opacity=0);
-    -khtml-opacity: 0;
-    -moz-opacity: 0;
     opacity: 0;
     -webkit-transition: opacity .25s;
-    -moz-transition: opacity .25s;
     -o-transition: opacity .25s;
     transition: opacity .25s;
 }
@@ -240,14 +230,8 @@ pre[class*="language-"] a[href]:hover {
     right: -5px;
     left: -5px;
     bottom: -5px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
     border-radius: 10px;
     border: 5px solid #fff;
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
-    -ms-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
-    -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
 }
 
@@ -269,10 +253,6 @@ pre[class*="language-"] a[href]:hover {
     border-bottom-color: #fff;
 }
 .prism-previewer.active {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
-    filter: alpha(opacity=1);
-    -khtml-opacity: 1;
-    -moz-opacity: 1;
     opacity: 1;
 }
 .prism-previewer-color {
@@ -302,14 +282,8 @@ pre[class*="language-"] a[href]:hover {
     left: -5px;
     right: -5px;
     bottom: -5px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
     border-radius: 10px;
     border: 5px solid #fff;
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
-    -ms-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
-    -o-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset, 0 0 10px rgba(0, 0, 0, 0.75);
 }
 .prism-previewer-easing {
@@ -402,8 +376,6 @@ pre[class*="language-"] a[href]:hover {
 }
 
 .prism-previewer-time:before {
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     border-radius: 50%;
     background: #fff;
 }
@@ -432,8 +404,6 @@ pre[class*="language-"] a[href]:hover {
     animation: prism-previewer-time linear infinite 3s;
 }
 .prism-previewer-angle:before {
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     border-radius: 50%;
     background: #fff;
 }

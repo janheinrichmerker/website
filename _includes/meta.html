@@ -1,0 +1,18 @@
+<title>{{ page.title | escape }}</title>
+
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+<meta name="keywords" content="" />
+<meta name="author" content="meta-tags generator">
+
+<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<meta property="og:image" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}screenshot.png">
+<meta property="og:title" content="{{ site.title | escape }}, {{ site.tagline | escape }}">
+<meta property="og:description" content="{{ site.description }}">
+<meta name="twitter:card" content="photo">
+<meta name="twitter:site" content="@pschfr">
+<meta name="twitter:creator" content="@pschfr">
+<meta name="twitter:title" content="{{ site.title | escape }}, {{ site.tagline | escape }}">
+<meta name="twitter:description" content="{{ site.description }}">
+<meta name="twitter:image:src" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}screenshot.png">
+<meta name="twitter:domain" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
