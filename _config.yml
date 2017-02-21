@@ -62,7 +62,7 @@ defaults:
       layout: page
       sitemap: false
   - scope:
-      path: "bower_components"
+      path: "bower_components/"
     values:
       sitemap: false
 
