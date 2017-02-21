@@ -1,19 +1,19 @@
 # Meta information
-name: Heinrich Reimer
-description: Android development with love.
-license: All rights reserved.
-url: https://heinrichreimer.com
+name: "Heinrich Reimer"
+description: "Android development with love."
+license: "All rights reserved."
+url: "https://heinrichreimer.com"
 author:
-  name: Heinrich Reimer
+  name: "Heinrich Reimer"
   adress:
-    street: Turmfalkenweg 1
-    zip: 38124
-    city: Braunschweig
-    country: Germany
-  email: heinrich@heinrichreimer.com
-  telephone: +49 1749273954
-  twitter: @Kieselstein000
-  google_plus: +HeinrichReimer
+    street: "Barfüßerstraße 7"
+    zip: "06108"
+    city: "Halle (Saale)"
+    country: "Germany"
+  email: "heinrich@heinrichreimer.com"
+  telephone: "+49 1749273954"
+  twitter: "@Kieselstein000"
+  google_plus: "+HeinrichReimer"
 keywords:
 - Android
 - Development
