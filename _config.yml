@@ -54,9 +54,10 @@ defaults:
 
 # HTML compressor configurations
 compress_html:
-  clippings: [div, p, ul, td, h1, h2]
+  clippings: [div, p, ul, td, h1, h2, h3, h4, h5, h6, hr]
   comments: ["<!-- ", " -->"]
   endings: [li, td]
+  blanklines: true
   startings: [html, head, body]
 
 # Markdown parser
