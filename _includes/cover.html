@@ -1,7 +1,7 @@
-<div class="cover" id="home" style="background-image: url('{{ site.data.cover.image }}')">
+<!-- <div class="cover" id="home" style="background-image: url('{{ site.data.cover.image }}')"> -->
+<div class="cover" id="home" style="background-image: url('{% include images/title.base64 %}')">
     <div class="cover-inner">
-        <!-- <img src="{{ site.data.cover.logo }}"> -->
-        <img src="{% include images/title.base64 %}">
+        <img src="{{ site.data.cover.logo }}">
         <h1>{{ site.data.cover.title }}</h1>
         <p>{{ site.data.cover.subtitle }}</p>
         <a href="{{ site.data.cover.button.link }}" tabindex="-1">
