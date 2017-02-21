@@ -1,3 +1,9 @@
+WebFont.load({
+    google: {
+        families: ['Kreon:400,700', 'Poppins:500,600,700']
+    }
+});
+
 $(function() { //Document is ready
     var html = $("html");
     var body = $("body");
@@ -45,6 +51,12 @@ $(function() { //Document is ready
     drawer.find("paper-item").click(function () {
         if (drawerLayout.get(0).narrow) {
             drawer.get(0).close();
+        }
+    });
+
+    WebFont.load({
+        google: {
+            families: ['Source Code Pro:500,600']
         }
     });
 });
