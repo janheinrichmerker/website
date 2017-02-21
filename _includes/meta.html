@@ -43,7 +43,8 @@
 <!-- TODO update images below -->
 <!-- Sharing meta data -->
 {% capture baseurl %}{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}{% endcapture %}
-{% capture slogan %}{{ title }} - {{ description }}{% endcapture %}
+{% capture slogan %}{{ site.name }} - {{ description }}{% endcapture %}
+{% assign slogan = slogan | strip_html | strip_newlines %}
 <link rel="canonical" href="{{ baseurl }}">
 
 <!-- Facebook sharing meta data -->
