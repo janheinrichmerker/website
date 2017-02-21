@@ -1,3 +1,4 @@
+//Webfonts to load upfront
 WebFont.load({
     google: {
         families: ['Kreon:400,700', 'Poppins:500,600,700']
@@ -54,6 +55,26 @@ $(function() { //Document is ready
         }
     });
 
+    //Contact form
+    var contactForm = $("#contact_form");
+    var contactSnackbar = $("#contact_snackbar");
+    contactForm.submit(function(event) {
+        $.post("http://heinrichreimer.com/res/php/contact.php", contactForm.serialize())
+            .done(function(data) {
+                contactForm.find(":input").attr("disabled", true);
+                var button = contactForm.find("button[name='submit']");
+                button.find("paper-button").html(button.data("success"));
+                contactSnackbar.attr("text", data);
+                contactSnackbar.get(0).open();
+            })
+            .fail(function(jqXHR) {
+                contactSnackbar.attr("text", jqXHR.responseText);
+                contactSnackbar.get(0).open();
+            });
+        event.preventDefault();
+    });
+
+    // Webfonts to load later
     WebFont.load({
         google: {
             families: ['Source Code Pro:500,600']
