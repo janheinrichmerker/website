@@ -38,7 +38,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-    background: #272822;
+    background: #262626;
 }
 
 /* Inline code */
@@ -141,8 +141,8 @@ pre.code-toolbar {
 
 pre.code-toolbar > .toolbar {
     position: absolute;
-    top: .3em;
-    right: .2em;
+    top: 1.2em;
+    right: 1em;
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
 }
@@ -176,12 +176,12 @@ pre.code-toolbar > .toolbar a,
 pre.code-toolbar > .toolbar button,
 pre.code-toolbar > .toolbar span {
     color: #bbb;
-    font-size: .8em;
-    padding: 0 .5em;
+    font-size: .9em;
+    padding: 0.15em .7em;
     background: #f5f2f0;
-    background: rgba(224, 224, 224, 0.2);
+    background: rgba(72, 72, 72, 0.9);
     box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
-    border-radius: .5em;
+    border-radius: 2em;
 }
 
 pre.code-toolbar > .toolbar a:hover,
