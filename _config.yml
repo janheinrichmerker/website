@@ -79,6 +79,6 @@ markdown: kramdown
 # Jekyll plugins
 gems:
   - jekyll-redirect-from
-  - jekyll-sitemap
   - jekyll-gist
   - jemoji
+  - jekyll-sitemap
