@@ -2,7 +2,8 @@
 name: "Heinrich Reimer"
 description: "Android development with love."
 license: "All rights reserved."
-url: "https://heinrichreimer.com"
+# TODO Change to heinrichreimer.com when used in production
+url: "https://heinrichreimer.github.io"
 author:
   name: "Heinrich Reimer"
   adress:
