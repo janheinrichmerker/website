@@ -35,14 +35,10 @@ keywords:
 
 # Collections of posts
 collections:
-- apps:
-    output: true
-- libraries:
-    output: true
-- websites:
-    output: true
-- services:
-    output: true
+- apps
+- libraries
+- websites
+- services
 
 # Removes files and folders from Jekyll build
 exclude:
