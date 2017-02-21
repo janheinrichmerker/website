@@ -58,10 +58,10 @@ defaults:
     values:
       layout: page
       sitemap: false
-defaults:
   - scope:
       path: "bower_components"
     values:
+      sitemap: false
 
 # HTML compressor configurations
 compress_html:
