@@ -68,6 +68,10 @@ exclude:
 - README.md
 - vendor
 
+# Include files and folders in Jekyll build
+include:
+- .htaccess
+
 # Default values
 defaults:
   - scope:
