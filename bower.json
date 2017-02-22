@@ -24,6 +24,7 @@
     "test",
     "tests"
   ],
+  "directory": "assets/components/",
   "dependencies": {
     "app-layout": "PolymerElements/app-layout#^0.10.6",
     "iron-icons": "PolymerElements/iron-icons#^1.2.0",
