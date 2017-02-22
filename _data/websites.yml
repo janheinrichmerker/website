@@ -1,7 +1,7 @@
 id: websites
 title: Websites
 button: Open in browser
-logo: /assets/images/logos/logo_websites.svg
+logo: /res/images/logos/logo_websites.svg
 
 cta: 
   title: Just a start…

@@ -1,7 +1,7 @@
 id: apps
 title: Apps
 button: View it on Google Play
-logo: /assets/images/logos/logo_apps.svg
+logo: /res/images/logos/logo_apps.svg
 
 cta: 
   title: More to come
