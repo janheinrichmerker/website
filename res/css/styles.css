@@ -1227,7 +1227,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 /* Contact section */
 #contact {
   width: 100%;
-  margin-bottom: 144px;
+  margin-bottom: 1px;
   padding: 8px 0; }
   #contact iron-grid {
     padding: 8px; }
