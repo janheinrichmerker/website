@@ -1095,11 +1095,11 @@ app-drawer-layout app-header-layout app-header {
         color: white !important; }
 app-drawer-layout app-drawer {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  z-index: 8;
-  background: #3e3e3e !important;
-  color: white !important; }
+  z-index: 8; }
   app-drawer-layout app-drawer .app-drawer {
-    background: 0 !important; }
+    background: 0 !important;
+    background: #3e3e3e !important;
+    color: white !important; }
   app-drawer-layout app-drawer paper-menu {
     color: inherit !important;
     background: 0 !important; }
@@ -1227,7 +1227,7 @@ app-drawer-layout:not(.narrow) app-drawer app-toolbar {
 /* Contact section */
 #contact {
   width: 100%;
-  margin-bottom: 1px;
+  margin-bottom: 72px;
   padding: 8px 0; }
   #contact iron-grid {
     padding: 8px; }
@@ -1289,7 +1289,8 @@ footer {
 /* Small tablet */
 @media screen and (max-width: 960px) {
   app-toolbar {
-    height: 56px !important; }
+    height: 56px !important;
+    padding-top: 2px !important; }
 
   .page-index app-drawer-layout app-header-layout .content {
     margin-top: -56px; }
@@ -1304,8 +1305,9 @@ footer {
       width: 240px; } }
 /* Mobile */
 @media screen and (max-width: 600px) {
-  app-toolbar {
-    padding: 0 8px !important; }
+  app-header app-toolbar {
+    padding: 0 8px !important;
+    padding-top: 2px !important; }
 
   .cover {
     min-height: 540px; }

@@ -97,11 +97,11 @@ app-drawer-layout {
     app-drawer {
         @include shadow-8dp;
         z-index: 8;
-        background: $background-drawer !important;
-        color: $text-color-drawer !important;
 
         .app-drawer {
             background: 0 !important;
+            background: $background-drawer !important;
+            color: $text-color-drawer !important;
         }
 
         paper-menu {
@@ -400,6 +400,7 @@ footer {
 @media screen and (max-width: 960px) {
     app-toolbar {
         height: 56px !important;
+        padding-top: 2px !important;
     }
     .page-index app-drawer-layout app-header-layout .content {
         margin-top: -56px;
@@ -424,8 +425,9 @@ footer {
 
 /* Mobile */
 @media screen and (max-width: 600px) {
-    app-toolbar {
+    app-header app-toolbar {
         padding: 0 8px !important;
+        padding-top: 2px !important;
     }
 
     .cover {

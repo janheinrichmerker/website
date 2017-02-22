@@ -26,10 +26,10 @@ author:
 image:
   logo: /assets/images/logos/logo_brand.png
   # TODO Update images below
-  default: /assets/images/banners/default.png
-  twitter: /assets/images/banners/twitter.png
-  facebook: /assets/images/banners/facebook.png
-  google_plus: /assets/images/banners/facebook.png
+  default: /assets/images/logos/logo_brand.png
+  # twitter: /assets/images/banners/twitter.png
+  # facebook: /assets/images/banners/facebook.png
+  # google_plus: /assets/images/banners/facebook.png
 webmaster_verifications:
   google: 5mySK6jpuoQ7RT2vFF-GKGFtb4FWZwxLZ4aBcLwvUdw
   bing: 3653BD8AC68D24520E97C345142CC6FA
