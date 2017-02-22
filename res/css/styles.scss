@@ -95,10 +95,10 @@ app-drawer-layout {
     }
 
     app-drawer {
-        @include shadow-8dp;
-        z-index: 8;
 
-        .app-drawer {
+        #contentContainer {
+            @include shadow-8dp;
+            z-index: 8;
             background: 0 !important;
             background: $background-drawer !important;
             color: $text-color-drawer !important;

@@ -1093,29 +1093,28 @@ app-drawer-layout app-header-layout app-header {
       top: -1px; }
       app-drawer-layout app-header-layout app-header app-toolbar paper-icon-button paper-ripple {
         color: white !important; }
-app-drawer-layout app-drawer {
+app-drawer-layout app-drawer #contentContainer {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  z-index: 8; }
-  app-drawer-layout app-drawer .app-drawer {
-    background: 0 !important;
-    background: #3e3e3e !important;
-    color: white !important; }
-  app-drawer-layout app-drawer paper-menu {
-    color: inherit !important;
-    background: 0 !important; }
-    app-drawer-layout app-drawer paper-menu paper-item:hover, app-drawer-layout app-drawer paper-menu paper-icon-item:hover {
-      background: rgba(255, 255, 255, 0.12);
-      transition: background 0.3s ease; }
-  app-drawer-layout app-drawer app-toolbar h1 {
-    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: 0.01em; }
-  app-drawer-layout app-drawer hr {
-    border-color: rgba(255, 255, 255, 0.12); }
-  app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
-    display: none; }
+  z-index: 8;
+  background: 0 !important;
+  background: #3e3e3e !important;
+  color: white !important; }
+app-drawer-layout app-drawer paper-menu {
+  color: inherit !important;
+  background: 0 !important; }
+  app-drawer-layout app-drawer paper-menu paper-item:hover, app-drawer-layout app-drawer paper-menu paper-icon-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transition: background 0.3s ease; }
+app-drawer-layout app-drawer app-toolbar h1 {
+  font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em; }
+app-drawer-layout app-drawer hr {
+  border-color: rgba(255, 255, 255, 0.12); }
+app-drawer-layout app-drawer .narrow paper-button, app-drawer-layout app-drawer .narrow paper-icon-button {
+  display: none; }
 app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-button, app-drawer-layout.narrow app-header-layout app-header app-toolbar paper-icon-button:not([drawer-toggle]) {
   display: none; }
 app-drawer-layout:not(.narrow) app-drawer app-toolbar {
