@@ -1,11 +1,5 @@
 <!-- Title -->
-{% capture title %}
-{% if page.title %}
-{{ page.title | escape }}
-{% else %}
-{{ site.name }}
-{% endif %}
-{% endcapture %}
+{% capture title %}{% if page.title %}{{ page.title }} -{% endif %}{{ site.title }}{% endcapture %}
 {% assign title = title | strip_html | strip_newlines %}
 <title>{{ title }}</title>
 
@@ -21,11 +15,9 @@
 {{ site.description }}
 {% endif %}
 {% endcapture %}
-{% assign description = description | strip_html | strip_newlines | truncate: 160 %}
+{% assign description = description | strip_html | strip_newlines | truncate: 140 %}
 <meta name="description" content="{{ description }}">
 <meta itemprop="description" content="{{ description }}">
-<meta property="og:description" content="{{ description }}">
-<meta name="twitter:description" content="{{ description }}">
 
 <!-- Keywords -->
 {% capture keywords %}
@@ -40,34 +32,99 @@
 <!-- Author -->
 <meta name="author" content="{{ site.author.name }}">
 
-<!-- TODO update images below -->
 <!-- Sharing meta data -->
 {% capture baseurl %}{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}{% endcapture %}
-{% capture slogan %}{{ site.name }} - {{ description }}{% endcapture %}
-{% assign slogan = slogan | strip_html | strip_newlines %}
 <link rel="canonical" href="{{ baseurl }}">
+{% capture slogan %}{{ site.title }} - {{ description }}{% endcapture %}
+{% assign slogan = slogan | strip_html | strip_newlines %}
 
 <!-- Facebook sharing meta data -->
+{% if page.image.facebook %}
+{{ assign image_facebook = page.image.facebook }}
+{% elsif page.image.default %}
+{{ assign image_facebook = page.image.default }}
+{% elsif site.image.facebook %}
+{{ assign image_facebook = site.image.facebook }}
+{% else %}
+{{ assign image_facebook = site.image.default }}
+{% endif %}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{{ slogan }}">
+<meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ baseurl }}">
-
-<meta property="og:image" content="https://wearepapermill.co/images/social-facebook.jpg">
-<meta property="og:image:url" content="https://wearepapermill.co/images/social-facebook.jpg">
+<meta property="og:image" content="{{ image_facebook }}">
+<meta property="og:image:url" content="{{ image_facebook }}">
 
 <!-- G+ sharing meta data -->
+{% if page.image.google_plus %}
+{{ assign image_google_plus = page.image.google_plus }}
+{% elsif page.image.default %}
+{{ assign image_google_plus = page.image.default }}
+{% elsif site.image.google_plus %}
+{{ assign image_google_plus = site.image.google_plus }}
+{% else %}
+{{ assign image_google_plus = site.image.default }}
+{% endif %}
 <meta itemprop="name" content="{{ slogan }}">
 <link rel="publisher" href="https://plus.google.com/u/0/+{{ site.author.google_plus }}">
-
-<meta itemprop="image" content="https://wearepapermill.co/images/social-gplus.jpg">
+<meta itemprop="image" content="{{ image_gplus }}">
 
 <!-- Twitter sharing meta data -->
+{% if page.image.twitter %}
+{{ assign image_twitter = page.image.twitter }}
+{% elsif page.image.default %}
+{{ assign image_twitter = page.image.default }}
+{% elsif site.image.twitter %}
+{{ assign image_twitter = site.image.twitter }}
+{% else %}
+{{ assign image_twitter = site.image.default }}
+{% endif %}
 <meta name="twitter:title" content="{{ slogan }}">
-<meta name="twitter:description" content="{{ site.description }}">
+<meta name="twitter:description" content="{{ description }}">
 <meta name="twitter:domain" content="{{ baseurl }}">
-<meta name="twitter:site" content="{{ site.author.twitter }}">
-<meta name="twitter:creator" content="{{ site.author.twitter }}">
+<meta name="twitter:site" content="@{{ site.author.twitter }}">
+<meta name="twitter:creator" content="@{{ site.author.twitter }}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:src" content="{{ image_twitter }}">
 
-<meta name="twitter:image:src" content="https://wearepapermill.co/images/social-twitter.jpg">
+<!-- Schema.org -->
+{% if page.image.default %}
+{{ assign image_schema_org = page.image.default }}
+{% else %}
+{{ assign image_schema_org = site.image.default }}
+{% endif %}
+{% if image_schema_org %}
+{% capture image_schema_org %}{{ baseurl }}/{{ image_schema_org }}{% endcapture %}
+{{ assign image_schema_org = image_schema_org | replace:'http://','http:**' | replace:'///','/' | replace:'//','/' | replace:'http:**','http://' }}
+{% endif %}
+{% if page.image.logo %}
+{{ assign logo_schema_org = page.image.logo }}
+{% else %}
+{{ assign logo_schema_org = site.image.logo }}
+{% endif %}
+{% if logo_schema_org %}
+{% capture logo_schema_org %}{{ baseurl }}/{{ logo_schema_org }}{% endcapture %}
+{{ assign logo_schema_org = logo_schema_org | replace:'http://','http:**' | replace:'///','/' | replace:'//','/' | replace:'http:**','http://' }}
+{% endif %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.author.name }}",
+    "headline": "{{ title }}",
+    "image": "{{ image_schema_org }}",
+    "description": "{{ description }}",
+    "publisher": {
+        "@type": "Organization",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ logo_schema_org }}"
+        }
+    },
+    "sameAs": [
+        {% for link in site.author.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+    ],
+    "url": "{{ baseurl }}"
+}
+</script>
