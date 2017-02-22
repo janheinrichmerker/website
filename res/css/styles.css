@@ -1075,6 +1075,8 @@ app-drawer-layout app-header-layout app-header {
   app-drawer-layout app-header-layout app-header app-toolbar {
     color: white;
     box-sizing: border-box; }
+    app-drawer-layout app-header-layout app-header app-toolbar [drawer-toggle] {
+      margin-right: 16px; }
     app-drawer-layout app-header-layout app-header app-toolbar [main-title] {
       font-size: 22px;
       padding-left: 8px; }

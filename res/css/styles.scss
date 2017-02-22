@@ -71,6 +71,10 @@ app-drawer-layout {
                 color: $text-color-toolbar;
                 box-sizing: border-box;
 
+                [drawer-toggle] {
+                    margin-right: 16px;
+                }
+
                 [main-title] {
                     font-size: 22px;
                     padding-left: 8px;

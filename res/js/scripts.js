@@ -32,7 +32,7 @@ $(function() { //Document is ready
     //Scroll-to links
     function scrollTo(reference) {
         window.history.pushState(reference, document.title, reference);
-        $("html").scrollTo(reference);
+        $("html, app-drawer-layout").scrollTo(reference);
     }
 
     var linkSelector = "a[href^='#']" + (body.hasClass("page-index") ? ", a[href^='/#'], a[href^='/index.html#']" : "");
