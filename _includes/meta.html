@@ -40,13 +40,13 @@
 
 <!-- Facebook sharing meta data -->
 {% if page.image.facebook %}
-{{ assign image_facebook = page.image.facebook }}
+{% assign image_facebook = page.image.facebook %}
 {% elsif page.image.default %}
-{{ assign image_facebook = page.image.default }}
+{% assign image_facebook = page.image.default %}
 {% elsif site.image.facebook %}
-{{ assign image_facebook = site.image.facebook }}
+{% assign image_facebook = site.image.facebook %}
 {% else %}
-{{ assign image_facebook = site.image.default }}
+{% assign image_facebook = site.image.default %}
 {% endif %}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.title }}">
@@ -58,13 +58,13 @@
 
 <!-- G+ sharing meta data -->
 {% if page.image.google_plus %}
-{{ assign image_google_plus = page.image.google_plus }}
+{% assign image_google_plus = page.image.google_plus %}
 {% elsif page.image.default %}
-{{ assign image_google_plus = page.image.default }}
+{% assign image_google_plus = page.image.default %}
 {% elsif site.image.google_plus %}
-{{ assign image_google_plus = site.image.google_plus }}
+{% assign image_google_plus = site.image.google_plus %}
 {% else %}
-{{ assign image_google_plus = site.image.default }}
+{% assign image_google_plus = site.image.default %}
 {% endif %}
 <meta itemprop="name" content="{{ slogan }}">
 <link rel="publisher" href="https://plus.google.com/u/0/+{{ site.author.google_plus }}">
@@ -72,13 +72,13 @@
 
 <!-- Twitter sharing meta data -->
 {% if page.image.twitter %}
-{{ assign image_twitter = page.image.twitter }}
+{% assign image_twitter = page.image.twitter %}
 {% elsif page.image.default %}
-{{ assign image_twitter = page.image.default }}
+{% assign image_twitter = page.image.default %}
 {% elsif site.image.twitter %}
-{{ assign image_twitter = site.image.twitter }}
+{% assign image_twitter = site.image.twitter %}
 {% else %}
-{{ assign image_twitter = site.image.default }}
+{% assign image_twitter = site.image.default %}
 {% endif %}
 <meta name="twitter:title" content="{{ slogan }}">
 <meta name="twitter:description" content="{{ description }}">
@@ -90,22 +90,27 @@
 
 <!-- Schema.org -->
 {% if page.image.default %}
-{{ assign image_schema_org = page.image.default }}
+{% assign image_schema_org = page.image.default %}
 {% else %}
-{{ assign image_schema_org = site.image.default }}
+{% assign image_schema_org = site.image.default %}
 {% endif %}
 {% if image_schema_org %}
-{% capture image_schema_org %}{{ baseurl }}/{{ image_schema_org }}{% endcapture %}
-{{ assign image_schema_org = image_schema_org | replace:'http://','http:**' | replace:'///','/' | replace:'//','/' | replace:'http:**','http://' }}
+{% unless image_schema_org contains '://' %}
+{% assign image_schema_org = image_schema_org | prepend: baseurl %}
+{% endunless %}
+{% assign image_schema_org = image_schema_org | replace:'{{ baseurl }}//','{{ baseurl }}/' %}
 {% endif %}
+
 {% if page.image.logo %}
-{{ assign logo_schema_org = page.image.logo }}
+{% assign logo_schema_org = page.image.logo %}
 {% else %}
-{{ assign logo_schema_org = site.image.logo }}
+{% assign logo_schema_org = site.image.logo %}
 {% endif %}
 {% if logo_schema_org %}
-{% capture logo_schema_org %}{{ baseurl }}/{{ logo_schema_org }}{% endcapture %}
-{{ assign logo_schema_org = logo_schema_org | replace:'http://','http:**' | replace:'///','/' | replace:'//','/' | replace:'http:**','http://' }}
+{% unless logo_schema_org contains '://' %}
+{% assign logo_schema_org = logo_schema_org | prepend: baseurl %}
+{% endunless %}
+{% assign logo_schema_org = logo_schema_org | replace:'{{ baseurl }}//','{{ baseurl }}/' %}
 {% endif %}
 <script type="application/ld+json">
 {
