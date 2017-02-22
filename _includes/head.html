@@ -11,13 +11,17 @@
     <!-- Robots -->
     {% if jekyll.environment == "production" %}
     <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="3 month" />
     {% else %}
     <meta name="robots" content="noindex, nofollow" />
+    <meta name="revisit-after" content="1 day" />
     {% endif %}
-    <meta name="revisit-after" content="3 month" />
 
     <!-- Meta information -->
     {% include meta.html %}
+
+    <!-- SEO information -->
+    {% seo %}
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v={{ asset_version }}">

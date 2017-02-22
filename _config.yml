@@ -1,20 +1,38 @@
 # Meta information
-name: "Heinrich Reimer"
-description: "Android development with love."
-license: "All rights reserved."
-# TODO Change to heinrichreimer.com when used in production
-url: "https://heinrichreimer.github.io"
+title: Heinrich Reimer
+description: Android development with love.
+license: All rights reserved.
+logo: /res/images/logos/logo_brand.png
+url: https://heinrichreimer.github.io
+# url: https://heinrichreimer.com # TODO Use in production
 author:
-  name: "Heinrich Reimer"
+  name: Heinrich Reimer
   adress:
-    street: "Barfüßerstraße 7"
-    zip: "06108"
-    city: "Halle (Saale)"
-    country: "Germany"
-  email: "heinrich@heinrichreimer.com"
+    street: Barfüßerstraße 7
+    zip: 06108
+    city: Halle (Saale)
+    country: Germany
+  email: heinrich@heinrichreimer.com
   telephone: "+49 1749273954"
-  twitter: "@Kieselstein000"
-  google_plus: "+HeinrichReimer"
+  twitter: Kieselstein000
+  google_plus: HeinrichReimer
+twitter:
+  username: Kieselstein000
+social:
+  name: Heinrich Reimer
+  links:
+    - https://twitter.com/Kieselstein000
+    - https://www.facebook.com/HeinrichReimer
+    - https://plus.google.com/+HeinrichReimer
+    - https://github.com/HeinrichReimer
+    - https://www.linkedin.com/in/heinrich-reimer-680877120
+    - https://www.xing.com/profile/Heinrich_Reimer3
+    - http://stackoverflow.com/users/2037482/heinrich
+webmaster_verifications:
+  google: 5mySK6jpuoQ7RT2vFF-GKGFtb4FWZwxLZ4aBcLwvUdw
+  bing: 3653BD8AC68D24520E97C345142CC6FA
+host: github
+# host: uberspace # TODO Use in production
 keywords:
 - Android
 - Development
@@ -85,7 +103,15 @@ markdown: kramdown
 
 # Jekyll plugins
 gems:
-  - jekyll-redirect-from
+  # will be executed top to bottom
   - jekyll-gist
-  - jemoji
+  - jekyll-avatar
+  - jekyll-feed
+  - jekyll-mentions
+  - jekyll-titles-from-headings
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  # - jekyll-paginate
   - jekyll-sitemap
+
+  - jemoji

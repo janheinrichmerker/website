@@ -18,7 +18,7 @@ layout: compress
 
     <app-drawer swipe-open>
         <app-toolbar>
-            <h1 main-title>{{ site.name }}</h1>
+            <h1 main-title>{{ site.title }}</h1>
         </app-toolbar>
         <paper-menu>
             {% for navigation in site.data.drawer.items %}
@@ -50,7 +50,7 @@ layout: compress
         <app-header fixed effects="waterfall{% if is_index %} fade-background{% endif %}">
             <app-toolbar>
                 <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-                <h1 main-title>{{ site.name }}</h1>
+                <h1 main-title>{{ site.title }}</h1>
                 <div class="top-level-navigation">
                     {% for navigation in site.data.navigation.items %}
                     <a href="{{ navigation.link }}" tabindex="-1" {%if navigation.external %} target="_blank" {% endif
@@ -79,15 +79,22 @@ layout: compress
                     <a href="/privacy/" title="Privacy">Privacy</a>
                 </section>
                 <section>
-                    Made using
+                    Made with ♥ using
                     <a href="https://www.polymer-project.org/1.0/" title="Polymer Project" target="_blank">Polymer</a>
                     and
                     <a href="https://jekyllrb.com/" title="Jekyll Static Site Generator" target="_blank">Jekyll</a>.
+
+                    {% if site.host %}
                     Proudly hosted by
-                    <!-- TODO uncomment line when hosted on Uberspace server
-                    <a href="https://uberspace.de/" title="Uberspace.de" target="_blank">Uberspace</a>
-                    -->
-                    <a href="https://uberspace.de/" title="Github Pages" target="_blank">GitHub</a>.
+                    {% case site.host %}
+                    {% when "uberspace" %}
+                    <a href="https://uberspace.de/" title="Uberspace.de" target="_blank">Uberspace</a>.
+                    {% when "github" %}
+                    <a href="https://pages.github.com/" title="Github Pages" target="_blank">GitHub</a>.
+                    {% else %}
+                    {% site.host | capitalize %}.
+                    {% endcase %}
+                    {% endif %}
                 </section>
             </footer>
 

@@ -10,8 +10,8 @@
 <title>{{ title }}</title>
 
 <!-- Web app title -->
-<meta name="apple-mobile-web-app-title" content="{{ site.name }}">
-<meta name="application-name" content="{{ site.name }}">
+<meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+<meta name="application-name" content="{{ site.title }}">
 
 <!-- Description -->
 {% capture description %}
@@ -42,7 +42,7 @@
 
 <!-- TODO update images below -->
 <!-- Sharing meta data -->
-{% capture baseurl %}{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}{% endcapture %}
+{% capture baseurl %}{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}{% endcapture %}
 {% capture slogan %}{{ site.name }} - {{ description }}{% endcapture %}
 {% assign slogan = slogan | strip_html | strip_newlines %}
 <link rel="canonical" href="{{ baseurl }}">
@@ -58,7 +58,7 @@
 
 <!-- G+ sharing meta data -->
 <meta itemprop="name" content="{{ slogan }}">
-<link rel="publisher" href="https://plus.google.com/u/0/{{ site.author.google_plus }}">
+<link rel="publisher" href="https://plus.google.com/u/0/+{{ site.author.google_plus }}">
 
 <meta itemprop="image" content="https://wearepapermill.co/images/social-gplus.jpg">
 
