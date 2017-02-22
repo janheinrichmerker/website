@@ -35,8 +35,6 @@
 <!-- Sharing meta data -->
 {% capture baseurl %}{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}{% endcapture %}
 <link rel="canonical" href="{{ baseurl }}">
-{% capture slogan %}{{ site.title }} - {{ description }}{% endcapture %}
-{% assign slogan = slogan | strip_html | strip_newlines %}
 
 <!-- Facebook sharing meta data -->
 {% if page.image.facebook %}
@@ -50,7 +48,7 @@
 {% endif %}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ slogan }}">
+<meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ baseurl }}">
 <meta property="og:image" content="{{ image_facebook }}">
@@ -66,9 +64,11 @@
 {% else %}
 {% assign image_google_plus = site.image.default %}
 {% endif %}
+{% capture slogan %}{{ site.title }} - {{ description }}{% endcapture %}
+{% assign slogan = slogan | strip_html | strip_newlines %}
 <meta itemprop="name" content="{{ slogan }}">
 <link rel="publisher" href="https://plus.google.com/u/0/+{{ site.author.google_plus }}">
-<meta itemprop="image" content="{{ image_gplus }}">
+<meta itemprop="image" content="{{ image_google_plus }}">
 
 <!-- Twitter sharing meta data -->
 {% if page.image.twitter %}
@@ -80,7 +80,7 @@
 {% else %}
 {% assign image_twitter = site.image.default %}
 {% endif %}
-<meta name="twitter:title" content="{{ slogan }}">
+<meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description }}">
 <meta name="twitter:domain" content="{{ baseurl }}">
 <meta name="twitter:site" content="@{{ site.author.twitter }}">
@@ -89,6 +89,8 @@
 <meta name="twitter:image:src" content="{{ image_twitter }}">
 
 <!-- Schema.org -->
+{% capture baseurl_slash %}{{ baseurl }}/{% endcapture %}
+{% capture baseurl_double_slash %}{{ baseurl }}//{% endcapture %}
 {% if page.image.default %}
 {% assign image_schema_org = page.image.default %}
 {% else %}
@@ -98,7 +100,7 @@
 {% unless image_schema_org contains '://' %}
 {% assign image_schema_org = image_schema_org | prepend: baseurl %}
 {% endunless %}
-{% assign image_schema_org = image_schema_org | replace:'{{ baseurl }}//','{{ baseurl }}/' %}
+{% assign image_schema_org = image_schema_org | replace: baseurl_double_slash, baseurl_slash %}
 {% endif %}
 
 {% if page.image.logo %}
@@ -110,7 +112,7 @@
 {% unless logo_schema_org contains '://' %}
 {% assign logo_schema_org = logo_schema_org | prepend: baseurl %}
 {% endunless %}
-{% assign logo_schema_org = logo_schema_org | replace:'{{ baseurl }}//','{{ baseurl }}/' %}
+{% assign logo_schema_org = logo_schema_org | replace: baseurl_double_slash, baseurl_slash %}
 {% endif %}
 <script type="application/ld+json">
 {
