@@ -92,7 +92,7 @@ layout: compress
                     {% when "github" %}
                     <a href="https://pages.github.com/" title="Github Pages" target="_blank">GitHub</a>.
                     {% else %}
-                    {% site.host | capitalize %}.
+                    {{ site.host | capitalize }}.
                     {% endcase %}
                     {% endif %}
                 </section>

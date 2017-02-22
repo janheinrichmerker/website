@@ -71,6 +71,10 @@ defaults:
       path: ""
     values:
       layout: page
+      image:
+        path: /res/images/banners/twitter.png
+        twitter: /res/images/banners/twitter.png
+        facebook: /res/images/banners/facebook.png
   - scope:
       path: "/bower_components/"
     values:
