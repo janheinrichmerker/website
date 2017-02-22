@@ -2,7 +2,6 @@
 title: Heinrich Reimer
 description: Android development with love.
 license: All rights reserved.
-logo: /res/images/logos/logo_brand.png
 url: https://heinrichreimer.github.io
 # url: https://heinrichreimer.com # TODO Use in production
 author:
@@ -16,10 +15,6 @@ author:
   telephone: "+49 1749273954"
   twitter: Kieselstein000
   google_plus: HeinrichReimer
-twitter:
-  username: Kieselstein000
-social:
-  name: Heinrich Reimer
   links:
     - https://twitter.com/Kieselstein000
     - https://www.facebook.com/HeinrichReimer
@@ -28,6 +23,13 @@ social:
     - https://www.linkedin.com/in/heinrich-reimer-680877120
     - https://www.xing.com/profile/Heinrich_Reimer3
     - http://stackoverflow.com/users/2037482/heinrich
+image:
+  logo: /assets/images/logos/logo_brand.png
+  # TODO Update images below
+  default: /assets/images/banners/default.png
+  twitter: /assets/images/banners/twitter.png
+  facebook: /assets/images/banners/facebook.png
+  google_plus: /assets/images/banners/facebook.png
 webmaster_verifications:
   google: 5mySK6jpuoQ7RT2vFF-GKGFtb4FWZwxLZ4aBcLwvUdw
   bing: 3653BD8AC68D24520E97C345142CC6FA
@@ -71,10 +73,6 @@ defaults:
       path: ""
     values:
       layout: page
-      image:
-        path: /res/images/banners/twitter.png
-        twitter: /res/images/banners/twitter.png
-        facebook: /res/images/banners/facebook.png
   - scope:
       path: "/bower_components/"
     values:
@@ -108,14 +106,12 @@ markdown: kramdown
 # Jekyll plugins
 gems:
   # will be executed top to bottom
+  - jemoji
   - jekyll-gist
   - jekyll-avatar
-  - jekyll-feed
   - jekyll-mentions
   - jekyll-titles-from-headings
-  - jekyll-seo-tag
   - jekyll-redirect-from
   # - jekyll-paginate
+  - jekyll-feed
   - jekyll-sitemap
-
-  - jemoji
