@@ -64,7 +64,6 @@ exclude:
 - node_modules
 - bower.json
 - README.md
-- vendor
 
 # Default values
 defaults:
@@ -73,7 +72,7 @@ defaults:
     values:
       layout: page
       image:
-        path: /res/images/banners/default.png
+        path: /res/images/banners/twitter.png
         twitter: /res/images/banners/twitter.png
         facebook: /res/images/banners/facebook.png
   - scope:
@@ -109,14 +108,14 @@ markdown: kramdown
 # Jekyll plugins
 gems:
   # will be executed top to bottom
-  - jemoji
   - jekyll-gist
   - jekyll-avatar
+  - jekyll-feed
   - jekyll-mentions
   - jekyll-titles-from-headings
   - jekyll-seo-tag
   - jekyll-redirect-from
   # - jekyll-paginate
-  - jekyll-feed
   - jekyll-sitemap
 
+  - jemoji
