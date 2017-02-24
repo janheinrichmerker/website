@@ -1,12 +1,13 @@
 RewriteEngine On
 
-##Rewrites
-RewriteRule ^(assets/components/(.*))\.html$ $1.min.html [L]
+# Rewrites
+RewriteCond %{REQUEST_URI} !\.min\.html$
+RewriteRule ^(bower_components/(.*))\.html$ /$1.min.html
 
-##Compression
+# Compression
 AddOutputFilterByType DEFLATE text/html text/plain text/xml image/svg+xml text/css application/javascript text/javascript application/json
 
-##Cache
+# Cache
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 30 seconds"
