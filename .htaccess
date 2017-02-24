@@ -1,0 +1,22 @@
+RewriteEngine On
+
+##Rewrites
+RewriteRule ^(assets/components/(.*))\.html$ $1.min.html [L]
+
+##Compression
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/svg text/css application/javascript text/javascript application/json
+
+##Cache
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 30 seconds"
+
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+
+  ExpiresByType text/css "access plus 12 hours"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType application/x-javascript "access plus 7 days"
+</IfModule>

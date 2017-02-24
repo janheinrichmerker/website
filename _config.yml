@@ -66,6 +66,8 @@ exclude:
 - node_modules
 - bower.json
 - README.md
+- Gemfile
+- Gemfile.lock
 
 # Default values
 defaults:
@@ -73,22 +75,6 @@ defaults:
       path: ""
     values:
       layout: page
-  - scope:
-      path: "/bower_components/"
-    values:
-      sitemap: false
-  - scope:
-      path: "/bower_components"
-    values:
-      sitemap: false
-  - scope:
-      path: "bower_components/"
-    values:
-      sitemap: false
-  - scope:
-      path: "bower_components"
-    values:
-      sitemap: false
 
 # HTML compressor configurations
 compress_html:
@@ -113,5 +99,5 @@ gems:
   - jekyll-titles-from-headings
   - jekyll-redirect-from
   # - jekyll-paginate
-  - jekyll-feed
-  - jekyll-sitemap
+  # - jekyll-feed # Enable again when a blog is included
+  # - jekyll-sitemap # TODO enable this again when plugin supports excluding folders

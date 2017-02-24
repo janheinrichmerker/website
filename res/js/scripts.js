@@ -63,7 +63,7 @@ $(function() { //Document is ready
             .done(function(data) {
                 contactForm.find(":input").attr("disabled", true);
                 var button = contactForm.find("button[name='submit']");
-                button.find("paper-button").html(button.data("success"));
+                button.find("paper-button").get(0).innerHTML = button.data("success");
                 contactSnackbar.attr("text", data);
                 contactSnackbar.get(0).open();
             })
