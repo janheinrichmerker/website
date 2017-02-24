@@ -89,8 +89,6 @@
 <meta name="twitter:image:src" content="{{ image_twitter }}">
 
 <!-- Schema.org -->
-{% capture baseurl_slash %}{{ baseurl }}/{% endcapture %}
-{% capture baseurl_double_slash %}{{ baseurl }}//{% endcapture %}
 {% if page.image.default %}
 {% assign image_schema_org = page.image.default %}
 {% else %}
@@ -100,7 +98,7 @@
 {% unless image_schema_org contains '://' %}
 {% assign image_schema_org = image_schema_org | prepend: baseurl %}
 {% endunless %}
-{% assign image_schema_org = image_schema_org | replace: baseurl_double_slash, baseurl_slash %}
+{% assign image_schema_org = image_schema_org | replace: '.com//', '.com/' | replace: '.io//', '.io/' %}
 {% endif %}
 
 {% if page.image.logo %}
@@ -112,7 +110,7 @@
 {% unless logo_schema_org contains '://' %}
 {% assign logo_schema_org = logo_schema_org | prepend: baseurl %}
 {% endunless %}
-{% assign logo_schema_org = logo_schema_org | replace: baseurl_double_slash, baseurl_slash %}
+{% assign logo_schema_org = logo_schema_org | replace: '.com//', '.com/' | replace: '.io//', '.io/' %}
 {% endif %}
 <script type="application/ld+json">
 {

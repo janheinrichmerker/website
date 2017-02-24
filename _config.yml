@@ -2,8 +2,8 @@
 title: Heinrich Reimer
 description: Android development with love.
 license: All rights reserved.
-url: https://heinrichreimer.github.io
-# url: https://heinrichreimer.com # TODO Use in production
+# url: https://heinrichreimer.github.io
+url: https://heinrichreimer.com # TODO Use in production
 author:
   name: Heinrich Reimer
   adress:
@@ -33,8 +33,8 @@ image:
 webmaster_verifications:
   google: 5mySK6jpuoQ7RT2vFF-GKGFtb4FWZwxLZ4aBcLwvUdw
   bing: 3653BD8AC68D24520E97C345142CC6FA
-host: github
-# host: uberspace # TODO Use in production
+# host: github
+host: uberspace # TODO Use in production
 keywords:
 - Android
 - Development
