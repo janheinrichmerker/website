@@ -1,5 +1,5 @@
 <!-- Title -->
-{% capture title %}{% if page.title && page.title != site.title %}{{ page.title }} - {% endif %}{{ site.title }}{% endcapture %}
+{% capture title %}{% if page.title and page.title != site.title %}{{ page.title }} - {% endif %}{{ site.title }}{% endcapture %}
 {% assign title = title | strip_html | strip_newlines %}
 <title>{{ title }}</title>
 
