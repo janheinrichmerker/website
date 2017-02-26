@@ -1,5 +1,5 @@
 <!-- Title -->
-{% capture title %}{% if page.title %}{{ page.title }} -{% endif %}{{ site.title }}{% endcapture %}
+{% capture title %}{% if page.title && page.title != site.title %}{{ page.title }} - {% endif %}{{ site.title }}{% endcapture %}
 {% assign title = title | strip_html | strip_newlines %}
 <title>{{ title }}</title>
 
@@ -96,7 +96,7 @@
 {% endif %}
 {% if image_schema_org %}
 {% unless image_schema_org contains '://' %}
-{% assign image_schema_org = image_schema_org | prepend: baseurl %}
+{% assign image_schema_org = image_schema_org | prepend: site.url %}
 {% endunless %}
 {% assign image_schema_org = image_schema_org | replace: '.com//', '.com/' | replace: '.io//', '.io/' %}
 {% endif %}
@@ -108,7 +108,7 @@
 {% endif %}
 {% if logo_schema_org %}
 {% unless logo_schema_org contains '://' %}
-{% assign logo_schema_org = logo_schema_org | prepend: baseurl %}
+{% assign logo_schema_org = logo_schema_org | prepend: site.url %}
 {% endunless %}
 {% assign logo_schema_org = logo_schema_org | replace: '.com//', '.com/' | replace: '.io//', '.io/' %}
 {% endif %}
