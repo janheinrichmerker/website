@@ -14,8 +14,9 @@ RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 RewriteRule ^api/(.*)$ http://localhost:63542/api/$1 [P]
 
 ## Rewrites
-RewriteCond %{REQUEST_URI} !\.min\.html$
-RewriteRule ^(bower_components/(.*))\.html$ /$1.min.html
+# For some reason minifying polymer components breaks their styling. Threrefore folloeing two lines are commented-out.
+#RewriteCond %{REQUEST_URI} !\.min\.html$
+#RewriteRule ^(bower_components/(.*))\.html$ /$1.min.html
 
 ## Compression
 AddOutputFilterByType DEFLATE text/html text/plain text/xml image/svg+xml text/css application/javascript text/javascript application/json
