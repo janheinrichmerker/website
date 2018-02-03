@@ -22,8 +22,8 @@ E-Mail: [{{ site.company.email }}][3]
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
 
-{{ site.author.name }}  
-{{ site.author.adress.street }}  
+{{ site.author.name }}
+{{ site.author.adress.street }}
 {{ site.author.adress.zip }} {{ site.author.adress.city }}  
 {{ site.author.adress.country }}
 
