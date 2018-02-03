@@ -9,27 +9,27 @@ redirect_from:
 
 ## Angaben gemäß § 5 TMG:
 
-{{ site.company.name }}
-{{ site.company.adress.street }}
-{{ site.company.adress.zip }} {{ site.company.adress.city }}
-{{ site.company.adress.country }}
+{{ site.company.name }}  
+{{ site.company.adress.street }}  
+{{ site.company.adress.zip }} {{ site.company.adress.city }}  
+{{ site.company.adress.country }}  
 USt.-IdNr. (VAT-ID): {{ site.company.vat_id }}
 
-### Kontakt:
+#### Kontakt:
 
-Telefon: {{ site.company.telephone }}
+Telefon: {{ site.company.telephone }}  
 E-Mail: [{{ site.company.email }}][3]
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
 
-{{ site.author.name }}
-{{ site.author.adress.street }}
-{{ site.author.adress.zip }} {{ site.author.adress.city }}
+{{ site.author.name }}  
+{{ site.author.adress.street }}  
+{{ site.author.adress.zip }} {{ site.author.adress.city }}  
 {{ site.author.adress.country }}
 
-### Kontakt:
+#### Kontakt:
 
-Telefon: {{ site.author.telephone }}
+Telefon: {{ site.author.telephone }}  
 E-Mail: [{{ site.author.email }}][3]
 
 
@@ -37,7 +37,7 @@ E-Mail: [{{ site.author.email }}][3]
 
 ---
 
-# Haftungsausschluss (Disclaimer)
+# Haftungsausschluss/Disclaimer
 
 ### Haftung für Inhalte
 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
