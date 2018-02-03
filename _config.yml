@@ -117,6 +117,22 @@ compress_html:
     envs:
       development
 
+# Check HTML output
+html_proofer:
+  assume_extension: true
+  check_favicon: true
+  check_opengraph: true
+  check_html: true
+  check_img_http: true
+  disable_external: true
+  enforce_https: true
+  file_ignore:
+    - /bower_components\/.*/
+  validation:
+    report_missing_names: true
+  cache:
+    timeframe: 2d
+
 # Markdown parser
 markdown: kramdown
 
