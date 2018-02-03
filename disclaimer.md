@@ -9,15 +9,16 @@ redirect_from:
 
 ## Angaben gemäß § 5 TMG:
 
-{{ site.author.name }}  
-{{ site.author.adress.street }}  
-{{ site.author.adress.zip }} {{ site.author.adress.city }}  
-{{ site.author.adress.country }}
+{{ site.company.name }}
+{{ site.company.adress.street }}
+{{ site.company.adress.zip }} {{ site.company.adress.city }}
+{{ site.company.adress.country }}
+USt.-IdNr. (VAT-ID): {{ site.company.vat_id }}
 
-## Kontakt:
+### Kontakt:
 
-Telefon: {{ site.author.telephone }}  
-E-Mail: [{{ site.author.email }}][3]
+Telefon: {{ site.company.telephone }}
+E-Mail: [{{ site.company.email }}][3]
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
 
@@ -25,6 +26,11 @@ E-Mail: [{{ site.author.email }}][3]
 {{ site.author.adress.street }}  
 {{ site.author.adress.zip }} {{ site.author.adress.city }}  
 {{ site.author.adress.country }}
+
+### Kontakt:
+
+Telefon: {{ site.author.telephone }}
+E-Mail: [{{ site.author.email }}][3]
 
 
 *Quelle: [eRecht24][1]*
@@ -44,6 +50,6 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
 
 *Quelle: [eRecht24][2]*
 
-[1]: http://www.e-recht24.de/impressum-generator.html
-[2]: http://www.e-recht24.de/muster-disclaimer.html
+[1]: https://www.e-recht24.de/impressum-generator.html
+[2]: https://www.e-recht24.de/muster-disclaimer.html
 [3]: mailto:"{{ site.author.name }}" <{{ site.author.email }}>

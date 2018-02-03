@@ -37,14 +37,14 @@
 <link rel="canonical" href="{{ baseurl }}">
 
 <!-- Facebook sharing meta data -->
-{% if page.image.facebook %}
-{% assign image_facebook = page.image.facebook %}
-{% elsif page.image.default %}
-{% assign image_facebook = page.image.default %}
-{% elsif site.image.facebook %}
-{% assign image_facebook = site.image.facebook %}
+{% if page.social.facebook.image %}
+{% assign image_facebook = page.social.facebook.image %}
+{% elsif page.social.default.image %}
+{% assign image_facebook = page.social.default.image %}
+{% elsif site.social.facebook.image %}
+{% assign image_facebook = site.social.facebook.image %}
 {% else %}
-{% assign image_facebook = site.image.default %}
+{% assign image_facebook = site.social.default.image %}
 {% endif %}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.title }}">
@@ -55,44 +55,44 @@
 <meta property="og:image:url" content="{{ image_facebook }}">
 
 <!-- G+ sharing meta data -->
-{% if page.image.google_plus %}
-{% assign image_google_plus = page.image.google_plus %}
-{% elsif page.image.default %}
-{% assign image_google_plus = page.image.default %}
-{% elsif site.image.google_plus %}
-{% assign image_google_plus = site.image.google_plus %}
+{% if page.social.google_plus.image %}
+{% assign image_google_plus = page.social.google_plus.image %}
+{% elsif page.social.default.image %}
+{% assign image_google_plus = page.social.default.image %}
+{% elsif site.social.google_plus.image %}
+{% assign image_google_plus = site.social.google_plus.image %}
 {% else %}
-{% assign image_google_plus = site.image.default %}
+{% assign image_google_plus = site.social.default.image %}
 {% endif %}
 {% capture slogan %}{{ site.title }} - {{ description }}{% endcapture %}
 {% assign slogan = slogan | strip_html | strip_newlines %}
 <meta itemprop="name" content="{{ slogan }}">
-<link rel="publisher" href="https://plus.google.com/u/0/+{{ site.author.google_plus }}">
+<link rel="publisher" href="{{ site.social.google_plus.link }}">
 <meta itemprop="image" content="{{ image_google_plus }}">
 
 <!-- Twitter sharing meta data -->
-{% if page.image.twitter %}
-{% assign image_twitter = page.image.twitter %}
-{% elsif page.image.default %}
-{% assign image_twitter = page.image.default %}
-{% elsif site.image.twitter %}
-{% assign image_twitter = site.image.twitter %}
+{% if page.social.twitter.image %}
+{% assign image_twitter = page.social.twitter.image %}
+{% elsif page.social.default.image %}
+{% assign image_twitter = page.social.default.image %}
+{% elsif site.social.twitter.image %}
+{% assign image_twitter = site.social.twitter.image %}
 {% else %}
-{% assign image_twitter = site.image.default %}
+{% assign image_twitter = site.social.default.image %}
 {% endif %}
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description }}">
 <meta name="twitter:domain" content="{{ baseurl }}">
-<meta name="twitter:site" content="@{{ site.author.twitter }}">
-<meta name="twitter:creator" content="@{{ site.author.twitter }}">
+<meta name="twitter:site" content="@{{ site.social.twitter.username }}">
+<meta name="twitter:creator" content="@{{ site.social.twitter.username }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image:src" content="{{ image_twitter }}">
 
 <!-- Schema.org -->
-{% if page.image.default %}
-{% assign image_schema_org = page.image.default %}
+{% if page.social.default.image %}
+{% assign image_schema_org = page.social.default.image %}
 {% else %}
-{% assign image_schema_org = site.image.default %}
+{% assign image_schema_org = site.social.default.image %}
 {% endif %}
 {% if image_schema_org %}
 {% unless image_schema_org contains '://' %}
@@ -101,10 +101,10 @@
 {% assign image_schema_org = image_schema_org | replace: '.com//', '.com/' | replace: '.io//', '.io/' %}
 {% endif %}
 
-{% if page.image.logo %}
-{% assign logo_schema_org = page.image.logo %}
+{% if page.social.default.logo %}
+{% assign logo_schema_org = page.social.default.logo %}
 {% else %}
-{% assign logo_schema_org = site.image.logo %}
+{% assign logo_schema_org = site.social.default.logo %}
 {% endif %}
 {% if logo_schema_org %}
 {% unless logo_schema_org contains '://' %}
@@ -127,9 +127,6 @@
             "url": "{{ logo_schema_org }}"
         }
     },
-    "sameAs": [
-        {% for link in site.author.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
-    ],
     "url": "{{ baseurl }}"
 }
 </script>

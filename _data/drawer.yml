@@ -19,7 +19,7 @@ items:
 
   - title: CV
     icon: mdi:cv
-    link: http://stackoverflow.com/story/heinrich-reimer
+    link: https://stackoverflow.com/story/heinrich-reimer
     external: true
   - title: Google+
     icon: mdi:google-plus

@@ -84,16 +84,12 @@ layout: compress
                     and
                     <a href="https://jekyllrb.com/" title="Jekyll Static Site Generator" target="_blank">Jekyll</a>.
 
-                    {% if site.host %}
+                    {% if site.url contains 'github' %}
                     Proudly hosted by
-                    {% case site.host %}
-                    {% when "uberspace" %}
-                    <a href="https://uberspace.de/" title="Uberspace.de" target="_blank">Uberspace</a>.
-                    {% when "github" %}
                     <a href="https://pages.github.com/" title="Github Pages" target="_blank">GitHub</a>.
-                    {% else %}
-                    {{ site.host | capitalize }}.
-                    {% endcase %}
+                    {% elsif site.url contains 'uberspace' %}
+                    Proudly hosted by
+                    <a href="https://uberspace.de/" title="Uberspace.de" target="_blank">Uberspace</a>.
                     {% endif %}
                 </section>
             </footer>
@@ -105,12 +101,15 @@ layout: compress
 </app-drawer-layout>
 
 {% if jekyll.environment == "production" %}
-<script>{% include js/jquery-2.2.2.min.js %}</script>
-<script>{% include js/webfontloader.min.js %}</script>
-<script>{% include js/jquery.scrollto.min.js %}</script>
-<script>{% include js/scripts.min.js %}</script>
-<script>{% include js/prism.min.js %}</script>
-<script>{% include js/jquery.validate.min.js %}</script>
+{% capture js_includes %}
+{% include js/jquery-2.2.2.min.js %}
+{% include js/webfontloader.min.js %}
+{% include js/jquery.scrollto.min.js %}
+{% include js/scripts.min.js %}
+{% include js/prism.min.js %}
+{% include js/jquery.validate.min.js %}
+{% endcapture %}
+<script>{{ js_includes }}</script>
 {% else %}
 <script async defer src="/res/js/jquery-2.2.2.min.js?v={{ asset_version }}"></script>
 <script src="/res/js/webfontloader.min.js?v={{ asset_version }}"></script>

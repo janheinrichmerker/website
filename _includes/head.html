@@ -37,7 +37,10 @@
 
     <!-- Web components -->
     {% if jekyll.environment == "production" %}
-    <script>{% include js/webcomponents.min.js %}</script>
+    {% capture js_includes %}
+    {% include js/webcomponents.min.js %}
+    {% endcapture %}
+    <script>{{ js_includes }}</script>
     {% else %}
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     {% endif %}
@@ -65,7 +68,10 @@
 
     <!-- Styles -->
     {% if jekyll.environment == "production" %}
-    <style>{% include css/styles.min.css %}</style>
+    {% capture css_includes %}
+    {% include css/styles.min.css %}
+    {% endcapture %}
+    <style>{{ css_includes }}</style>
     {% else %}
     <link rel="stylesheet" href="/res/css/styles.min.css">
     {% endif %}

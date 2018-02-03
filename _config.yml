@@ -1,11 +1,21 @@
 # Meta information
-title: Heinrich Reimer
+title: Heinrich Reimer Software
 description: Android development with love.
 license: All rights reserved.
 # url: https://heinrichreimer.github.io # Use in development
 url: https://heinrichreimer.com
+company:
+  name: Heinrich Reimer Software
+  adress:
+    street: Barfüßerstraße 7
+    zip: 06108
+    city: Halle (Saale)
+    country: Germany
+  email: info@heinrichreimer.com
+  telephone: "+49 1749273954"
+  vat_id: DE315339671
 author:
-  name: Heinrich Reimer
+  name: Jan Heinrich Reimer
   adress:
     street: Barfüßerstraße 7
     zip: 06108
@@ -13,60 +23,78 @@ author:
     country: Germany
   email: heinrich@heinrichreimer.com
   telephone: "+49 1749273954"
-  twitter: Kieselstein000
-  google_plus: HeinrichReimer
-  links:
-    - https://twitter.com/Kieselstein000
-    - https://www.facebook.com/HeinrichReimer
-    - https://plus.google.com/+HeinrichReimer
-    - https://github.com/HeinrichReimer
-    - https://www.linkedin.com/in/heinrich-reimer-680877120
-    - https://www.xing.com/profile/Heinrich_Reimer3
-    - http://stackoverflow.com/users/2037482/heinrich
-image:
-  logo: /assets/images/logos/logo_brand.png
-  default: /res/images/social/social_facebook.png
-  twitter: /res/images/social/social_twitter.png
-  facebook: /res/images/social/social_facebook.png
-  google_plus: /res/images/social/social_google_plus.png
+social:
+  default:
+    image: /res/images/social/social_facebook.png
+    logo: /res/images/logos/logo_brand.png
+  facebook:
+    username: HeinrichReimer
+    link: https://www.facebook.com/HeinrichReimer
+    image: /res/images/social/social_facebook.png
+  twitter:
+    username: H1iReimer
+    link: https://twitter.com/H1iReimer
+    image: /res/images/social/social_twitter.png
+  google_plus:
+    username: HeinrichReimer
+    link: https://plus.google.com/+HeinrichReimer
+    image: /res/images/social/social_google_plus.png
+  github:
+    username: heinrichreimer
+    link: https://github.com/heinrichreimer
+  linkedin:
+    link: https://www.linkedin.com/in/heinrich-reimer-680877120
+  xing:
+    link: https://www.xing.com/profile/Heinrich_Reimer3
+  stackoverflow:
+    link: https://stackoverflow.com/users/2037482/heinrich
 webmaster_verifications:
   google: 5mySK6jpuoQ7RT2vFF-GKGFtb4FWZwxLZ4aBcLwvUdw
   bing: 3653BD8AC68D24520E97C345142CC6FA
 # host: github # Use in development
 host: uberspace
 keywords:
-- Android
-- Development
-- Web
-- Webdesign
-- Consulting
-- Freelancer
-- Heinrich
-- Reimer
-- Apps
-- Libraries
-- Open-Source
-- GitHub
-- Websites
-- Java
-- CSS
-- Markdown
-- User Interface
+  - Android
+  - Mobile
+  - Software
+  - Development
+  - Entwicklung
+  - Web
+  - Webdesign
+  - Consulting
+  - Gewerbe
+  - Selbstständig
+  - Self employed
+  - Freelancer
+  - Jan
+  - Heinrich
+  - Reimer
+  - Apps
+  - Libraries
+  - Open-Source
+  - GitHub
+  - Websites
+  - Java
+  - CSS
+  - Markdown
+  - User Interface
 
 # Collections of posts
 collections:
-- apps
-- libraries
-- websites
-- services
+  - apps
+  - libraries
+  - websites
+  - services
 
 # Removes files and folders from Jekyll build
 exclude:
-- node_modules
-- bower.json
-- README.md
-- Gemfile
-- Gemfile.lock
+  - node_modules
+  - bower.json
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .travis.yml
 
 # Default values
 defaults:
@@ -74,6 +102,10 @@ defaults:
       path: ""
     values:
       layout: page
+  - scope:
+      path: 'bower_components/*'
+    values:
+      sitemap: false # Don't generate sitemap entries for Bower components.
 
 # HTML compressor configurations
 compress_html:
@@ -89,7 +121,7 @@ compress_html:
 markdown: kramdown
 
 # Jekyll plugins
-gems:
+plugins:
   # will be executed top to bottom
   - jemoji
   - jekyll-gist
@@ -98,5 +130,6 @@ gems:
   - jekyll-titles-from-headings
   - jekyll-redirect-from
   # - jekyll-paginate
-  # - jekyll-feed # Enable again when a blog is included
-  # - jekyll-sitemap # TODO enable this again when plugin supports excluding folders
+  # - jekyll-feed # Enable again when a blog is included.
+  - jekyll-last-modified-at
+  - jekyll-sitemap

@@ -15,4 +15,4 @@ Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten d
 
 Quelle: [eRecht24][1]
 
-[1]: http://www.e-recht24.de/muster-datenschutzerklaerung.html
+[1]: https://www.e-recht24.de/muster-datenschutzerklaerung.html
