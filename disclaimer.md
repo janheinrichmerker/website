@@ -9,27 +9,27 @@ redirect_from:
 
 ## Angaben gemäß § 5 TMG:
 
-{{ site.company.name }}
-{{ site.company.adress.street }}
-{{ site.company.adress.zip }} {{ site.company.adress.city }}
-{{ site.company.adress.country }}
+{{ site.company.name }}  
+{{ site.company.adress.street }}  
+{{ site.company.adress.zip }} {{ site.company.adress.city }}  
+{{ site.company.adress.country }}  
 USt.-IdNr. (VAT-ID): {{ site.company.vat_id }}
 
 ### Kontakt:
 
-Telefon: {{ site.company.telephone }}
+Telefon: {{ site.company.telephone }}  
 E-Mail: [{{ site.company.email }}][3]
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
 
-{{ site.author.name }}
-{{ site.author.adress.street }}
+{{ site.author.name }}  
+{{ site.author.adress.street }}  
 {{ site.author.adress.zip }} {{ site.author.adress.city }}  
 {{ site.author.adress.country }}
 
 ### Kontakt:
 
-Telefon: {{ site.author.telephone }}
+Telefon: {{ site.author.telephone }}  
 E-Mail: [{{ site.author.email }}][3]
 
 
