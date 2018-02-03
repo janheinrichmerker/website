@@ -24,7 +24,7 @@ E-Mail: [{{ site.company.email }}][3]
 
 {{ site.author.name }}
 {{ site.author.adress.street }}
-{{ site.author.adress.zip }} {{ site.author.adress.city }}  
+{{ site.author.adress.zip }} {{ site.author.adress.city }}
 {{ site.author.adress.country }}
 
 ### Kontakt:
