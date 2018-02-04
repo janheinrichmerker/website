@@ -33,3 +33,10 @@ items:
     icon: mdi:xing
     link: https://www.xing.com/profile/Heinrich_Reimer3
     external: true
+
+  - divider: true
+    
+  - title: Imprint / Disclaimer
+    link: /disclaimer/
+  - title: Privacy
+    link: /privacy/
