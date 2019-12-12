@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:	
+    branches:	
+      - master
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to Uperspace
+      uses: appleboy/ssh-action@v0.0.6
+      with:
+        username: hreimer
+        host: brewington.uberspace.de
+        key: ${{ secrets.DEPLOY_KEY }}
+        script: refresh-portfolio
+        
