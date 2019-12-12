@@ -1,0 +1,23 @@
+name: CI
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.6.x'
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '8.16.x'
+    - name: Build with Jekyll
+      run: |
+        gem install bundler
+        chmod +x build.sh
+        ./build.sh
+        
