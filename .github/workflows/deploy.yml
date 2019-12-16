@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: hugo
       - name: Deploy to Uperspace
-        uses: appleboy/scp-action@v0.0.6
+        uses: appleboy/scp-action@v0.0.5
         with:
           username: hreimer
           host: brewington.uberspace.de
