@@ -1,0 +1,18 @@
+title: "Jan Heinrich Reimer"
+baseURL: "https://heinrichreimer.com/"
+languageCode: "en-us"
+
+metaDataFormat: "yaml"
+defaultContentLanguage: "en-us"
+enableRobotsTXT: true
+disableKinds:
+  - taxonomies
+  - taxonomyTerm
+
+sitemap:
+  changeFreq: "monthly"
+  priority: 0.5
+  filename: "sitemap.xml"
+
+params:
+  env: production

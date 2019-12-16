@@ -1,0 +1,7 @@
+User-agent: *
+{{/* If ENV production variable is false robots will be disallowed. */}}
+{{ if eq $.Site.Params.env "production" }}
+  Disallow:
+{{ else }}
+  Disallow: /
+{{ end }}

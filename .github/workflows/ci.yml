@@ -4,20 +4,24 @@ on: push
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-ruby@v1
-      with:
-        ruby-version: '2.6.x'
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '8.16.x'
-    - name: Build with Jekyll
-      run: |
-        gem install bundler
-        chmod +x build.sh
-        ./build.sh
-        
+      - name: Check-out
+        uses: actions/checkout@v1
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.59.1'
+          extended: true
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '8.16.x'
+      - name: Install Yarn
+        run: npm install -g yarn
+      - name: Install asset dependencies
+        run: |
+          cd assets
+          yarn install
+      - name: Build
+        run: hugo

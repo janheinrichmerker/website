@@ -1,0 +1,18 @@
+<footer>
+    <section>
+        <p>
+            © {{ now.Format "2006" }} <a href='{{ relref . "/" }}'>{{ .Site.Title }}</a>
+        </p>
+    </section>
+    {{ if .Site.Menus.footer }}
+    <section>
+        <ul>
+            {{ range .Site.Menus.footer }}
+            <li>
+                <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+</footer>
