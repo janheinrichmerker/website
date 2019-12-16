@@ -34,6 +34,7 @@ jobs:
           username: hreimer
           host: brewington.uberspace.de
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "public/*"
-          target: ${{ secrets.DEPLOY_TARGET_PATH }}
+          source: public
+          strip_components: 1
           rm: true
+          target: ${{ secrets.DEPLOY_TARGET_PATH }}
