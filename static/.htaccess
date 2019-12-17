@@ -1,3 +1,5 @@
 <If "%{HTTPS} != 'on' || %{HTTP_HOST} != 'heinrichreimer.com'">
     Redirect / http://heinrichreimer.com/
 </If>
+
+ErrorDocument 404 http://heinrichreimer.com/404.html
