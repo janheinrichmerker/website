@@ -6,22 +6,22 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-      - name: Check-out
+      - name: "📥 Check-out"
         uses: actions/checkout@v1
-      - name: Install Hugo
+      - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.59.1'
+          hugo-version: 0.59.1
           extended: true
-      - name: Install Node
+      - name: "🧰 Install Node"
         uses: actions/setup-node@v1
         with:
-          node-version: '8.16.x'
-      - name: Install Yarn
+          node-version: 8.16.x
+      - name: "🧰 Install Yarn"
         run: npm install -g yarn
-      - name: Install asset dependencies
+      - name: "🧰 Install asset dependencies"
         run: |
           cd assets
           yarn install
-      - name: Build
+      - name: "🏗 Build"
         run: hugo

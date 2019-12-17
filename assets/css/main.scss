@@ -1,3 +1,5 @@
+$color: #000000;
+$background: #FFFFFF;
 $title-size: 0.07;
 $description-size: 0.05;
 
@@ -13,8 +15,8 @@ body {
     padding: 1em;
     box-sizing: border-box;
 
-    color: #000000;
-    background: #FFFFFF;
+    color: $color;
+    background: $background;
     font-family: "Space Mono", monospace;
 
     main {
@@ -51,10 +53,10 @@ body {
 
     footer {
         display: flex;
-        border-top: 2px solid #000000;
+        border-top: 2px solid $color;
 
         section {
-            flex: 0 0 50%;
+            flex: 1 1;
 
             &:last-of-type {
                 text-align: right;
