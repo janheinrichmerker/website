@@ -1,7 +1,8 @@
 <footer>
     <section>
         <p>
-            © {{ now.Format "2006" }} <a href='{{ relref . "/" }}'>{{ .Site.Title }}</a>
+            © {{ now.Format "2006" }} {{ .Site.Title }}.
+            <a href='{{ relref . "/" }}'>CC0 1.0</a>
         </p>
     </section>
     {{ if .Site.Menus.footer }}
