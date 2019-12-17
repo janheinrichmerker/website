@@ -104,23 +104,23 @@ Dazu reicht eine formlose Mitteilung per E-Mail an uns.
 Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
 
 ### Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)
-WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, 
-HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, 
-GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; 
-DIES GILT AUCH FÜR EIN AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING. 
-DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, 
-ENTNEHMEN SIE DIESER DATENSCHUTZERKLÄRUNG. 
-WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, 
-ES SEI DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN, 
-DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN ÜBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, 
-AUSÜBUNG ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).
+_Wenn die Datenverarbeitung auf Grundlage von Art. 6 Abs. 1 Lit. E oder F DSGVO erfolgt, 
+haben Sie jederzeit das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, 
+gegen die Verarbeitung Ihrer personenbezogenen Daten Widerspruch einzulegen; 
+dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. 
+Die jeweilige Rechtsgrundlage, auf denen eine Verarbeitung beruht, 
+entnehmen Sie dieser Datenschutzerklärung. 
+Wenn Sie Widerspruch einlegen, werden wir Ihre betroffenen personenbezogenen Daten nicht mehr verarbeiten, 
+es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, 
+die Ihre Interessen, Rechte und Freiheiten überwiegen oder die Verarbeitung dient der Geltendmachung, 
+Ausübung oder Verteidigung von Rechtsansprüchen (Widerspruch nach Art. 21 Abs. 1 DSGVO)._
 
-WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, 
-SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN 
-ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN;
- DIES GILT AUCH FÜR DAS PROFILING, SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. 
- WENN SIE WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND 
- NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO).
+_Werden Ihre personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, 
+so haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung Sie betreffender personenbezogener Daten 
+zum Zwecke derartiger Werbung einzulegen;
+dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht. 
+Wenn Sie widersprechen, werden Ihre personenbezogenen Daten anschließend 
+nicht mehr zum Zwecke der Direktwerbung verwendet (Widerspruch nach Art. 21 Abs. 2 DSGVO)._
 
 ### Beschwerderecht bei der zuständigen Aufsichtsbehörde
 Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, 
@@ -159,15 +159,15 @@ Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen
 Hierzu können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. 
 Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen:
 
--   Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, 
+- Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, 
 benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, 
 die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
--   Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, 
+- Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, 
 können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.
--   Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, 
+- Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, 
 Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, 
 haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
--   Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, 
+- Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, 
 muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. 
 Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, 
 die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
@@ -185,7 +185,7 @@ zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsm
 Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte 
 im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.
 
-## 4\. Datenerfassung auf dieser Website
+## 4. Datenerfassung auf dieser Website
 
 ### Anfrage per E-Mail, Telefon oder Telefax
 Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, 
@@ -205,10 +205,9 @@ bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerruf
 oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). 
 Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.
 
-## 5\. Plugins und Tools
+## 5. Plugins und Tools
 
 ### Google Web Fonts
-
 Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, 
 die von Google bereitgestellt werden. 
 Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, 
@@ -225,9 +224,7 @@ die Einwilligung ist jederzeit widerrufbar.
 
 Wenn Ihr Browser Web Fonts nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt.
 
-Weitere Informationen zu Google Web Fonts finden Sie unter 
-[https://developers.google.com/fonts/faq](https://developers.google.com/fonts/faq) 
-und in der Datenschutzerklärung von Google: 
-[https://policies.google.com/privacy?hl=de](https://policies.google.com/privacy?hl=de).
+Weitere Informationen zu Google Web Fonts finden Sie [in den FAQ](https://developers.google.com/fonts/faq) 
+und in der [Datenschutzerklärung von Google](https://policies.google.com/privacy?hl=de).
 
 Quelle: [e-recht24](https://www.e-recht24.de)
