@@ -9,6 +9,13 @@ disableKinds:
   - taxonomies
   - taxonomyTerm
 
+menu:
+  footer:
+  - identifier: source
+    name: Source
+    url: https://github.com/heinrichreimer/portfolio
+    weight: 3
+
 sitemap:
   changeFreq: "monthly"
   priority: 0.5
