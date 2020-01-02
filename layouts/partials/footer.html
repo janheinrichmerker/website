@@ -1,8 +1,10 @@
 <footer>
     <section>
         <p>
-            © {{ now.Format "2006" }} {{ .Site.Title }}.
-            <a href='{{ relref . "/imprint" }}#cc0'>CC0 1.0</a>
+            <a href='{{ relref . "/imprint" }}#cc0'
+               title="CC0 1.0 Universal (CC0 1.0) Public Domain Dedication">
+                {{- partial "cc-icon.html" "zero" -}}
+            </a> {{ now.Format "2006" }} {{ .Site.Title }}.
         </p>
     </section>
     {{ if .Site.Menus.footer }}
