@@ -19,6 +19,16 @@ body {
     background: $background;
     font-family: "Space Mono", monospace;
 
+    .fontawesome {
+        $font-awesome-scale: 0.75;
+        $font-awesome-size: 1em * $font-awesome-scale;
+
+        > svg {
+            width: $font-awesome-size;
+            height: $font-awesome-size;
+        }
+    }
+
     main {
         flex: 1 0;
 
