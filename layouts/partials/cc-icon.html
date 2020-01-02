@@ -1,4 +1,4 @@
-{{- $path := print "node_modules/@fortawesome/fontawesome-free/svgs/" ( .Get 0 ) ".svg" -}}
+{{- $path := print "/node_modules/cc-icons/svg/" . ".svg" -}}
 {{- $asset := resources.Get $path | resources.Minify -}}
 
 {{/* <!-- */}}
@@ -9,7 +9,7 @@
 {{- $svg := $asset.Content -}}
 {{- $svg := replace $svg $path $pathFill -}}
 <span class="icon-font">
-    {{- safeHTML "<!-- SVG by https://github.com/FortAwesome/Font-Awesome (CC BY 4.0) -->" -}}
+    {{- safeHTML "<!-- SVG by https://github.com/cc-icons/cc-icons (CC BY 4.0) -->" -}}
     {{- safeHTML $svg -}}
 </span>
 {{- safeHTML "" -}}

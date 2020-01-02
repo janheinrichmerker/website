@@ -13,7 +13,7 @@ body {
     width: 100%;
     height: 100vh;
     margin: 0;
-    padding: 1em;
+    padding: 1em 1em 0;
     box-sizing: border-box;
 
     color: $color;
@@ -33,7 +33,7 @@ body {
         }
     }
 
-    .fontawesome {
+    .icon-font {
         $font-awesome-scale: 0.75;
         $font-awesome-size: 1em * $font-awesome-scale;
 

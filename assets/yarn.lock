@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.12.0.tgz#8ceb9f09edfb85ea18a6c7bf098f6f5dd5ffd62b"
   integrity sha512-vKDJUuE2GAdBERaQWmmtsciAMzjwNrROXA5KTGSZvayAsmuTGjam5z6QNqNPCwDfVljLWuov1nEC3mEQf/n6fQ==
 
+cc-icons@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/cc-icons/-/cc-icons-1.0.0.tgz#3ee7ff2bda2eb03b505fa5b7941d3838bdd87437"
+  integrity sha1-Puf/K9ousDtQX6W3lB04OL3YdDc=
+
 normalize-scss@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/normalize-scss/-/normalize-scss-7.0.1.tgz#74485e82bb5d0526371136422a09fdb868ffc1a4"

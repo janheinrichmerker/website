@@ -1,4 +1,4 @@
-{{- $path := print "node_modules/@fortawesome/fontawesome-free/svgs/" ( .Get 0 ) ".svg" -}}
+{{- $path := print "node_modules/@fortawesome/fontawesome-free/svgs/" . ".svg" -}}
 {{- $asset := resources.Get $path | resources.Minify -}}
 
 {{/* <!-- */}}
