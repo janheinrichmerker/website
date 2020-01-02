@@ -1,10 +1,5 @@
 {
-  "name": "website-assets",
-  "version": "1.0.0",
-  "description": "Website assets",
-  "author": "Jan Heinrich Reimer <mail@heinrichreimer.com>",
-  "license": "UNLICENSE",
-  "private": true,
+  "license": "SEE LICENSE IN ../LICENSE",
   "dependencies": {
     "normalize-scss": "^7.0.1",
     "@fortawesome/fontawesome-free": "^5.12.0"
