@@ -1,13 +1,17 @@
 title: "Jan Heinrich Reimer"
 baseURL: "https://heinrichreimer.com/"
-languageCode: "en-us"
-
 metaDataFormat: "yaml"
-defaultContentLanguage: "en-us"
-enableRobotsTXT: true
 disableKinds:
   - taxonomies
   - taxonomyTerm
+
+enableEmoji: true
+enableRobotsTXT: true
+enableGitInfo: true
+
+defaultContentLanguage: "en"
+languageCode: "en-us"
+languageName: "English (United States)"
 
 menu:
   footer:
