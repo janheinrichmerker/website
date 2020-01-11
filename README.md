@@ -12,3 +12,8 @@ My personal [portfolio website](https://heinrichreimer.com).
 
 The [portfolio](https://heinrichreimer.com) is automatically built and deployed
 via [GitHub Actions](https://github.com/heinrichreimer/portfolio/actions).
+
+## License
+
+The source code is licensed under the [MIT License](/LICENSE).
+The content is licensed under the [CC0 1.0 Universal License](/static/LICENSE).

@@ -77,14 +77,13 @@ body {
 
     footer {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         border-top: 2px solid $color;
+        margin-bottom: 1em;
 
-        section {
-            flex: 1 1;
-
-            &:last-of-type {
-                text-align: right;
-            }
+        ul, p {
+            margin-bottom: 0;
         }
 
         ul {
