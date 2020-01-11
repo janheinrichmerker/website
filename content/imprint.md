@@ -40,8 +40,12 @@ Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend ent
 
 Quelle: [e-recht24](https://www.e-recht24.de)
 
-## CC0
-_License: [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0/)_  
-To the extent possible under law, [Jan Heinrich Reimer](https://heinrichreimer.com) has waived all copyright 
-and related or neighboring rights to the Jan Heinrich Reimer portfolio website.  
-This work is published from: Germany.
+## Lizenz
+
+Der Inhalt dieser Webseite ist unter der 
+[_CC0 1.0 Universal Public Domain Dedication_](http://creativecommons.org/publicdomain/zero/1.0/)
+lizenziert.
+
+Der [Quellcode](https://github.com/heinrichreimer/portfolio) dieser Webseite ist unter der 
+[_MIT License_](https://opensource.org/licenses/MIT)
+lizensiert.
