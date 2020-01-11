@@ -1,21 +1,17 @@
 <footer>
-    <section>
-        <p>
-            <a href='{{ relref . "/imprint" }}#lizenz'
-               title="CC0 1.0 Universal Public Domain Dedication">
-                {{- partial "cc-icon.html" "zero" -}}
-            </a> {{ now.Format "2006" }} {{ .Site.Title }}.
-        </p>
-    </section>
+    <p>
+        <a href='{{ relref . "/imprint" }}#lizenz'
+           title="CC0 1.0 Universal Public Domain Dedication">
+            {{- partial "cc-icon.html" "zero" -}}
+        </a> {{ now.Format "2006" }} {{ .Site.Title }}.
+    </p>
     {{ if .Site.Menus.footer }}
-    <section>
-        <ul>
-            {{ range .Site.Menus.footer }}
-            <li>
-                <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
-            </li>
-            {{ end }}
-        </ul>
-    </section>
+    <ul>
+        {{ range .Site.Menus.footer }}
+        <li>
+            <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
+    </ul>
     {{ end }}
 </footer>
