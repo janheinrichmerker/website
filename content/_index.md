@@ -19,6 +19,3 @@
 [{{< fontawesome "brands/skype" >}}](https://join.skype.com/invite/ghNxkLOVu8dQ/ "Skype")
 [{{< fontawesome "brands/reddit" >}}](https://www.reddit.com/user/H1iReimer/ "Reddit")
 [{{< fontawesome "brands/snapchat" >}}](https://www.snapchat.com/add/heinrichreimer/ "Snapchat")
-<!-- [{{< fontawesome "brands/dribbble" >}}](https://dribbble.com/heinrichreimer/ "Dribbble") -->
-<!-- [{{< fontawesome "brands/medium" >}}](https://medium.com/@heinrichreimer/ "Medium") -->
-<!-- [{{< fontawesome "brands/tumblr" >}}](https://heinrichreimer.tumblr.com/ "Tumblr") -->
