@@ -3,6 +3,7 @@ $color-active: #052561;
 $background: #FFFFFF;
 $title-size: 0.07;
 $description-size: 0.05;
+$max-width: 800px;
 
 @import "../node_modules/normalize-scss/sass/normalize";
 
@@ -45,6 +46,7 @@ body {
 
     main {
         flex: 1 0;
+        max-width: $max-width;
 
         article {
             width: 100%;
@@ -56,20 +58,21 @@ body {
             display: flex;
             align-items: center;
             text-align: center;
+            max-width: none;
 
             h1 {
                 font-size: 100vw * $title-size;
 
-                @media (min-width: 800px) {
-                    font-size: 800px * $title-size;
+                @media (min-width: $max-width) {
+                    font-size: $max-width * $title-size;
                 }
             }
 
             p {
                 font-size: 100vw * $description-size;
 
-                @media (min-width: 800px) {
-                    font-size: 800px * $description-size;
+                @media (min-width: $max-width) {
+                    font-size: $max-width * $description-size;
                 }
             }
         }
