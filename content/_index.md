@@ -5,7 +5,7 @@
 
 📚 [Student](https://www.informatik.uni-halle.de/ "Martin Luther University Halle-Wittenberg") • 
 💻 [Developer](https://reimer.software "Reimer Software") • 
-🏛️ European
+🏛️ [European](https://europa.eu/european-union/about-eu/eu-in-brief/ "The European Union")
 
 [{{< fontawesome "brands/github" >}}](https://github.com/heinrichreimer/ "GitHub")
 [{{< fontawesome "brands/twitter" >}}](https://twitter.com/H1iReimer/ "Twitter")
