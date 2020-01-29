@@ -3,7 +3,7 @@
 
 # Jan Heinrich Reimer
 
-📚 Student • 
+📚 [Student](https://www.informatik.uni-halle.de/ "Martin Luther University Halle-Wittenberg") • 
 💻 [Developer](https://reimer.software "Reimer Software") • 
 🏛️ European
 
