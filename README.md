@@ -3,7 +3,7 @@
 [![Issues](https://img.shields.io/github/issues/heinrichreimer/portfolio?style=flat-square)](https://github.com/heinrichreimer/portfolio/issues)
 [![License](https://img.shields.io/github/license/heinrichreimer/portfolio?style=flat-square)](https://github.com/heinrichreimer/portfolio)
 
-# portfolio
+# 🌐 portfolio
 
 My personal [portfolio website](https://heinrichreimer.com).
 
