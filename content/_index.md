@@ -1,6 +1,8 @@
 ---
 ---
 
+[😷📏 Stay safe during the current COVID-19 pandemic.](https://zusammengegencorona.de/en/)
+
 # Jan Heinrich Reimer
 
 📚 [Student](https://www.informatik.uni-halle.de/ "Martin Luther University Halle-Wittenberg") • 
