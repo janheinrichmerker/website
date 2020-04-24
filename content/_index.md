@@ -1,7 +1,7 @@
 ---
 ---
 
-[😷📏 Stay safe during the current COVID-19 pandemic.](https://zusammengegencorona.de/en/)
+😷📏 [Stay safe](https://zusammengegencorona.de/en/ "Federal Ministry of Health, Germany") during the current [COVID-19 pandemic](https://who.int/emergencies/diseases/novel-coronavirus-2019/ "World Health Organization").
 
 # Jan Heinrich Reimer
 
