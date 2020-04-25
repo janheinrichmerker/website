@@ -1,10 +1,10 @@
 {{ define "main" }}
 <article id="404">
     <h1>
-        Seite nicht gefunden
+        Page not found
     </h1>
-    Die aufgerufene Seite existiert leider nicht.<br>
-    Gehe einfach zurück zur <a href="{{ .Site.BaseURL }}" title="Startseite">Startseite</a><br>
-    oder <a href='{{ relref . "/imprint" }}' title="Impressum">kontaktier</a> mich.
+    The page you requested aufgerufene doesn't exist.<br>
+    Simply go back to the <a href="{{ .Site.BaseURL }}" title="Home">homepage</a><br>
+    or <a href='{{ relref . "/imprint" }}' title="Imprint">contact</a> me.
 </article>
 {{ end }}
