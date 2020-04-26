@@ -1,6 +1,8 @@
 ---
 ---
 
+😷📏 [Stay safe](https://zusammengegencorona.de/en/ "Federal Ministry of Health, Germany") during the current [COVID-19 pandemic](https://who.int/emergencies/diseases/novel-coronavirus-2019/ "World Health Organization").
+
 # Jan Heinrich Reimer
 
 📚 [Student](https://www.informatik.uni-halle.de/ "Martin Luther University Halle-Wittenberg") • 

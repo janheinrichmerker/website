@@ -1,5 +1,5 @@
-<If "%{HTTPS} != 'on' || %{HTTP_HOST} != 'heinrichreimer.com'">
-    Redirect / https://heinrichreimer.com/
+<If "%{HTTPS} != 'on' || %{HTTP_HOST} != 'heinrichreimer.eu'">
+    Redirect / https://heinrichreimer.eu/
 </If>
 
-ErrorDocument 404 https://heinrichreimer.com/404.html
+ErrorDocument 404 https://heinrichreimer.eu/404.html
