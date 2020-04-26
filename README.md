@@ -5,12 +5,12 @@
 
 # 🌐 portfolio
 
-My personal [portfolio website](https://heinrichreimer.com).
+My personal [portfolio website](https://heinrichreimer.eu).
 
 
 ## Build & deploy
 
-The [portfolio](https://heinrichreimer.com) is automatically built and deployed
+The [portfolio](https://heinrichreimer.eu) is automatically built and deployed
 via [GitHub Actions](https://github.com/heinrichreimer/portfolio/actions).
 
 ## License
