@@ -17,6 +17,7 @@
 [{{< fontawesome "brands/whatsapp" >}}](https://api.whatsapp.com/send/?phone=491749273954 "WhatsApp")
 [{{< fontawesome "brands/instagram" >}}](https://www.instagram.com/heinrichreimer/ "Instagram")
 [{{< fontawesome "brands/linkedin" >}}](https://www.linkedin.com/in/heinrichreimer/ "LinkedIn")
+[{{< fontawesome "brands/researchgate" >}}](https://researchgate.net/profile/Jan_Heinrich_Reimer "ResearchGate")
 [{{< fontawesome "brands/youtube" >}}](https://www.youtube.com/channel/UCzWfR3P8Zz65zmsSi-1ynfw/ "YouTube")
 [{{< fontawesome "brands/paypal" >}}](https://paypal.me/HeinrichReimer/ "PayPal")
 [{{< fontawesome "brands/skype" >}}](https://join.skype.com/invite/ghNxkLOVu8dQ/ "Skype")
