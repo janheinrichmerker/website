@@ -9,7 +9,7 @@
 💻 [Developer](https://reimer.software "Reimer Software") • 
 🏛️ [European](https://europa.eu/european-union/about-eu/eu-in-brief/ "The European Union")
 
-[{{< fontawesome "regular/envelope" >}}](mailto:mail@heinrichreimer.com "E-Mail")
+[{{< fontawesome "regular/envelope" >}}](mailto:mail@heinrichreimer.eu "E-Mail")
 [{{< fontawesome "brands/github" >}}](https://github.com/heinrichreimer/ "GitHub")
 [{{< fontawesome "brands/twitter" >}}](https://twitter.com/H1iReimer/ "Twitter")
 [{{< fontawesome "brands/xing" >}}](https://www.xing.com/profile/JanHeinrich_Reimer/ "XING")
