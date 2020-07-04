@@ -1,5 +1,5 @@
 title: "Jan Heinrich Reimer"
-baseURL: "https://heinrichreimer.com/"
+baseURL: "https://heinrichreimer.eu/"
 metaDataFormat: "yaml"
 disableKinds:
   - taxonomies

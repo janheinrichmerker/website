@@ -13,7 +13,7 @@ Große Märkerstraße 20
 
 ## Kontakt
 Telefon: [+49 174 9273954](tel:+491749273954)  
-E-Mail: [mail@heinrichreimer.com](mailto:mail@heinrichreimer.com)
+E-Mail: [mail@heinrichreimer.eu](mailto:mail@heinrichreimer.eu)
 
 ### Haftung für Inhalte
 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG 

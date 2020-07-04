@@ -91,7 +91,7 @@ Große Märkerstraße 20
 Deutschland
 
 Telefon: [+49 174 9273954](tel:+491749273954)  
-E-Mail: [mail@heinrichreimer.com](mailto:mail@heinrichreimer.com)
+E-Mail: [mail@heinrichreimer.eu](mailto:mail@heinrichreimer.eu)
 
 Verantwortliche Stelle ist die natürliche oder juristische Person, 
 die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung 
