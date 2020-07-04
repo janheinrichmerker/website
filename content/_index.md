@@ -1,4 +1,6 @@
 ---
+aliases:
+- /home/
 ---
 
 # Jan Heinrich Reimer

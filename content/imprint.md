@@ -1,8 +1,8 @@
 ---
 title: Impressum / Imprint
 aliases:
-  - /impressum/
-  - /disclaimer/
+- /impressum/
+- /disclaimer/
 menu:
   footer:
     weight: 1

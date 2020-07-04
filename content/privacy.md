@@ -1,7 +1,7 @@
 ---
 title: Datenschutzerklärung / Privacy
 aliases: 
-  - /datenschutz/
+- /datenschutz/
 menu:
   footer:
     weight: 2
