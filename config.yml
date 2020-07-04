@@ -13,6 +13,12 @@ defaultContentLanguage: "en"
 languageCode: "en-us"
 languageName: "English (United States)"
 
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
+
 menu:
   footer:
   - identifier: source

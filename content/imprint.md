@@ -1,9 +1,12 @@
 ---
 title: Impressum / Imprint
+aliases:
+- /impressum/
+- /disclaimer/
 menu:
-    footer:
-        weight: 1
-        name: Imprint
+  footer:
+    weight: 1
+    name: Imprint
 ---
 
 ## Angaben gemäß § 5 TMG

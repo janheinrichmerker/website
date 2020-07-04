@@ -1,9 +1,11 @@
 ---
 title: Datenschutzerklärung / Privacy
+aliases: 
+- /datenschutz/
 menu:
-    footer:
-        weight: 2
-        name: Privacy
+  footer:
+    weight: 2
+    name: Privacy
 ---
 
 ## 1. Datenschutz auf einen Blick

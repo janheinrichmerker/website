@@ -1,4 +1,6 @@
 ---
+aliases:
+- /home/
 ---
 
 # Jan Heinrich Reimer
@@ -23,3 +25,9 @@
 [{{< fontawesome "brands/snapchat" >}}](https://www.snapchat.com/add/heinrichreimer/ "Snapchat")
 [{{< fontawesome "brands/keybase" >}}](https://keybase.io/heinrichreimer/ "Keybase")
 [{{< fontawesome "solid/key" >}}](https://keybase.io/heinrichreimer/pgp_keys.asc "PGP key")
+
+<nav>
+
+[Curriculum Vitae]({{< relref "/cv.md" >}})
+
+</nav>
