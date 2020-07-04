@@ -3,7 +3,7 @@ $color-active: #052561;
 $background: #FFFFFF;
 $title-size: 0.07;
 $description-size: 0.05;
-$max-width: 800px;
+$max-width: 55em;
 
 @import "../node_modules/normalize-scss/sass/normalize";
 
@@ -51,6 +51,38 @@ body {
         article {
             width: 100%;
         }
+
+        figure {
+            margin: 1em;
+
+            table {
+                display: inline-block;
+                border-top: 1.5pt solid black;
+                border-bottom: 1.5pt solid black;
+                border-spacing: 1em 0.75ex;
+
+                thead {
+                    border-bottom: 1pt solid black;
+                }
+
+                th, td {
+                    text-align: initial;
+                    vertical-align: top;
+
+                    &[align=left] {
+                        text-align: left;
+                    }
+
+                    &[align=right] {
+                        text-align: right;
+                    }
+
+                    &[align=center] {
+                        text-align: center;
+                    }
+                }
+            }
+        }
     }
 
     &.home {
@@ -78,11 +110,40 @@ body {
         }
     }
 
+    &.page-curriculum-vitae {
+
+        figure {
+
+            &.profile {
+                text-align: center;
+
+                img {
+                    width: 30vmin;
+                    height: 30vmin;
+                    border: 2pt solid black;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            table {
+                width: 100%;
+
+                th, td {
+
+                    &:first-child {
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+
     footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        border-top: 2px solid $color;
+        border-top: 2pt solid $color;
         margin-bottom: 1em;
 
         ul, p {
