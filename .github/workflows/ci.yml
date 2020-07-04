@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: "📥 Check-out"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 0.59.1
+          hugo-version: 0.70.0
           extended: true
       - name: "🧰 Install Node"
         uses: actions/setup-node@v1
