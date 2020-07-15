@@ -1,15 +1,13 @@
 ---
-title: Imprint
+title: Impressum
 aliases:
 - /impressum/
 - /disclaimer/
 menu:
   footer:
     weight: 1
-    name: Imprint
+    name: Impressum
 ---
-
-_For legal reasons, this imprint is only available in German._
 
 ## Angaben gemäß § 5 TMG
 Jan Heinrich Reimer  
@@ -43,10 +41,14 @@ Eine permanente inhaltliche Kontrolle der verlinkten Seiten
 ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. 
 Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
 
-Source: [e-recht24](https://www.e-recht24.de)
+Quelle: [e-recht24](https://www.e-recht24.de)
 
-## License
+## Lizenz
 
-The content on this website is licensed under [_CC0 1.0 Universal Public Domain Dedication_](http://creativecommons.org/publicdomain/zero/1.0/).
+Der Inhalt dieser Webseite ist unter der 
+[_CC0 1.0 Universal Public Domain Dedication_](http://creativecommons.org/publicdomain/zero/1.0/)
+lizenziert.
 
-The [source code](https://github.com/heinrichreimer/portfolio) of this website is licensed under the [_MIT License_](https://opensource.org/licenses/MIT).
+Der [Quellcode](https://github.com/heinrichreimer/portfolio) dieser Webseite ist unter der 
+[_MIT License_](https://opensource.org/licenses/MIT)
+lizensiert.

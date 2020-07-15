@@ -1,14 +1,12 @@
 ---
-title: Privacy Policy
+title: Datenschutzerklärung
 aliases: 
 - /datenschutz/
 menu:
   footer:
     weight: 2
-    name: Privacy
+    name: Datenschutz
 ---
-
-_For legal reasons, this privacy policy is only available in German._
 
 ## 1. Datenschutz auf einen Blick
 
@@ -231,4 +229,4 @@ Wenn Ihr Browser Web Fonts nicht unterstützt, wird eine Standardschrift von Ihr
 Weitere Informationen zu Google Web Fonts finden Sie [in den FAQ](https://developers.google.com/fonts/faq) 
 und in der [Datenschutzerklärung von Google](https://policies.google.com/privacy?hl=de).
 
-Source: [e-recht24](https://www.e-recht24.de)
+Quelle: [e-recht24](https://www.e-recht24.de)
