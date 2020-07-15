@@ -1,35 +1,55 @@
-title: "Jan Heinrich Reimer"
-baseURL: "https://heinrichreimer.eu/"
-metaDataFormat: "yaml"
-disableKinds:
-  - taxonomies
-  - taxonomyTerm
+title: Jan Heinrich Reimer
+baseURL: https://heinrichreimer.eu/
 
+defaultContentLanguage: en
+languages:
+  en:
+    weight: 1
+    languageCode: en
+    languageName: English
+    menu:
+      footer:
+      - identifier: source
+        name: Source
+        url: https://github.com/heinrichreimer/portfolio
+        weight: 3
+  de:
+    weight: 2
+    languageCode: de-de
+    languageName: German (Germany)
+    menu:
+      footer:
+      - identifier: source
+        name: Quellcode
+        url: https://github.com/heinrichreimer/portfolio
+        weight: 3
+
+
+params:
+  env: production
+
+metaDataFormat: yaml
 enableEmoji: true
 enableRobotsTXT: true
 enableGitInfo: true
 
-defaultContentLanguage: "en"
-languageCode: "en-us"
-languageName: "English (United States)"
+disableKinds:
+- taxonomies
+- taxonomyTerm
 
 markup:
   defaultMarkdownHandler: goldmark
   goldmark:
+    extensions:
+      table: true
+      strikethrough: true
+      linkify: true
+      taskList: true
+      typographer: true
     renderer:
       unsafe: true
 
-menu:
-  footer:
-  - identifier: source
-    name: Source
-    url: https://github.com/heinrichreimer/portfolio
-    weight: 3
-
 sitemap:
-  changeFreq: "monthly"
+  changeFreq: monthly
   priority: 0.5
-  filename: "sitemap.xml"
-
-params:
-  env: production
+  filename: sitemap.xml
