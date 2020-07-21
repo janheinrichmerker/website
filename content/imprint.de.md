@@ -12,7 +12,8 @@ menu:
 ## Angaben gemäß § 5 TMG
 Jan Heinrich Reimer  
 Große Märkerstraße 20  
-06108 Halle (Saale)
+06108 Halle (Saale)  
+Germany
 
 ## Kontakt
 Telefon: [+49 174 9273954](tel:+491749273954)  
@@ -43,7 +44,7 @@ Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend ent
 
 Quelle: [e-recht24](https://www.e-recht24.de)
 
-## Lizenz
+## Lizenz <a name="license"/>
 
 Der Inhalt dieser Webseite ist unter der 
 [_CC0 1.0 Universal Public Domain Dedication_](http://creativecommons.org/publicdomain/zero/1.0/)
