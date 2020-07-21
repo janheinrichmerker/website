@@ -1,9 +1,11 @@
 $color: #000000;
 $color-active: #052561;
 $background: #FFFFFF;
-$title-size: 0.07;
-$description-size: 0.05;
+$title-size: 0.08;
+$description-size: 0.04;
 $max-width: 55em;
+$font-awesome-scale: 1;
+$font-awesome-size: 1em * $font-awesome-scale;
 
 @import "../node_modules/normalize-scss/sass/normalize";
 
@@ -35,12 +37,18 @@ body {
     }
 
     .icon-font {
-        $font-awesome-scale: 0.75;
-        $font-awesome-size: 1em * $font-awesome-scale;
-
         > svg {
             width: $font-awesome-size;
             height: $font-awesome-size;
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+
+        @media print {
+            display: none;
         }
     }
 
@@ -52,14 +60,18 @@ body {
             width: 100%;
         }
 
+        pre, blockquote, section, figure {
+            break-inside: avoid;
+        }
+
         figure {
-            margin: 1em;
+            margin: 1em 0;
 
             table {
                 display: inline-block;
                 border-top: 1.5pt solid black;
                 border-bottom: 1.5pt solid black;
-                border-spacing: 1em 0.75ex;
+                border-spacing: 0.75em 0.75ex;
 
                 thead {
                     border-bottom: 1pt solid black;
@@ -100,7 +112,7 @@ body {
                 }
             }
 
-            p {
+            p:nth-of-type(1), p:nth-of-type(2) {
                 font-size: 100vw * $description-size;
 
                 @media (min-width: $max-width) {
@@ -112,10 +124,21 @@ body {
 
     &.page-curriculum-vitae {
 
+        .icon-font {
+
+            @media print {
+                display: none;
+            }
+        }
+
         figure {
 
             &.profile {
                 text-align: center;
+
+                @media print {
+                    float: right;
+                }
 
                 img {
                     width: 30vmin;
@@ -144,6 +167,10 @@ body {
         justify-content: space-between;
         border-top: 2pt solid $color;
         margin-bottom: 1em;
+
+        @media print {
+            display: none;
+        }
 
         ul, p {
             margin-bottom: 0;
