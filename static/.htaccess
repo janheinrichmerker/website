@@ -2,4 +2,8 @@
     Redirect / https://heinrichreimer.eu/
 </If>
 
-ErrorDocument 404 https://heinrichreimer.eu/404.html
+ErrorDocument 404 /404.html
+
+<If "%{REQUEST_URI} =~ /de\x2F.*/">
+    ErrorDocument 404 /de/404.html
+</If>

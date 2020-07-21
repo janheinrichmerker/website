@@ -5,7 +5,7 @@ defaultContentLanguage: en
 languages:
   en:
     weight: 1
-    languageCode: en
+    languageCode: en-de
     languageName: English
     menu:
       footer:

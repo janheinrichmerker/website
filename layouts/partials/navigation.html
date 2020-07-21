@@ -1,5 +1,7 @@
 {{ if not .IsHome }}
 <nav>
-    <a href='{{ relref . "/" }}' title="Startseite">⭠ back</a>
+    <a href='{{ relref . "/" }}' title='{{ i18n "homepage" }}'>← {{ i18n "home" }}</a>
+
+    <a href="#" onclick="window.print();return false;" id="print" title='{{ i18n "print" }}'>{{ partial "fontawesome.html" "solid/print" }} </a>
 </nav>
 {{ end }}
