@@ -24,8 +24,6 @@ aliases:
 [{{< fontawesome "brands/reddit" >}}](https://reddit.com/user/H1iReimer/ "Reddit")
 [{{< fontawesome "brands/snapchat" >}}](https://snapchat.com/add/heinrichreimer/ "Snapchat")
 
-<nav>
+Du möchtest mehr über mich erfahren? Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}}).
 
-[Curriculum Vitae]({{< relref "/cv.md" >}})
-
-</nav>
+Wenn du magst, kannst du meine open-source Arbeit [unterstützen]({{< relref "/sponsor.md" >}}).
