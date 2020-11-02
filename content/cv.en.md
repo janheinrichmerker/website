@@ -59,8 +59,8 @@ _Jan Heinrich Reimer, B.Sc._
 | | | |
 | --- | --- | --- |
 | 04/2020 - today | Martin Luther University Halle-Wittenberg <br> M.Sc. Computer Science | [{{< fontawesome "solid/external-link-alt" >}}](https://uni-halle.de/) |
-| 10/2016 - 07/2020 | Martin Luther University Halle-Wittenberg <br> B.Sc. Computer Science; Ø 1,7 <br>  | [{{< fontawesome "solid/external-link-alt" >}}](https://uni-halle.de/) [{{< fontawesome "regular/file-pdf" >}}](/documents/bachelor-of-science-informatik-reimer.pdf) [{{< fontawesome "solid/code" >}}](https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank) | 
-| 08/2008 - 06/2016 | Wilhelm-Gymnasium Braunschweig <br> Abitur; Ø 1,7 | [{{< fontawesome "solid/external-link-alt" >}}](https://wilhelm-gym.de) [{{< fontawesome "regular/file-pdf" >}}](/documents/abitur-reimer.pdf) |
+| 10/2016 - 07/2020 | Martin Luther University Halle-Wittenberg <br> B.Sc. Computer Science; Ø 1.7 <br>  | [{{< fontawesome "solid/external-link-alt" >}}](https://uni-halle.de/) [{{< fontawesome "regular/file-pdf" >}}](/documents/bachelor-of-science-informatik-reimer.pdf) [{{< fontawesome "solid/code" >}}](https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank) | 
+| 08/2008 - 06/2016 | Wilhelm-Gymnasium Braunschweig <br> Abitur; Ø 1.7 | [{{< fontawesome "solid/external-link-alt" >}}](https://wilhelm-gym.de) [{{< fontawesome "regular/file-pdf" >}}](/documents/abitur-reimer.pdf) |
 
 </figure>
 
