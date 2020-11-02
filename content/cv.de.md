@@ -7,7 +7,7 @@ aliases:
 - /lebenslauf/
 ---
 
-_Jan Heinrich Reimer_
+_Jan Heinrich Reimer, B.Sc._
 
 <figure class="profile">
 
