@@ -75,9 +75,9 @@ _Jan Heinrich Reimer, B.Sc._
 |||
 |---|---|
 | Languages | German (native), English (fluent) |
-| Code | Kotlin, Java, Android, HTML, CSS, Flutter, SQL, GraphQL, JSON, REST, XML, Dart, Python, TypeScript, Haskell, Elm, Go |
-| IDEs | IntelliJ IDEA, VS Code, Git |
-| Design | UI, Figma, App Icons |
+| Code | [Kotlin](https://kotlinlang.org/), [Java](https://oracle.com/java/), [Android](https://android.com/), [HTML](https://w3.org/html/), [CSS](https://w3.org/Style/CSS/), [Flutter](https://flutter.dev/), [Python](https://python.org/), [SQL](https://mysql.com/), [GraphQL](https://graphql.org/), [JSON](https://json.org/), [REST](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm), [XML](https://w3.org/standards/xml/), [Dart](https://dart.dev/), [TypeScript](https://www.typescriptlang.org/), [Haskell](https://haskell.org/), [Elm](https://elm-lang.org/), [Julia](https://julialang.org/), [Go](https://golang.org/) |
+| IDEs | [IntelliJ IDEA](https://www.jetbrains.com/idea/), [VS Code](https://code.visualstudio.com/), [Git](https://git-scm.com/) |
+| Design | UI, [Figma](https://figma.com/), App Icons |
 | Leadership | Youth group leadership seminar |
 
 </figure>
