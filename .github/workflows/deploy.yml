@@ -31,8 +31,8 @@ jobs:
       - name: "🚀 Deploy to Uberspace"
         uses: appleboy/scp-action@v0.0.5
         with:
-          username: hreimer
-          host: brewington.uberspace.de
+          username: familie
+          host: charon.uberspace.de
           key: ${{ secrets.DEPLOY_KEY }}
           source: public
           strip_components: 1
