@@ -34,6 +34,15 @@ body {
             color: lighten(desaturate($color-active, 40%), 20%);
             text-decoration-style: dashed;
         }
+
+        @media print {
+            text-decoration: none;
+            color: $color;
+
+            &:visited, &:hover, &:active {
+                color: $color;
+            }
+        }
     }
 
     .icon-font {
@@ -67,6 +76,18 @@ body {
         figure {
             margin: 1em 0;
 
+            &.profile {
+                text-align: center;
+
+                img {
+                    width: 25vmin;
+                    height: 25vmin;
+                    border: 2pt solid black;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
             table {
                 display: inline-block;
                 border-top: 1.5pt solid black;
@@ -93,6 +114,10 @@ body {
                         text-align: center;
                     }
                 }
+            }
+
+            &.timeline td:first-of-type {
+                min-width: 10.5em;
             }
         }
     }
@@ -134,22 +159,14 @@ body {
         figure {
 
             &.profile {
-                text-align: center;
-
-                @media print {
+                @media print, (min-width: 0.95 * $max-width) {
                     float: right;
-                }
-
-                img {
-                    width: 30vmin;
-                    height: 30vmin;
-                    border: 2pt solid black;
-                    border-radius: 50%;
-                    object-fit: cover;
+                    margin: 0 0.05 * $max-width;
                 }
             }
 
             table {
+                max-width: 0.95 * $max-width;
 
                 th, td {
 
