@@ -93,7 +93,7 @@ Große Märkerstraße 20
 Deutschland
 
 Telefon: [+49 174 9273954](tel:+491749273954)  
-E-Mail: [mail@heinrichreimer.eu](mailto:mail@heinrichreimer.eu)
+E-Mail: [heinrich@reimer.family](mailto:heinrich@reimer.family)
 
 Verantwortliche Stelle ist die natürliche oder juristische Person, 
 die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung 
@@ -142,7 +142,7 @@ Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertra
 wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, 
 eine SSL- bzw. TLS-Verschlüsselung. 
 Eine verschlüsselte Verbindung erkennen Sie daran, 
-dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt 
+dass die Adresszeile des Browsers von `http://` auf `https://` wechselt 
 und an dem Schloss-Symbol in Ihrer Browserzeile.
 
 Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, 

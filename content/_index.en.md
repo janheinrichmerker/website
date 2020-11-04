@@ -3,13 +3,19 @@ aliases:
 - /home/
 ---
 
+<figure class="profile">
+
+![Profile image](/images/profile-square.jpg)
+
+</figure>
+
 # Jan Heinrich Reimer
 
 📚&nbsp;[Student](https://www.informatik.uni-halle.de/ "Martin Luther University Halle-Wittenberg")• 
 💻&nbsp;[Developer](https://reimer.software "Reimer Software") • 
 🏛️&nbsp;[European](https://europa.eu/european-union/about-eu/eu-in-brief/ "The European Union")
 
-[{{< fontawesome "solid/envelope" >}}](mailto:mail@heinrichreimer.eu "E-Mail")
+[{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail")
 [{{< fontawesome "solid/phone" >}}](tel:+491749273954 "Phone")
 [{{< fontawesome "brands/github" >}}](https://github.com/heinrichreimer/ "GitHub")
 [{{< fontawesome "brands/twitter" >}}](https://twitter.com/H1iReimer/ "Twitter")
