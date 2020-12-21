@@ -5,7 +5,7 @@ title: Sponsor
 ## Why?
 
 I focus on bringing _well-documented libraries_ to the open source community.
-Most of the time, I write for _Android_, _Kotlin_ or _Java_, but I like to experiment with other frameworks, such as _Flutter_ or _LaTeX_.
+Most of the time, I write for _Kotlin_, _Android_ or _Java_, but I like to explore new fields and frameworks, such as _Flutter_ or _LaTeX_.
 
 Sponsoring helps me find more time for contributions.
 Besides, it also helps cover university-related expenses.
