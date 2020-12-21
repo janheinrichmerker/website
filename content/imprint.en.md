@@ -1,7 +1,6 @@
 ---
 title: Imprint
 aliases:
-- /impressum/
 - /disclaimer/
 menu:
   footer:

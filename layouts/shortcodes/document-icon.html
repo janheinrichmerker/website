@@ -1,0 +1,15 @@
+{{- $name := .Get "name" -}}
+{{- $title := .Get "title" -}}
+{{- if $name -}}
+{{- $resource := $.Page.Resources.GetMatch $name -}}
+{{- if not $title -}}
+{{- $title = $resource.Title -}}
+{{- end -}}
+{{- with $resource -}}
+<a href="{{ .RelPermalink }}" download="{{ anchorize $name }}{{ path.Ext .RelPermalink }}"{{ with $title }} title="{{ . }}"{{ end }}>
+    {{- partial "fontawesome.html" "regular/file-pdf" -}}
+</a>
+{{- end -}}
+{{- else -}}
+{{- errorf "No resource name specified" -}}
+{{- end -}}

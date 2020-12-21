@@ -1,7 +1,5 @@
 ---
 title: Privacy Policy
-aliases: 
-- /datenschutz/
 menu:
   footer:
     weight: 2

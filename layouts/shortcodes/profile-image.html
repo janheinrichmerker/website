@@ -1,0 +1,13 @@
+{{- $resource := resources.Get "profile.jpg" -}}
+{{- $title := i18n "profile" -}}
+{{- with $resource -}}
+{{- $fullResource := resources.Get "profile-portrait.jpg" -}}
+{{- $link := $fullResource.RelPermalink -}}
+<figure class="profile">
+    <a href="{{ $link }}"{{ with $title }} title="{{ . }}"{{ end }}>
+        {{- with .Fit "400x400" -}}
+        <img src="{{ .RelPermalink }}"{{ with $title }} alt="{{ . }}"{{ end }}>
+        {{- end -}}
+    </a>
+</figure>
+{{- end -}}

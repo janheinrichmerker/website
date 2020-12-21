@@ -73,6 +73,26 @@ body {
             break-inside: avoid;
         }
 
+        * {
+            > span.spoiler {
+                filter: blur(0.25rem);
+                opacity: 0.25;
+                transition: 0.1s filter ease-in, 0.1s opacity ease-in;
+
+                &:hover, &:focus, &:active {
+                    transition-duration: 0.75s, 0.1s;
+                    filter: inherit;
+                }
+            }
+
+            &:hover, &:focus, &:active {
+                > span.spoiler {
+                    visibility: visible;
+                    opacity: inherit;
+                }
+            }
+        }
+
         figure {
             margin: 1em 0;
 

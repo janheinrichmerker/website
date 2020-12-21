@@ -4,16 +4,18 @@ aliases:
 - /curriculum-vitae/
 - /resume/
 - /resumé/
-- /lebenslauf/
+resources:
+- name: reimer-abitur
+  src: abitur.pdf
+  title: "Abitur Certificate"
+- name: reimer-bsc-cs
+  src: bsc.pdf
+  title: "Bachelor of Science Certificate"
 ---
 
 _Jan Heinrich Reimer, B.Sc._
 
-<figure class="profile">
-
-[![Profile image](/images/profile-square.jpg)](/images/profile-portrait.jpg)
-
-</figure>
+{{< profile-image >}}
 
 <section>
 
@@ -41,10 +43,10 @@ _Jan Heinrich Reimer, B.Sc._
 
 | | | |
 | --- | --- | ---: |
-| 04/2020 - today | [Martin Luther University Halle-Wittenberg](https://uni-halle.de/) <br> Research Assistant Big Data |
+| 04/2020 - today | [Martin Luther University Halle-Wittenberg](https://informatik.uni-halle.de/arbeitsgruppen/big_data_analytics/) <br> Research Assistant Big Data Analytics |
 | 11/2017 - today | [Reimer Software](https://reimer.dev) <br> Self-Employed Full-Stack Software Development |
 | 02/2015 - 07/2019 | Singen e.V. – Project [Klasse! Wir singen](https://klasse-wir-singen.de) <br> Minijob Event Management / Team Leader |
-| 10/2013 - 11/2013 | [DAVID Software GmbH](https://www.david-software.de) <br> Intern Software Development / System Administration |
+| 10/2013 - 11/2013 | [DAVID Software GmbH](https://msg-david.de) <br> Intern Software Development / System Administration |
 
 </figure>
 
@@ -59,8 +61,8 @@ _Jan Heinrich Reimer, B.Sc._
 | | | |
 | --- | --- | --- |
 | 04/2020 - today | [Martin Luther University Halle-Wittenberg](https://uni-halle.de/) <br> M.Sc. Computer Science | |
-| 10/2016 - 07/2020 | [Martin Luther University Halle-Wittenberg](https://uni-halle.de/) <br> B.Sc. Computer Science; Ø 1.7 <br>  | [{{< fontawesome "regular/file-pdf" >}}](/documents/bachelor-of-science-informatik-reimer.pdf "Certificate") [{{< fontawesome "solid/book" >}}](https://webis.de/for-students/completed-theses.html#reimer_2020 "Thesis") [{{< fontawesome "solid/code" >}}](https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank "Source code") | 
-| 08/2008 - 06/2016 | [Wilhelm-Gymnasium Braunschweig](https://wilhelm-gym.de) <br> Abitur; Ø 1.7 | [{{< fontawesome "regular/file-pdf" >}}](/documents/abitur-reimer.pdf "Certificate") |
+| 10/2016 - 07/2020 | [Martin Luther University Halle-Wittenberg](https://uni-halle.de/) <br> B.Sc. Computer Science; Ø 1.7 <br>  | {{< document-icon name="reimer-bsc-cs" >}} [{{< fontawesome "solid/book" >}}](https://webis.de/for-students/completed-theses.html#reimer_2020 "Thesis") [{{< fontawesome "solid/code" >}}](https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank "Source code") | 
+| 08/2008 - 06/2016 | [Wilhelm-Gymnasium Braunschweig](https://wilhelm-gym.de) <br> Abitur; Ø 1.7 | {{< document-icon name="reimer-abitur" >}} |
 
 </figure>
 
