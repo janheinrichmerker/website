@@ -2,7 +2,7 @@
 title: Impressum
 aliases:
 - /impressum/
-- /disclaimer/
+- /de/disclaimer/
 menu:
   footer:
     weight: 1

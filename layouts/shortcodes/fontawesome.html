@@ -1,10 +1,8 @@
 {{- $path := print "node_modules/@fortawesome/fontawesome-free/svgs/" ( .Get 0 ) ".svg" -}}
 {{- $asset := resources.Get $path | resources.Minify -}}
 
-{{/* <!-- */}}
 {{- $path := "<path" -}}
 {{- $pathFill := "<path fill=\"currentColor\"" -}}
-{{/* --> */}}
 
 {{- $svg := $asset.Content -}}
 {{- $svg := replace $svg $path $pathFill -}}

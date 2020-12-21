@@ -2,7 +2,6 @@
 title: 🎄 Weihnachtslieder raten… mit Emojis! 🎅
 aliases: 
 - /🎄/
-- /de/🎄/
 ---
 
 Errate die folgenden bekanntesten Weihnachtslieder in Deutschland, nur anhand der Emojis!

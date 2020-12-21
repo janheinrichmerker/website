@@ -1,13 +1,9 @@
 ---
 aliases:
-- /home/
+- /de/home/
 ---
 
-<figure class="profile">
-
-![Profilbild](/images/profile-square.jpg)
-
-</figure>
+{{< profile-image >}}
 
 # Jan Heinrich Reimer
 

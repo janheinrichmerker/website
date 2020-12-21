@@ -6,3 +6,6 @@ other = "Startseite"
 
 [print]
 other = "Drucken"
+
+[profile]
+other = "Profilbild"

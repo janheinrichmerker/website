@@ -1,19 +1,22 @@
 ---
 title: Curriculum Vitae
 aliases:
-- /curriculum-vitae/
-- /resume/
-- /resumé/
 - /lebenslauf/
+- /de/curriculum-vitae/
+- /de/resume/
+- /de/resumé/
+resources:
+- name: reimer-abitur
+  src: abitur.pdf
+  title: "Abiturzeugnis"
+- name: reimer-bsc-informatik
+  src: bsc.pdf
+  title: "Bachelor of Science Zeugnis"
 ---
 
 _Jan Heinrich Reimer, B.Sc._
 
-<figure class="profile">
-
-[![Profilbild](/images/profile-square.jpg)](/images/profile-portrait.jpg)
-
-</figure>
+{{< profile-image >}}
 
 <section>
 
@@ -59,8 +62,8 @@ _Jan Heinrich Reimer, B.Sc._
 | | | |
 | --- | --- | --- |
 | 04/2020 - heute | [Martin-Luther-Universität Halle-Wittenberg](https://uni-halle.de/) <br> M.Sc. Informatik | |
-| 10/2016 - 07/2020 | [Martin-Luther-Universität Halle-Wittenberg](https://uni-halle.de/) <br> B.Sc. Informatik; Ø 1,7 <br>  | [{{< fontawesome "regular/file-pdf" >}}](/documents/bachelor-of-science-informatik-reimer.pdf "Zeugnis") [{{< fontawesome "solid/book" >}}](https://webis.de/for-students/completed-theses.html#reimer_2020 "Arbeit") [{{< fontawesome "solid/code" >}}](https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank "Quellcode") | 
-| 08/2008 - 06/2016 | [Wilhelm-Gymnasium Braunschweig](https://wilhelm-gym.de) <br> Abitur; Ø 1,7 | [{{< fontawesome "regular/file-pdf" >}}](/documents/abitur-reimer.pdf "Zeugnis") |
+| 10/2016 - 07/2020 | [Martin-Luther-Universität Halle-Wittenberg](https://uni-halle.de/) <br> B.Sc. Informatik; Ø 1,7 <br>  | {{< document-icon name="reimer-bsc-informatik" >}} [{{< fontawesome "solid/book" >}}](https://webis.de/for-students/completed-theses.html#reimer_2020 "Arbeit") [{{< fontawesome "solid/code" >}}](https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank "Quellcode") | 
+| 08/2008 - 06/2016 | [Wilhelm-Gymnasium Braunschweig](https://wilhelm-gym.de) <br> Abitur; Ø 1,7 | {{< document-icon name="reimer-abitur" >}} |
 
 </figure>
 

@@ -6,3 +6,6 @@ other = "Homepage"
 
 [print]
 other = "Print"
+
+[profile]
+other = "Profile picture"

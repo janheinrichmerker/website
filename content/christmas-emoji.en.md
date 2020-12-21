@@ -1,7 +1,5 @@
 ---
 title: 🎄 Guessing Christmas Carols… with Emoji! 🎅
-aliases: 
-- /en/🎄/
 ---
 
 Guess the  following popular Christmas carols from Germany, just by Emoji!
