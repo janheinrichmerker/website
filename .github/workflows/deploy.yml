@@ -34,7 +34,7 @@ jobs:
       - name: "🏗 Build"
         run: hugo
       - name: "🚀 Deploy to Uberspace"
-        uses: appleboy/scp-action@v0.0.5
+        uses: appleboy/scp-action@v0.1.1
         with:
           username: familie
           host: charon.uberspace.de
