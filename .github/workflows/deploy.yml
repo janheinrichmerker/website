@@ -16,12 +16,12 @@ jobs:
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.80"
+          hugo-version: "0.80.0"
           extended: true
       - name: "🧰 Install Node"
         uses: actions/setup-node@v1
         with:
-          node-version: "14.15"
+          node-version: "14.15.4"
       - name: "♻️ Cache dependencies"
         uses: actions/cache@v2
         with:
