@@ -15,6 +15,13 @@ jobs:
         with:
           hugo-version: "0.80.0"
           extended: true
+      - name: "♻️ Cache Hugo modules"
+        uses: actions/cache@v2
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
       - name: "🧰 Install Node"
         uses: actions/setup-node@v2.1.5
         with:
@@ -22,8 +29,7 @@ jobs:
       - name: "♻️ Cache dependencies"
         uses: actions/cache@v2
         with:
-          path: |
-            assets/node_modules
+          path: assets/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('assets/yarn.lock') }}
       - name: "🧰 Install asset dependencies"
         run: |
