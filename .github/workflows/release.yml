@@ -1,4 +1,6 @@
-name: Create release
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+
+name: "Create release"
 
 on:
   push:
@@ -11,7 +13,7 @@ on:
 jobs:
   build:
     name: "🚀 Release"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - name: "📥 Check-out"
         uses: actions/checkout@v1
@@ -21,19 +23,19 @@ jobs:
       - name: "✏️ Generate changelog"
         id: generate-changelog
         if: runner.os == 'Linux'
-        uses: heinrichreimer/action-github-changelog-generator@v2
+        uses: heinrichreimer/action-github-changelog-generator@v2.2
         with:
           onlyLastTag: "true"
           stripHeaders: "true"
           stripGeneratorNotice: "true"
       - name: "📤 Upload changelog"
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v2.2.2
         with:
           name: "Changelog"
           path: CHANGELOG.md
       - name: "🚀 Create GitHub release"
         id: create-github-release
-        uses: actions/create-release@v1.0.1
+        uses: actions/create-release@v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:

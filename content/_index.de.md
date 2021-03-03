@@ -17,6 +17,7 @@ aliases:
 [{{< fontawesome "brands/twitter" >}}](https://twitter.com/H1iReimer/ "Twitter")
 [{{< fontawesome "brands/whatsapp" >}}](https://api.whatsapp.com/send/?phone=491749273954 "WhatsApp")
 [{{< fontawesome "brands/instagram" >}}](https://instagram.com/heinrichreimer/ "Instagram")
+[{{< fontawesome "solid/hiking" >}}](https://komoot.com/user/1467080411664 "Komoot")
 [{{< fontawesome "brands/xing" >}}](https://xing.com/profile/JanHeinrich_Reimer/ "XING")
 [{{< fontawesome "brands/linkedin" >}}](https://linkedin.com/in/heinrichreimer/ "LinkedIn")
 [{{< fontawesome "brands/orcid" >}}](https://orcid.org/0000-0003-1992-8696 "ORCiD")

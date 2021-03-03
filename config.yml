@@ -31,7 +31,6 @@ params:
 metaDataFormat: yaml
 enableEmoji: true
 enableRobotsTXT: true
-enableGitInfo: true
 
 disableKinds:
 - taxonomies
