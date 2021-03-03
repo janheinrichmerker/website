@@ -7,6 +7,19 @@
 
 My personal [portfolio website](https://heinrich.reimer.family).
 
+## Development
+
+1. Install asset dependencies:
+
+    ```shell script
+    yarn --cwd assets/
+    ```
+
+1. Run Hugo development server:
+
+    ```shell script
+    hugo server
+    ```
 
 ## Build & deploy
 
