@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: "📥 Check-out"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.3.4
       - name: "🏷️ Get version tag"
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
