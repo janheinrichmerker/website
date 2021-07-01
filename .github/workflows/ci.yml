@@ -23,7 +23,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hugomod-
       - name: "🧰 Install Node"
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.2.0
         with:
           node-version: "14.15.4"
       - name: "♻️ Cache dependencies"
