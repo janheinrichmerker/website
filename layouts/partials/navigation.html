@@ -1,14 +1,16 @@
-{{ if not .IsHome }}
+{{ if not $.IsHome }}
     <nav>
         <span>
-            <a href='{{ relref . "/" }}' title='{{ i18n "homepage" }}'>
+            <a href='{{ relref $ "/" }}' title='{{ i18n "homepage" }}'>
                 {{- partial "fontawesome.html" "solid/arrow-left" -}}
             </a>
-            <a href='{{ relref . "/" }}' title='{{ i18n "homepage" }}'>
+            <a href='{{ relref $ "/" }}' title='{{ i18n "homepage" }}'>
                 {{- i18n "home" -}}
             </a>
         </span>
         <a href="#" onclick="window.print();return false;" id="print"
-           title='{{ i18n "print" }}'>{{ partial "fontawesome.html" "solid/print" }} </a>
+           title='{{ i18n "print" }}'>
+            {{- partial "fontawesome.html" "solid/print" -}}
+        </a>
     </nav>
 {{ end }}

@@ -8,7 +8,7 @@
             {{- i18n "pageNotFoundAction" . -}}
         </p>
         <p>
-            <a href="{{ .Site.Home.RelPermalink }}" title='{{ i18n "homepage" }}'>{{ i18n "homepage" }}</a>
+            <a href="{{ $.Site.Home.RelPermalink }}" title='{{ i18n "homepage" }}'>{{ i18n "homepage" }}</a>
             •
             <a href='{{ relref . "/imprint" }}' title='{{ i18n "contact" }}'>{{ i18n "contact" }}</a>
         </p>
