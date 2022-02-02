@@ -7,6 +7,7 @@ $max-width: 55em;
 $font-awesome-scale: 1;
 $font-awesome-size: 1em * $font-awesome-scale;
 
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
 @import "../node_modules/normalize-scss/sass/normalize";
 
 body {
@@ -46,7 +47,9 @@ body {
     }
 
     .icon-font {
+        display: inline-block;
         > svg {
+            display: inline-block;
             width: $font-awesome-size;
             height: $font-awesome-size;
         }
@@ -203,7 +206,7 @@ body {
         flex-wrap: wrap;
         justify-content: space-between;
         border-top: 2pt solid $color;
-        margin-bottom: 1em;
+        padding-bottom: 1em;
 
         @media print {
             display: none;
