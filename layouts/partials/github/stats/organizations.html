@@ -1,0 +1,18 @@
+{{- $username := . -}}
+{{- if not $username -}}
+    {{ errorf "Input must be a GitHub username: %s" .Position }}
+{{- end -}}
+
+{{- $githubApiUrl := "https://api.github.com/" -}}
+{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+
+{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
+{{- $orgsData := getJSON $userData.organizations_url (dict "Accept" "application/vnd.github.v3+json") -}}
+
+{{- $orgs := 0 -}}
+
+{{- range $orgsData -}}
+{{- $orgs = add $orgs 1 -}}
+{{- end -}}
+
+{{- $orgs -}}

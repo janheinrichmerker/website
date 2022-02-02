@@ -5,17 +5,9 @@ aliases:
 ---
 
 Much of the code I write and the applications I develop are open source.
-You can find them on GitHub.
+You can find them on my GitHub profile {{< github/tag >}}.
 
-## GitHub {{< github-username >}}
-
-📚 {{< github-repos-count >}} repositories \
-📖 {{< github-open-source-repos-count >}} open source \
-⭐ {{< github-stargazers-count >}} stars \
-🔀 {{< github-forks-count >}} forks \
-💾 {{< github-size-megabytes >}}&thinsp;MB source code \
-🏢 {{< github-organizations-count >}} organizations \
-👁️ {{< github-followers-count >}} followers
+{{< github/stats >}}
 
 ### Most used programming languages
 

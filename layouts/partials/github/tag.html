@@ -1,0 +1,11 @@
+{{- $username := . -}}
+{{- if not $username -}}
+    {{ errorf "Input must be a GitHub username: %s" .Position }}
+{{- end -}}
+
+{{- $githubApiUrl := "https://api.github.com/" -}}
+{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+
+{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
+
+<a href="{{ $userData.html_url }}" rel="noreferrer" target="_blank">@{{ $userData.login }}</a>

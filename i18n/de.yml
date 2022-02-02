@@ -1,26 +1,42 @@
 home:
-  other: Start
+  other: "Start"
 homepage:
-  other: Startseite
+  other: "Startseite"
 contact:
-  other: Kontakt
+  other: "Kontakt"
 print:
-  other: Drucken
+  other: "Drucken"
 profile:
-  other: Profilbild
+  other: "Profilbild"
 today:
-  other: heute
+  other: "heute"
 sourceCode:
-  other: Quellcode
+  other: "Quellcode"
 slides:
-  other: Präsentation
+  other: "Präsentation"
 thesis:
-  other: Abschlussarbeit
+  other: "Abschlussarbeit"
 certificate:
-  other: Urkunde
+  other: "Urkunde"
 pageNotFound:
-  other: Seite nicht gefunden
+  other: "Seite nicht gefunden"
 pageNotFoundDescription:
-  other: Die angefragte Seite existiert nicht.
+  other: "Die angefragte Seite existiert nicht."
 pageNotFoundAction:
   other: "Geh einfach zurück zur Startseite oder kontaktiere mich:"
+githubRepos:
+  other: "Repositories"
+githubOsiApprovedRepos:
+  other: "Open-Source"
+githubOsiApprovedReposDescription:
+  other: "OSI-anerkannte Open-Source-Lizenz"
+githubStars:
+  other: "Sterne"
+githubForks:
+  other: "Forks"
+githubSize:
+  other: "Quellcode"
+githubOrganizations:
+  other: "Organisationen"
+githubFollowers:
+  other: "Follower"

@@ -5,17 +5,9 @@ aliases:
 ---
 
 Den meisten Quellcode, den ich schreibe, und die Anwendungen, die ich entwickle, sind open-source.
-Du kannst sie auf GitHub finden.
+Du kannst sie auf meinem GitHub-Profil {{< github/tag >}} finden.
 
-## GitHub {{< github-username >}}
-
-📚 {{< github-repos-count >}} Repositories \
-📖 {{< github-open-source-repos-count >}} Open-source \
-⭐ {{< github-stargazers-count >}} Sterne \
-🔀 {{< github-forks-count >}} Forks \
-💾 {{< github-size-megabytes >}}&thinsp;MB Quellcode \
-🏢 {{< github-organizations-count >}} Organisationen \
-👁️ {{< github-followers-count >}} Follower
+{{< github/stats >}}
 
 ### Meistbenutzte Programmiersprachen
 

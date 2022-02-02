@@ -1,26 +1,42 @@
 home:
-  other: Home
+  other: "Home"
 homepage:
-  other: Homepage
+  other: "Homepage"
 contact:
-  other: Contact
+  other: "Contact"
 print:
-  other: Print
+  other: "Print"
 profile:
-  other: Profile picture
+  other: "Profile picture"
 today:
-  other: today
+  other: "today"
 sourceCode:
-  other: Source code
+  other: "Source code"
 slides:
-  other: Slides
+  other: "Slides"
 thesis:
-  other: Thesis
+  other: "Thesis"
 certificate:
-  other: Certificate
+  other: "Certificate"
 pageNotFound:
-  other: Page not found
+  other: "Page not found"
 pageNotFoundDescription:
-  other: The page you requested doesn't exist.
+  other: "The page you requested doesn't exist."
 pageNotFoundAction:
   other: "Simply go back to the homepage or contact me:"
+githubRepos:
+  other: "repositories"
+githubOsiApprovedRepos:
+  other: "open source"
+githubOsiApprovedReposDescription:
+  other: "OSI approved open source license"
+githubStars:
+  other: "stars"
+githubForks:
+  other: "forks"
+githubSize:
+  other: "source code"
+githubOrganizations:
+  other: "organizations"
+githubFollowers:
+  other: "followers"
