@@ -6,7 +6,7 @@ aliases:
 - /resumé/
 ---
 
-_Jan Heinrich Reimer, {{< highest-degree >}}_
+_Jan Heinrich Reimer, {{< cv/highest-degree >}}_
 
 {{< profile-image >}}
 
@@ -32,7 +32,7 @@ _Jan Heinrich Reimer, {{< highest-degree >}}_
 
 ## Education
 
-{{< education >}}
+{{< cv/education >}}
 
 </section>
 
@@ -40,7 +40,7 @@ _Jan Heinrich Reimer, {{< highest-degree >}}_
 
 ## Publications
 
-{{< publications >}}
+{{< cv/publications >}}
 
 </section>
 
