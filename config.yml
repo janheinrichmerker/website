@@ -9,32 +9,35 @@ languages:
     languageName: English
     menu:
       footer:
-      - identifier: source
-        name: Source
-        url: https://github.com/heinrichreimer/portfolio
-        weight: 3
+        - identifier: source
+          name: Source
+          url: https://github.com/heinrichreimer/portfolio
+          weight: 3
   de:
     weight: 2
     languageCode: de-de
     languageName: German (Germany)
     menu:
       footer:
-      - identifier: source
-        name: Quellcode
-        url: https://github.com/heinrichreimer/portfolio
-        weight: 3
+        - identifier: source
+          name: Quellcode
+          url: https://github.com/heinrichreimer/portfolio
+          weight: 3
 
 
 params:
   env: production
+  github:
+    apiUrl: https://api.github.com/
+    username: heinrichreimer
 
 metaDataFormat: yaml
 enableEmoji: true
 enableRobotsTXT: true
 
 disableKinds:
-- taxonomies
-- taxonomyTerm
+  - taxonomies
+  - taxonomyTerm
 
 markup:
   defaultMarkdownHandler: goldmark
