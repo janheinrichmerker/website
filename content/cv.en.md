@@ -30,6 +30,14 @@ _Jan Heinrich Reimer, B.Sc._
 
 <section>
 
+## Education
+
+{{< education >}}
+
+</section>
+
+<section>
+
 ## Publications
 
 {{< publications >}}
@@ -50,14 +58,6 @@ _Jan Heinrich Reimer, B.Sc._
 | 10/2013 - 11/2013 | [DAVID Software GmbH](https://msg-david.de) <br> Intern Software Development / System Administration |
 
 </figure>
-
-</section>
-
-<section>
-
-## Education
-
-{{< education >}}
 
 </section>
 

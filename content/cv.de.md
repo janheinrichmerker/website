@@ -29,6 +29,14 @@ _Jan Heinrich Reimer, B.Sc._
 
 </section>
 
+<section class="timeline">
+
+## Ausbildung
+
+{{< education >}}
+
+</section>
+
 <section>
 
 ## Publikationen
@@ -51,14 +59,6 @@ _Jan Heinrich Reimer, B.Sc._
 | 10/2013 - 11/2013 | [DAVID Software GmbH](https://msg-david.de) <br> Schülerpraktikum Softwareentwicklung / Systemadministration |
 
 </figure>
-
-</section>
-
-<section class="timeline">
-
-## Ausbildung
-
-{{< education >}}
 
 </section>
 
