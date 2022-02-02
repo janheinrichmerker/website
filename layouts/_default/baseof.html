@@ -16,11 +16,11 @@
     {{- end -}}
 
     {{- block "styles" . -}}
-        {{- partial "styles.html" . -}}
+        {{- partial "site/styles" $ -}}
     {{- end -}}
 
     {{- block "favicon" . -}}
-        {{- partial "favicon.html" . -}}
+        {{- partial "site/favicon" $ -}}
     {{- end -}}
 
     {{- with .OutputFormats.Get "RSS" -}}
@@ -50,14 +50,14 @@
 <body class="{{ if .IsHome }} home {{ else }} page-{{ anchorize .Title }} {{ end }}">
 
 {{ block "navigation" . }}
-    {{ partial "navigation.html" . }}
+    {{ partial "site/navigation" $ }}
 {{ end }}
 
 <main role="main">
     {{ block "main" . }}{{ end }}
 </main>
-{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
-{{ block "scripts" . }}{{ partial "scripts.html" . }}{{ end }}
+{{ block "footer" . }}{{ partial "site/footer" $ }}{{ end }}
+{{ block "scripts" . }}{{ partial "site/scripts" $ }}{{ end }}
 
 </body>
 </html>
