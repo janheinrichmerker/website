@@ -7,8 +7,8 @@ aliases:
 
 # Jan Heinrich Reimer
 
-📚 [Student](https://www.informatik.uni-halle.de/ "Martin-Luther-Universität Halle-Wittenberg") • 
-💻 [Entwickler](https://reimer.software "Reimer Software") • 
+📚 [Student](https://www.informatik.uni-halle.de/ "Martin-Luther-Universität Halle-Wittenberg") •
+💻 [Entwickler](https://reimer.software "Reimer Software") •
 🏛️ [Europäer](https://europa.eu/european-union/about-eu/eu-in-brief/ "Die Europäische Union")
 
 [{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail")
@@ -27,6 +27,5 @@ aliases:
 [{{< fontawesome "brands/reddit" >}}](https://reddit.com/user/H1iReimer/ "Reddit")
 [{{< fontawesome "brands/snapchat" >}}](https://snapchat.com/add/heinrichreimer/ "Snapchat")
 
-Du möchtest mehr über mich erfahren? Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}}).
-
-Wenn du magst, kannst du meine open-source Arbeit [unterstützen]({{< relref "/sponsor.md" >}}).
+Du möchtest mehr über mich erfahren? Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}}) 
+oder schaue dir meine [open-source Arbeit]({{< relref "/open-source.md" >}}) an.

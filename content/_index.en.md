@@ -8,8 +8,8 @@ aliases:
 
 # Jan Heinrich Reimer
 
-📚&nbsp;[Student](https://www.informatik.uni-halle.de/ "Martin Luther University Halle-Wittenberg")• 
-💻&nbsp;[Developer](https://reimer.software "Reimer Software") • 
+📚&nbsp;[Student](https://www.informatik.uni-halle.de/ "Martin Luther University Halle-Wittenberg") •
+💻&nbsp;[Developer](https://reimer.software "Reimer Software") •
 🏛️&nbsp;[European](https://europa.eu/european-union/about-eu/eu-in-brief/ "The European Union")
 
 [{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail")
@@ -28,6 +28,5 @@ aliases:
 [{{< fontawesome "brands/reddit" >}}](https://reddit.com/user/H1iReimer/ "Reddit")
 [{{< fontawesome "brands/snapchat" >}}](https://snapchat.com/add/heinrichreimer/ "Snapchat")
 
-Want to learn more about me? Read my [resumé]({{< relref "/cv.md" >}}).
-
-If you like, you can [sponsor]({{< relref "/sponsor.md" >}}) my open source work.
+Want to learn more about me? Read my [resumé]({{< relref "/cv.md" >}}) 
+or look at my [open source work]({{< relref "/open-source.md" >}}).
