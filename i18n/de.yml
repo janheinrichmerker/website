@@ -2,6 +2,8 @@ home:
   other: Start
 homepage:
   other: Startseite
+contact:
+  other: Kontakt
 print:
   other: Drucken
 profile:
@@ -16,3 +18,9 @@ thesis:
   other: Abschlussarbeit
 certificate:
   other: Urkunde
+pageNotFound:
+  other: Seite nicht gefunden
+pageNotFoundDescription:
+  other: Die angefragte Seite existiert nicht.
+pageNotFoundAction:
+  other: "Geh einfach zurück zur Startseite oder kontaktiere mich:"

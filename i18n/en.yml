@@ -2,6 +2,8 @@ home:
   other: Home
 homepage:
   other: Homepage
+contact:
+  other: Contact
 print:
   other: Print
 profile:
@@ -16,3 +18,9 @@ thesis:
   other: Thesis
 certificate:
   other: Certificate
+pageNotFound:
+  other: Page not found
+pageNotFoundDescription:
+  other: The page you requested doesn't exist.
+pageNotFoundAction:
+  other: "Simply go back to the homepage or contact me:"

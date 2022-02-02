@@ -1,15 +1,16 @@
 {{ define "main" }}
-<article id="404">
-    {{ if eq (lower .Site.Language) "de" }}
-    <h1>Seite nicht gefunden</h1>
-    Die angefragte Seite existiert nicht.<br>
-    Geh einfach zurück zur <a href="{{ .Site.BaseURL }}" title="Startseite">Startseite</a>
-    oder <a href='{{ relref . "/imprint" }}' title="Imprint">kontaktiere</a> mich.
-    {{ else }}
-    <h1>Page not found</h1>
-    The page you requested doesn't exist.<br>
-    Simply go back to the <a href="{{ .Site.BaseURL }}" title="Homepage">homepage</a>
-    or <a href='{{ relref . "/imprint" }}' title="Imprint">contact</a> me.
-    {{ end }}
-</article>
+    <article id="404">
+        <h1>{{- i18n "pageNotFound" -}}</h1>
+        <p>
+            {{- i18n "pageNotFoundDescription" -}}
+        </p>
+        <p>
+            {{- i18n "pageNotFoundAction" . -}}
+        </p>
+        <p>
+            <a href="{{ .Site.Home.RelPermalink }}" title='{{ i18n "homepage" }}'>{{ i18n "homepage" }}</a>
+            •
+            <a href='{{ relref . "/imprint" }}' title='{{ i18n "contact" }}'>{{ i18n "contact" }}</a>
+        </p>
+    </article>
 {{ end }}
