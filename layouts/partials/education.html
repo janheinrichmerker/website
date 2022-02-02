@@ -1,0 +1,109 @@
+{{- if not (reflect.IsSlice .) -}}
+    {{ errorf "Input must be a slice: %s" .Position }}
+{{- end -}}
+
+{{- with . -}}
+    {{- $education := . -}}
+    {{- $education = sort $education "from.month" "desc" -}}
+    {{- $education = sort $education "from.year" "desc" -}}
+    <figure class="timeline">
+        <table>
+            <tbody>
+            {{- range $education -}}
+                <tr>
+                    <td>
+                        {{- with .from -}}
+                            {{- with .month -}}
+                                {{- printf "%02d" . -}}/
+                            {{-  end -}}
+                            {{- .year -}}
+                        {{- end -}}
+                        {{- " " -}}
+                        -
+                        {{- " " -}}
+                        {{- with .to -}}
+                            {{- with .month -}}
+                                {{- printf "%02d" . -}}/
+                            {{-  end -}}
+                            {{- .year -}}
+                        {{- else -}}
+                            {{ i18n "today" }}
+                        {{- end -}}
+                    </td>
+                    <td>
+                        {{- with .institution -}}
+                            <a href="{{- .url -}}" rel="noreferrer" target="_blank">
+                                {{- .name -}}
+                            </a><br>
+                        {{-  end -}}
+                        {{- $note := .note -}}
+                        {{- with .degree -}}
+                            <span title="{{- .description -}}">
+                                {{- .title -}}
+                                {{- with .program -}}
+                                    {{- " " -}}
+                                    {{- . -}}
+                                {{- end -}}
+                                {{- with $note -}}
+                                    {{- ", Ø " -}}
+                                    {{- . -}}
+                                {{- end -}}
+                            </span>
+                        {{- end -}}
+                        {{- with .thesis -}}
+                            <br>
+                            <small>{{ i18n "thesis" }}: {{ .title }}</small>
+                        {{- end -}}
+                    </td>
+                    <td>
+                        {{- $degree := .degree -}}
+                        {{- with .certificate -}}
+                            {{- with resources.Get . -}}
+                                {{- $downloadName := path.Base .Permalink -}}
+                                {{- with $degree -}}
+                                    {{- $downloadName = .title -}}
+                                {{- end -}}
+                                {{- $downloadName = anchorize $downloadName -}}
+                                <a href="{{ .Permalink }}"
+                                   download="{{ $downloadName }}{{ path.Ext .Permalink }}"
+                                   title="{{ i18n "certificate" }}">
+                                    {{- partial "fontawesome.html" "solid/file-contract" -}}
+                                </a>
+                            {{- end -}}
+                        {{- end -}}
+                        {{- with .thesis -}}
+                            {{- $title := .title -}}
+                            {{- with .thesis -}}
+                                {{- with resources.Get . -}}
+                                    {{- " " -}}
+                                    <a href="{{ .Permalink }}"
+                                       download="{{ anchorize $title }}{{ path.Ext .Permalink }}"
+                                       title="{{ i18n "thesis" }}">
+                                        {{- partial "fontawesome.html" "solid/file-alt" -}}
+                                    </a>
+                                {{- end -}}
+                            {{- end -}}
+                            {{- with .slides -}}
+                                {{- with resources.Get . -}}
+                                    {{- " " -}}
+                                    <a href="{{ .Permalink }}"
+                                       download="{{ anchorize (print $title " " "slides") }}{{ path.Ext .Permalink }}"
+                                       title="{{ i18n "slides" }}">
+                                        {{- partial "fontawesome.html" "solid/file-powerpoint" -}}
+                                    </a>
+                                {{- end -}}
+                            {{- end -}}
+                            {{- with .source -}}
+                                {{- " " -}}
+                                <a href="{{ . }}" title="{{ i18n "sourceCode" }}" rel="noreferrer" target="_blank">
+                                    {{- partial "fontawesome.html" "solid/code" -}}
+                                </a>
+                            {{- end -}}
+                        {{- end -}}
+                    </td>
+                </tr>
+            {{- end -}}
+            </tbody>
+        </table>
+    </figure>
+{{- end -}}

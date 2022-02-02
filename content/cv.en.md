@@ -6,7 +6,7 @@ aliases:
 - /resumé/
 ---
 
-_Jan Heinrich Reimer, B.Sc._
+_Jan Heinrich Reimer, {{< highest-degree >}}_
 
 {{< profile-image >}}
 
