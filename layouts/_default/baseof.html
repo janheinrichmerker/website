@@ -10,30 +10,30 @@
 
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
     {{- if eq $.Site.Params.env "production" -}}
-    <meta name="robots" content="index, follow">
+        <meta name="robots" content="index, follow">
     {{- else -}}
-    <meta name="robots" content="noindex, nofollow">
+        <meta name="robots" content="noindex, nofollow">
     {{- end -}}
 
     {{- block "styles" . -}}
-    {{- partial "styles.html" . -}}
+        {{- partial "styles.html" . -}}
     {{- end -}}
 
     {{- block "favicon" . -}}
-    {{- partial "favicon.html" . -}}
+        {{- partial "favicon.html" . -}}
     {{- end -}}
 
     {{- with .OutputFormats.Get "RSS" -}}
-    <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}"/>
-    <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}"/>
+        <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}"/>
+        <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}"/>
     {{- end -}}
 
     {{- range .Site.Languages -}}
-    {{- if ne . $.Site.Language -}}
-    {{- range $.Translations -}}
-    <link href="{{ .Permalink }}" hreflang="{{ .Language }}" rel="alternate"/>
-    {{- end -}}
-    {{- end -}}
+        {{- if ne . $.Site.Language -}}
+            {{- range $.Translations -}}
+                <link href="{{ .Permalink }}" hreflang="{{ .Language }}" rel="alternate"/>
+            {{- end -}}
+        {{- end -}}
     {{- end -}}
 
     {{/* NOTE: These Hugo Internal Templates can be found starting at
@@ -43,14 +43,14 @@
     {{- template "_internal/twitter_cards.html" . -}}
 
     {{- if eq (getenv "HUGO_ENV") "production" -}}
-    {{- template "_internal/google_analytics_async.html" . -}}
+        {{- template "_internal/google_analytics_async.html" . -}}
     {{- end -}}
 </head>
 
 <body class="{{ $.Site.Params.env }} {{ if .IsHome }} home {{ else }} page-{{ anchorize .Title }} {{ end }}">
 
 {{ block "navigation" . }}
-{{ partial "navigation.html" . }}
+    {{ partial "navigation.html" . }}
 {{ end }}
 
 <main role="main">
