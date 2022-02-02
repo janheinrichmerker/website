@@ -27,6 +27,9 @@ languages:
 
 params:
   env: production
+  colors:
+    theme: "#052561"
+    background: "#ffffff"
   github:
     apiUrl: https://api.github.com/
     username: heinrichreimer
