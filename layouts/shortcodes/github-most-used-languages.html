@@ -47,7 +47,8 @@
 <ol>
     {{- range . -}}
     <li>
-        {{ .name }} <small>📚 {{ .count }}</small>
+        <!--suppress HtmlUnknownTarget -->
+        <a href="{{ $userData.html_url }}?tab=repositories&language={{ lower .name }}" rel="noreferrer" target="_blank">{{ .name }}</a>&emsp;<small>📚 {{ .count }}</small>
     </li>
     {{- end -}}
 </ol>

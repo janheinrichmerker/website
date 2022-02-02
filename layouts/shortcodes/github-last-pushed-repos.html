@@ -34,8 +34,7 @@
     {{- range . -}}
     <li>
         <!--suppress HtmlUnknownTarget -->
-        <a href="{{ .html_url }}" rel="noreferrer" target="_blank">{{ .full_name }}</a>&ensp;
-        <small>📅 {{ time.Format ":date_short" .pushed_at }}</small>
+        <a href="{{ .html_url }}" rel="noreferrer" target="_blank">{{ .full_name }}</a>&emsp;<small>📅 {{ time.Format ":date_short" .pushed_at }}</small>
     </li>
     {{- end -}}
 </ol>

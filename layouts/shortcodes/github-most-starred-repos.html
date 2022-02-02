@@ -34,8 +34,7 @@
     {{- range . -}}
     <li>
         <!--suppress HtmlUnknownTarget -->
-        <a href="{{ .html_url }}" rel="noreferrer" target="_blank">{{ .full_name }}</a>&ensp;
-        <small>⭐ {{ .stargazers_count }}</small>
+        <a href="{{ .html_url }}" rel="noreferrer" target="_blank">{{ .full_name }}</a>&emsp;<small>⭐ {{ .stargazers_count }}</small>
     </li>
     {{- end -}}
 </ol>
