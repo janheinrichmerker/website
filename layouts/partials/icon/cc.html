@@ -1,3 +1,7 @@
+{{- if not . -}}
+    {{ errorf "Input must be an icon name: %s" .Position }}
+{{- end -}}
+
 {{- $resourcePath := print "/node_modules/cc-icons/svg/" . ".svg" -}}
 {{- $asset := resources.Get $resourcePath | resources.Minify -}}
 

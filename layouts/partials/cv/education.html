@@ -67,7 +67,7 @@
                                 <a href="{{ .Permalink }}"
                                    download="{{ $downloadName }}{{ path.Ext .Permalink }}"
                                    title="{{ i18n "certificate" }}">
-                                    {{- partial "fontawesome.html" "solid/file-contract" -}}
+                                    {{- partial "icon/fontawesome" "solid/file-contract" -}}
                                 </a>
                             {{- end -}}
                         {{- end -}}
@@ -79,7 +79,7 @@
                                     <a href="{{ .Permalink }}"
                                        download="{{ anchorize $title }}{{ path.Ext .Permalink }}"
                                        title="{{ i18n "thesis" }}">
-                                        {{- partial "fontawesome.html" "solid/file-alt" -}}
+                                        {{- partial "icon/fontawesome" "solid/file-alt" -}}
                                     </a>
                                 {{- end -}}
                             {{- end -}}
@@ -89,14 +89,14 @@
                                     <a href="{{ .Permalink }}"
                                        download="{{ anchorize (print $title " " "slides") }}{{ path.Ext .Permalink }}"
                                        title="{{ i18n "slides" }}">
-                                        {{- partial "fontawesome.html" "solid/file-powerpoint" -}}
+                                        {{- partial "icon/fontawesome" "solid/file-powerpoint" -}}
                                     </a>
                                 {{- end -}}
                             {{- end -}}
                             {{- with .source -}}
                                 {{- " " -}}
                                 <a href="{{ . }}" title="{{ i18n "sourceCode" }}" rel="noreferrer" target="_blank">
-                                    {{- partial "fontawesome.html" "solid/code" -}}
+                                    {{- partial "icon/fontawesome" "solid/code" -}}
                                 </a>
                             {{- end -}}
                         {{- end -}}
