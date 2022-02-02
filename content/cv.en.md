@@ -30,6 +30,14 @@ _Jan Heinrich Reimer, B.Sc._
 
 <section>
 
+## Publications
+
+{{< publications >}}
+
+</section>
+
+<section>
+
 ## Experience
 
 <figure class="timeline">

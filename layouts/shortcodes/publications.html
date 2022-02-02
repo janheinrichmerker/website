@@ -1,0 +1,4 @@
+{{- $orcid := $.Site.Params.orcid -}}
+{{- $author := $.Site.Title -}}
+{{- $mail := $.Site.Params.mail -}}
+{{- partial "orcid-publications" (dict "orcid" $orcid "author" $author "mail" $mail) -}}

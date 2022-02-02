@@ -1,0 +1,110 @@
+{{- $dois := .dois -}}
+{{- $author := .author -}}
+{{- $mail := .mail -}}
+{{- if not $dois -}}
+    {{ errorf "Missing value for param 'dois': %s" .Position }}
+{{- end -}}
+{{- if not $author -}}
+    {{ errorf "Missing value for param 'author': %s" .Position }}
+{{- end -}}
+{{- if not $mail -}}
+    {{ errorf "Missing value for param 'mail': %s" .Position }}
+{{- end -}}
+
+{{- $apiUrl := "https://api.crossref.org/v1/" -}}
+
+{{- $publications := slice -}}
+{{- range $dois -}}
+    {{- $headers := dict "Accept" "application/json" -}}
+    {{- $headers = merge $headers (dict "User-Agent" (print $author "; mailto:" $mail)) -}}
+    {{- $work := getJSON $apiUrl "works/" . $headers -}}
+    {{- with $work -}}
+        {{- if .status -}}
+            {{- if eq .status "ok" -}}
+                {{- with .message -}}
+                    {{- $message := . -}}
+                    {{- $year := 0 -}}
+                    {{- $month := 0 -}}
+                    {{- $day := 0 -}}
+                    {{- with .published -}}
+                        {{- $published := index (index . "date-parts") 0 -}}
+                        {{- $year = index $published 0 | int | default 0 -}}
+                        {{- $month = index $published 1 | int | default 0 -}}
+                        {{- $day = index $published 2 | int | default 0 -}}
+                    {{- end -}}
+                    {{- with .event -}}
+                        {{- with .start -}}
+                            {{- $published := index (index . "date-parts") 0 -}}
+                            {{- $year = index $published 0 | int | default 0 -}}
+                            {{- $month = index $published 1 | int | default 0 -}}
+                            {{- $day = index $published 2 | int | default 0 -}}
+                        {{- end -}}
+                    {{- end -}}
+                    {{- $date := dict "year" $year "month" $month "day" $day -}}
+                    {{- $message = merge $message $date -}}
+                    {{- $publications = $publications | append $message -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- $publications = sort $publications "publishedDay" "desc" -}}
+{{- $publications = sort $publications "publishedMonth" "desc" -}}
+{{- $publications = sort $publications "publishedYear" "desc" -}}
+<figure>
+    <table>
+        <tbody>
+        {{- range $publications -}}
+            <tr>
+                <td>
+                    {{- with .month -}}
+                        {{- printf "%02d" . -}}/
+                    {{- end -}}
+                    {{- .year -}}
+                </td>
+                <td>
+                    <small>
+                        {{- range $coauthorIndex, $coauthor := .author -}}
+                            {{- if gt $coauthorIndex 0 -}}
+                                {{- ", " -}}
+                            {{- end -}}
+                            {{- if in $author $coauthor.family -}}
+                                <strong>
+                            {{- end -}}
+                            {{- $firstNames := split $coauthor.given " " -}}
+                            {{- range $firstNames -}}
+                                {{- substr . 0 1 -}}
+                                {{- ". " -}}
+                            {{- end -}}
+                            {{- $coauthor.family -}}
+                            {{- if in "Jan Heinrich Reimer" $coauthor.family -}}
+                                </strong>
+                            {{- end -}}
+                        {{- end -}}
+                    </small><br>
+                    <a href="{{ .URL }}" rel="noreferrer" target="_blank">
+                        {{- index .title 0 -}}
+                    </a><br>
+                    <small>
+                        <em>
+                            {{- "In " -}}{{- index (index . "container-title") 0 -}}{{- ". " -}}
+                            {{- .publisher -}}{{- ", " -}}
+                            {{- index . "publisher-location" -}}
+                        </em><br>
+                        DOI:
+                        {{- " " -}}
+                        <a href="{{ .URL }}" rel="noreferrer" target="_blank">
+                            {{- .DOI -}}
+                        </a>
+                    </small>
+                </td>
+                <td>
+                    <a href="{{ .URL }}" rel="noreferrer" target="_blank">
+                        {{- partial "fontawesome.html" "solid/file-alt" -}}
+                    </a>
+                </td>
+            </tr>
+        {{- end -}}
+        </tbody>
+    </table>
+</figure>

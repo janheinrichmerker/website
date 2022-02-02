@@ -31,6 +31,14 @@ _Jan Heinrich Reimer, B.Sc._
 
 <section>
 
+## Publikationen
+
+{{< publications >}}
+
+</section>
+
+<section>
+
 ## Berufserfahrung
 
 <figure class="timeline">

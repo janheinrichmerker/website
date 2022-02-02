@@ -1,0 +1,29 @@
+{{- $orcid := .orcid -}}
+{{- $author := .author -}}
+{{- $mail := .mail -}}
+{{- if not $orcid -}}
+    {{ errorf "Missing value for param 'orcid': %s" .Position }}
+{{- end -}}
+{{- if not $author -}}
+    {{ errorf "Missing value for param 'author': %s" .Position }}
+{{- end -}}
+{{- if not $mail -}}
+    {{ errorf "Missing value for param 'mail': %s" .Position }}
+{{- end -}}
+
+{{- $apiUrl := "https://pub.orcid.org/v3.0/" -}}
+
+{{- $works := getJSON $apiUrl $orcid "/works/" (dict "Accept" "application/json") -}}
+{{- $dois := slice -}}
+
+{{- range $works.group -}}
+    {{- $workSummary := index (index . "work-summary") 0 -}}
+    {{- $externalIds := index (index $workSummary "external-ids") "external-id" -}}
+    {{- $doi := index (where $externalIds "external-id-type" "doi") 0 -}}
+    {{- with $doi -}}
+        {{- with index . "external-id-value" -}}
+            {{- $dois = $dois | append . -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- partial "publications" (dict "dois" $dois "author" $author "mail" $mail) -}}
