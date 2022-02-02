@@ -1,0 +1,48 @@
+{{- $username := "" -}}
+{{- with .Get 0 -}}
+{{- $username = . -}}
+{{- else -}}
+{{- with .Get "username" -}}
+{{- $username = . -}}
+{{- else -}}
+{{- with $.Site.Params.github.username -}}
+{{- $username = . -}}
+{{- else -}}
+{{ errorf "Missing value for param 'username': %s" .Position }}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- $apiUrl := "" -}}
+{{- with .Get "api-url" -}}
+{{- $apiUrl = . -}}
+{{- else -}}
+{{- with $.Site.Params.github.apiUrl -}}
+{{- $apiUrl = . -}}
+{{- else -}}
+{{ errorf "Missing value for param 'api-url': %s" .Position }}
+{{- end -}}
+{{- end -}}
+
+{{- $userData := getJSON $apiUrl "users/" $username (dict "Accept" "application/vnd.github.v3+json") -}}
+{{- $ownedReposData := getJSON $userData.repos_url "?per_page=100&type=owner" (dict "Accept" "application/vnd.github.v3+json") -}}
+{{- $memberReposData := getJSON $userData.repos_url "?per_page=100&type=member" (dict "Accept" "application/vnd.github.v3+json") -}}
+{{- $reposData := append $ownedReposData $memberReposData -}}
+
+{{- $licenseData := getJSON "https://github.com/spdx/license-list-data/raw/master/json/licenses.json" -}}
+{{- $osiApprovedLicenses := slice -}}
+{{- range  (where $licenseData.licenses "isOsiApproved" true) -}}
+{{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
+{{- end -}}
+
+{{- $openSourceRepos := 0 -}}
+
+{{- range $reposData -}}
+{{- with .license -}}
+{{- if in $osiApprovedLicenses .spdx_id -}}
+{{- $openSourceRepos = add $openSourceRepos 1 -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- $openSourceRepos -}}
