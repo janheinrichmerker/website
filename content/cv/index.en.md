@@ -4,13 +4,6 @@ aliases:
 - /curriculum-vitae/
 - /resume/
 - /resumé/
-resources:
-- name: reimer-abitur
-  src: abitur.pdf
-  title: "Abitur Certificate"
-- name: reimer-bsc-cs
-  src: bsc.pdf
-  title: "Bachelor of Science Certificate"
 ---
 
 _Jan Heinrich Reimer, B.Sc._
@@ -56,15 +49,7 @@ _Jan Heinrich Reimer, B.Sc._
 
 ## Education
 
-<figure class="timeline">
-
-| | | |
-| --- | --- | --- |
-| 04/2020 - today | [Martin Luther University Halle-Wittenberg](https://uni-halle.de/) <br> M.Sc. Computer Science | |
-| 10/2016 - 07/2020 | [Martin Luther University Halle-Wittenberg](https://uni-halle.de/) <br> B.Sc. Computer Science; Ø 1.7 <br>  | {{< document-icon name="reimer-bsc-cs" >}} [{{< fontawesome "solid/book" >}}](https://webis.de/for-students/completed-theses.html#reimer_2020 "Thesis") [{{< fontawesome "solid/code" >}}](https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank "Source code") | 
-| 08/2008 - 06/2016 | [Wilhelm-Gymnasium Braunschweig](https://wilhelm-gym.de) <br> Abitur; Ø 1.7 | {{< document-icon name="reimer-abitur" >}} |
-
-</figure>
+{{< education >}}
 
 </section>
 

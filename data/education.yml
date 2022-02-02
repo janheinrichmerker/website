@@ -1,0 +1,45 @@
+education:
+  - from:
+      year: 2008
+      month: 8
+    to:
+      year: 2016
+      month: 6
+    institution:
+      name: Wilhelm-Gymnasium Braunschweig
+      url: https://wilhelm-gym.de/
+    degree:
+      title: Abitur
+      description: Allgemeine Hochschulreife
+    note: 1.7
+    certificate: /pdf/abitur.pdf
+  - from:
+      year: 2016
+      month: 10
+    to:
+      year: 2020
+      month: 7
+    institution:
+      name: Martin Luther University Halle-Wittenberg
+      url: https://uni-halle.de/
+    degree:
+      title: B.Sc.
+      description: Bachelor of Science
+      program: Computer Science
+    thesis:
+      title: Bias in Learning to Rank Caused by Redundant Web Documents
+      thesis: /pdf/bsc-thesis.pdf
+      slides: /pdf/bsc-slides.pdf
+      source: https://github.com/webis-de/sigir20-sampling-bias-due-to-near-duplicates-in-learning-to-rank
+    note: 1.7
+    certificate: /pdf/bsc.pdf
+  - from:
+      year: 2020
+      month: 04
+    institution:
+      name: Martin Luther University Halle-Wittenberg
+      url: https://uni-halle.de/
+    degree:
+      title: M.Sc.
+      description: Master of Science
+      program: Computer Science
