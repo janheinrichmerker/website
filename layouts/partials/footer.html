@@ -1,26 +1,26 @@
 <footer>
     <p>
-        <a href='{{ relref . "/imprint.md#license" }}'
+        <a href='{{ relref . "/imprint#license" }}'
            title="CC0 1.0 Universal Public Domain Dedication">
             {{- partial "cc-icon.html" "zero" -}}
-        </a> {{ now.Format "2006" }} {{ .Site.Title }}.
+        </a> {{ now.Format "2006" }} {{ $.Site.Title }}.
     </p>
-    {{ if (or .Site.Menus.footer .Site.IsMultiLingual) }}
-    <ul>
-        {{ range .Site.Menus.footer }}
-        <li>
-            <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
-        {{ range .Site.Languages }}
-        {{ if ne . $.Site.Language }}
-        {{ range $.Translations }}
-        <li>
-            <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">{{ upper .Language }}</a>
-        </li>
-        {{ end }}
-        {{ end }}
-        {{ end }}
-    </ul>
+    {{ if (or $.Site.Menus.footer $.Site.IsMultiLingual) }}
+        <ul>
+            {{ range $.Site.Menus.footer }}
+                <li>
+                    <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
+                </li>
+            {{ end }}
+            {{ range $.Site.Languages }}
+                {{ if ne . $.Site.Language }}
+                    {{ range $.Translations }}
+                        <li>
+                            <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">{{ upper .Language }}</a>
+                        </li>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </ul>
     {{ end }}
 </footer>
