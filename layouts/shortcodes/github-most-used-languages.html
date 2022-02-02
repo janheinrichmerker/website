@@ -1,0 +1,54 @@
+{{- $username := "" -}}
+{{- with .Get 0 -}}
+{{- $username = . -}}
+{{- else -}}
+{{- with .Get "username" -}}
+{{- $username = . -}}
+{{- else -}}
+{{- with $.Site.Params.github.username -}}
+{{- $username = . -}}
+{{- else -}}
+{{ errorf "Missing value for param 'username': %s" .Position }}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- $apiUrl := "" -}}
+{{- with .Get "api-url" -}}
+{{- $apiUrl = . -}}
+{{- else -}}
+{{- with $.Site.Params.github.apiUrl -}}
+{{- $apiUrl = . -}}
+{{- else -}}
+{{ errorf "Missing value for param 'api-url': %s" .Position }}
+{{- end -}}
+{{- end -}}
+
+{{- $userData := getJSON $apiUrl "users/" $username (dict "Accept" "application/vnd.github.v3+json") -}}
+{{- $ownedReposData := getJSON $userData.repos_url "?per_page=100&type=owner" (dict "Accept" "application/vnd.github.v3+json") -}}
+{{- $memberReposData := getJSON $userData.repos_url "?per_page=100&type=member" (dict "Accept" "application/vnd.github.v3+json") -}}
+{{- $reposData := append $ownedReposData $memberReposData -}}
+
+{{- $languages := dict -}}
+
+{{- range $reposData -}}
+{{- with .language -}}
+{{- $languageCount := default 0 (index $languages .) -}}
+{{- $languages = merge $languages (dict . (add $languageCount 1)) -}}
+{{- end -}}
+{{- end -}}
+
+{{- $languageItems := slice -}}
+{{- range $languageName, $languageCount := $languages -}}
+{{ $languageItems = append (dict "name" $languageName "count" $languageCount) $languageItems }}
+{{- end -}}
+
+{{- with (first 5 (sort $languageItems "count" "desc")) -}}
+<ol>
+    {{- range . -}}
+    <li>
+        {{ .name }} <small>📚 {{ .count }}</small>
+    </li>
+    {{- end -}}
+</ol>
+{{- end -}}
