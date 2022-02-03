@@ -83,9 +83,7 @@ jobs:
     name: "🚀 Create GitHub release"
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     needs:
-      - code-format
-      - lint
-      - unit-tests
+      - build
     runs-on: ubuntu-20.04
     steps:
       - name: "📥 Check-out"
