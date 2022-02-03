@@ -4,6 +4,7 @@ on: push
 
 jobs:
   build:
+    name: "🏗️ Hugo build"
     runs-on: ubuntu-latest
     steps:
       - name: "📥 Check-out"
@@ -11,10 +12,10 @@ jobs:
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.92"
+          hugo-version: "0.92.1"
           extended: true
       - name: "♻️ Cache Hugo modules"
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2
         with:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
@@ -22,9 +23,9 @@ jobs:
       - name: "🧰 Install Node"
         uses: actions/setup-node@v2
         with:
-          node-version: "16.13"
+          node-version: "16.13.1"
       - name: "♻️ Cache dependencies"
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
@@ -39,17 +40,17 @@ jobs:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     needs:
       - build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: "📥 Check-out"
         uses: actions/checkout@v2
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.92"
+          hugo-version: "0.92.1"
           extended: true
       - name: "♻️ Cache Hugo modules"
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2
         with:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
@@ -57,9 +58,9 @@ jobs:
       - name: "🧰 Install Node"
         uses: actions/setup-node@v2
         with:
-          node-version: "16.13"
+          node-version: "16.13.1"
       - name: "♻️ Cache dependencies"
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
@@ -70,7 +71,7 @@ jobs:
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: "🚀 Deploy to Uberspace"
-        uses: appleboy/scp-action@v0.1.1
+        uses: appleboy/scp-action@v0.1
         with:
           username: familie
           host: charon.uberspace.de
@@ -84,31 +85,14 @@ jobs:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     needs:
       - build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: "📥 Check-out"
         uses: actions/checkout@v2
-      - name: "🏷️ Get version tag"
-        id: get-version
-        run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
-      - name: "🧰 Install Python"
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-          cache: pip
-          cache-dependency-path: setup.cfg
-      - name: "🧰 Install dependencies"
-        run: |
-          python -m pip install --upgrade pip build
-          pip install -e .
-      - name: "🏗️ Build Python wheel"
-        run: python -m build
       - name: "🚀 Create GitHub release"
         uses: softprops/action-gh-release@v1
         with:
           name: Release ${{ steps.get-version.outputs.tag }}
-          files: dist/*
-          fail_on_unmatched_files: true
           draft: false
           prerelease: false
           generate_release_notes: true
