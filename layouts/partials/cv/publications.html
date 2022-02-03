@@ -95,36 +95,41 @@
                     {{- .year -}}
                 </td>
                 <td>
-                    <small>
-                        {{- range $coauthorIndex, $coauthor := .author -}}
-                            {{- if gt $coauthorIndex 0 -}}
-                                {{- ", " -}}
-                            {{- end -}}
-                            {{- if $author -}}
-                                {{- if in $author $coauthor.family -}}
-                                    <mark>
-                                {{- end -}}
-                            {{- end -}}
-                            {{- $firstNames := split $coauthor.given " " -}}
-                            {{- range $firstNames -}}
-                                {{- substr . 0 1 -}}
-                                {{- ". " -}}
-                            {{- end -}}
-                            {{- $coauthor.family -}}
-                            {{- if $author -}}
-                                {{- if in $author $coauthor.family -}}
-                                    </mark>
-                                {{- end -}}
+                    {{- range $coauthorIndex, $coauthor := .author -}}
+                        {{- if gt $coauthorIndex 0 -}}
+                            {{- ", " -}}
+                        {{- end -}}
+                        {{- if $author -}}
+                            {{- if in $author $coauthor.family -}}
+                                <u>
                             {{- end -}}
                         {{- end -}}
-                    </small><br>
+                        {{- $firstNames := split $coauthor.given " " -}}
+                        {{- range $firstNames -}}
+                            {{- substr . 0 1 -}}
+                            {{- ". " -}}
+                        {{- end -}}
+                        {{- $coauthor.family -}}
+                        {{- if $author -}}
+                            {{- if in $author $coauthor.family -}}
+                                </u>
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+                    <br>
                     <a href="{{ .URL }}" rel="noreferrer" target="_blank">
                         {{- $title -}}
                     </a><br>
                     <small>
-                        In <em>{{- index (index . "container-title") 0 -}}</em>{{- ". " -}}
+                        {{- with index (index . "container-title") 0 -}}
+                            {{- $container := . -}}
+                            {{- $container = strings.TrimPrefix "Proceedings of the " $container -}}
+                            In&nbsp;{{- $container -}}{{- ". " -}}
+                        {{- end -}}
+                        {{- with .event -}}
+                            {{- .location -}}{{- ". " -}}
+                        {{- end -}}
                         {{- .publisher -}}{{- ". " -}}
-                        {{- index . "publisher-location" -}}.
                         DOI:
                         {{- " " -}}
                         <a href="{{ .URL }}" rel="noreferrer" target="_blank">
