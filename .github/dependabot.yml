@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/assets/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
       day: "monday"
       time: "09:00"
       timezone: "Europe/Berlin"
@@ -12,10 +12,13 @@ updates:
       - "heinrichreimer"
     reviewers:
       - "heinrichreimer"
+    ignore:
+      - update-types:
+        - "version-update:semver-patch"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
       day: "monday"
       time: "09:00"
       timezone: "Europe/Berlin"
@@ -24,3 +27,7 @@ updates:
       - "heinrichreimer"
     reviewers:
       - "heinrichreimer"
+    ignore:
+      - update-types:
+        - "version-update:semver-minor"
+        - "version-update:semver-patch"
