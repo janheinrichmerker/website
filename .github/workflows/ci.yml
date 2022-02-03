@@ -2,8 +2,9 @@ name: "CI"
 
 on:
   push:
+  pull_request:
   schedule:
-    - 0 7 * * 1,3,5
+    - cron: "0 7 * * 1,3,5"
 
 jobs:
   build:
@@ -12,6 +13,11 @@ jobs:
     steps:
       - name: "📥 Check-out"
         uses: actions/checkout@v2
+      - name: "🧰 Install Node"
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.13.1"
+          cache: yarn
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
@@ -23,15 +29,6 @@ jobs:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
           restore-keys: ${{ runner.os }}-hugo-modules-
-      - name: "🧰 Install Node"
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16.13.1"
-      - name: "♻️ Cache dependencies"
-        uses: actions/cache@v2
-        with:
-          path: assets/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
       - name: "🧰 Install asset dependencies"
         run: yarn --cwd assets/ install
       - name: "🏗 Build"
@@ -47,6 +44,11 @@ jobs:
     steps:
       - name: "📥 Check-out"
         uses: actions/checkout@v2
+      - name: "🧰 Install Node"
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.13.1"
+          cache: yarn
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
@@ -58,15 +60,6 @@ jobs:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
           restore-keys: ${{ runner.os }}-hugo-modules-
-      - name: "🧰 Install Node"
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16.13.1"
-      - name: "♻️ Cache dependencies"
-        uses: actions/cache@v2
-        with:
-          path: assets/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
       - name: "🧰 Install asset dependencies"
         run: yarn --cwd assets/ install
       - name: "🏗 Build"
