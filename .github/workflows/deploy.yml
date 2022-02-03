@@ -39,6 +39,8 @@ jobs:
           yarn --cwd assets/ install
       - name: "🏗 Build"
         run: hugo
+        env:
+          HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: "🚀 Deploy to Uberspace"
         uses: appleboy/scp-action@v0.1.1
         with:

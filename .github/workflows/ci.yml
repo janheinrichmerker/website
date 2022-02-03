@@ -36,3 +36,5 @@ jobs:
           yarn --cwd assets/ install
       - name: "🏗 Build"
         run: hugo
+        env:
+          HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}

@@ -1,1 +1,5 @@
-{{ partial "github/tag" $.Site.Data.social.github }}
+{{- $username := $.Site.Data.social.github -}}
+{{- with $.Site.Params.gitHubToken -}}
+    {{- $username = print $username ":" . -}}
+{{- end -}}
+{{- partial "github/tag" $username -}}

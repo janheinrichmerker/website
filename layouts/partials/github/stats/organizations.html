@@ -5,14 +5,19 @@
 
 {{- $githubApiUrl := "https://api.github.com/" -}}
 {{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- if in $username ":" -}}
+    {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
+    {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
+    {{- $username = index (split $username ":") 0 -}}
+{{- end -}}
 
 {{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
-{{- $orgsData := getJSON $userData.organizations_url (dict "Accept" "application/vnd.github.v3+json") -}}
+{{- $orgsData := getJSON $userData.organizations_url $githubHeaders -}}
 
+{{/* Count organizations. */}}
 {{- $orgs := 0 -}}
-
 {{- range $orgsData -}}
-{{- $orgs = add $orgs 1 -}}
+    {{- $orgs = add $orgs 1 -}}
 {{- end -}}
 
 {{- $orgs -}}
