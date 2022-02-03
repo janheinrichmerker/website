@@ -71,7 +71,7 @@ jobs:
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: "🚀 Deploy to Uberspace"
-        uses: appleboy/scp-action@v0.1
+        uses: appleboy/scp-action@v0.1.2
         with:
           username: familie
           host: charon.uberspace.de
