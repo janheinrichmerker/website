@@ -1,0 +1,5 @@
+{{- $username := $.Site.Data.social.github -}}
+{{- with $.Site.Params.gitHubToken -}}
+    {{- $username = print $username ":" . -}}
+{{- end -}}
+{{- partial "github/repos" $username -}}
