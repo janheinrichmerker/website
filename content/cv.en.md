@@ -42,9 +42,6 @@ _Jan Heinrich Reimer, {{< cv/highest-degree >}}_
 
 {{< cv/publications >}}
 
-Apart from written publications, I am also a very active contributor
-to the [open source community]({{< relref "/open-source" >}}).
-
 </section>
 
 <section>
@@ -61,6 +58,14 @@ to the [open source community]({{< relref "/open-source" >}}).
 | 10/2013 - 11/2013 | [DAVID Software GmbH](https://msg-david.de) <br> Intern Software Development / System Administration |
 
 </figure>
+
+</section>
+
+<section>
+
+## Open-Source
+
+{{< cv/open-source >}}
 
 </section>
 
