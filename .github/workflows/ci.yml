@@ -89,6 +89,9 @@ jobs:
     steps:
       - name: "📥 Check-out"
         uses: actions/checkout@v2
+      - name: "🏷️ Get version tag"
+        id: get-version
+        run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
       - name: "🚀 Create GitHub release"
         uses: softprops/action-gh-release@v1
         with:
