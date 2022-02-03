@@ -28,5 +28,5 @@ aliases:
 [{{< fontawesome "brands/reddit" >}}](https://reddit.com/user/H1iReimer/ "Reddit")
 [{{< fontawesome "brands/snapchat" >}}](https://snapchat.com/add/heinrichreimer/ "Snapchat")
 
-Want to learn more about me? Read my [resumé]({{< relref "/cv.md" >}}) 
+Want to learn more about me? Read my [resume]({{< relref "/cv.md" >}}) 
 or look at my [open source work]({{< relref "/open-source.md" >}}).

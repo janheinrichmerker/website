@@ -43,6 +43,9 @@ _Jan Heinrich Reimer, {{< cv/highest-degree >}}_
 
 {{< cv/publications >}}
 
+Neben schriftlichen Publikationen bin ich übrigens auch sehr aktiv 
+in der [Open-Source-Community]({{< relref "/open-source" >}}).
+
 </section>
 
 <section>

@@ -9,17 +9,8 @@ You can find them on my GitHub profile {{< github/tag >}}.
 
 {{< github/stats >}}
 
-### Most used programming languages
-
-{{< github-most-used-languages >}}
-
-### Most starred repositories
-
-{{< github-most-starred-repos >}}
-
-### Last updated repositories
-
-{{< github-last-pushed-repos >}}
+If you're interested, please also check out more [detailed statistics](#statistics) below.
+And I'd be glad if you'd take a look into my [resume]({{< relref "/cv" >}})!
 
 ## Become a sponsor
 
@@ -41,3 +32,10 @@ Besides, it also helps cover university-related expenses.
 This is a _Hall of Fame_ of my sponsors:
 
 {{< sponsors >}}
+
+## Statistics
+
+Here I've collected the most common programming languages and repositories,
+where I write code on GitHub.
+
+{{< github/repos >}}
