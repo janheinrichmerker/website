@@ -74,16 +74,12 @@ jobs:
         run: hugo
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
-      - name: "🚀 Deploy to Uberspace"
-        uses: appleboy/scp-action@v0.1.2
+      - name: "🚀 Deploy to GitHub Pages"
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          username: familie
-          host: charon.uberspace.de
-          key: ${{ secrets.DEPLOY_KEY }}
-          source: public
-          strip_components: 1
-          rm: true
-          target: ${{ secrets.DEPLOY_TARGET_PATH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          cname: heinrich.reimer.family
   release:
     name: "🚀 Create GitHub release"
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
