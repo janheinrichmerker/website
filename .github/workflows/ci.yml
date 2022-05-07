@@ -74,12 +74,16 @@ jobs:
         run: hugo
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
-      - name: "🚀 Deploy to GitHub Pages"
-        uses: peaceiris/actions-gh-pages@v3
+      - name: "🚀 Deploy via SSH"
+        uses: appleboy/scp-action@v0.1.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          cname: heinrich.reimer.family
+          username: ${{ secrets.DEPLOY_SSH_USER }}
+          host: ${{ secrets.DEPLOY_SSH_HOST }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          source: public
+          strip_components: 1
+          rm: true
+          target: ${{ secrets.DEPLOY_SSH_TARGET_PATH }}
   release:
     name: "🚀 Create GitHub release"
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
