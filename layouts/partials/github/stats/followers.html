@@ -13,4 +13,4 @@
 
 {{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
 
-{{- $userData.followers -}}
+{{- $userData.followers | lang.FormatNumber 0 -}}

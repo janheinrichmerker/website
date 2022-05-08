@@ -20,4 +20,4 @@
     {{- $orgs = add $orgs 1 -}}
 {{- end -}}
 
-{{- $orgs -}}
+{{- $orgs | lang.FormatNumber 0 -}}

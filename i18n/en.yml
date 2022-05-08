@@ -40,6 +40,8 @@ githubOrganizations:
   other: "organizations"
 githubFollowers:
   other: "followers"
+githubCommits:
+  other: "commits"
 programmingLanguage:
   other: "Language"
 topRepository:

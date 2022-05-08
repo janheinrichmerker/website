@@ -22,4 +22,4 @@
     {{- $forks = add $forks .forks -}}
 {{- end -}}
 
-{{- $forks -}}
+{{- $forks | lang.FormatNumber 0 -}}

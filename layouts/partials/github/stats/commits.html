@@ -17,9 +17,14 @@
 {{- $reposData := append $ownedReposData $memberReposData -}}
 
 {{/* Count stargazers. */}}
-{{- $stars := 0 -}}
+{{- $commits := 0 -}}
 {{- range $reposData -}}
-    {{- $stars = add $stars .stargazers_count -}}
+    {{- $contributorsData := getJSON .url "/stats/contributors?1" $githubHeaders -}}
+    {{- range $contributorsData -}}
+        {{- if eq .author.login $username -}}
+            {{- $commits = add $commits .total -}}
+        {{- end -}}
+    {{- end -}}
 {{- end -}}
 
-{{- $stars | lang.FormatNumber 0 -}}
+{{- $commits | lang.FormatNumber 0 -}}

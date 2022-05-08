@@ -22,4 +22,4 @@
     {{- $repos = add $repos 1 -}}
 {{- end -}}
 
-{{- $repos -}}
+{{- $repos | lang.FormatNumber 0 -}}
