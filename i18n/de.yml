@@ -48,3 +48,13 @@ topRepository:
   other: "Bestes Repository"
 moreRepositories:
   other: "Weitere Repositories"
+doi:
+  other: "DOI"
+doiDescription:
+  other: "Digital Object Identifier"
+bibtex:
+  other: "BibTeX"
+copyBibtex:
+  other: "BibTeX kopieren"
+paper:
+  other: "Paper"
