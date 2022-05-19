@@ -19,7 +19,7 @@
 {{/* Count stargazers. */}}
 {{- $commits := 0 -}}
 {{- range $reposData -}}
-    {{- $contributorsData := getJSON .url "/stats/contributors?1" $githubHeaders -}}
+    {{- $contributorsData := getJSON .url "/stats/contributors" $githubHeaders -}}
     {{- range $contributorsData -}}
         {{- if eq .author.login $username -}}
             {{- $commits = add $commits .total -}}
