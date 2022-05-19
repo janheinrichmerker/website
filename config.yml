@@ -50,6 +50,9 @@ markup:
       typographer: true
     renderer:
       unsafe: true
+  highlight:
+    noClasses: false
+    style: friendly
 
 sitemap:
   changeFreq: monthly
