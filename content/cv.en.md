@@ -40,7 +40,7 @@ _Jan Heinrich Reimer, {{< cv/highest-degree >}}_
 
 ## Publications
 
-{{< cv/publications >}}
+{{< cv/webis-publications >}}
 
 </section>
 
