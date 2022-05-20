@@ -1,0 +1,42 @@
+{{- $experience := $.Site.Data.experience -}}
+{{- $experience = sort $experience "from.month" "desc" -}}
+{{- $experience = sort $experience "from.year" "desc" -}}
+<figure class="timeline">
+    <table>
+        <tbody>
+        {{- range $experience -}}
+            <tr>
+                <th>
+                    {{- with .from -}}
+                        {{- with .month -}}
+                            {{- printf "%02d" . -}}/
+                        {{-  end -}}
+                        {{- .year -}}
+                    {{- end -}}
+                    {{- " - " -}}
+                    {{- with .to -}}
+                        {{- with .month -}}
+                            {{- printf "%02d" . -}}/
+                        {{-  end -}}
+                        {{- .year -}}
+                    {{- else -}}
+                        {{ i18n "today" }}
+                    {{- end -}}
+                </th>
+                <td>
+                    {{- with .company -}}
+                        <a href="{{- .url -}}" rel="noreferrer" target="_blank">
+                            {{- .name -}}
+                        </a><br>
+                    {{-  end -}}
+                    {{- if reflect.IsMap .job -}}
+                        {{- i18n .job.i18n -}}
+                    {{- else -}}
+                        {{- .job -}}
+                    {{- end -}}
+                </td>
+            </tr>
+        {{- end -}}
+        </tbody>
+    </table>
+</figure>

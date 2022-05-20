@@ -1,0 +1,38 @@
+- from:
+    year: 2020
+    month: 4
+  company:
+    name: Martin-Luther-Universität Halle-Wittenberg
+    url: https://uni-halle.de/
+  job:
+    i18n: researchAssistantBigDataAnalytics
+- from:
+    year: 2017
+    month: 11
+  company:
+    name: Reimer Software
+    url: https://reimer.dev/
+  job:
+    i18n: selfEmployedFullStackSoftwareDevelopment
+- from:
+    year: 2015
+    month: 02
+  to:
+    year: 2019
+    month: 7
+  company:
+    name: Klasse! Wir singen – Singen e.V.
+    url: https://klasse-wir-singen.de/
+  job:
+    i18n: minijobEventManagementTeamLeader
+- from:
+    year: 2013
+    month: 10
+  to:
+    year: 2013
+    month: 11
+  company:
+    name: DAVID Software GmbH
+    url: https://msg-david.de/
+  job:
+    i18n: internshipSoftwareDevelopmentSystemAdministration
