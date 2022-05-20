@@ -1,0 +1,37 @@
+{{- with $.Site.Data.skills -}}
+    <figure>
+        <table>
+            <tbody>
+            {{- range . -}}
+                <tr>
+                    <th>
+                        {{- if reflect.IsMap .name -}}
+                            {{- i18n .name.i18n -}}
+                        {{- else -}}
+                            {{- .name -}}
+                        {{- end -}}
+                    </th>
+                    <td>
+                        {{- range $index, $item := .items -}}
+                            {{- if gt $index 0 -}}
+                                {{- ", " -}}
+                            {{- end -}}
+                            {{- if $item.url -}}
+                                <a href="{{- $item.url -}}" rel="noreferrer" target="_blank">
+                            {{- end -}}
+                            {{- if reflect.IsMap $item.name -}}
+                                {{- i18n $item.name.i18n -}}
+                            {{- else -}}
+                                {{- $item.name -}}
+                            {{- end -}}
+                            {{- if $item.url -}}
+                                </a>
+                            {{- end -}}
+                        {{- end -}}
+                    </td>
+                </tr>
+            {{- end -}}
+            </tbody>
+        </table>
+    </figure>
+{{- end -}}

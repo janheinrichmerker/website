@@ -1,0 +1,80 @@
+- name:
+    i18n: languages
+  items:
+    - name:
+        i18n: germanNative
+    - name:
+        i18n: englishFluent
+- name:
+    i18n: code
+  items:
+    - name: Python
+      url: https://python.org/
+    - name: Kotlin
+      url: https://kotlinlang.org/
+    - name: Java
+      url: https://oracle.com/java/
+    - name: Android
+      url: https://android.com/
+    - name: Docker
+      url: https://docker.com/
+    - name: Kubernetes
+      url: https://kubernetes.io/
+    - name: HTML
+      url: https://w3.org/html/
+    - name: CSS
+      url: https://w3.org/Style/CSS/
+    - name: Flutter
+      url: https://flutter.dev/
+    - name: SQL
+      url: https://mysql.com/
+    - name: GraphQL
+      url: https://graphql.org/
+    - name: JSON
+      url: https://json.org/
+    - name: XML
+      url: https://w3.org/standards/xml/
+    - name: Dart
+      url: https://dart.dev/
+    - name: TypeScript
+      url: https://www.typescriptlang.org/
+    - name: REST
+      url: https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+    - name: Haskell
+      url: https://haskell.org/
+    - name: Elm
+      url: https://elm-lang.org/
+    - name: Julia
+      url: https://julialang.org/
+    - name: Go
+      url: https://golang.org/
+- name:
+    i18n: frameworks
+  items:
+    - name: IntelliJ IDEA
+      url: https://jetbrains.com/idea/
+    - name: VS Code
+      url: https://code.visualstudio.com/
+    - name: Git
+      url: https://git-scm.com/
+    - name: Spark/Hadoop
+      url: https://spark.apache.org/
+    - name: Elasticsearch
+      url: https://elastic.co/elastic-stack/
+- name:
+    i18n: design
+  items:
+    - name: UI
+    - name: Figma
+      url: https://figma.com/
+    - name:
+        i18n: appIcons
+- name:
+    i18n: social
+  items:
+    - name:
+        i18n: studentsCouncil
+      url: https://fachschaft.mathinf.uni-halle.de
+    - name:
+        i18n: facultyCouncil
+      url: https://natfak3.uni-halle.de/fakultaetsrat/
