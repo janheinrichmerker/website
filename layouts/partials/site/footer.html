@@ -2,7 +2,6 @@
 {{- with .File -}}
     {{- $filePath = print "/tree/main/content/" .Path -}}
 {{- end -}}
-{{- $filePath -}}
 <footer>
     <p>
         <a href='{{ relref $ "/imprint#license" }}'
