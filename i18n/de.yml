@@ -94,3 +94,11 @@ design:
   other: "Design"
 social:
   other: "Sozial"
+researchAssistantBigDataAnalytics:
+  other: "Wissenschaftliche Hilfskraft Big Data Analytics"
+selfEmployedFullStackSoftwareDevelopment:
+  other: "Einzelgewerbe Full-Stack Softwareentwicklung"
+minijobEventManagementTeamLeader:
+  other: "Minijob Eventmanagement und Teamleitung"
+internshipSoftwareDevelopmentSystemAdministration:
+  other: "Schülerpraktikum Softwareentwicklung und Systemadministration"
