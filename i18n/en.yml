@@ -58,3 +58,19 @@ copyBibtex:
   other: "Copy BibTeX"
 paper:
   other: "Paper"
+video:
+  other: "Video"
+degreeProgramComputerScience:
+  other: "Computer Science"
+name:
+  other: "Name"
+address:
+  other: "Address"
+route:
+  other: "Route"
+birthday:
+  other: "Birthday"
+email:
+  other: "E-mail"
+phone:
+  other: "Phone"
