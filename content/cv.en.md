@@ -6,7 +6,7 @@ aliases:
 - /resumé/
 ---
 
-_Jan Heinrich Reimer, {{< cv/highest-degree >}}_
+<cite>Jan Heinrich Reimer, {{< cv/highest-degree >}}</cite>
 
 {{< profile-image >}}
 
@@ -14,17 +14,7 @@ _Jan Heinrich Reimer, {{< cv/highest-degree >}}_
 
 ## Summary
 
-<figure>
-
-| | | |
-| --- | --- | ---: |
-| Name | Jan Heinrich Reimer | |
-| Address | [Große Märkerstraße 20](https://www.openstreetmap.org/way/139891311) <br> 06108 Halle <br> Germany | [{{< fontawesome "solid/map-marked-alt" >}}](https://www.openstreetmap.org/way/139891311 "Route") |
-| Birthday | 1998/01/25 | |
-| E-Mail | [heinrich@reimer.family](mailto:heinrich@reimer.family) | [{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail") |
-| Phone | [+49 174 9273954](tel:+491749273954) | [{{< fontawesome "solid/phone" >}}](tel:+491749273954 "Call") |
-
-</figure>
+{{< cv/facts >}}
 
 </section>
 

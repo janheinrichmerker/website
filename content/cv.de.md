@@ -1,5 +1,5 @@
 ---
-title: Curriculum Vitae
+title: Lebenslauf
 aliases:
 - /lebenslauf/
 - /de/curriculum-vitae/
@@ -7,7 +7,7 @@ aliases:
 - /de/resumé/
 ---
 
-_Jan Heinrich Reimer, {{< cv/highest-degree >}}_
+<cite>Jan Heinrich Reimer, {{< cv/highest-degree >}}</cite>
 
 {{< profile-image >}}
 
@@ -15,17 +15,7 @@ _Jan Heinrich Reimer, {{< cv/highest-degree >}}_
 
 ## Zusammenfassung
 
-<figure>
-
-| | | |
-| --- | --- | ---: |
-| Name | Jan Heinrich Reimer | |
-| Adresse | [Große Märkerstraße 20](https://www.openstreetmap.org/way/139891311) <br> 06108 Halle <br> Deutschland | [{{< fontawesome "solid/map-marked-alt" >}}](https://www.openstreetmap.org/way/139891311 "Route") |
-| Geburtstag | 25.01.1998 | |
-| E-Mail | [heinrich@reimer.family](mailto:heinrich@reimer.family) | [{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail") |
-| Telefon | [+49 174 9273954](tel:+491749273954) | [{{< fontawesome "solid/phone" >}}](tel:+491749273954 "Anrufen") |
-
-</figure>
+{{< cv/facts >}}
 
 </section>
 
