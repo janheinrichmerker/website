@@ -2,4 +2,123 @@
 {{- with $.Site.Params.gitHubToken -}}
     {{- $username = print $username ":" . -}}
 {{- end -}}
-{{- partial "cv/open-source" $username -}}
+
+{{- $githubApiUrl := "https://api.github.com/" -}}
+{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- if in $username ":" -}}
+    {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
+    {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
+    {{- $username = index (split $username ":") 0 -}}
+{{- end -}}
+
+{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
+{{- $ownedReposData := getJSON $userData.repos_url "?per_page=100&type=owner" $githubHeaders -}}
+{{- $memberReposData := getJSON $userData.repos_url "?per_page=100&type=member" $githubHeaders -}}
+{{- $reposData := append $ownedReposData $memberReposData -}}
+
+{{/* Count repositories and bytes per language. */}}
+{{- $languageRepos := dict -}}
+{{- $languageBytes := dict -}}
+{{- range $reposData -}}
+    {{/* Count repository. */}}
+    {{- with .language -}}
+        {{- $languageName := . -}}
+        {{- $oldLanguageRepos := index $languageRepos $languageName | default 0 -}}
+        {{- $newLanguageRepos := add $oldLanguageRepos 1 -}}
+        {{- $languageRepos = merge $languageRepos (dict $languageName $newLanguageRepos) -}}
+    {{- end -}}
+    {{/* Count bytes. */}}
+    {{- $languagesData := getJSON .languages_url $githubHeaders -}}
+    {{- range $languageName, $languageCount := $languagesData -}}
+        {{- $oldLanguageBytes := index $languageBytes $languageName | default 0 -}}
+        {{- $newLanguageBytes := add $oldLanguageBytes $languageCount -}}
+        {{- $languageBytes = merge $languageBytes (dict $languageName $newLanguageBytes) -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* Join all language names. */}}
+{{- $languageNames := slice -}}
+{{- range $languageName, $_ := $languageRepos -}}
+    {{- $languageNames = append $languageName $languageNames -}}
+{{- end -}}
+{{- range $languageName, $_ := $languageBytes -}}
+    {{- $languageNames = append $languageName $languageNames -}}
+{{- end -}}
+{{- $languageNames = uniq $languageNames -}}
+
+{{/* Map language counter to dicts. */}}
+{{- $languages := slice -}}
+{{- range $languageNames -}}
+    {{- $languageName := . -}}
+    {{- $languageReposCount := index $languageRepos $languageName -}}
+    {{- $languageBytesCount := index $languageBytes $languageName -}}
+    {{- $language := dict "name" $languageName "reposCount" $languageReposCount "bytesCount" $languageBytesCount -}}
+    {{- $languages = append $language $languages -}}
+{{- end -}}
+
+{{/* Remove languages with less than 3 repos. */}}
+{{- $languages = where $languages "reposCount" "ge" 3 -}}
+{{/* Sort languages by descending bytes count. */}}
+{{- $languages = sort $languages "bytesCount" "desc" -}}
+{{/* Cut-off after top-5. */}}
+{{- $languages = first 5 $languages -}}
+
+{{/* List most common languages. */}}
+{{- with $languages -}}
+    <figure class="timeline">
+        <table>
+            <tbody>
+            {{- range . -}}
+                {{- $language := . -}}
+                {{/* Select repos of this language. */}}
+                {{- $topRepos := where $reposData "language" .name -}}
+                {{/* Sort repositories by descending stargazers count. */}}
+                {{- $topRepos = sort $topRepos "stargazers_count" "desc" -}}
+                {{/* Remove repositories without description. */}}
+                {{- $topRepos = where $topRepos "description" "ne" nil -}}
+                {{/* Get top-ranked repository. */}}
+                {{- $topRepo := index $topRepos 0 -}}
+                {{- with $topRepo -}}
+                    <tr>
+                        <td>
+                            {{- time.Format "01/2006" .created_at -}}
+                            {{- " - " -}}
+                            {{- time.Format "01/2006" .pushed_at -}}
+                        </td>
+                        <td>
+                            <a href="{{- .html_url -}}" rel="noreferrer" target="_blank" title="{{- .full_name -}}">
+                                {{- .name -}}
+                            </a>&emsp;
+                            <small>
+                                {{- .language -}}
+                                {{- ", " -}}
+                                {{- .stargazers_count -}}&nbsp;{{- i18n "githubStars" -}}
+                                {{- if gt .forks 0 -}}
+                                    {{- ", " -}}
+                                    {{- .forks -}}&nbsp;{{- i18n "githubForks" -}}
+                                {{- end -}}
+                                {{- with .license.spdx_id -}}
+                                    {{- if ne . "NOASSERTION" -}}
+                                        {{- ", " -}}
+                                        {{- . -}}
+                                    {{- end -}}
+                                {{- end -}}
+                            </small><br>
+                            {{- $description := .description -}}
+                            {{- if not (in "abcdefghijklmnopqrstuvwxyz" (substr (lower $description) 0 1)) -}}
+                                {{- $description = substr $description 2 -}}
+                            {{- end -}}
+                            {{- $description | truncate 60 -}}
+                        </td>
+                        <td>
+                            <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">
+                                {{- partial "icon/fontawesome" "solid/code" -}}
+                            </a>
+                        </td>
+                    </tr>
+                {{- end -}}
+            {{- end -}}
+            </tbody>
+        </table>
+    </figure>
+{{- end -}}
