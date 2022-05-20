@@ -19,7 +19,7 @@ aliases:
 
 </section>
 
-<section class="timeline">
+<section>
 
 ## Ausbildung
 
@@ -31,7 +31,7 @@ aliases:
 
 ## Publikationen
 
-{{< cv/webis-publications >}}
+{{< cv/publications >}}
 
 </section>
 
@@ -73,7 +73,6 @@ aliases:
 | IDEs | [IntelliJ IDEA](https://www.jetbrains.com/idea/), [VS Code](https://code.visualstudio.com/), [Git](https://git-scm.com/) |
 | Design | UI, [Figma](https://figma.com/), App Icons |
 | Sozial | [Fachschaftsrat](https://fachschaft.mathinf.uni-halle.de) |
-| Leitung | Jugendgruppenleiterseminar |
 
 </figure>
 

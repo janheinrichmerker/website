@@ -30,7 +30,7 @@ aliases:
 
 ## Publications
 
-{{< cv/webis-publications >}}
+{{< cv/publications >}}
 
 </section>
 
@@ -72,7 +72,6 @@ aliases:
 | IDEs | [IntelliJ IDEA](https://www.jetbrains.com/idea/), [VS Code](https://code.visualstudio.com/), [Git](https://git-scm.com/) |
 | Design | UI, [Figma](https://figma.com/), App Icons |
 | Social | [Student's Council](https://fachschaft.mathinf.uni-halle.de) |
-| Leadership | Youth group leadership seminar |
 
 </figure>
 

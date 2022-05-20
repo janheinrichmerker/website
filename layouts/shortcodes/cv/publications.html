@@ -1,1 +1,268 @@
-{{- partial "cv/publications" (dict "orcid" $.Site.Data.social.orcid "author" $.Site.Data.facts.name "mail" $.Site.Data.facts.mail) -}}
+{{- $author := $.Site.Data.facts.name -}}
+
+{{- $webisPublicationsUrl := "https://webis.de/publications.html" -}}
+
+{{- with resources.GetRemote $webisPublicationsUrl -}}
+    {{- $xmlText := .Content -}}
+
+    {{/* Remove head, img, and textarea tags. */}}
+    {{- $xmlText = replace $xmlText "\t" " " -}}
+    {{- $xmlText = replace $xmlText "\n" "\t" -}}
+    {{- $xmlText = replaceRE "<head>(.*?)</head>" "" $xmlText -}}
+    {{- $xmlText = replaceRE "<img[^>]+>" "" $xmlText -}}
+    {{/*    {{- $xmlText = replaceRE "<textarea[^>]+>(.*?)</textarea>" "" $xmlText -}}*/}}
+    {{- $xmlText = replace $xmlText "\t" "\n" -}}
+
+    {{/* Replace HTML entities with Unicode glyphs. */}}
+    {{- $xmlText = replace $xmlText "\\&" "\\&#38;" -}}
+    {{- $xmlText = replace $xmlText "&amp;" "&#38;" -}}
+    {{- $htmlEntities := resources.Get "csv/html-entities.csv" | transform.Unmarshal (dict "delimiter" ",") -}}
+    {{- range $htmlEntities -}}
+        {{- $htmlEntityGlyph := index . 0 -}}
+        {{- $htmlEntityName := index . 1 -}}
+        {{- $htmlEntity := print "&" $htmlEntityName ";"  -}}
+        {{- $xmlText = replace $xmlText $htmlEntity $htmlEntityGlyph -}}
+    {{- end -}}
+
+    {{/* Close empty attributes. */}}
+    {{- $xmlText = replace $xmlText "data-uk-nav>" "data-uk-nav=\"\">" -}}
+    {{- $xmlText = replace $xmlText "data-uk-close>" "data-uk-close=\"\">" -}}
+    {{- $xmlText = replace $xmlText "data-uk-sticky>" "data-uk-sticky=\"\">" -}}
+    {{- $xmlText = replace $xmlText "data-uk-grid>" "data-uk-grid=\"\">" -}}
+    {{- $xmlText = replace $xmlText "readonly>" "readonly=\"\">" -}}
+
+    {{/* Save as XML. */}}
+    {{- $xmlTargetPath := "xml/webis-publications.xml" -}}
+    {{- $xmlResource := $xmlText | resources.FromString $xmlTargetPath -}}
+
+    {{/* Parse XML as map. */}}
+    {{- with $xmlResource | transform.Unmarshal -}}
+        {{/* Navigate to publication list year entries. */}}
+        {{- $element := . -}}
+        {{- $element = index $element "body" -}}
+        {{- $element = index $element "div" -}}
+        {{- $element = where $element "-data-uk-height-viewport" "expand: true" -}}
+        {{- $element = index $element 0 -}}
+        {{- $element = index $element "main" -}}
+        {{- $element = index $element "div" -}}
+        {{- $element = where $element "-class" "uk-container uk-margin-medium publications-list" -}}
+        {{- $element = index $element 0 -}}
+        {{- $element = index $element "div" -}}
+        {{- $element = where $element "-class" "year-entry" -}}
+
+        {{/* Initialize empty list for entries. */}}
+        {{- $entries := slice -}}
+
+        {{/* Append entries per year. */}}
+        {{- range $element -}}
+            {{- $entriesYear := . -}}
+            {{- $entriesYear = index $entriesYear "div" -}}
+            {{/* Ensure list. */}}
+            {{- if not (reflect.IsSlice $entriesYear) -}}
+                {{- $entriesYear = slice $entriesYear -}}
+            {{- end -}}
+            {{- $entries = append $entries $entriesYear -}}
+        {{- end -}}
+
+        {{/* Filter author entries. */}}
+        {{- $authorEntries := slice -}}
+        {{- range $entries -}}
+            {{- if or (not $author) (in (index . "-data-author") $author) -}}
+                {{- $authorEntries = append $authorEntries (slice .) -}}
+            {{- end -}}
+        {{- end -}}
+
+        {{/* Output publications table. */}}
+        <figure class="publications-table">
+            <table>
+                <tbody>
+                {{- range $authorEntries -}}
+                    {{- $id := index . "-data-bibid" -}}
+                    {{- $year := index . "-data-year" -}}
+                    {{- $coauthors := split (index . "-data-author") ","  -}}
+                    {{- $title := index . "-data-title" -}}
+                    {{- $publisher := index . "-data-publisher" -}}
+                    {{- $links := index . "a" -}}
+                    {{- $linksPaper := where $links "-class" "paper" -}}
+                    {{- $linkPaper := "" -}}
+                    {{- with $linksPaper -}}
+                        {{- $linkPaper = index (index . 0) "-href" -}}
+                    {{- end -}}
+                    {{- $linksSlides := where $links "-class" "slides" -}}
+                    {{- $linkSlides := "" -}}
+                    {{- with $linksSlides -}}
+                        {{- $linkSlides = index (index . 0) "-href" -}}
+                    {{- end -}}
+                    {{- $linksDoi := where $links "-class" "doi" -}}
+                    {{- $linkDoi := "" -}}
+                    {{- with $linksDoi -}}
+                        {{- $linkDoi = index (index . 0) "-href" -}}
+                    {{- end -}}
+                    {{- $linksPublisher := where $links "-class" "publisher" -}}
+                    {{- $linkPublisher := "" -}}
+                    {{- with $linksPublisher -}}
+                        {{- $linkPublisher = index (index . 0) "-href" -}}
+                    {{- end -}}
+                    {{- $linksCode := where $links "-class" "code" -}}
+                    {{- $linkCode := "" -}}
+                    {{- with $linksCode -}}
+                        {{- $linkCode = index (index . 0) "-href" -}}
+                    {{- end -}}
+                    {{- $linksVideo := where $links "-class" "video" -}}
+                    {{- $linkVideo := "" -}}
+                    {{- with $linksVideo -}}
+                        {{- $linkVideo = index (index . 0) "-href" -}}
+                    {{- end -}}
+                    {{- $spans := index . "span" -}}
+                    {{- $booktitle := "" -}}
+                    {{- with where $spans "-class" "booktitle" -}}
+                        {{- $booktitle = index (index . 0) "#text" -}}
+                    {{- end -}}
+                    {{- $pages := "" -}}
+                    {{- with where $spans "-class" "pages" -}}
+                        {{- $pages = index (index . 0) "#text" -}}
+                    {{- end -}}
+                    {{- $month := "" -}}
+                    {{- with index . "-data-month" -}}
+                        {{- if eq . "January" -}}
+                            {{- $month = "01" -}}
+                        {{- else if eq . "February" -}}
+                            {{- $month = "02" -}}
+                        {{- else if eq . "March" -}}
+                            {{- $month = "03" -}}
+                        {{- else if eq . "April" -}}
+                            {{- $month = "04" -}}
+                        {{- else if eq . "May" -}}
+                            {{- $month = "05" -}}
+                        {{- else if eq . "June" -}}
+                            {{- $month = "06" -}}
+                        {{- else if eq . "July" -}}
+                            {{- $month = "07" -}}
+                        {{- else if eq . "August" -}}
+                            {{- $month = "08" -}}
+                        {{- else if eq . "September" -}}
+                            {{- $month = "09" -}}
+                        {{- else if eq . "October" -}}
+                            {{- $month = "10" -}}
+                        {{- else if eq . "November" -}}
+                            {{- $month = "11" -}}
+                        {{- else if eq . "December" -}}
+                            {{- $month = "12" -}}
+                        {{- end -}}
+                    {{- end -}}
+                    {{- $bibtex := index (index . "textarea") "#text" -}}
+                    {{- $bibtex = replaceRE "\n}" ",\n}" $bibtex -}}
+                    {{- $bibtex = replaceRE " = +" " = " $bibtex -}}
+                    {{- $bibtex = replaceRE "year = ([0-9]+)" "year = {$1}" $bibtex -}}
+                    {{- $bibtex = replaceRE "  todo = \\{([^}]+)},\n" "" $bibtex -}}
+                    {{- $bibtex = replaceRE "  ids = \\{([^}]+)},\n" "" $bibtex -}}
+                    {{- $bibtex = replace $bibtex "month = jan" "month = {1}" -}}
+                    {{- $bibtex = replace $bibtex "month = feb" "month = {2}" -}}
+                    {{- $bibtex = replace $bibtex "month = mar" "month = {3}" -}}
+                    {{- $bibtex = replace $bibtex "month = apr" "month = {4}" -}}
+                    {{- $bibtex = replace $bibtex "month = may" "month = {5}" -}}
+                    {{- $bibtex = replace $bibtex "month = jun" "month = {6}" -}}
+                    {{- $bibtex = replace $bibtex "month = jul" "month = {7}" -}}
+                    {{- $bibtex = replace $bibtex "month = aug" "month = {8}" -}}
+                    {{- $bibtex = replace $bibtex "month = sep" "month = {9}" -}}
+                    {{- $bibtex = replace $bibtex "month = oct" "month = {10}" -}}
+                    {{- $bibtex = replace $bibtex "month = nov" "month = {11}" -}}
+                    {{- $bibtex = replace $bibtex "month = dec" "month = {12}" -}}
+                    <tr id="{{ $id }}">
+                        <th>{{- $month -}}/{{- $year -}}</th>
+                        <td>
+                            {{- range $coauthorIndex, $coauthor := $coauthors -}}
+                                {{- if gt $coauthorIndex 0 -}}
+                                    {{- ", " -}}
+                                {{- end -}}
+                                {{- if $author -}}
+                                    {{- if in $author $coauthor -}}
+                                        <mark>
+                                    {{- end -}}
+                                {{- end -}}
+                                {{- $nameParts := split $coauthor " " -}}
+                                {{- range $namePartIndex, $namePart := $nameParts -}}
+                                    {{- if eq $namePartIndex (sub (len $nameParts) 1) -}}
+                                        {{- $namePart -}}
+                                    {{- else -}}
+                                        {{- substr $namePart 0 1 -}}
+                                        {{- ". " -}}
+                                    {{- end -}}
+                                {{- end -}}
+                                {{- if $author -}}
+                                    {{- if in $author $coauthor -}}
+                                        </mark>
+                                    {{- end -}}
+                                {{- end -}}
+                            {{- end -}}
+                            {{- ". " -}}
+                            {{- with $linkPaper -}}
+                                <a href="{{ . }}" rel="noreferrer" target="_blank">
+                                    {{- $title -}}
+                                </a>
+                            {{- else -}}
+                                {{- $title -}}
+                            {{- end -}}
+                            {{- ". " -}}
+                            <small>
+                                {{- with $booktitle -}}
+                                    In&nbsp;{{- . -}}{{- ". " -}}
+                                {{- end -}}
+                                {{- with $pages -}}
+                                    {{- . -}}{{- ". " -}}
+                                {{- end -}}
+                                {{- $publisher -}}{{- ". " -}}
+                                {{ with $linkDoi }}
+                                    {{ i18n "doi" }}:&nbsp;{{- "" -}}
+                                    <a href="{{ . }}" title="{{ i18n "doiDescription" }}" rel="noreferrer"
+                                       target="_blank">
+                                        {{- replace . "https://doi.org/" "" -}}
+                                    </a>
+                                {{ end }}
+                                <details class="bibtex-snippet" id="{{ $id }}-bibtex">
+                                    <summary>{{ i18n "bibtex" }}</summary>
+                                    {{ transform.Highlight $bibtex "bibtex" }}
+                                    <a onclick="navigator.clipboard.writeText('{{ $bibtex }}');">Copy BibTeX</a>
+                                </details>
+                            </small>
+                        </td>
+                        <td>
+                            {{ with $linkPaper }}
+                                <a href="{{ . }}"
+                                   download="{{ anchorize $title }}{{ path.Ext . }}"
+                                   title="{{ i18n "paper" }}">
+                                    {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                </a>
+                            {{ end }}
+                            {{ with $linkSlides }}
+                                <a href="{{ . }}"
+                                   download="{{ print (anchorize $title) "-slides" }}{{ path.Ext . }}"
+                                   title="{{ i18n "slides" }}">
+                                    {{- partial "icon/fontawesome" "solid/file-powerpoint" -}}
+                                </a>
+                            {{ end }}
+                            {{ with $linkVideo }}
+                                <a href="{{ . }}"
+                                   title="{{ i18n "video" }}" rel="noreferrer" target="_blank">
+                                    {{- partial "icon/fontawesome" "solid/file-video" -}}
+                                </a>
+                            {{ end }}
+                            {{ with $linkCode }}
+                                <a href="{{ . }}"
+                                   title="{{ i18n "sourceCode" }}" rel="noreferrer" target="_blank">
+                                    {{- partial "icon/fontawesome" "solid/code" -}}
+                                </a>
+                            {{ end }}
+                            <a title="{{ i18n "bibtex" }}"
+                               onclick="document.getElementById('{{ $id }}-bibtex').toggleAttribute('open')">
+                                {{- partial "icon/fontawesome" "solid/bookmark" -}}
+                            </a>
+                        </td>
+                    </tr>
+                {{- end -}}
+                </tbody>
+            </table>
+        </figure>
+    {{- end -}}
+{{ end -}}
+
