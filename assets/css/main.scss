@@ -133,10 +133,6 @@ body {
                 border-bottom: 1.5pt solid black;
                 border-spacing: 0.75em 0.75ex;
 
-                thead {
-                    border-bottom: 1pt solid black;
-                }
-
                 th, td {
                     text-align: initial;
                     vertical-align: top;
@@ -153,10 +149,22 @@ body {
                         text-align: center;
                     }
                 }
-            }
 
-            &.timeline td:first-of-type {
-                min-width: 10.5em;
+                thead {
+                    border-bottom: 1pt solid black;
+                }
+
+                tbody {
+                    th {
+                        min-width: max-content;
+                        font-size: smaller;
+                        font-weight: normal;
+                    }
+
+                    td.actions {
+                        min-width: max-content;
+                    }
+                }
             }
         }
     }
@@ -186,10 +194,9 @@ body {
         }
     }
 
-    &.page-curriculum-vitae {
+    &.page-curriculum-vitae, &.page-lebenslauf {
 
         .icon-font {
-
             @media print {
                 display: none;
             }
@@ -201,17 +208,6 @@ body {
                 @media print, (min-width: 0.95 * $max-width) {
                     float: right;
                     margin: 0 0.05 * $max-width;
-                }
-            }
-
-            table {
-                max-width: 0.95 * $max-width;
-
-                th, td {
-
-                    &:first-child {
-                        font-style: italic;
-                    }
                 }
             }
         }

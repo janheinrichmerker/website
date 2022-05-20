@@ -53,7 +53,7 @@
                         <small>{{ i18n "thesis" }}: {{ .title }}</small>
                     {{- end -}}
                 </td>
-                <td>
+                <td class="actions">
                     {{- $degree := .degree -}}
                     {{- with .certificate -}}
                         {{- with resources.Get . -}}

@@ -1,50 +1,50 @@
 {{- with $.Site.Data.facts -}}
-<figure>
-    <table>
-        <tbody>
-        <tr>
-            <th>{{- i18n "name" -}}</th>
-            <td>{{- .name -}}</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>{{- i18n "address" -}}</th>
-            <td>
-                {{- $mapsLink := print "https://google.com/maps/search/" (replace .address.street " " "+") ",+" (replace .address.zip " " "+") ",+" (replace .address.city " " "+") ",+" (replace .address.country " " "+") "/" -}}
-                <a href="{{- $mapsLink -}}">{{- .address.street -}}</a><br>
-                {{- .address.zip -}}&nbsp;{{- .address.city -}}<br>
-                {{- .address.country -}}
-            </td>
-            <td>
-                <a href="{{- $mapsLink -}}" title="{{- i18n "route" -}}">
-                {{- partial "icon/fontawesome" "solid/map-marked-alt" -}}
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <th>{{- i18n "birthday" -}}</th>
-            <td>{{- time.Format ":date_long" .birthday -}}</td>
-            <td></td>
-        </tr>
-        <tr>
-            <th>{{- i18n "email" -}}</th>
-            <td><a href="mailto:{{- .mail -}}">{{- .mail -}}</a></td>
-            <td>
-                <a href="mailto:{{- .mail -}}" title="{{- i18n "email" -}}">
-                {{- partial "icon/fontawesome" "solid/envelope" -}}
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <th>{{- i18n "phone" -}}</th>
-            <td><a href="tel:{{- replace .phone " " "" -}}">{{- .phone -}}</a></td>
-            <td>
-                <a href="tel:{{- replace .phone " " "" -}}" title="{{- i18n "phone" -}}">
-                {{- partial "icon/fontawesome" "solid/phone" -}}
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</figure>
+    <figure>
+        <table>
+            <tbody>
+            <tr>
+                <th>{{- i18n "name" -}}</th>
+                <td>{{- .name -}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>{{- i18n "address" -}}</th>
+                <td>
+                    {{- $mapsLink := print "https://google.com/maps/search/" (replace .address.street " " "+") ",+" (replace .address.zip " " "+") ",+" (replace .address.city " " "+") ",+" (replace .address.country " " "+") "/" -}}
+                    <a href="{{- $mapsLink -}}">{{- .address.street -}}</a><br>
+                    {{- .address.zip -}}&nbsp;{{- .address.city -}}<br>
+                    {{- .address.country -}}
+                </td>
+                <td class="actions">
+                    <a href="{{- $mapsLink -}}" title="{{- i18n "route" -}}">
+                        {{- partial "icon/fontawesome" "solid/map-marked-alt" -}}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>{{- i18n "birthday" -}}</th>
+                <td>{{- time.Format ":date_long" .birthday -}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>{{- i18n "email" -}}</th>
+                <td><a href="mailto:{{- .mail -}}">{{- .mail -}}</a></td>
+                <td class="actions">
+                    <a href="mailto:{{- .mail -}}" title="{{- i18n "email" -}}">
+                        {{- partial "icon/fontawesome" "solid/envelope" -}}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>{{- i18n "phone" -}}</th>
+                <td><a href="tel:{{- replace .phone " " "" -}}">{{- .phone -}}</a></td>
+                <td class="actions">
+                    <a href="tel:{{- replace .phone " " "" -}}" title="{{- i18n "phone" -}}">
+                        {{- partial "icon/fontawesome" "solid/phone" -}}
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </figure>
 {{- end -}}
