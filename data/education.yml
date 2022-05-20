@@ -24,7 +24,8 @@
   degree:
     title: B.Sc.
     description: Bachelor of Science
-    program: Informatik / Computer Science
+    program:
+      i18n: degreeProgramComputerScience
   thesis:
     title: Bias in Learning to Rank Caused by Redundant Web Documents
     thesis: /pdf/bsc-thesis.pdf
@@ -41,4 +42,5 @@
   degree:
     title: M.Sc.
     description: Master of Science
-    program: Informatik / Computer Science
+    program:
+      i18n: degreeProgramComputerScience
