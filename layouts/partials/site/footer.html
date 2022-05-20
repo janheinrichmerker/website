@@ -1,3 +1,8 @@
+{{- $filePath := "" -}}
+{{- with .File -}}
+    {{- $filePath = print "/tree/main/content/" .Path -}}
+{{- end -}}
+{{- $filePath -}}
 <footer>
     <p>
         <a href='{{ relref $ "/imprint#license" }}'
@@ -9,7 +14,11 @@
         <ul>
             {{ range $.Site.Menus.footer }}
                 <li>
-                    <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
+                    {{- $url := .URL -}}
+                    {{- if eq .Identifier "source" -}}
+                        {{- $url = print (strings.TrimSuffix "/" $url) $filePath -}}
+                    {{- end -}}
+                    <a href="{{ $url }}" title="{{ .Name }}">{{ .Name }}</a>
                 </li>
             {{ end }}
             {{ range $.Site.Languages }}
