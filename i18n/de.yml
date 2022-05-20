@@ -74,3 +74,23 @@ email:
   other: "E-Mail"
 phone:
   other: "Telefon"
+germanNative:
+  other: "deutsch (Muttersprache)"
+englishFluent:
+  other: "englisch (fließend)"
+appIcons:
+  other: "App-Icons"
+studentsCouncil:
+  other: "Fachschaftsrat"
+facultyCouncil:
+  other: "Fakultätsrat"
+languages:
+  other: "Sprachen"
+code:
+  other: "Programmieren"
+frameworks:
+  other: "Frameworks"
+design:
+  other: "Design"
+social:
+  other: "Sozial"
