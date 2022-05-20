@@ -53,6 +53,14 @@ aliases:
 
 <section>
 
+## Ehrungen & Förderungen
+
+{{< cv/awards >}}
+
+</section>
+
+<section>
+
 ## Fähigkeiten
 
 {{< cv/skills >}}

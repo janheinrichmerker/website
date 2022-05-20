@@ -1,0 +1,8 @@
+- year: 2022
+  month: 4
+  name: SIGIR Student Travel Grant
+  description: Axiomatic Retrieval Experimentation with ir_axioms. SIGIR 2022 Resource Paper
+  url: https://sigir.org/sigir2022/student-travel-grants/
+  value:
+    sum: 1000
+    unit: USD

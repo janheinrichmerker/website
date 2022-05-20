@@ -1,0 +1,44 @@
+{{- $awards := $.Site.Data.awards -}}
+{{- $awards = sort $awards "month" "desc" -}}
+{{- $awards = sort $awards "year" "desc" -}}
+<figure>
+    <table>
+        <tbody>
+        {{- range $awards -}}
+            <tr>
+                <th>
+                    {{- with .month -}}
+                        {{- printf "%02d" . -}}/
+                    {{-  end -}}
+                    {{- .year -}}
+                </th>
+                <td>
+                    {{- with .url -}}
+                    <a href="{{- . -}}" rel="noreferrer" target="_blank">
+                        {{-  end -}}
+                        {{- if reflect.IsMap .name -}}
+                            {{- i18n .name.i18n -}}
+                        {{- else -}}
+                            {{- .name -}}
+                        {{- end -}}
+                        {{- with .url -}}
+                    </a>
+                    {{-  end -}}
+                    {{- with .value -}}
+                        &emsp;
+                        <small>{{- lang.NumFmt 0 .sum "- , ." -}} {{- .unit -}}</small>
+                    {{- end -}}
+                    {{- with .description -}}
+                        <br>
+                        {{- if reflect.IsMap . -}}
+                            {{- i18n .i18n -}}
+                        {{- else -}}
+                            {{- . -}}
+                        {{- end -}}
+                    {{- end -}}
+                </td>
+            </tr>
+        {{- end -}}
+        </tbody>
+    </table>
+</figure>

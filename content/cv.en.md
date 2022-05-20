@@ -52,6 +52,14 @@ aliases:
 
 <section>
 
+## Awards & Grants
+
+{{< cv/awards >}}
+
+</section>
+
+<section>
+
 ## Skills
 
 {{< cv/skills >}}
