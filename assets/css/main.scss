@@ -1,5 +1,6 @@
 $color: #000000;
-$color-active: #052561;
+$color-active: #00236e;
+$color-marker: #fff4ab;
 $background: #FFFFFF;
 $title-size: 0.08;
 $description-size: 0.04;
@@ -27,6 +28,7 @@ body {
 
     a {
         color: $color-active;
+        text-decoration: none;
 
         &:visited {
             color: desaturate($color-active, 30%);
@@ -45,6 +47,11 @@ body {
                 color: $color;
             }
         }
+    }
+
+    mark {
+        background: $color-marker;
+        border-radius: 0.5ex;
     }
 
     .icon-font {
