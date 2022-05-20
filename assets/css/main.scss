@@ -54,6 +54,14 @@ body {
         border-radius: 0.5ex;
     }
 
+    .publications-table {
+        details.bibtex-snippet {
+            summary {
+                display: none;
+            }
+        }
+    }
+
     .icon-font {
         display: inline-block;
         > svg {
