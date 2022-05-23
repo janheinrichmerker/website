@@ -17,8 +17,9 @@ body {
     flex-direction: column;
 
     width: 100%;
+    max-width: $max-width;
     height: 100vh;
-    margin: 0;
+    margin: 0 auto;
     padding: 1em 1em 0;
     box-sizing: border-box;
 
@@ -82,7 +83,6 @@ body {
 
     main {
         flex: 1 0;
-        max-width: $max-width;
 
         article {
             width: 100%;
@@ -128,7 +128,6 @@ body {
             }
 
             table {
-                display: inline-block;
                 border-top: 1.5pt solid black;
                 border-bottom: 1.5pt solid black;
                 border-spacing: 0.75em 0.75ex;
@@ -156,12 +155,14 @@ body {
 
                 tbody {
                     th {
+                        width: 0;
                         min-width: max-content;
                         font-size: smaller;
                         font-weight: normal;
                     }
 
                     td.actions {
+                        width: 0;
                         min-width: max-content;
                     }
                 }
@@ -205,9 +206,19 @@ body {
         figure {
 
             &.profile {
-                @media print, (min-width: 0.95 * $max-width) {
+                @media print, (min-width: $max-width) {
                     float: right;
                     margin: 0 0.05 * $max-width;
+                }
+            }
+        }
+
+        section{
+            &:nth-of-type(n+2){
+                figure {
+                    table {
+                        width: 100%;
+                    }
                 }
             }
         }
