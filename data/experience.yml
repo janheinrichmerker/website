@@ -25,14 +25,15 @@
     url: https://klasse-wir-singen.de/
   job:
     i18n: minijobEventManagementTeamLeader
-- from:
-    year: 2013
-    month: 10
-  to:
-    year: 2013
-    month: 11
-  company:
-    name: DAVID Software GmbH
-    url: https://msg-david.de/
-  job:
-    i18n: internshipSoftwareDevelopmentSystemAdministration
+# Unimportant or old entries can be commented-out.
+#- from:
+#    year: 2013
+#    month: 10
+#  to:
+#    year: 2013
+#    month: 11
+#  company:
+#    name: DAVID Software GmbH
+#    url: https://msg-david.de/
+#  job:
+#    i18n: internshipSoftwareDevelopmentSystemAdministration
