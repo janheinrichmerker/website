@@ -211,7 +211,9 @@
                                 {{- with $pages -}}
                                     {{- . -}}{{- ". " -}}
                                 {{- end -}}
-                                {{- $publisher -}}{{- ". " -}}
+                                {{- with $publisher -}}
+                                    {{- . -}}{{- ". " -}}
+                                {{- end -}}
                                 {{ with $linkDoi }}
                                     {{ i18n "doi" }}:&nbsp;{{- "" -}}
                                     <a href="{{ . }}" title="{{ i18n "doiDescription" }}" rel="noreferrer"
