@@ -88,8 +88,8 @@ Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglic
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
 Jan Heinrich Reimer  
-Große Märkerstraße 20  
-06108 Halle (Saale)  
+Hohestieg 12  
+38118 Braunschweig  
 Deutschland
 
 Telefon: [+49 174 9273954](tel:+491749273954)  

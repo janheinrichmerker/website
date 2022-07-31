@@ -11,8 +11,8 @@ menu:
 
 ## Angaben gemäß § 5 TMG
 Jan Heinrich Reimer  
-Große Märkerstraße 20  
-06108 Halle (Saale)  
+Hohestieg 12  
+38118 Braunschweig  
 Germany
 
 ## Kontakt
