@@ -61,14 +61,16 @@
             {{- if not (reflect.IsSlice $entriesYear) -}}
                 {{- $entriesYear = slice $entriesYear -}}
             {{- end -}}
-            {{- $entries = append $entries $entriesYear -}}
+            {{- range $entriesYear -}}
+                {{- $entries = $entries | append . -}}
+            {{- end -}}
         {{- end -}}
 
         {{/* Filter author entries. */}}
         {{- $authorEntries := slice -}}
         {{- range $entries -}}
             {{- if or (not $author) (in (index . "-data-author") $author) -}}
-                {{- $authorEntries = append $authorEntries (slice .) -}}
+                {{- $authorEntries = $authorEntries | append . -}}
             {{- end -}}
         {{- end -}}
 
