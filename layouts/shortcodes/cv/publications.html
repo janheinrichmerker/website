@@ -120,6 +120,10 @@
                     {{- with where $spans "-class" "booktitle" -}}
                         {{- $booktitle = index (index . 0) "#text" -}}
                     {{- end -}}
+                    {{- $series := "" -}}
+                    {{- with where $spans "-class" "series" -}}
+                        {{- $series = index (index . 0) "#text" -}}
+                    {{- end -}}
                     {{- $pages := "" -}}
                     {{- with where $spans "-class" "pages" -}}
                         {{- $pages = index (index . 0) "#text" -}}
@@ -207,8 +211,18 @@
                             {{- end -}}
                             {{- ". " -}}
                             <small>
-                                {{- with $booktitle -}}
-                                    In&nbsp;{{- . -}}{{- ". " -}}
+                                {{- if (or $booktitle $series) -}}
+                                    In&nbsp;
+                                    {{- with $booktitle -}}
+                                        {{- . -}}
+                                    {{- end -}}
+                                    {{- with $series -}}
+                                        {{- if $booktitle -}}
+                                            {{- ", " -}}
+                                        {{- end -}}
+                                        {{- . -}}
+                                    {{- end -}}
+                                    {{- ". " -}}
                                 {{- end -}}
                                 {{- with $pages -}}
                                     {{- . -}}{{- ". " -}}
