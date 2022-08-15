@@ -4,5 +4,13 @@
   description: Axiomatic Retrieval Experimentation with ir_axioms. SIGIR 2022 Resource Paper
   url: https://sigir.org/sigir2022/student-travel-grants/
   value:
-    sum: 1000
+    sum: 1350
     unit: USD
+- year: 2022
+  month: 7
+  name: CLEF Registration Fee Waiver
+  description: "Grimjack at Touché 2022: Axiomatic Re-ranking and Query Reformulation. CLEF 2022 Lab Paper"
+  url: https://clef2022.clef-initiative.eu/index.php?page=Pages/conferenceRegistration.html
+  value:
+    sum: 100
+    unit: EUR
