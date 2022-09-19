@@ -88,12 +88,14 @@ Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglic
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
 Jan Heinrich Reimer  
+(Reimer Software)  
 Hohestieg 12  
 38118 Braunschweig  
-Deutschland
+Germany
 
 Telefon: [+49 174 9273954](tel:+491749273954)  
-E-Mail: [heinrich@reimer.family](mailto:heinrich@reimer.family)
+E-Mail: [heinrich@reimer.family](mailto:heinrich@reimer.family)  
+USt.-IDNr.: [DE315339671](https://ec.europa.eu/taxation_customs/vies/)
 
 Verantwortliche Stelle ist die natürliche oder juristische Person, 
 die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung 

@@ -9,18 +9,17 @@ menu:
     name: Impressum
 ---
 
-## Angaben gemäß § 5 TMG
+Angaben gemäß § 5 TMG:
+
 Jan Heinrich Reimer  
 (Reimer Software)  
 Hohestieg 12  
 38118 Braunschweig  
 Germany
 
-USt.-IDNr.: [DE315339671](https://ec.europa.eu/taxation_customs/vies/)
-
-## Kontakt
 Telefon: [+49 174 9273954](tel:+491749273954)  
-E-Mail: [heinrich@reimer.family](mailto:heinrich@reimer.family)
+E-Mail: [heinrich@reimer.family](mailto:heinrich@reimer.family)  
+USt.-IDNr.: [DE315339671](https://ec.europa.eu/taxation_customs/vies/)
 
 ### Haftung für Inhalte
 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG 
