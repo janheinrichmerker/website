@@ -1,19 +1,52 @@
 - from:
-    year: 2020
-    month: 4
+    year: 2022
+    month: 11
   company:
-    name: Martin-Luther-Universität Halle-Wittenberg
-    url: https://uni-halle.de/
+    name: "Bauhaus-Universität Weimar"
+    url: https://uni-weimar.de/
   job:
-    i18n: researchAssistantBigDataAnalytics
+    i18n: researchAssistantMediaContentWeb
 - from:
     year: 2017
     month: 11
   company:
-    name: Reimer Software
+    name: "Reimer Software"
     url: https://reimer.dev/
   job:
     i18n: selfEmployedFullStackSoftwareDevelopment
+- from:
+    year: 2022
+    month: 4
+  to:
+    year: 2022
+    month: 9
+  company:
+    name: "Martin-Luther-Universität Halle-Wittenberg"
+    url: https://uni-halle.de/
+  job:
+    i18n: researchAssistantBigDataAnalytics
+- from:
+    year: 2021
+    month: 11
+  to:
+    year: 2022
+    month: 4
+  company:
+    name: "Bauhaus-Universität Weimar"
+    url: https://uni-weimar.de/
+  job:
+    i18n: researchAssistantMediaContentWeb
+- from:
+    year: 2020
+    month: 4
+  to:
+    year: 2021
+    month: 9
+  company:
+    name: "Martin-Luther-Universität Halle-Wittenberg"
+    url: https://uni-halle.de/
+  job:
+    i18n: researchAssistantBigDataAnalytics
 - from:
     year: 2015
     month: 02
@@ -21,7 +54,7 @@
     year: 2019
     month: 7
   company:
-    name: Klasse! Wir singen – Singen e.V.
+    name: "Klasse! Wir singen – Singen e.V."
     url: https://klasse-wir-singen.de/
   job:
     i18n: minijobEventManagementTeamLeader
@@ -33,7 +66,7 @@
 #    year: 2013
 #    month: 11
 #  company:
-#    name: DAVID Software GmbH
+#    name: "DAVID Software GmbH"
 #    url: https://msg-david.de/
 #  job:
 #    i18n: internshipSoftwareDevelopmentSystemAdministration
