@@ -14,7 +14,7 @@
     {{- $xmlText = replace $xmlText "\t" "\n" -}}
 
     {{/* Replace HTML entities with Unicode glyphs. */}}
-    {{- $xmlText = replace $xmlText "\\&" "\\&#38;" -}}
+    {{- $xmlText = replace $xmlText "&" "&#38;" -}}
     {{- $xmlText = replace $xmlText "&amp;" "&#38;" -}}
     {{- $htmlEntities := resources.Get "csv/html-entities.csv" | transform.Unmarshal (dict "delimiter" ",") -}}
     {{- range $htmlEntities -}}
