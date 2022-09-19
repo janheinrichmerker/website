@@ -1,14 +1,17 @@
 $color: #000000;
 $color-active: #00236e;
-$color-marker: #fff4ab;
+$color-marker: transparentize(#fff4ab, 0.5);
 $background: #FFFFFF;
 $title-size: 0.08;
-$description-size: 0.04;
+$description-size: 0.03;
 $max-width: 55em;
+$font-family-body: "IBM Plex Sans";
+$font-family-head: "Space Mono";
 $font-awesome-scale: 1;
 $font-awesome-size: 1em * $font-awesome-scale;
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+@import "functions";
+@import url("https://fonts.googleapis.com/css2?family=#{str-replace($font-family-body, " ", "+")}:ital,wght@0,400;0,700;1,400&family=#{str-replace($font-family-head, " ", "+")}:ital,wght@0,400;0,700;1,400&display=swap");
 @import "../node_modules/normalize-scss/sass/normalize";
 @import "code";
 
@@ -25,7 +28,12 @@ body {
 
     color: $color;
     background: $background;
-    font-family: "Space Mono", monospace;
+    font-family: $font-family-body, sans-serif;
+    font-size: 14pt;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-family-head, monospace;
+    }
 
     a {
         color: $color-active;
@@ -53,6 +61,11 @@ body {
     mark {
         background: $color-marker;
         border-radius: 0.5ex;
+
+        @media print {
+            background: none;
+            border-radius: 0;
+        }
     }
 
     .publications-table {
@@ -186,6 +199,7 @@ body {
             }
 
             p:nth-of-type(1), p:nth-of-type(2) {
+                font-family: $font-family-head, monospace;
                 font-size: 100vw * $description-size;
 
                 @media (min-width: $max-width) {
