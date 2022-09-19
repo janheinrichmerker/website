@@ -88,6 +88,8 @@ body {
     nav {
         display: flex;
         justify-content: space-between;
+        font-family: $font-family-head, monospace;
+        font-weight: bold;
 
         @media print {
             display: none;
