@@ -82,7 +82,8 @@
                     <tr>
                         <th>
                             {{- time.Format "01/2006" .created_at -}}
-                            {{- " - " -}}
+                            <br>
+                            {{- "- " -}}
                             {{- time.Format "01/2006" .pushed_at -}}
                         </th>
                         <td>
@@ -108,7 +109,7 @@
                             {{- if not (in "abcdefghijklmnopqrstuvwxyz" (substr (lower $description) 0 1)) -}}
                                 {{- $description = substr $description 2 -}}
                             {{- end -}}
-                            {{- $description | truncate 60 -}}
+                            {{- $description | truncate 80 -}}
                         </td>
                         <td class="actions">
                             <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">
