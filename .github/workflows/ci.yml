@@ -33,12 +33,23 @@ jobs:
           restore-keys: ${{ runner.os }}-hugo-modules-
       - name: "🧰 Install asset dependencies"
         run: yarn --cwd assets/ install
+      - name: "🧰 Install dart-sass-embedded"
+        run: |
+          curl -LJO https://github.com/sass/dart-sass-embedded/releases/download/1.0.0-beta.6/sass_embedded-1.0.0-beta.6-linux-x64.tar.gz;
+          echo "04fc1e5e28d29a4585a701941b6dace56771d94bfbe7f9e4db28d24417ceeec3  sass_embedded-1.0.0-beta.6-linux-x64.tar.gz" | sha256sum -c;
+          tar -xvf sass_embedded-1.0.0-beta.6-linux-x64.tar.gz;
+          echo "$GITHUB_WORKSPACE/sass_embedded/" >> $GITHUB_PATH
       - name: "🏗 Build"
         run: hugo
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: "📤 Upload public pages"
+        uses: actions/upload-artifact@v3
+        with:
+          name: public-pages
+          path: public/
   deploy:
-    name: "📤 Deploy"
+    name: "🚀 Deploy"
     if: |
       (github.event_name == 'push' || 
         github.event_name == 'workflow_dispatch' || 
@@ -49,38 +60,18 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      - name: "📥 Check-out"
-        uses: actions/checkout@v2
-      - name: "🧰 Install Node"
-        uses: actions/setup-node@v2
+      - name: "📥 Download public pages"
+        uses: actions/download-artifact@master
         with:
-          node-version: "16.13.1"
-          cache: yarn
-          cache-dependency-path: assets/yarn.lock
-      - name: "🧰 Install Hugo"
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.104.3"
-          extended: true
-      - name: "♻️ Cache Hugo modules"
-        uses: actions/cache@v2
-        with:
-          path: /tmp/hugo_cache
-          key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
-          restore-keys: ${{ runner.os }}-hugo-modules-
-      - name: "🧰 Install asset dependencies"
-        run: yarn --cwd assets/ install
-      - name: "🏗 Build"
-        run: hugo
-        env:
-          HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
+          name: public-pages
+          path: public/
       - name: "🚀 Deploy via SSH"
         uses: appleboy/scp-action@v0.1.2
         with:
           username: ${{ secrets.DEPLOY_SSH_USER }}
           host: ${{ secrets.DEPLOY_SSH_HOST }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: public
+          source: public/
           strip_components: 1
           rm: true
           target: ${{ secrets.DEPLOY_SSH_TARGET_PATH }}
@@ -96,6 +87,13 @@ jobs:
       - name: "🏷️ Get version tag"
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
+      - name: "📥 Download public pages"
+        uses: actions/download-artifact@master
+        with:
+          name: public-pages
+          path: public/
+      - name: "🗜️ Create public pages archive"
+        run: zip -r public.zip public/
       - name: "🚀 Create GitHub release"
         uses: softprops/action-gh-release@v1
         with:
@@ -103,3 +101,4 @@ jobs:
           draft: false
           prerelease: false
           generate_release_notes: true
+          files: public.zip
