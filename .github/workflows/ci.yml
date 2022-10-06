@@ -23,7 +23,7 @@ jobs:
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.92.1"
+          hugo-version: "0.104.3"
           extended: true
       - name: "♻️ Cache Hugo modules"
         uses: actions/cache@v2
@@ -60,7 +60,7 @@ jobs:
       - name: "🧰 Install Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.92.1"
+          hugo-version: "0.104.3"
           extended: true
       - name: "♻️ Cache Hugo modules"
         uses: actions/cache@v2
