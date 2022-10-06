@@ -1,2 +1,3 @@
-{{ $style := resources.Get "/css/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{ $options := dict "transpiler" "dartsass" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)  }}
+{{ $style := resources.Get "/css/main.scss" | resources.ToCSS $options | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
