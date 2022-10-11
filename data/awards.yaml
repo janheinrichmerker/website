@@ -14,3 +14,11 @@
   value:
     sum: 100
     unit: EUR
+- year: 2022
+  month: 10
+  name: "Deutschlandstipendium"
+  description: "Public-private partnered scholarship from the Landesbank Baden-Württemberg and the German Government."
+  url: https://deutschlandstipendium.de
+  value:
+    sum: 1800
+    unit: EUR
