@@ -17,7 +17,8 @@
 - year: 2022
   month: 10
   name: "Deutschlandstipendium"
-  description: "Public-private partnered scholarship from the Landesbank Baden-Württemberg and the German Government."
+  description:
+    i18n: germanScholarshipDescription
   url: https://deutschlandstipendium.de
   value:
     sum: 1800
