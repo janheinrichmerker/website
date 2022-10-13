@@ -107,7 +107,13 @@
                     <td>
                         {{- with $topRepo -}}
                             <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">{{- .full_name -}}</a><br>
-                            <em>{{- .description -}}</em><br>
+                            <small>
+                                {{- $description := .description -}}
+                                {{- if not (in "abcdefghijklmnopqrstuvwxyz" (substr (lower $description) 0 1)) -}}
+                                    {{- $description = substr $description 2 -}}
+                                {{- end -}}
+                                {{- $description -}}
+                            </small><br>
                             <small>
                                 📅 {{ time.Format ":date_short" .pushed_at }}&emsp;
                                 ⭐ {{ .stargazers_count }}
