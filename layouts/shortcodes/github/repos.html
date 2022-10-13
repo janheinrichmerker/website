@@ -2,4 +2,148 @@
 {{- with $.Site.Params.gitHubToken -}}
     {{- $username = print $username ":" . -}}
 {{- end -}}
-{{- partial "github/repos" $username -}}
+{{- if not $username -}}
+    {{ errorf "Input must be a GitHub username: %s" .Position }}
+{{- end -}}
+
+{{- $githubApiUrl := "https://api.github.com/" -}}
+{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- if in $username ":" -}}
+    {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
+    {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
+    {{- $username = index (split $username ":") 0 -}}
+{{- end -}}
+
+{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
+{{- $ownedReposData := getJSON $userData.repos_url "?per_page=100&type=owner" $githubHeaders -}}
+{{- $memberReposData := getJSON $userData.repos_url "?per_page=100&type=member" $githubHeaders -}}
+{{- $reposData := append $ownedReposData $memberReposData -}}
+
+{{/* Count repositories and bytes per language. */}}
+{{- $languageRepos := dict -}}
+{{- $languageBytes := dict -}}
+{{- range $reposData -}}
+    {{/* Count repository. */}}
+    {{- with .language -}}
+        {{- $languageName := . -}}
+        {{- $oldLanguageRepos := index $languageRepos $languageName | default 0 -}}
+        {{- $newLanguageRepos := add $oldLanguageRepos 1 -}}
+        {{- $languageRepos = merge $languageRepos (dict $languageName $newLanguageRepos) -}}
+    {{- end -}}
+    {{/* Count bytes. */}}
+    {{- $languagesData := getJSON .languages_url $githubHeaders -}}
+    {{- range $languageName, $languageCount := $languagesData -}}
+        {{- $oldLanguageBytes := index $languageBytes $languageName | default 0 -}}
+        {{- $newLanguageBytes := add $oldLanguageBytes $languageCount -}}
+        {{- $languageBytes = merge $languageBytes (dict $languageName $newLanguageBytes) -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* Join all language names. */}}
+{{- $languageNames := slice -}}
+{{- range $languageName, $_ := $languageRepos -}}
+    {{- $languageNames = append $languageName $languageNames -}}
+{{- end -}}
+{{- range $languageName, $_ := $languageBytes -}}
+    {{- $languageNames = append $languageName $languageNames -}}
+{{- end -}}
+{{- $languageNames = uniq $languageNames -}}
+
+{{/* Map language counter to dicts. */}}
+{{- $languages := slice -}}
+{{- range $languageNames -}}
+    {{- $languageName := . -}}
+    {{- $languageReposCount := index $languageRepos $languageName -}}
+    {{- $languageBytesCount := index $languageBytes $languageName -}}
+    {{- $language := dict "name" $languageName "reposCount" $languageReposCount "bytesCount" $languageBytesCount -}}
+    {{- $languages = append $language $languages -}}
+{{- end -}}
+
+{{/* Remove languages with less than 3 repos. */}}
+{{- $languages = where $languages "reposCount" "ge" 3 -}}
+{{/* Sort languages by descending bytes count. */}}
+{{- $languages = sort $languages "bytesCount" "desc" -}}
+{{/* Cut-off after top-10. */}}
+{{- $languages = first 10 $languages -}}
+
+{{/* List most common languages. */}}
+{{- with $languages -}}
+    <figure>
+        <table>
+            <thead>
+            <tr>
+                <th>{{- i18n "programmingLanguage" -}}</th>
+                <th>{{- i18n "topRepository" -}}</th>
+                <th>{{- i18n "moreRepositories" -}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{- range . -}}
+                {{- $language := . -}}
+                {{/* Select repos of this language. */}}
+                {{- $languageRepos := where $reposData "language" .name -}}
+                <tr>
+                    <td>
+                        <a href="{{ $userData.html_url }}?tab=repositories&language={{ lower .name }}" rel="noreferrer"
+                           target="_blank">{{ .name }}</a><br>
+                        {{- $bytes := .bytesCount -}}
+                        {{- $kilobytes := div $bytes 1000 -}}
+                        {{- $megabytes := div $kilobytes 1000 -}}
+                        <small>
+                            📚 {{ .reposCount }}<br>
+                            💾&nbsp;{{- $megabytes | lang.FormatNumber 2 -}}&thinsp;MB
+                        </small>
+                    </td>
+
+                    {{- $topRepos := $languageRepos -}}
+                    {{/* Sort repositories by descending stargazers count. */}}
+                    {{- $topRepos = sort $topRepos "stargazers_count" "desc" -}}
+                    {{/* Remove repositories without description. */}}
+                    {{- $topRepos = where $topRepos "description" "ne" nil -}}
+                    {{/* Get top-ranked repository. */}}
+                    {{- $topRepo := index $topRepos 0 -}}
+                    {{/* Remove top-ranked repository for other repositories. */}}
+                    {{- $languageRepos = where $languageRepos "name" "ne" $topRepo.name -}}
+                    <td>
+                        {{- with $topRepo -}}
+                            <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">{{- .full_name -}}</a><br>
+                            <em>{{- .description -}}</em><br>
+                            <small>
+                                📅 {{ time.Format ":date_short" .pushed_at }}&emsp;
+                                ⭐ {{ .stargazers_count }}
+                            </small>
+                        {{- end -}}
+                    </td>
+
+                    {{- $mostStarredRepos := $languageRepos -}}
+                    {{/* Remove repositories without stargazers. */}}
+                    {{- $mostStarredRepos = where $mostStarredRepos "stargazers_count" "gt" 0 -}}
+                    {{/* Sort repositories by descending stargazers count. */}}
+                    {{- $mostStarredRepos = sort $mostStarredRepos "stargazers_count" "desc" -}}
+                    {{/* Cut-off after top-3. */}}
+                    {{- $mostStarredRepos = first 3 $mostStarredRepos -}}
+
+                    {{- $lastUpdatedRepos := $languageRepos -}}
+                    {{/* Sort repositories by last push. */}}
+                    {{- $lastUpdatedRepos = sort $lastUpdatedRepos "pushed_at" "desc" -}}
+                    {{/* Cut-off after top-3. */}}
+                    {{- $lastUpdatedRepos = first 3 $lastUpdatedRepos -}}
+
+                    {{- $moreRepos := append $mostStarredRepos $lastUpdatedRepos -}}
+                    {{/* Remove duplicate repositories. */}}
+                    {{- $moreRepos = uniq $moreRepos -}}
+                    {{/* Sort repositories by descending stargazers count. */}}
+                    {{- $moreRepos = sort $moreRepos "stargazers_count" "desc" -}}
+                    {{/* Cut-off after top-3. */}}
+                    {{- $moreRepos = first 3 $moreRepos -}}
+                    <td>
+                        {{- range $moreRepos -}}
+                            <a href="{{ .html_url }}" rel="noreferrer" target="_blank">{{ .name }}</a><br>
+                        {{- end -}}
+                    </td>
+                </tr>
+            {{- end -}}
+            </tbody>
+        </table>
+    </figure>
+{{- end -}}
