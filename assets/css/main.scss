@@ -7,8 +7,7 @@ $description-size: 0.03;
 $max-width: 55em;
 $font-family-body: "IBM Plex Sans";
 $font-family-head: "Space Mono";
-$font-awesome-scale: 1;
-$font-awesome-size: 1em * $font-awesome-scale;
+$icon-font-size: 1em;
 
 @import "functions";
 @import url("https://fonts.googleapis.com/css2?family=#{str-replace($font-family-body, " ", "+")}:ital,wght@0,400;0,700;1,400&family=#{str-replace($font-family-head, " ", "+")}:ital,wght@0,400;0,700;1,400&display=swap");
@@ -80,8 +79,9 @@ body {
         display: inline-block;
         > svg {
             display: inline-block;
-            width: $font-awesome-size;
-            height: $font-awesome-size;
+            margin-bottom: -0.15em;
+            width: $icon-font-size;
+            height: $icon-font-size;
         }
     }
 
