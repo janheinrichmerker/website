@@ -10,7 +10,7 @@
 cc-icons@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cc-icons/-/cc-icons-1.0.0.tgz#3ee7ff2bda2eb03b505fa5b7941d3838bdd87437"
-  integrity sha1-Puf/K9ousDtQX6W3lB04OL3YdDc=
+  integrity sha512-qsvG0AN+/vPLGYK8Tem5uTQYzWPxGHEVewe3KuxtadrNNGhM9vvLAZJ1OmMESagkJJpAXwuOhOfBFL4xGXszjg==
 
 normalize-scss@^7.0.1:
   version "7.0.1"
