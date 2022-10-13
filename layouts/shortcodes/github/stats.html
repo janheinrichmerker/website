@@ -108,19 +108,37 @@
 
 
 {{/*  Display resulting stats. */}}
-📚 {{ $repos | lang.FormatNumber 0 }}
-{{ i18n "githubRepos" }}<br>
-📖 {{ $openSourceRepos | lang.FormatNumber 0 }}
-<span title='{{ i18n "githubOsiApprovedReposDescription" }}'>{{ i18n "githubOsiApprovedRepos" }}</span><br>
-⭐ {{ $stars | lang.FormatNumber 0 }}
-{{ i18n "githubStars" }}<br>
-💾 {{ $megabytes | lang.FormatNumber 0 }}&thinsp;MB
-{{ i18n "githubSize" }}<br>
-🔀 {{ $forks | lang.FormatNumber 0 }}
-{{ i18n "githubForks" }}<br>
-👁️ {{ $followers | lang.FormatNumber 0 }}
-{{ i18n "githubFollowers" }}<br>
-🏢 {{ $orgs | lang.FormatNumber 0 }}
-{{ i18n "githubOrganizations" }}<br>
-💬 {{ $commits | lang.FormatNumber 0 }}
-{{ i18n "githubCommits" }}<br>
+<table>
+    <tr>
+        <td>📚&ensp;{{ i18n "githubRepos" }}</td>
+        <td style="text-align: right;">{{ $repos | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>📖&ensp;<span title='{{ i18n "githubOsiApprovedReposDescription" }}'>{{ i18n "githubOsiApprovedRepos" }}</span></td>
+        <td style="text-align: right;">{{ $openSourceRepos | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>⭐&ensp;{{ i18n "githubStars" }}</td>
+        <td style="text-align: right;">{{ $stars | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>💾&ensp;{{ i18n "githubSize" }}</td>
+        <td style="text-align: right;">{{ $megabytes | lang.FormatNumber 0 }}&thinsp;MB</td>
+    </tr>
+    <tr>
+        <td>🔀&ensp;{{ i18n "githubForks" }}</td>
+        <td style="text-align: right;">{{ $forks | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>👁️&ensp;{{ i18n "githubFollowers" }}</td>
+        <td style="text-align: right;">{{ $followers | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>🏢&ensp;{{ i18n "githubOrganizations" }}</td>
+        <td style="text-align: right;">{{ $orgs | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>💬&ensp;{{ i18n "githubCommits" }}</td>
+        <td style="text-align: right;">{{ $commits | lang.FormatNumber 0 }}</td>
+    </tr>
+</table>
