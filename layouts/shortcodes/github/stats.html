@@ -2,4 +2,125 @@
 {{- with $.Site.Params.gitHubToken -}}
     {{- $username = print $username ":" . -}}
 {{- end -}}
-{{- partial "github/stats" $username -}}
+{{- if not $username -}}
+    {{ errorf "Input must be a GitHub username: %s" .Position }}
+{{- end -}}
+
+
+{{/* Get SPDX IDs for OSI-approved licenses. */}}
+{{- $licenseData := getJSON "https://github.com/spdx/license-list-data/raw/master/json/licenses.json" -}}
+{{- $osiApprovedLicenses := slice -}}
+{{- range  (where $licenseData.licenses "isOsiApproved" true) -}}
+    {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
+{{- end -}}
+
+
+{{- $githubApiUrl := "https://api.github.com/" -}}
+{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- if in $username ":" -}}
+    {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
+    {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
+    {{- $username = index (split $username ":") 0 -}}
+{{- end -}}
+
+
+{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
+
+{{/* Count followers. */}}
+{{- $followers := $userData.followers -}}
+
+
+{{/* Adjust pages so that all your repos can be processed. For 10 pages, up to 100*10 = 1000 repos can be listed. */}}
+{{- $pages := slice 1 2 3 4 5 6 7 8 9 10 -}}
+{{- $perPage := 100 -}}
+{{/* Adjust repo types to list. */}}
+{{- $repoTypes := slice "owner" "member" -}}
+
+{{/* List repos. */}}
+{{- $reposData := slice -}}
+{{- range $repoTypes -}}
+    {{- $repoType := . -}}
+    {{- range $pages -}}
+        {{- $ownedReposData := getJSON $userData.repos_url "?per_page=" $perPage "&page=" . "&type=" $repoType $githubHeaders -}}
+        {{- if gt (len $ownedReposData) 0 -}}
+            {{- $reposData = append $reposData $ownedReposData -}}
+        {{- else -}}
+            {{- break -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* Count repositories. */}}
+{{- $repos := 0 -}}
+{{/* Count open source repositories. */}}
+{{- $openSourceRepos := 0 -}}
+{{/* Count kilobytes. */}}
+{{- $kilobytes := 0 -}}
+{{/* Count stargazers. */}}
+{{- $stars := 0 -}}
+{{/* Count forks of repositories. */}}
+{{- $forks := 0 -}}
+{{/* Count commits. */}}
+{{- $commits := 0 -}}
+
+{{- range $reposData -}}
+    {{- $repos = add $repos 1 -}}
+    {{- with .license -}}
+        {{- if in $osiApprovedLicenses .spdx_id -}}
+            {{- $openSourceRepos = add $openSourceRepos 1 -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $kilobytes = add $kilobytes .size -}}
+    {{- $stars = add $stars .stargazers_count -}}
+    {{- $forks = add $forks .forks -}}
+
+
+    {{- $repoTooLarge := false -}}
+    {{- if .fork -}}
+        {{- $repoData := getJSON .url $githubHeaders -}}
+        {{- with $repoData -}}
+            {{- $repoTooLarge = and .parent (or (gt .parent.watchers 5000) (gt .parent.forks 500)) -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if and (gt .size 0) (not $repoTooLarge) -}}
+        {{- $contributorsData := getJSON .url "/contributors" $githubHeaders -}}
+        {{- with $contributorsData -}}
+            {{- range . -}}
+                {{- if eq .login $username -}}
+                    {{- $commits = add $commits .contributions -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* Convert kilobytes to megabytes. */}}
+{{- $megabytes := div $kilobytes 1000 -}}
+
+
+{{- $orgsData := getJSON $userData.organizations_url $githubHeaders -}}
+
+{{/* Count organizations. */}}
+{{- $orgs := 0 -}}
+{{- range $orgsData -}}
+    {{- $orgs = add $orgs 1 -}}
+{{- end -}}
+
+
+{{/*  Display resulting stats. */}}
+📚 {{ $repos | lang.FormatNumber 0 }}
+{{ i18n "githubRepos" }}<br>
+📖 {{ $openSourceRepos | lang.FormatNumber 0 }}
+<span title='{{ i18n "githubOsiApprovedReposDescription" }}'>{{ i18n "githubOsiApprovedRepos" }}</span><br>
+⭐ {{ $stars | lang.FormatNumber 0 }}
+{{ i18n "githubStars" }}<br>
+💾 {{ $megabytes | lang.FormatNumber 0 }}&thinsp;MB
+{{ i18n "githubSize" }}<br>
+🔀 {{ $forks | lang.FormatNumber 0 }}
+{{ i18n "githubForks" }}<br>
+👁️ {{ $followers | lang.FormatNumber 0 }}
+{{ i18n "githubFollowers" }}<br>
+🏢 {{ $orgs | lang.FormatNumber 0 }}
+{{ i18n "githubOrganizations" }}<br>
+💬 {{ $commits | lang.FormatNumber 0 }}
+{{ i18n "githubCommits" }}<br>
