@@ -1,9 +1,0 @@
-{{ with $.Site.Data.sponsors }}
-<ul>
-    {{ range .sponsors }}
-    <li>
-        {{ .name }}{{ if .github }} <a href="https://github.com/{{ .github }}">@{{ .github }}</a>{{ end }}
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
