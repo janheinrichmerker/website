@@ -11,7 +11,7 @@ Over the years I've managed to build a long track record of public contributions
 {{< github/stats >}}
 
 If you're interested, please check out an [overview](#overview) of my repos.
-Or why not take a look into my [résumé]({{< relref "/cv" >}})!
+Or why not take a look into my [resume]({{< relref "/cv" >}})!
 
 ## How to help?
 

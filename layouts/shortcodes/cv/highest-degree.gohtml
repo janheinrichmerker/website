@@ -7,7 +7,11 @@
         {{- with .degree -}}
             {{ $description := .description }}
             {{- with .program -}}
-                {{- $description = print $description " " . -}}
+                {{- if reflect.IsMap . -}}
+                    {{- $description = print $description " " (i18n .i18n) -}}
+                {{- else -}}
+                    {{- $description = print $description " " . -}}
+                {{- end -}}
             {{- end -}}
             <span title="{{- $description -}}">
                 {{- .title -}}
