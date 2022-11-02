@@ -16,6 +16,8 @@ slides:
   other: "Präsentation"
 thesis:
   other: "Abschlussarbeit"
+ongoing:
+  other: "laufend"
 certificate:
   other: "Urkunde"
 pageNotFound:

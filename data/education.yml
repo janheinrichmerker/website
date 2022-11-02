@@ -44,3 +44,5 @@
     description: "Master of Science"
     program:
       i18n: degreeProgramComputerScience
+  thesis:
+    title: "Identifying and Answering Health-Related Questions"

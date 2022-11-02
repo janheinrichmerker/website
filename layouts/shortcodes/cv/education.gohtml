@@ -5,6 +5,7 @@
     <table>
         <tbody>
         {{- range $education -}}
+            {{- $to := .to -}}
             <tr>
                 <th>
                     {{- with .from -}}
@@ -51,7 +52,16 @@
                     {{- end -}}
                     {{- with .thesis -}}
                         <br>
-                        <small>{{ i18n "thesis" }}: {{ .title }}</small>
+                        <small>
+                            {{- i18n "thesis" -}}
+                            {{- ": " -}}
+                            {{- .title -}}
+                            {{- if not $to -}}
+                                {{- " (" -}}
+                                {{- i18n "ongoing" -}}
+                                {{- ")" -}}
+                            {{- end -}}
+                        </small>
                     {{- end -}}
                 </td>
                 <td class="actions">

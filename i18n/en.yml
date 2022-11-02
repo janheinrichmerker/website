@@ -16,6 +16,8 @@ slides:
   other: "Slides"
 thesis:
   other: "Thesis"
+ongoing:
+  other: "ongoing"
 certificate:
   other: "Certificate"
 pageNotFound:
