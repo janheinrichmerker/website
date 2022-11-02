@@ -62,8 +62,6 @@
 {{- $forks := 0 -}}
 {{/* Count commits. */}}
 {{- $commits := 0 -}}
-{{/* Count clones. */}}
-{{- $clones := 0 -}}
 
 {{- range $reposData -}}
     {{- $repos = add $repos 1 -}}
@@ -94,12 +92,6 @@
             {{- end -}}
         {{- end -}}
     {{- end -}}
-
-    {{- $clonesData := getJSON .url "/traffic/clones" $githubHeaders -}}
-    {{- with $clonesData -}}
-        {{- $clones = add $clones .count -}}
-    {{- end -}}
-    {{/*    {{.}}*/}}
 {{- end -}}
 
 {{/* Convert kilobytes to megabytes. */}}
@@ -148,10 +140,6 @@
     <tr>
         <td>💬&ensp;{{ i18n "githubCommits" }}</td>
         <td style="text-align: right;">{{ $commits | lang.FormatNumber 0 }}</td>
-    </tr>
-    <tr>
-        <td>📥&ensp;{{ i18n "githubClones" }}</td>
-        <td style="text-align: right;">{{ $clones | lang.FormatNumber 0 }}</td>
     </tr>
     <tr>
         <td>🏢&ensp;{{ i18n "githubOrganizations" }}</td>
