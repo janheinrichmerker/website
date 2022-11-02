@@ -7,9 +7,7 @@ aliases:
 
 # Jan Heinrich Reimer
 
-📚 [Student](https://www.informatik.uni-halle.de/ "Martin-Luther-Universität Halle-Wittenberg") •
-💻 [Entwickler](https://reimer.software "Reimer Software") •
-🏛️ [Europäer](https://europa.eu/european-union/about-eu/eu-in-brief/ "Die Europäische Union")
+📚&nbsp;Wissenschaftler • 💻&nbsp;Entwickler • 🏛&nbsp;Europäer
 
 [{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail")
 [{{< fontawesome "brands/github" >}}](https://github.com/heinrichreimer/ "GitHub")
