@@ -42,6 +42,8 @@ githubFollowers:
   other: "followers"
 githubCommits:
   other: "commits"
+githubClones:
+  other: "clones"
 programmingLanguage:
   other: "Language"
 topRepository:
