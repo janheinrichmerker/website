@@ -104,6 +104,8 @@
 
 {{/* Convert kilobytes to megabytes. */}}
 {{- $megabytes := div $kilobytes 1000 -}}
+{{/* Convert megabytes to gigabytes. */}}
+{{- $gigabytes := div $megabytes 1000 -}}
 
 
 {{- $orgsData := getJSON $userData.organizations_url $githubHeaders -}}
@@ -132,10 +134,6 @@
         <td style="text-align: right;">{{ $stars | lang.FormatNumber 0 }}</td>
     </tr>
     <tr>
-        <td>💾&ensp;{{ i18n "githubSize" }}</td>
-        <td style="text-align: right;">{{ $megabytes | lang.FormatNumber 0 }}&thinsp;MB</td>
-    </tr>
-    <tr>
         <td>🔀&ensp;{{ i18n "githubForks" }}</td>
         <td style="text-align: right;">{{ $forks | lang.FormatNumber 0 }}</td>
     </tr>
@@ -144,8 +142,8 @@
         <td style="text-align: right;">{{ $followers | lang.FormatNumber 0 }}</td>
     </tr>
     <tr>
-        <td>🏢&ensp;{{ i18n "githubOrganizations" }}</td>
-        <td style="text-align: right;">{{ $orgs | lang.FormatNumber 0 }}</td>
+        <td>💾&ensp;{{ i18n "githubSize" }}</td>
+        <td style="text-align: right;">{{ $gigabytes | lang.FormatNumber 1 }}&thinsp;GB</td>
     </tr>
     <tr>
         <td>💬&ensp;{{ i18n "githubCommits" }}</td>
@@ -154,5 +152,9 @@
     <tr>
         <td>📥&ensp;{{ i18n "githubClones" }}</td>
         <td style="text-align: right;">{{ $clones | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>🏢&ensp;{{ i18n "githubOrganizations" }}</td>
+        <td style="text-align: right;">{{ $orgs | lang.FormatNumber 0 }}</td>
     </tr>
 </table>
