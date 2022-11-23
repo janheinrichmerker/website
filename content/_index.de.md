@@ -12,6 +12,7 @@ aliases:
 [{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail")
 [{{< fontawesome "brands/github" >}}](https://github.com/heinrichreimer/ "GitHub")
 [{{< fontawesome "brands/twitter" >}}](https://twitter.com/H1iReimer/ "Twitter")
+<a href="https://sigmoid.social/@heinrich" rel="me" title="Mastodon">{{< fontawesome "brands/mastodon" >}}</a>
 [{{< fontawesome "brands/linkedin" >}}](https://linkedin.com/in/heinrichreimer/ "LinkedIn")
 [{{< fontawesome "solid/hiking" >}}](https://komoot.com/user/1467080411664 "Komoot")
 [{{< fontawesome "brands/instagram" >}}](https://instagram.com/heinrichreimer/ "Instagram")
