@@ -8,7 +8,7 @@
 
 
 {{/* Get SPDX IDs for OSI-approved licenses. */}}
-{{- $licenseData := getJSON "https://github.com/spdx/license-list-data/raw/master/json/licenses.json" -}}
+{{- $licenseData := getJSON "https://github.com/spdx/license-list-data/raw/main/json/licenses.json" -}}
 {{- $osiApprovedLicenses := slice -}}
 {{- range  (where $licenseData.licenses "isOsiApproved" true) -}}
     {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
