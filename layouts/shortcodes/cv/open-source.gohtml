@@ -3,6 +3,8 @@
     {{- $username = print $username ":" . -}}
 {{- end -}}
 
+{{- $githubPinnedApiUrl := "https://gh-pinned-repos.egoist.dev/" -}}
+
 {{- $githubApiUrl := "https://api.github.com/" -}}
 {{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
 {{- if in $username ":" -}}
@@ -11,74 +13,14 @@
     {{- $username = index (split $username ":") 0 -}}
 {{- end -}}
 
-{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
-{{- $ownedReposData := getJSON $userData.repos_url "?per_page=100&type=owner" $githubHeaders -}}
-{{- $memberReposData := getJSON $userData.repos_url "?per_page=100&type=member" $githubHeaders -}}
-{{- $reposData := append $ownedReposData $memberReposData -}}
-
-{{/* Count repositories and bytes per language. */}}
-{{- $languageRepos := dict -}}
-{{- $languageBytes := dict -}}
-{{- range $reposData -}}
-    {{/* Count repository. */}}
-    {{- with .language -}}
-        {{- $languageName := . -}}
-        {{- $oldLanguageRepos := index $languageRepos $languageName | default 0 -}}
-        {{- $newLanguageRepos := add $oldLanguageRepos 1 -}}
-        {{- $languageRepos = merge $languageRepos (dict $languageName $newLanguageRepos) -}}
-    {{- end -}}
-    {{/* Count bytes. */}}
-    {{- $languagesData := getJSON .languages_url $githubHeaders -}}
-    {{- range $languageName, $languageCount := $languagesData -}}
-        {{- $oldLanguageBytes := index $languageBytes $languageName | default 0 -}}
-        {{- $newLanguageBytes := add $oldLanguageBytes $languageCount -}}
-        {{- $languageBytes = merge $languageBytes (dict $languageName $newLanguageBytes) -}}
-    {{- end -}}
-{{- end -}}
-
-{{/* Join all language names. */}}
-{{- $languageNames := slice -}}
-{{- range $languageName, $_ := $languageRepos -}}
-    {{- $languageNames = append $languageName $languageNames -}}
-{{- end -}}
-{{- range $languageName, $_ := $languageBytes -}}
-    {{- $languageNames = append $languageName $languageNames -}}
-{{- end -}}
-{{- $languageNames = uniq $languageNames -}}
-
-{{/* Map language counter to dicts. */}}
-{{- $languages := slice -}}
-{{- range $languageNames -}}
-    {{- $languageName := . -}}
-    {{- $languageReposCount := index $languageRepos $languageName -}}
-    {{- $languageBytesCount := index $languageBytes $languageName -}}
-    {{- $language := dict "name" $languageName "reposCount" $languageReposCount "bytesCount" $languageBytesCount -}}
-    {{- $languages = append $language $languages -}}
-{{- end -}}
-
-{{/* Remove languages with less than 3 repos. */}}
-{{- $languages = where $languages "reposCount" "ge" 3 -}}
-{{/* Sort languages by descending bytes count. */}}
-{{- $languages = sort $languages "bytesCount" "desc" -}}
-{{/* Cut-off after top-5. */}}
-{{- $languages = first 5 $languages -}}
-
-{{/* List most common languages. */}}
-{{- with $languages -}}
+{{- $pinnedReposData := getJSON $githubPinnedApiUrl "?username=" $username -}}
+{{- with $pinnedReposData -}}
     <figure>
         <table>
             <tbody>
             {{- range . -}}
-                {{- $language := . -}}
-                {{/* Select repos of this language. */}}
-                {{- $topRepos := where $reposData "language" .name -}}
-                {{/* Sort repositories by descending stargazers count. */}}
-                {{- $topRepos = sort $topRepos "stargazers_count" "desc" -}}
-                {{/* Remove repositories without description. */}}
-                {{- $topRepos = where $topRepos "description" "ne" nil -}}
-                {{/* Get top-ranked repository. */}}
-                {{- $topRepo := index $topRepos 0 -}}
-                {{- with $topRepo -}}
+                {{- $repoData := getJSON $githubApiUrl "repos/" .owner "/" .repo $githubHeaders -}}
+                {{- with $repoData -}}
                     <tr>
                         <th>
                             {{- time.Format "01/2006" .created_at -}}
@@ -109,6 +51,21 @@
                             {{- $description | truncate 80 -}}
                         </td>
                         <td class="actions">
+                            {{- with .homepage -}}
+                                {{- " " -}}
+                                <a href="{{- . -}}" rel="noreferrer" target="_blank">
+                                    {{- if strings.Contains . "doi.org" -}}
+                                        {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                    {{- else if strings.Contains . "aclanthology.org" -}}
+                                        {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                    {{- else if strings.Contains . "pypi.org" -}}
+                                        {{- partial "icon/fontawesome" "brands/python" -}}
+                                    {{- else -}}
+                                        {{- partial "icon/fontawesome" "solid/link" -}}
+                                    {{- end -}}
+                                </a>
+                                {{- " " -}}
+                            {{- end -}}
                             <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">
                                 {{- partial "icon/fontawesome" "solid/code" -}}
                             </a>
