@@ -35,9 +35,9 @@ jobs:
         run: yarn --cwd assets/ install
       - name: "🧰 Install dart-sass-embedded"
         run: |
-          curl -LJO https://github.com/sass/dart-sass-embedded/releases/download/1.0.0-beta.6/sass_embedded-1.0.0-beta.6-linux-x64.tar.gz;
-          echo "04fc1e5e28d29a4585a701941b6dace56771d94bfbe7f9e4db28d24417ceeec3  sass_embedded-1.0.0-beta.6-linux-x64.tar.gz" | sha256sum -c;
-          tar -xvf sass_embedded-1.0.0-beta.6-linux-x64.tar.gz;
+          curl -LJO https://github.com/sass/dart-sass-embedded/releases/download/1.56.2/sass_embedded-1.56.2-linux-x64.tar.gz;
+          echo "9e4f455f7b8619959d7878af2862383be58392eb963a14ff87cc512c03701e2a  sass_embedded-1.56.2-linux-x64.tar.gz" | sha256sum -c;
+          tar -xvf sass_embedded-1.56.2-linux-x64.tar.gz;
           echo "$GITHUB_WORKSPACE/sass_embedded/" >> $GITHUB_PATH
       - name: "🏗 Build"
         run: hugo
