@@ -31,7 +31,7 @@ params:
     theme: "#052561"
     background: "#ffffff"
 
-timeout: 60s
+timeout: 300s
 metaDataFormat: yaml
 enableEmoji: true
 enableRobotsTXT: true
