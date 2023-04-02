@@ -175,7 +175,12 @@
                     {{- $bibtex = replace $bibtex "month = nov" "month = {11}" -}}
                     {{- $bibtex = replace $bibtex "month = dec" "month = {12}" -}}
                     <tr id="{{ $id }}">
-                        <th>{{- $month -}}/{{- $year -}}</th>
+                        <th>
+                            {{- with $month -}}
+                                {{- . -}}/
+                            {{- end -}}
+                            {{- $year -}}
+                        </th>
                         <td>
                             {{- range $coauthorIndex, $coauthor := $coauthors -}}
                                 {{- if gt $coauthorIndex 0 -}}
