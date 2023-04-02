@@ -59,3 +59,11 @@ sitemap:
   changeFreq: monthly
   priority: 0.5
   filename: sitemap.xml
+
+caches:
+  getcsv:
+    maxAge: 24h
+  getjson:
+    maxAge: 24h
+  getresource:
+    maxAge: 24h
