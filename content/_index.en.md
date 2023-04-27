@@ -8,7 +8,7 @@ aliases:
 
 # Jan Heinrich Reimer
 
-📚&nbsp;Researcher • 💻&nbsp;Developer • 🏛️&nbsp;European
+📚&nbsp;Researcher • 💻&nbsp;Developer • 🇪🇺&nbsp;European
 
 [{{< fontawesome "solid/envelope" >}}](mailto:heinrich@reimer.family "E-Mail")
 [{{< fontawesome "brands/github" >}}](https://github.com/heinrichreimer/ "GitHub")
