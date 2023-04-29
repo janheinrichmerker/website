@@ -60,8 +60,16 @@
                                         {{- partial "icon/fontawesome" "solid/file-alt" -}}
                                     {{- else if strings.Contains . "ceur-ws.org" -}}
                                         {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                    {{- else if strings.Contains . "zenodo.org" -}}
+                                        {{- partial "icon/fontawesome" "solid/database" -}}
+                                    {{- else if strings.Contains . "tira.io" -}}
+                                        {{- partial "icon/fontawesome" "solid/database" -}}
+                                    {{- else if strings.Contains . "jitpack.io" -}}
+                                        {{- partial "icon/fontawesome" "solid/cube" -}}
                                     {{- else if strings.Contains . "pypi.org" -}}
-                                        {{- partial "icon/fontawesome" "brands/python" -}}
+                                        {{- partial "icon/fontawesome" "solid/cube" -}}
+                                    {{- else if strings.Contains . "play.google.com" -}}
+                                        {{- partial "icon/fontawesome" "brands/google-play" -}}
                                     {{- else -}}
                                         {{- partial "icon/fontawesome" "solid/link" -}}
                                     {{- end -}}
