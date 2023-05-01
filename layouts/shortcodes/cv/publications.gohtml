@@ -115,6 +115,11 @@
                     {{- with $linksVideo -}}
                         {{- $linkVideo = index (index . 0) "-href" -}}
                     {{- end -}}
+                    {{- $linksData := where $links "-class" "data" -}}
+                    {{- $linkData := "" -}}
+                    {{- with $linksData -}}
+                        {{- $linkData = index (index . 0) "-href" -}}
+                    {{- end -}}
                     {{- $spans := index . "span" -}}
                     {{- $booktitle := "" -}}
                     {{- with where $spans "-class" "booktitle" -}}
@@ -242,11 +247,6 @@
                                         {{- replace . "https://doi.org/" "" -}}
                                     </a>
                                 {{ end }}
-                                <details class="bibtex-snippet" id="{{ $id }}-bibtex">
-                                    <summary>{{ i18n "bibtex" }}</summary>
-                                    {{ transform.Highlight $bibtex "bibtex" }}
-                                    <a onclick="navigator.clipboard.writeText('{{ $bibtex }}');">Copy BibTeX</a>
-                                </details>
                             </small>
                         </td>
                         <td class="actions">
@@ -270,15 +270,21 @@
                                     {{- partial "icon/fontawesome" "solid/file-video" -}}
                                 </a>
                             {{ end }}
+                            {{ with $linkData }}
+                                <a href="{{ . }}"
+                                   title="{{ i18n "data" }}" rel="noreferrer" target="_blank">
+                                    {{- partial "icon/fontawesome" "solid/database" -}}
+                                </a>
+                            {{ end }}
                             {{ with $linkCode }}
                                 <a href="{{ . }}"
                                    title="{{ i18n "sourceCode" }}" rel="noreferrer" target="_blank">
                                     {{- partial "icon/fontawesome" "solid/code" -}}
                                 </a>
                             {{ end }}
-                            <a title="{{ i18n "bibtex" }}"
-                               onclick="document.getElementById('{{ $id }}-bibtex').toggleAttribute('open')">
-                                {{- partial "icon/fontawesome" "solid/bookmark" -}}
+                            <a href="https://webis.de/publications.html#{{ $id }}"
+                               title="{{ i18n "bibtex" }}" rel="noreferrer" target="_blank">
+                                {{- partial "icon/fontawesome" "solid/link" -}}
                             </a>
                         </td>
                     </tr>
