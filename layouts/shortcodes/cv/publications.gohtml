@@ -90,6 +90,11 @@
                     {{- with $linksPaper -}}
                         {{- $linkPaper = index (index . 0) "-href" -}}
                     {{- end -}}
+                    {{- $linksArxiv := where $links "-class" "arxiv" -}}
+                    {{- $linkArxiv := "" -}}
+                    {{- with $linksArxiv -}}
+                        {{- $linkArxiv = index (index . 0) "-href" -}}
+                    {{- end -}}
                     {{- $linksSlides := where $links "-class" "slides" -}}
                     {{- $linkSlides := "" -}}
                     {{- with $linksSlides -}}
@@ -255,6 +260,12 @@
                                    download="{{ anchorize $title }}{{ path.Ext . }}"
                                    title="{{ i18n "paper" }}">
                                     {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                </a>
+                            {{ end }}
+                            {{ with $linkArxiv }}
+                                <a href="{{ . }}"
+                                   title="arXiv Preprint" rel="noreferrer" target="_blank">
+                                    {{- partial "icon/fontawesome" "solid/lock-open" -}}
                                 </a>
                             {{ end }}
                             {{ with $linkSlides }}
