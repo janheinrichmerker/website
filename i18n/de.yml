@@ -96,6 +96,8 @@ frameworks:
   other: "Frameworks"
 design:
   other: "Design"
+data:
+  other: "Daten"
 social:
   other: "Sozial"
 researchAssistantBigDataAnalytics:

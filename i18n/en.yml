@@ -92,6 +92,8 @@ languages:
   other: "Languages"
 code:
   other: "Code"
+data:
+  other: "Data"
 frameworks:
   other: "Frameworks"
 design:
