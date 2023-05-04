@@ -1,11 +1,11 @@
 - from:
-    year: 2023
-    month: 5
+    year: 2022
+    month: 10
   company:
-    name: "Friedrich-Schiller-Universität Jena"
-    url: https://uni-jena.de/
+    name: "Bauhaus-Universität Weimar"
+    url: https://uni-weimar.de/
   job:
-    i18n: researcherDatabasesInformationSystems
+    i18n: researchAssistantMediaContentWeb
 - from:
     year: 2017
     month: 11
@@ -14,17 +14,6 @@
     url: https://reimer.dev/
   job:
     i18n: selfEmployedFullStackSoftwareDevelopment
-- from:
-    year: 2022
-    month: 10
-  to:
-    year: 2023
-    month: 3
-  company:
-    name: "Bauhaus-Universität Weimar"
-    url: https://uni-weimar.de/
-  job:
-    i18n: researchAssistantMediaContentWeb
 - from:
     year: 2022
     month: 4
