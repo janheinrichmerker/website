@@ -8,64 +8,68 @@
 - name:
     i18n: code
   items:
-    - name: "Python"
+    - name: Python
       url: https://python.org/
-    - name: "Kotlin"
+    - name: Kotlin
       url: https://kotlinlang.org/
-    - name: "Java"
+    - name: Java
       url: https://oracle.com/java/
-    - name: "Android"
-      url: https://android.com/
-    - name: "HTML"
-      url: https://w3.org/html/
-    - name: "CSS"
-      url: https://w3.org/Style/CSS/
-    - name: "SQL"
-      url: https://mysql.com/
-    - name: "JSON"
+    - name: TeX
+      url: https://tug.org/
+    - name: JSON
       url: https://json.org/
-    - name: "XML"
-      url: https://w3.org/standards/xml/
-    - name: "Elm"
-      url: https://elm-lang.org/
-    - name: "TypeScript"
+    - name: HTML
+      url: https://w3.org/html/
+    - name: CSS
+      url: https://w3.org/Style/CSS/
+    - name: TypeScript
       url: https://www.typescriptlang.org/
-    - name: "Flutter"
-      url: https://flutter.dev/
-    - name: "Dart"
-      url: https://dart.dev/
-    - name: "GraphQL"
-      url: https://graphql.org/
-    - name: "REST"
-      url: https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
-    - name: "Haskell"
-      url: https://haskell.org/
-    - name: "Julia"
+    - name: Elm
+      url: https://elm-lang.org/
+    - name: Bash Script
+      url: https://gnu.org/software/bash/
+    - name: SQL
+      url: https://mysql.com/
+    - name: XML
+      url: https://w3.org/standards/xml/
+    - name: Julia
       url: https://julialang.org/
-    - name: "Go"
+    - name: Dart
+      url: https://dart.dev/
+    - name: GraphQL
+      url: https://graphql.org/
+    - name: C
+      url: https://open-std.org/jtc1/sc22/wg14/
+    - name: Haskell
+      url: https://haskell.org/
+    - name: Go
       url: https://golang.org/
 - name:
     i18n: frameworks
   items:
-    - name: "IntelliJ IDEA"
+    - name: IntelliJ IDEA
       url: https://jetbrains.com/idea/
-    - name: "VS Code"
+    - name: VS Code
       url: https://code.visualstudio.com/
-    - name: "Git"
+    - name: Git
       url: https://git-scm.com/
-    - name: "Docker"
+    - name: Docker
       url: https://docker.com/
-    - name: "Spark/Hadoop"
-      url: https://spark.apache.org/
-    - name: "Elasticsearch"
-      url: https://elastic.co/elastic-stack/
-    - name: "Kubernetes"
+    - name: Android
+      url: https://android.com/
+    - name: Kubernetes
       url: https://kubernetes.io/
+    - name: Spark/Hadoop
+      url: https://spark.apache.org/
+    - name: Elasticsearch
+      url: https://elastic.co/elastic-stack/
+    - name: Flutter
+      url: https://flutter.dev/
 - name:
     i18n: design
   items:
-    - name: "UI"
-    - name: "Figma"
+    - name: UI
+    - name: Figma
       url: https://figma.com/
     - name:
         i18n: appIcons
