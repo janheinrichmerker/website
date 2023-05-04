@@ -1,29 +1,17 @@
 - from:
-    year: 2023
-    month: 05
-  institution:
-    name: "Friedrich-Schiller-Universität Jena"
-    url: https://uni-jena.de/
-  degree:
-    title: "Ph.D."
-    description: "Doctor of Philosophy"
-- from:
-    year: 2020
-    month: 04
+    year: 2008
+    month: 8
   to:
-    year: 2023
-    month: 4
+    year: 2016
+    month: 6
   institution:
-    name: "Martin-Luther-Universität Halle-Wittenberg"
-    url: https://uni-halle.de/
+    name: "Wilhelm-Gymnasium Braunschweig"
+    url: https://wilhelm-gym.de/
   degree:
-    title: "M.Sc."
-    description: "Master of Science"
-    program:
-      i18n: degreeProgramComputerScience
-  thesis:
-    title: "Identifying and Answering Health-Related Questions"
-  note: 1.5
+    title: "Abitur"
+    description: "Allgemeine Hochschulreife"
+  note: 1.7
+  certificate: /pdf/abitur.pdf
 - from:
     year: 2016
     month: 10
@@ -46,16 +34,15 @@
   note: 1.7
   certificate: /pdf/bsc.pdf
 - from:
-    year: 2008
-    month: 8
-  to:
-    year: 2016
-    month: 6
+    year: 2020
+    month: 04
   institution:
-    name: "Wilhelm-Gymnasium Braunschweig"
-    url: https://wilhelm-gym.de/
+    name: "Martin-Luther-Universität Halle-Wittenberg"
+    url: https://uni-halle.de/
   degree:
-    title: "Abitur"
-    description: "Allgemeine Hochschulreife"
-  note: 1.7
-  certificate: /pdf/abitur.pdf
+    title: "M.Sc."
+    description: "Master of Science"
+    program:
+      i18n: degreeProgramComputerScience
+  thesis:
+    title: "Identifying and Answering Health-Related Questions"
