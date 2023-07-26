@@ -23,7 +23,9 @@
       i18n: degreeProgramComputerScience
   thesis:
     title: "Identifying and Answering Health-Related Questions"
+    thesis: /pdf/msc-thesis.pdf
   note: 1.5
+  certificate: /pdf/msc.pdf
 - from:
     year: 2016
     month: 10
