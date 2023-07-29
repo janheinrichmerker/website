@@ -1,12 +1,12 @@
 - year: 2023
-  month: 08
+  month: 8
   name: "ESSIR Student Registration Fee Waiver"
   url: https://2023.essir.eu/attending/registration.html#grant
   value:
     sum: 400
     unit: EUR
 - year: 2023
-  month: 07
+  month: 7
   name: "SIGIR Best Paper Award"
   description: "The Information Retrieval Experiment Platform. SIGIR 2023 Resource Paper."
   url: https://sigir.org/awards/best-paper-awards/
