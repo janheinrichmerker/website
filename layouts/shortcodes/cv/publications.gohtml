@@ -125,6 +125,11 @@
                     {{- with $linksData -}}
                         {{- $linkData = index (index . 0) "-href" -}}
                     {{- end -}}
+                    {{- $linksAward := where $links "-class" "award" -}}
+                    {{- $linkAward := "" -}}
+                    {{- with $linksAward -}}
+                        {{- $linkAward = index (index . 0) "-href" -}}
+                    {{- end -}}
                     {{- $spans := index . "span" -}}
                     {{- $booktitle := "" -}}
                     {{- with where $spans "-class" "booktitle" -}}
@@ -255,6 +260,12 @@
                             </small>
                         </td>
                         <td class="actions">
+                            {{ with $linkAward }}
+                                <a href="{{ . }}"
+                                   title="{{ i18n "award" }}" rel="noreferrer" target="_blank">
+                                    {{- partial "icon/fontawesome" "solid/star" -}}
+                                </a>
+                            {{ end }}
                             {{ with $linkPaper }}
                                 <a href="{{ . }}"
                                    download="{{ anchorize $title }}{{ path.Ext . }}"
