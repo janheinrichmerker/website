@@ -12,6 +12,8 @@ today:
   other: "today"
 sourceCode:
   other: "Source code"
+award:
+  other: "Award"
 slides:
   other: "Slides"
 thesis:
