@@ -171,6 +171,19 @@
                             {{- $month = "12" -}}
                         {{- end -}}
                     {{- end -}}
+                    {{- $publisher = replace $publisher "Association for Computational Linguistics" "ACL" -}}
+                    {{- $publisher = replace $publisher "CEUR Workshop Proceedings" "CEUR.ws" -}}
+                    {{- $publisher = replace $publisher "National Institute of Standards and Technology (NIST)" "NIST" -}}
+                    {{- if eq $series "Lecture Notes in Computer Science" -}}
+                        {{- $series = "" -}}
+                    {{- end -}}
+                    {{- if eq $series "NIST Special Publication" -}}
+                        {{- $series = "" -}}
+                    {{- end -}}
+                    {{- if eq $series "CEUR Workshop Proceedings" -}}
+                        {{- $series = "" -}}
+                        {{- $publisher = "CEUR-WS.org" -}}
+                    {{- end -}}
                     {{- $bibtex := index (index . "textarea") "#text" -}}
                     {{- $bibtex = replaceRE "\n}" ",\n}" $bibtex -}}
                     {{- $bibtex = replaceRE " = +" " = " $bibtex -}}
@@ -250,20 +263,13 @@
                                 {{- with $publisher -}}
                                     {{- . -}}{{- ". " -}}
                                 {{- end -}}
-                                {{ with $linkDoi }}
-                                    {{ i18n "doi" }}:&nbsp;{{- "" -}}
-                                    <a href="{{ . }}" title="{{ i18n "doiDescription" }}" rel="noreferrer"
-                                       target="_blank">
-                                        {{- replace . "https://doi.org/" "" -}}
-                                    </a>
-                                {{ end }}
                             </small>
                         </td>
                         <td class="actions">
                             {{ with $linkAward }}
                                 <a href="{{ . }}"
                                    title="{{ i18n "award" }}" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/fontawesome" "solid/star" -}}
+                                    {{- partial "icon/fontawesome" "solid/award" -}}
                                 </a>
                             {{ end }}
                             {{ with $linkPaper }}
@@ -273,10 +279,16 @@
                                     {{- partial "icon/fontawesome" "solid/file-alt" -}}
                                 </a>
                             {{ end }}
+                            {{ with $linkDoi }}
+                                <a href="{{ . }}"
+                                   title="Digital Object Identifier" rel="noreferrer" target="_blank">
+                                    {{- partial "icon/academicons" "doi" -}}
+                                </a>
+                            {{ end }}
                             {{ with $linkArxiv }}
                                 <a href="{{ . }}"
                                    title="arXiv Preprint" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/fontawesome" "solid/lock-open" -}}
+                                    {{- partial "icon/academicons" "arxiv" -}}
                                 </a>
                             {{ end }}
                             {{ with $linkSlides }}
