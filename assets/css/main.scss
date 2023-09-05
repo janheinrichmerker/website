@@ -4,6 +4,7 @@ $color-marker: transparentize(#fff4ab, 0.5);
 $background: #FFFFFF;
 $title-size: 0.08;
 $description-size: 0.03;
+$mobile-width: 800px;
 $max-width: 55em;
 $font-family-body: "IBM Plex Sans";
 $font-family-head: "Space Mono";
@@ -147,6 +148,17 @@ body {
                 border-top: 1.5pt solid black;
                 border-bottom: 1.5pt solid black;
                 border-spacing: 0.75em 0.75ex;
+                max-width: 100%;
+
+                @media (max-width: $mobile-width) {
+                    width: 100%;
+                }
+
+                tr {
+                    @media (max-width: $mobile-width) {
+                        border-bottom: 0.5pt solid black;
+                    }
+                }
 
                 th, td {
                     text-align: initial;
@@ -163,24 +175,29 @@ body {
                     &[align=center] {
                         text-align: center;
                     }
+
+                    &.actions {
+                        min-width: max-content;
+                    }
+
+                    @media (max-width: $mobile-width) {
+                        display: block;
+                        width: 100%;
+                        text-align: left;
+                    }
+                }
+
+                th {
+                    min-width: max-content;
                 }
 
                 thead {
                     border-bottom: 1pt solid black;
                 }
 
-                tbody {
-                    th {
-                        width: 0;
-                        min-width: max-content;
-                        font-size: smaller;
-                        font-weight: normal;
-                    }
-
-                    td.actions {
-                        width: 0;
-                        min-width: max-content;
-                    }
+                tbody th {
+                    font-weight: normal;
+                    font-style: italic;
                 }
             }
         }
