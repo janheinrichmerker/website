@@ -10,6 +10,14 @@
   name: "SIGIR Best Paper Award"
   description: "The Information Retrieval Experiment Platform. SIGIR 2023 Resource Paper."
   url: https://sigir.org/awards/best-paper-awards/
+- year: 2023
+  month: 7
+  name: "DAAD Kongressreisenprogramm"
+  description: "The Archive Query Log. SIGIR 2023 Resource Paper."
+  url: https://www2.daad.de/ausland/studieren/stipendium/de/70-stipendien-finden-und-bewerben/?detail=57369745
+  value:
+    sum: 1950
+    unit: EUR
 - year: 2022
   month: 10
   name: "Deutschlandstipendium"
