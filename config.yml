@@ -37,8 +37,7 @@ enableEmoji: true
 enableRobotsTXT: true
 
 disableKinds:
-  - taxonomies
-  - taxonomyTerm
+  - taxonomy
 
 markup:
   defaultMarkdownHandler: goldmark
