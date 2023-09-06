@@ -1,14 +1,14 @@
-$color: #000000;
-$color-active: #00236e;
-$color-marker: transparentize(#fff4ab, 0.5);
-$background: #FFFFFF;
-$title-size: 0.08;
-$description-size: 0.03;
-$mobile-width: 800px;
-$max-width: 55em;
+$text-color: #000000;
+$text-color-active: #00236e;
+$background-color-marker: transparentize(#fff4ab, 0.6);
+$background-color: #FFFFFF;
+$body-max-width: 1000px;
+$breakpoint-width-mobile: 800px;
+$breakpoint-width-font-scaling: 1500px;
 $font-family-body: "IBM Plex Sans";
 $font-family-head: "Space Mono";
-$icon-font-size: 1em;
+$font-size: 14pt;
+$font-size-icon: 1em;
 
 @import "functions";
 @import url("https://fonts.googleapis.com/css2?family=#{str-replace($font-family-body, " ", "+")}:ital,wght@0,400;0,700;1,400&family=#{str-replace($font-family-head, " ", "+")}:ital,wght@0,400;0,700;1,400&display=swap");
@@ -20,46 +20,46 @@ body {
     flex-direction: column;
 
     width: 100%;
-    max-width: $max-width;
+    max-width: $body-max-width;
     height: 100vh;
     margin: 0 auto;
     padding: 1em 1em 0;
     box-sizing: border-box;
 
-    color: $color;
-    background: $background;
+    color: $text-color;
+    background: $background-color;
     font-family: $font-family-body, sans-serif;
-    font-size: 14pt;
+    font-size: $font-size;
 
     h1, h2, h3, h4, h5, h6 {
         font-family: $font-family-head, monospace;
     }
 
     a {
-        color: $color-active;
+        color: $text-color-active;
         text-decoration: none;
 
         &:visited {
-            color: desaturate($color-active, 30%);
+            color: desaturate($text-color-active, 30%);
         }
 
         &:hover, &:active {
-            color: lighten(desaturate($color-active, 40%), 20%);
+            color: lighten(desaturate($text-color-active, 40%), 20%);
             text-decoration-style: dashed;
         }
 
         @media print {
             text-decoration: none;
-            color: $color;
+            color: $text-color;
 
             &:visited, &:hover, &:active {
-                color: $color;
+                color: $text-color;
             }
         }
     }
 
     mark {
-        background: $color-marker;
+        background: $background-color-marker;
         border-radius: 0.5ex;
 
         @media print {
@@ -81,8 +81,8 @@ body {
         > svg {
             display: inline-block;
             margin-bottom: -0.15em;
-            width: $icon-font-size;
-            height: $icon-font-size;
+            width: $font-size-icon;
+            height: $font-size-icon;
         }
     }
 
@@ -150,12 +150,12 @@ body {
                 border-spacing: 0.75em 0.75ex;
                 max-width: 100%;
 
-                @media (max-width: $mobile-width) {
+                @media (max-width: $breakpoint-width-mobile) {
                     width: 100%;
                 }
 
                 tr {
-                    @media (max-width: $mobile-width) {
+                    @media (max-width: $breakpoint-width-mobile) {
                         border-bottom: 0.5pt solid black;
                     }
                 }
@@ -180,7 +180,7 @@ body {
                         min-width: max-content;
                     }
 
-                    @media (max-width: $mobile-width) {
+                    @media (max-width: $breakpoint-width-mobile) {
                         display: block;
                         width: 100%;
                         text-align: left;
@@ -211,19 +211,26 @@ body {
             max-width: none;
 
             h1 {
-                font-size: 100vw * $title-size;
+                font-size: calc($font-size * 2 * 100vw / $body-max-width);
 
-                @media (min-width: $max-width) {
-                    font-size: $max-width * $title-size;
+                @media (max-width: $body-max-width) {
+                    font-size: $font-size * 2;
+                }
+
+                @media (min-width: $breakpoint-width-font-scaling) {
+                    font-size: calc($font-size * 2 * $breakpoint-width-font-scaling / $body-max-width);
                 }
             }
 
             p:nth-of-type(1), p:nth-of-type(2) {
-                font-family: $font-family-head, monospace;
-                font-size: 100vw * $description-size;
+                font-size: calc($font-size * 100vw / $body-max-width);
 
-                @media (min-width: $max-width) {
-                    font-size: $max-width * $description-size;
+                @media (max-width: $body-max-width) {
+                    font-size: $font-size;
+                }
+
+                @media (min-width: $breakpoint-width-font-scaling) {
+                    font-size: calc($font-size * $breakpoint-width-font-scaling / $body-max-width);
                 }
             }
         }
@@ -240,9 +247,9 @@ body {
         figure {
 
             &.profile {
-                @media print, (min-width: $max-width) {
+                @media print, (min-width: $breakpoint-width-mobile) {
                     float: right;
-                    margin: 0 0.05 * $max-width;
+                    margin: 0 0.05 * $breakpoint-width-mobile;
                 }
             }
         }
@@ -262,7 +269,7 @@ body {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        border-top: 2pt solid $color;
+        border-top: 2pt solid $text-color;
         padding-bottom: 1em;
 
         @media print {

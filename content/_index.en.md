@@ -22,5 +22,6 @@ aliases:
 [{{< fontawesome "brands/whatsapp" >}}](https://api.whatsapp.com/send/?phone=491749273954 "WhatsApp")
 [{{< fontawesome "brands/paypal" >}}](https://paypal.me/HeinrichReimer/ "PayPal")
 
-Want to learn more about me? Read my [resume]({{< relref "/cv.md" >}}) 
+Want to learn more about me?  
+Read my [resume]({{< relref "/cv.md" >}}) 
 or look at my [open source work]({{< relref "/open-source.md" >}}).
