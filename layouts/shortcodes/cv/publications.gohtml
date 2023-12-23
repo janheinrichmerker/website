@@ -5,15 +5,19 @@
 {{- with resources.GetRemote $webisPublicationsUrl -}}
     {{- $xmlText := .Content -}}
 
-    {{/* Remove head, img, and textarea tags. */}}
+    {{/* Remove head and img tags. */}}
     {{- $xmlText = replace $xmlText "\t" " " -}}
     {{- $xmlText = replace $xmlText "\n" "\t" -}}
     {{- $xmlText = replaceRE "<head>(.*?)</head>" "" $xmlText -}}
     {{- $xmlText = replaceRE "<img[^>]+>" "" $xmlText -}}
-    {{/*    {{- $xmlText = replaceRE "<textarea[^>]+>(.*?)</textarea>" "" $xmlText -}}*/}}
     {{- $xmlText = replace $xmlText "\t" "\n" -}}
 
+    {{/* Replace some problematic TeX symbols in the BibTeX. */}}
+    {{- $xmlText = replace $xmlText "{\">}" "``" -}}
+    {{- $xmlText = replace $xmlText "{\"<}" "''" -}}
+
     {{/* Replace HTML entities with Unicode glyphs. */}}
+    {{- $xmlText = replace $xmlText "&nbsp;" " " -}}
     {{- $xmlText = replace $xmlText "&" "&#38;" -}}
     {{- $xmlText = replace $xmlText "&amp;" "&#38;" -}}
     {{- $htmlEntities := resources.Get "csv/html-entities.csv" | transform.Unmarshal (dict "delimiter" ",") -}}
@@ -84,6 +88,9 @@
                     {{- $coauthors := split (index . "-data-author") ","  -}}
                     {{- $title := index . "-data-title" -}}
                     {{- $publisher := index . "-data-publisher" -}}
+                    {{- $publisher = replace $publisher "Association for Computational Linguistics" "ACL" -}}
+                    {{- $publisher = replace $publisher "CEUR Workshop Proceedings" "CEUR.ws" -}}
+                    {{- $publisher = replace $publisher "National Institute of Standards and Technology (NIST)" "NIST" -}}
                     {{- $links := index . "a" -}}
                     {{- $linksPaper := where $links "-class" "paper" -}}
                     {{- $linkPaper := "" -}}
@@ -135,9 +142,25 @@
                     {{- with where $spans "-class" "booktitle" -}}
                         {{- $booktitle = index (index . 0) "#text" -}}
                     {{- end -}}
+                    {{- with strings.FindRESubmatch "\\(([a-zA-Z]+ [0-9]{4})\\)" $booktitle 1 -}}
+                        {{- $booktitle = index (index . 0) 1 -}}
+                    {{- end -}}
+                    {{- with strings.FindRESubmatch "Working Notes Papers of the (CLEF [0-9]{4}) Evaluation Labs" $booktitle 1 -}}
+                        {{- $booktitle = index (index . 0) 1 -}}
+                    {{- end -}}
                     {{- $series := "" -}}
                     {{- with where $spans "-class" "series" -}}
                         {{- $series = index (index . 0) "#text" -}}
+                    {{- end -}}
+                    {{- if eq $series "Lecture Notes in Computer Science" -}}
+                        {{- $series = "" -}}
+                    {{- end -}}
+                    {{- if eq $series "NIST Special Publication" -}}
+                        {{- $series = "" -}}
+                    {{- end -}}
+                    {{- if eq $series "CEUR Workshop Proceedings" -}}
+                        {{- $series = "" -}}
+                        {{- $publisher = "CEUR-WS.org" -}}
                     {{- end -}}
                     {{- $pages := "" -}}
                     {{- with where $spans "-class" "pages" -}}
@@ -170,19 +193,6 @@
                         {{- else if eq . "December" -}}
                             {{- $month = "12" -}}
                         {{- end -}}
-                    {{- end -}}
-                    {{- $publisher = replace $publisher "Association for Computational Linguistics" "ACL" -}}
-                    {{- $publisher = replace $publisher "CEUR Workshop Proceedings" "CEUR.ws" -}}
-                    {{- $publisher = replace $publisher "National Institute of Standards and Technology (NIST)" "NIST" -}}
-                    {{- if eq $series "Lecture Notes in Computer Science" -}}
-                        {{- $series = "" -}}
-                    {{- end -}}
-                    {{- if eq $series "NIST Special Publication" -}}
-                        {{- $series = "" -}}
-                    {{- end -}}
-                    {{- if eq $series "CEUR Workshop Proceedings" -}}
-                        {{- $series = "" -}}
-                        {{- $publisher = "CEUR-WS.org" -}}
                     {{- end -}}
                     {{- $bibtex := index (index . "textarea") "#text" -}}
                     {{- $bibtex = replaceRE "\n}" ",\n}" $bibtex -}}
@@ -328,4 +338,3 @@
         </figure>
     {{- end -}}
 {{ end -}}
-
