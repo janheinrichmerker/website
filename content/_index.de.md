@@ -24,3 +24,5 @@ aliases:
 Du möchtest mehr über mich erfahren?  
 Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}}) 
 oder schaue dir meine [open-source Arbeit]({{< relref "/open-source.md" >}}) an.
+
+🎄 Mach mit beim großen [Weihnachts-Emoji-Quiz]({{< relref "/christmas-emoji.md" >}})! 🎄
