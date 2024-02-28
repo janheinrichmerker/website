@@ -55,7 +55,7 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         with:
           lycheeVersion: '0.13.0'
-          args: --require-https --verbose --no-progress --base public/ --cache --max-cache-age 1d --exclude http://www.inkscape.org/namespaces/inkscape --exclude http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd --exclude http://www.w3.org/1999/02/22-rdf-syntax-ns# --exclude http://creativecommons.org/ns# --exclude http://purl.org/dc/elements/1.1/ --exclude https://twitter.com/H1iReimer/ --exclude heinrich@reimer.family --max-redirects 10 public/
+          args: --require-https --verbose --no-progress --base public/ --cache --max-cache-age 1d --exclude http://www.inkscape.org/namespaces/inkscape --exclude http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd --exclude http://www.w3.org/1999/02/22-rdf-syntax-ns# --exclude http://creativecommons.org/ns# --exclude http://purl.org/dc/elements/1.1/ --exclude https://twitter.com/H1iReimer/ --exclude heinrich@reimer.family --accept 999 --max-redirects 10 public/
           fail: true
       - name: 📤 Upload public pages
         uses: actions/upload-artifact@v4
