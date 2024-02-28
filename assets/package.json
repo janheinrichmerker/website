@@ -4,6 +4,6 @@
     "@fortawesome/fontawesome-free": "^5.15.2",
     "academicons": "^1.9.2",
     "cc-icons": "^1.0.0",
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^8.0.0"
   }
 }
