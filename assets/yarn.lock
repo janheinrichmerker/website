@@ -17,7 +17,7 @@ cc-icons@^1.0.0:
   resolved "https://registry.yarnpkg.com/cc-icons/-/cc-icons-1.0.0.tgz#3ee7ff2bda2eb03b505fa5b7941d3838bdd87437"
   integrity sha512-qsvG0AN+/vPLGYK8Tem5uTQYzWPxGHEVewe3KuxtadrNNGhM9vvLAZJ1OmMESagkJJpAXwuOhOfBFL4xGXszjg==
 
-normalize-scss@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/normalize-scss/-/normalize-scss-7.0.1.tgz#74485e82bb5d0526371136422a09fdb868ffc1a4"
-  integrity sha512-qj16bWnYs+9/ac29IgGjySg4R5qQTp1lXfm7ApFOZNVBYFY8RZ3f8+XQNDDLHeDtI3Ba7Jj4+LuPgz9v/fne2A==
+normalize-scss@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/normalize-scss/-/normalize-scss-8.0.0.tgz#d51d0dc5929bb5fb107de213e14e5d02430ef863"
+  integrity sha512-C6GXIxQ2LOYWrde27xWbONavmybobxp+V6TY8BiBJw5M+yMNEg2R0WjaeDtmP5JsunFYKvFOvgMAIC0/OxZuJQ==
