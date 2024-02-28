@@ -35,7 +35,7 @@ jobs:
         working-directory: assets/
         run: yarn
       - name: ♻️ Cache Hugo modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/hugo_cache
           key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
@@ -45,7 +45,7 @@ jobs:
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: ♻️ Cache link checker requests
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: .lycheecache
           key: link-checker-${{ github.sha }}
@@ -96,7 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Check-out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: 🏷️ Get version tag
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
