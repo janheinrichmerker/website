@@ -1,4 +1,4 @@
-name: "CI"
+name: CI
 
 on:
   push:
@@ -9,47 +9,62 @@ on:
 
 jobs:
   build:
-    name: "🏗️ Hugo build"
+    name: 🏗️ Hugo build
     runs-on: ubuntu-latest
     steps:
-      - name: "📥 Check-out"
-        uses: actions/checkout@v2
-      - name: "🧰 Install Node"
-        uses: actions/setup-node@v2
-        with:
-          node-version: "16.13.1"
-          cache: yarn
-          cache-dependency-path: assets/yarn.lock
-      - name: "🧰 Install Hugo"
+      - name: 📥 Check-out
+        uses: actions/checkout@v4
+      - name: 🧰 Install Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.118.2"
+          hugo-version: '0.123.4'
           extended: true
-      - name: "♻️ Cache Hugo modules"
-        uses: actions/cache@v2
-        with:
-          path: /tmp/hugo_cache
-          key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
-          restore-keys: ${{ runner.os }}-hugo-modules-
-      - name: "🧰 Install asset dependencies"
-        run: yarn --cwd assets/ install
-      - name: "🧰 Install dart-sass-embedded"
+      - name: 🧰 Install dart-sass-embedded
         run: |
           curl -LJO https://github.com/sass/dart-sass-embedded/releases/download/1.56.2/sass_embedded-1.56.2-linux-x64.tar.gz;
           echo "9e4f455f7b8619959d7878af2862383be58392eb963a14ff87cc512c03701e2a  sass_embedded-1.56.2-linux-x64.tar.gz" | sha256sum -c;
           tar -xvf sass_embedded-1.56.2-linux-x64.tar.gz;
           echo "$GITHUB_WORKSPACE/sass_embedded/" >> $GITHUB_PATH
-      - name: "🏗 Build"
+      - name: 🧰 Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.10'
+          cache: yarn
+          cache-dependency-path: assets/yarn.lock
+      - name: 🧰 Install asset dependencies
+        working-directory: assets/
+        run: yarn
+      - name: ♻️ Cache Hugo modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/hugo_cache
+          key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
+          restore-keys: ${{ runner.os }}-hugo-modules-
+      - name: 🏗 Build
         run: hugo
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
-      - name: "📤 Upload public pages"
-        uses: actions/upload-artifact@v3
+      - name: ♻️ Cache link checker requests
+        uses: actions/cache@v3
+        with:
+          path: .lycheecache
+          key: link-checker-${{ github.sha }}
+          restore-keys: link-checker-
+      - name: 🔄 Check links
+        id: linkCheck
+        uses: lycheeverse/lychee-action@v1
+        with:
+          lycheeVersion: '0.13.0'
+          args: --require-https --verbose --no-progress --base public/ --cache --max-cache-age 1d public/
+          fail: true
+      - name: 📤 Upload public pages
+        uses: actions/upload-artifact@v4
         with:
           name: public-pages
           path: public/
+          if-no-files-found: error
   deploy:
-    name: "🚀 Deploy"
+    name: 🚀 Deploy
     if: |
       (github.event_name == 'push' || 
         github.event_name == 'workflow_dispatch' || 
@@ -60,41 +75,39 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      - name: "📥 Download public pages"
-        uses: actions/download-artifact@master
+      - name: 📥 Download public pages
+        uses: actions/download-artifact@v4
         with:
           name: public-pages
           path: public/
-      - name: "🚀 Deploy via SSH"
-        uses: appleboy/scp-action@v0.1.2
+      - name: 🧰 Install SSH key
+        uses: shimataro/ssh-key-action@v2
         with:
-          username: ${{ secrets.DEPLOY_SSH_USER }}
-          host: ${{ secrets.DEPLOY_SSH_HOST }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
-          source: public/
-          strip_components: 1
-          rm: true
-          target: ${{ secrets.DEPLOY_SSH_TARGET_PATH }}
+          known_hosts: ${{ secrets.DEPLOY_SSH_KNOWN_HOSTS }}
+      - name: 🚀 Deploy via Rsync
+        run: |
+          rsync -avz public/ ${{ secrets.DEPLOY_SSH_USER }}@${{ secrets.DEPLOY_SSH_HOST }}:${{ secrets.DEPLOY_SSH_TARGET_PATH }}
   release:
-    name: "🚀 Create GitHub release"
+    name: 🚀 Create GitHub release
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     needs:
       - build
     runs-on: ubuntu-latest
     steps:
-      - name: "📥 Check-out"
+      - name: 📥 Check-out
         uses: actions/checkout@v2
-      - name: "🏷️ Get version tag"
+      - name: 🏷️ Get version tag
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
-      - name: "📥 Download public pages"
+      - name: 📥 Download public pages
         uses: actions/download-artifact@master
         with:
           name: public-pages
           path: public/
-      - name: "🗜️ Create public pages archive"
+      - name: 🗜️ Create public pages archive
         run: zip -r public.zip public/
-      - name: "🚀 Create GitHub release"
+      - name: 🚀 Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
           name: Release ${{ steps.get-version.outputs.tag }}
