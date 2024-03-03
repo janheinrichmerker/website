@@ -3,9 +3,9 @@
 [![Commit activity](https://img.shields.io/github/commit-activity/m/heinrichreimer/portfolio?style=flat-square)](https://github.com/heinrichreimer/portfolio/commits)
 [![License](https://img.shields.io/github/license/heinrichreimer/portfolio?style=flat-square)](LICENSE)
 
-# 🌐 portfolio
+# 🌐 website
 
-My personal [portfolio website](https://heinrich.reimer.family).
+My personal [website](https://heinrich.reimer.family).
 
 ## Development
 
