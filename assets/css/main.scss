@@ -11,8 +11,17 @@ $font-size: 14pt;
 $font-size-icon: 1em;
 
 @import "functions";
+
 @import url("https://fonts.googleapis.com/css2?family=#{str-replace($font-family-body, " ", "+")}:ital,wght@0,400;0,700;1,400&family=#{str-replace($font-family-head, " ", "+")}:ital,wght@0,400;0,700;1,400&display=swap");
+
 @import "../node_modules/normalize-scss/sass/normalize";
+
+$fa-font-path: "/webfonts/fontawesome/";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+
 @import "code";
 
 body {
