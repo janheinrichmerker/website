@@ -75,7 +75,7 @@
                             <a href="{{ .Permalink }}"
                                download="{{ $downloadName }}{{ path.Ext .Permalink }}"
                                title="{{ i18n "certificate" }}">
-                                {{- partial "icon/fontawesome" "solid/file-contract" -}}
+                                <i class="fa-solid fa-file-contract"></i>
                             </a>
                         {{- end -}}
                     {{- end -}}
@@ -87,7 +87,7 @@
                                 <a href="{{ .Permalink }}"
                                    download="{{ anchorize $title }}{{ path.Ext .Permalink }}"
                                    title="{{ i18n "thesis" }}">
-                                    {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                    <i class="fa-solid fa-file-alt"></i>
                                 </a>
                             {{- end -}}
                         {{- end -}}
@@ -97,14 +97,14 @@
                                 <a href="{{ .Permalink }}"
                                    download="{{ anchorize (print $title " " "slides") }}{{ path.Ext .Permalink }}"
                                    title="{{ i18n "slides" }}">
-                                    {{- partial "icon/fontawesome" "solid/file-powerpoint" -}}
+                                    <i class="fa-solid fa-file-powerpoint"></i>
                                 </a>
                             {{- end -}}
                         {{- end -}}
                         {{- with .source -}}
                             {{- " " -}}
                             <a href="{{ . }}" title="{{ i18n "sourceCode" }}" rel="noreferrer" target="_blank">
-                                {{- partial "icon/fontawesome" "solid/code" -}}
+                                <i class="fa-solid fa-code"></i>
                             </a>
                         {{- end -}}
                     {{- end -}}

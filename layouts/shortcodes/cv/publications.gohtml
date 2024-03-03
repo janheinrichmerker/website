@@ -279,56 +279,56 @@
                             {{ with $linkAward }}
                                 <a href="{{ . }}"
                                    title="{{ i18n "award" }}" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/fontawesome" "solid/award" -}}
+                                    <i class="fa-solid fa-award"></i>
                                 </a>
                             {{ end }}
                             {{ with $linkPaper }}
                                 <a href="{{ . }}"
                                    download="{{ anchorize $title }}{{ path.Ext . }}"
                                    title="{{ i18n "paper" }}">
-                                    {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                    <i class="fa-solid fa-file-alt"></i>
                                 </a>
                             {{ end }}
                             {{ with $linkDoi }}
                                 <a href="{{ . }}"
                                    title="Digital Object Identifier" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/academicons" "doi" -}}
+                                    <i class="ai ai-doi"></i>
                                 </a>
                             {{ end }}
                             {{ with $linkArxiv }}
                                 <a href="{{ . }}"
                                    title="arXiv Preprint" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/academicons" "arxiv" -}}
+                                    <i class="ai ai-arxiv"></i>
                                 </a>
                             {{ end }}
                             {{ with $linkSlides }}
                                 <a href="{{ . }}"
                                    download="{{ print (anchorize $title) "-slides" }}{{ path.Ext . }}"
                                    title="{{ i18n "slides" }}">
-                                    {{- partial "icon/fontawesome" "solid/file-powerpoint" -}}
+                                    <i class="fa-solid fa-file-powerpoint"></i>
                                 </a>
                             {{ end }}
                             {{ with $linkVideo }}
                                 <a href="{{ . }}"
                                    title="{{ i18n "video" }}" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/fontawesome" "solid/file-video" -}}
+                                    <i class="fa-solid fa-file-video"></i>
                                 </a>
                             {{ end }}
                             {{ with $linkData }}
                                 <a href="{{ . }}"
                                    title="{{ i18n "data" }}" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/fontawesome" "solid/database" -}}
+                                    <i class="fa-solid fa-database"></i>
                                 </a>
                             {{ end }}
                             {{ with $linkCode }}
                                 <a href="{{ . }}"
                                    title="{{ i18n "sourceCode" }}" rel="noreferrer" target="_blank">
-                                    {{- partial "icon/fontawesome" "solid/code" -}}
+                                    <i class="fa-solid fa-code"></i>
                                 </a>
                             {{ end }}
                             <a href="https://webis.de/publications.html#{{ $id }}"
                                title="{{ i18n "bibtex" }}" rel="noreferrer" target="_blank">
-                                {{- partial "icon/fontawesome" "solid/link" -}}
+                                <i class="fa-solid fa-link"></i>
                             </a>
                         </td>
                     </tr>

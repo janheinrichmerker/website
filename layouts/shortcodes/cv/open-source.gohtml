@@ -3,6 +3,8 @@
     {{- $username = print $username ":" . -}}
 {{- end -}}
 
+TODO
+
 {{- $githubPinnedApiUrl := "https://gh-pinned-repos.egoist.dev/" -}}
 
 {{- $githubApiUrl := "https://api.github.com/" -}}
@@ -55,29 +57,29 @@
                                 {{- " " -}}
                                 <a href="{{- . -}}" rel="noreferrer" target="_blank">
                                     {{- if strings.Contains . "doi.org" -}}
-                                        {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                        <i class="fa-solid fa-file-alt"></i>
                                     {{- else if strings.Contains . "aclanthology.org" -}}
-                                        {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                        <i class="fa-solid fa-file-alt"></i>
                                     {{- else if strings.Contains . "ceur-ws.org" -}}
-                                        {{- partial "icon/fontawesome" "solid/file-alt" -}}
+                                        <i class="fa-solid fa-file-alt"></i>
                                     {{- else if strings.Contains . "zenodo.org" -}}
-                                        {{- partial "icon/fontawesome" "solid/database" -}}
+                                        <i class="fa-solid fa-database"></i>
                                     {{- else if strings.Contains . "tira.io" -}}
-                                        {{- partial "icon/fontawesome" "solid/database" -}}
+                                        <i class="fa-solid fa-database"></i>
                                     {{- else if strings.Contains . "jitpack.io" -}}
-                                        {{- partial "icon/fontawesome" "solid/cube" -}}
+                                        <i class="fa-solid fa-cube"></i>
                                     {{- else if strings.Contains . "pypi.org" -}}
-                                        {{- partial "icon/fontawesome" "solid/cube" -}}
+                                        <i class="fa-solid fa-cube"></i>
                                     {{- else if strings.Contains . "play.google.com" -}}
-                                        {{- partial "icon/fontawesome" "brands/google-play" -}}
+                                        <i class="fa-brands fa-google-play"></i>
                                     {{- else -}}
-                                        {{- partial "icon/fontawesome" "solid/link" -}}
+                                        <i class="fa-solid fa-link"></i>
                                     {{- end -}}
                                 </a>
                                 {{- " " -}}
                             {{- end -}}
                             <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">
-                                {{- partial "icon/fontawesome" "solid/code" -}}
+                                <i class="fa-solid fa-code"></i>
                             </a>
                         </td>
                     </tr>
