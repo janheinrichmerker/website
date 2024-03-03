@@ -1,7 +1,7 @@
 {
   "license": "SEE LICENSE IN ../LICENSE",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-free": "^6.5.1",
     "academicons": "^1.9.2",
     "cc-icons": "^1.0.0",
     "normalize-scss": "^8.0.0"
