@@ -1,3 +1,12 @@
 {{- $options := dict "transpiler" "dartsass" "outputStyle" "compressed"   -}}
 {{- $style := resources.Get "/css/main.scss" | resources.ToCSS $options -}}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+{{/* Publish Font Awesome web fonts. */}}
+{{- $fontawesomeWebfonts := resources.Match "/node_modules/@fortawesome/fontawesome-free/webfonts/*" -}}
+{{- range $fontawesomeWebfonts -}}
+  {{- $name := .Name | strings.TrimPrefix "/node_modules/@fortawesome/fontawesome-free/webfonts/" | printf "/webfonts/fontawesome/%s" -}}
+  {{- with resources.Copy $name . -}}
+    {{- .Publish -}}
+  {{- end -}}
+{{- end -}}
