@@ -12,11 +12,6 @@ academicons@^1.9.2:
   resolved "https://registry.yarnpkg.com/academicons/-/academicons-1.9.2.tgz#6b1ce8acfa4e657b28fb11ab9cac60d5dc6b16e5"
   integrity sha512-LjlkK1E/daUUWqMJOXa/YeXL26K0FmN3cdyILgGCJKgo5bzgVYOO712DZDREzETrrC0MnKui8/hGYpM8kCTgZg==
 
-cc-icons@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cc-icons/-/cc-icons-1.0.0.tgz#3ee7ff2bda2eb03b505fa5b7941d3838bdd87437"
-  integrity sha512-qsvG0AN+/vPLGYK8Tem5uTQYzWPxGHEVewe3KuxtadrNNGhM9vvLAZJ1OmMESagkJJpAXwuOhOfBFL4xGXszjg==
-
 normalize-scss@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/normalize-scss/-/normalize-scss-8.0.0.tgz#d51d0dc5929bb5fb107de213e14e5d02430ef863"
