@@ -63,6 +63,10 @@ jobs:
           name: public-pages
           path: public/
           if-no-files-found: error
+      - name: 📤 Upload public pages (for GitHub Pages)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public/
   deploy:
     name: 🚀 Deploy
     if: |
@@ -73,6 +77,12 @@ jobs:
         startsWith(github.ref, 'refs/tags'))
     needs:
       - build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: GitHub Pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Download public pages
@@ -80,14 +90,9 @@ jobs:
         with:
           name: public-pages
           path: public/
-      - name: 🧰 Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          known_hosts: ${{ secrets.DEPLOY_SSH_KNOWN_HOSTS }}
-      - name: 🚀 Deploy via Rsync
-        run: |
-          rsync -avz public/ ${{ secrets.DEPLOY_SSH_USER }}@${{ secrets.DEPLOY_SSH_HOST }}:${{ secrets.DEPLOY_SSH_TARGET_PATH }}
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
   release:
     name: 🚀 Create GitHub release
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
@@ -114,4 +119,3 @@ jobs:
           draft: false
           prerelease: false
           generate_release_notes: true
-          files: public.zip
