@@ -2,7 +2,7 @@
     <nav>
         <span>
             <a href='{{ relref $ "/" }}' title='{{ i18n "homepage" }}'>
-                {{- partial "icon/fontawesome" "solid/arrow-left" -}}
+                <i class="fa-solid fa-arrow-left"></i>
             </a>
             <a href='{{ relref $ "/" }}' title='{{ i18n "homepage" }}'>
                 {{- i18n "home" -}}
@@ -10,7 +10,7 @@
         </span>
         <a href="#" onclick="window.print();return false;" id="print"
            title='{{ i18n "print" }}'>
-            {{- partial "icon/fontawesome" "solid/print" -}}
+            <i class="fa-solid fa-print"></i>
         </a>
     </nav>
 {{ end }}
