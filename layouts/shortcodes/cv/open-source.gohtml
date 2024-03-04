@@ -10,12 +10,9 @@
     {{- $username = index (split $username ":") 0 -}}
 {{- end -}}
 
-{{- $githubApiUrl := "https://api.github.com/" -}}
-{{- $githubGraphQLApiUrl := urls.JoinPath $githubApiUrl "graphql" -}}
-
 {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
 {{- $pinnedReposQuery := printf `
-{
+query {
   user(login: "%s") {
     pinnedItems(first: 6, types: REPOSITORY) {
       nodes {
@@ -44,15 +41,13 @@
 {{- $pinnedReposBody := dict "query" $pinnedReposQuery | jsonify (dict "noHTMLEscape" true) -}}
 {{- $pinnedReposOpts := dict "method" "post" "body" $pinnedReposBody "headers" $githubHeaders -}}
 
-{{ with resources.GetRemote $githubGraphQLApiUrl $pinnedReposOpts }}
+{{- with resources.GetRemote "https://api.github.com/graphql" $pinnedReposOpts -}}
     {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-
-    {{ $pinnedReposData := .Content | transform.Unmarshal }}
-    {{- with $pinnedReposData.data.user.pinnedItems.nodes -}}
+    {{- with .Content | transform.Unmarshal -}}
         <figure>
             <table>
                 <tbody>
-                {{- range . -}}
+                {{- range .data.user.pinnedItems.nodes -}}
                     <tr>
                         <th>
                             {{- time.Format "01/2006" .createdAt -}}
@@ -119,7 +114,9 @@
                 </tbody>
             </table>
         </figure>
+    {{- else -}}
+        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
     {{- end -}}
-{{ else }}
-    {{ errorf "Unable to get remote resource %q" $githubGraphQLApiUrl }}
-{{ end }}
+{{- else -}}
+    {{- errorf "Unable to get GitHub GraphQL API response." -}}
+{{- end -}}
