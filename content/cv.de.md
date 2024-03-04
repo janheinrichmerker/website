@@ -13,7 +13,7 @@ aliases:
 
 <section>
 
-## Zusammenfassung
+### Zusammenfassung
 
 {{< cv/facts >}}
 
@@ -21,7 +21,7 @@ aliases:
 
 <section>
 
-## Ausbildung
+### Ausbildung
 
 {{< cv/education >}}
 
@@ -29,7 +29,7 @@ aliases:
 
 <section>
 
-## Publikationen
+### Publikationen
 
 {{< cv/publications >}}
 
@@ -37,7 +37,7 @@ aliases:
 
 <section>
 
-## Berufserfahrung
+### Berufserfahrung
 
 {{< cv/experience >}}
 
@@ -45,7 +45,7 @@ aliases:
 
 <section>
 
-## Open-Source
+### Open-Source
 
 {{< cv/open-source >}}
 
@@ -53,7 +53,7 @@ aliases:
 
 <section>
 
-## Ehrungen & Förderungen
+### Ehrungen & Förderungen
 
 {{< cv/awards >}}
 
@@ -61,7 +61,7 @@ aliases:
 
 <section>
 
-## Fähigkeiten
+### Fähigkeiten
 
 {{< cv/skills >}}
 
