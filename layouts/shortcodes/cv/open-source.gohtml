@@ -1,5 +1,5 @@
-{{- $username := $.Site.Data.social.github -}}
-{{- with $.Site.Params.gitHubToken -}}
+{{- $username := site.Data.social.github -}}
+{{- with site.Params.gitHubToken -}}
     {{- $username = print $username ":" . -}}
 {{- end -}}
 
@@ -43,14 +43,14 @@ query {
 
 {{- with resources.GetRemote "https://api.github.com/graphql" $pinnedReposOpts -}}
     {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | transform.Unmarshal -}}
+    {{- with .Content | unmarshal -}}
         <figure>
             <table>
                 <tbody>
                 {{- range .data.user.pinnedItems.nodes -}}
                     <tr>
                         <th>
-                            {{- time.Format "01/2006" .createdAt -}}
+                            {{- dateFormat "01/2006" .createdAt -}}
                         </th>
                         <td>
                             <a href="{{- .url -}}" rel="noreferrer" target="_blank" title="{{- .nameWithOwner -}}">

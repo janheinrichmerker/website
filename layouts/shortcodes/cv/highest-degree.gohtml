@@ -1,4 +1,4 @@
-{{- with $.Site.Data.education -}}
+{{- with site.Data.education -}}
     {{- $education := . -}}
     {{- $education = where $education "to.year" ">" 0 -}}
     {{- $education = sort $education "to.month" "desc" -}}

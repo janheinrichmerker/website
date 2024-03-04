@@ -1,5 +1,5 @@
-{{- $username := $.Site.Data.social.github -}}
-{{- with $.Site.Params.gitHubToken -}}
+{{- $username := site.Data.social.github -}}
+{{- with site.Params.gitHubToken -}}
     {{- $username = print $username ":" . -}}
 {{- end -}}
 {{- if not $username -}}
@@ -10,7 +10,7 @@
 {{- $osiApprovedLicenses := slice -}}
 {{- with resources.GetRemote "https://github.com/spdx/license-list-data/raw/main/json/licenses.json" -}}
     {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | transform.Unmarshal -}}
+    {{- with .Content | unmarshal -}}
         {{- range (where .licenses "isOsiApproved" true) -}}
             {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
         {{- end -}}
@@ -66,7 +66,7 @@ query {
 {{- $organizationsCount := 0 -}}
 {{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
     {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | transform.Unmarshal -}}
+    {{- with .Content | unmarshal -}}
         {{/* Count repos. */}}
         {{- $repositoriesCount = .data.user.repositories.totalCount -}}
         {{/* Count followers. */}}
@@ -124,7 +124,7 @@ query {
     {{- $reposCount := 0 -}}
     {{- with resources.GetRemote "https://api.github.com/graphql" $reposOpts -}}
         {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-        {{- with .Content | transform.Unmarshal -}}
+        {{- with .Content | unmarshal -}}
             {{- with .data.user.repositories.nodes -}}
                 {{- $repositories = append $repositories . -}}
             {{- end -}}
@@ -163,7 +163,7 @@ query {
     {{- $contributionsOpts := dict "method" "post" "body" $contributionsBody "headers" $githubHeaders -}}
     {{- with resources.GetRemote "https://api.github.com/graphql" $contributionsOpts -}}
         {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-        {{- with .Content | transform.Unmarshal -}}
+        {{- with .Content | unmarshal -}}
             {{- with .data.user.contributionsCollection -}}
                 {{- $totalCommitContributions = add $totalCommitContributions .totalCommitContributions -}}
                 {{- $totalIssueContributions = add $totalIssueContributions .totalIssueContributions -}}

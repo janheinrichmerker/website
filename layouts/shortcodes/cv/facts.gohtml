@@ -1,4 +1,4 @@
-{{- with $.Site.Data.facts -}}
+{{- with site.Data.facts -}}
     <figure>
         <table>
             <tbody>
@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>{{- i18n "birthday" -}}</th>
-                <td>{{- time.Format ":date_long" .birthday -}}</td>
+                <td>{{- dateFormat ":date_long" .birthday -}}</td>
             </tr>
             <tr>
                 <th>{{- i18n "email" -}}</th>

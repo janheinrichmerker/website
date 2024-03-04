@@ -1,5 +1,5 @@
-{{- $username := $.Site.Data.social.github -}}
-{{- with $.Site.Params.gitHubToken -}}
+{{- $username := site.Data.social.github -}}
+{{- with site.Params.gitHubToken -}}
     {{- $username = print $username ":" . -}}
 {{- end -}}
 {{- if not $username -}}
@@ -26,7 +26,7 @@ query {
 {{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
 {{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
     {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | transform.Unmarshal -}}
+    {{- with .Content | unmarshal -}}
         <a href="{{ .data.user.url }}" rel="noreferrer" target="_blank">@{{ .data.user.login }}</a>
     {{- else -}}
         {{- errorf "Unable to parse GitHub GraphQL API response." -}}

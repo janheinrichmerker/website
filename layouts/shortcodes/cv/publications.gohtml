@@ -1,4 +1,4 @@
-{{- $author := $.Site.Data.facts.name -}}
+{{- $author := site.Data.facts.name -}}
 
 {{- $webisPublicationsUrl := "https://webis.de/publications.html" -}}
 
@@ -20,7 +20,7 @@
     {{- $xmlText = replace $xmlText "&nbsp;" " " -}}
     {{- $xmlText = replace $xmlText "&" "&#38;" -}}
     {{- $xmlText = replace $xmlText "&amp;" "&#38;" -}}
-    {{- $htmlEntities := resources.Get "csv/html-entities.csv" | transform.Unmarshal (dict "delimiter" ",") -}}
+    {{- $htmlEntities := resources.Get "csv/html-entities.csv" | unmarshal (dict "delimiter" ",") -}}
     {{- range $htmlEntities -}}
         {{- $htmlEntityGlyph := index . 0 -}}
         {{- $htmlEntityName := index . 1 -}}
@@ -40,7 +40,7 @@
     {{- $xmlResource := $xmlText | resources.FromString $xmlTargetPath -}}
 
     {{/* Parse XML as map. */}}
-    {{- with $xmlResource | transform.Unmarshal -}}
+    {{- with $xmlResource | unmarshal -}}
         {{/* Navigate to publication list year entries. */}}
         {{- $element := . -}}
         {{- $element = index $element "body" -}}

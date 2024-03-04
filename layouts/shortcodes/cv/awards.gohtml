@@ -1,4 +1,4 @@
-{{- $awards := $.Site.Data.awards -}}
+{{- $awards := site.Data.awards -}}
 {{- $awards = sort $awards "month" "desc" -}}
 {{- $awards = sort $awards "year" "desc" -}}
 <figure>
@@ -26,7 +26,7 @@
                     {{-  end -}}
                     {{- with .value -}}
                         &nbsp;
-                        <small>{{- lang.NumFmt 0 .sum "- , ." -}} {{- .unit -}}</small>
+                        <small>{{- lang.FormatNumberCustom 0 .sum "- , ." -}} {{- .unit -}}</small>
                     {{- end -}}
                     {{- with .description -}}
                         <br>

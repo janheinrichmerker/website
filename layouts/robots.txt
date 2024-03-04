@@ -1,6 +1,6 @@
 User-agent: *
 {{/* If ENV production variable is false robots will be disallowed. */}}
-{{ if eq $.Site.Params.env "production" }}
+{{ if eq site.Params.env "production" }}
   Disallow:
 {{ else }}
   Disallow: /

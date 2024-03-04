@@ -1,5 +1,5 @@
-{{- $username := $.Site.Data.social.github -}}
-{{- with $.Site.Params.gitHubToken -}}
+{{- $username := site.Data.social.github -}}
+{{- with site.Params.gitHubToken -}}
     {{- $username = print $username ":" . -}}
 {{- end -}}
 {{- if not $username -}}
@@ -43,7 +43,7 @@ query {
 {{- $userUrl := "" -}}
 {{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
     {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | transform.Unmarshal -}}
+    {{- with .Content | unmarshal -}}
         {{- $repositoriesCount = .data.user.repositories.totalCount -}}
         {{- $userUrl = .data.user.url -}}
     {{- else -}}
@@ -112,7 +112,7 @@ query {
     {{- $reposCount := 0 -}}
     {{- with resources.GetRemote "https://api.github.com/graphql" $reposOpts -}}
         {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-        {{- with .Content | transform.Unmarshal -}}
+        {{- with .Content | unmarshal -}}
             {{- with .data.user.repositories.nodes -}}
                 {{- $repositories = append $repositories . -}}
             {{- end -}}
@@ -216,8 +216,8 @@ query {
                         {{- $kilobytes := div $bytes 1000 -}}
                         {{- $megabytes := div $kilobytes 1000 -}}
                         <small>
-                            📚 {{ .reposCount }}<br>
-                            💾&nbsp;{{- $megabytes | lang.FormatNumber 2 -}}&thinsp;MB
+                            📚 {{ .reposCount }}&emsp;
+                            💾&nbsp;{{- $megabytes | lang.FormatNumber 2 -}} MB
                         </small>
                     </td>
 
@@ -241,7 +241,7 @@ query {
                                 {{- $description -}}
                             </small><br>
                             <small>
-                                📅 {{ time.Format ":date_short" .pushedAt }}&emsp;
+                                📅 {{ dateFormat ":date_short" .pushedAt }}&emsp;
                                 ⭐ {{ .stargazerCount }}
                             </small>
                         {{- end -}}
@@ -268,9 +268,9 @@ query {
                     {{- $moreRepos = sort $moreRepos "stargazers_count" "desc" -}}
                     {{/* Cut-off after top-3. */}}
                     {{- $moreRepos = first 3 $moreRepos -}}
-                    <td>
+                    <td style="max-width:15em;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
                         {{- range $moreRepos -}}
-                            <a href="{{ .html_url }}" rel="noreferrer" target="_blank">{{ .name }}</a><br>
+                            <small><a href="{{ .html_url }}" rel="noreferrer" target="_blank">{{ .name }}</a></small><br>
                         {{- end -}}
                     </td>
                 </tr>
