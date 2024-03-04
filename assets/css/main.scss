@@ -149,52 +149,104 @@ body {
             table {
                 border-top: 1.5pt solid black;
                 border-bottom: 1.5pt solid black;
-                border-spacing: 0.75em 0.75ex;
+                border-collapse: separate;
+                border-spacing: 0;
                 max-width: 100%;
+                padding: 0.25ex 0;
 
                 @media (max-width: $breakpoint-width-mobile) {
                     width: 100%;
                 }
 
                 tr {
-                    @media (max-width: $breakpoint-width-mobile) {
-                        border-bottom: 0.5pt solid black;
+                    th, td {
+                        box-sizing: border-box;
+                        text-align: initial;
+                        vertical-align: top;
+                        border: 0 solid transparent;
+                        border-left-width: 0.25em;
+                        border-right-width: 0.25em;
+                        border-top-width: 0.25ex;
+                        border-bottom-width: 0.25ex;
+                        background-clip: padding-box;
+
+                        &[align=left] {
+                            text-align: left;
+                        }
+
+                        &[align=right] {
+                            text-align: right;
+                        }
+
+                        &[align=center] {
+                            text-align: center;
+                        }
+
+                        &.actions {
+                            min-width: max-content;
+
+                            @media print {
+                                display: none;
+                            }
+                        }
+
+                        @media (max-width: $breakpoint-width-mobile) {
+                            display: block;
+                            width: 100%;
+                            text-align: left;
+                            border-left-width: 1em;
+                            border-right-width: 0px;
+                            border-top-width: 0.125ex;
+                            border-bottom-width: 0.125ex;
+
+                            &:first-child {
+                                border-left-width: 0;
+                            }
+                        }
+
+                        &:first-child {
+                            border-left-width: 0px;
+
+                            @media (max-width: $breakpoint-width-mobile) {
+                                padding-top: 0.5ex;
+                                box-shadow: 0 1pt 0 inset black;
+                            }
+                        }
+
+                        &:last-child {
+                            border-right-width: 0px;
+
+                            @media (max-width: $breakpoint-width-mobile) {
+                                padding-bottom: 0.5ex;
+                            }
+                        }
                     }
-                }
 
-                th, td {
-                    text-align: initial;
-                    vertical-align: top;
-
-                    &[align=left] {
-                        text-align: left;
-                    }
-
-                    &[align=right] {
-                        text-align: right;
-                    }
-
-                    &[align=center] {
-                        text-align: center;
-                    }
-
-                    &.actions {
+                    th {
                         min-width: max-content;
                     }
 
-                    @media (max-width: $breakpoint-width-mobile) {
-                        display: block;
-                        width: 100%;
-                        text-align: left;
+                    &:first-child {
+                        td, th {
+                            border-top-width: 0px;
+
+                            @media (max-width: $breakpoint-width-mobile) {
+                                &:first-child {
+                                    box-shadow: none;
+                                }
+                            }
+                        }
+                    }
+                    
+                    &:last-child {
+                        td, th {
+                            border-bottom-width: 0px;
+                        }
                     }
                 }
 
-                th {
-                    min-width: max-content;
-                }
-
-                thead {
-                    border-bottom: 1pt solid black;
+                thead tr:last-child {
+                    box-shadow: 0 -1pt 0 inset black;
                 }
 
                 tbody th {
