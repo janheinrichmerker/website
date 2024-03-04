@@ -6,36 +6,160 @@
     {{ errorf "Input must be a GitHub username: %s" .Position }}
 {{- end -}}
 
-{{- $githubApiUrl := "https://api.github.com/" -}}
-{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- $githubHeaders := dict -}}
 {{- if in $username ":" -}}
     {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
     {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
     {{- $username = index (split $username ":") 0 -}}
 {{- end -}}
 
-{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
-{{- $ownedReposData := getJSON $userData.repos_url "?per_page=100&type=owner" $githubHeaders -}}
-{{- $memberReposData := getJSON $userData.repos_url "?per_page=100&type=member" $githubHeaders -}}
-{{- $reposData := append $ownedReposData $memberReposData -}}
+{{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+{{- $userQuery := printf `
+query {
+    user(login: "%s") {
+        url
+        repositories(
+        orderBy: {
+            field: STARGAZERS,
+            direction: DESC,
+        },
+        first: 0,
+        isLocked: false,
+        affiliations: [
+            OWNER,
+            COLLABORATOR,
+            ORGANIZATION_MEMBER,
+        ],
+        privacy: PUBLIC,
+        ) {
+            totalCount
+        }
+    }
+}
+` $username -}}
+{{- $userBody := dict "query" $userQuery | jsonify (dict "noHTMLEscape" true) -}}
+{{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
+{{- $totalReposCount := 0 -}}
+{{- $userUrl := "" -}}
+{{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+    {{- with .Content | transform.Unmarshal -}}
+        {{- $totalReposCount = .data.user.repositories.totalCount -}}
+        {{- $userUrl = .data.user.url -}}
+    {{- else -}}
+        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+    {{- end -}}
+{{- else -}}
+    {{- errorf "Unable to get GitHub GraphQL API response." -}}
+{{- end -}}
+
+{{- $reposData := slice -}}
+{{- $step := 100 -}}
+{{- $continuation := "null" -}}
+{{- range $start := seq 0 $step $totalReposCount -}}
+    {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+    {{- $reposQuery := printf `
+    query {
+    user(login: "%s") {
+        repositories(
+        orderBy: {
+            field: STARGAZERS,
+            direction: DESC,
+        },
+        first: %d,
+        after: %s,
+        isLocked: false,
+        affiliations: [
+            OWNER,
+            COLLABORATOR,
+            ORGANIZATION_MEMBER,
+        ],
+        privacy: PUBLIC,
+        ) {
+            totalCount
+            pageInfo {
+                endCursor
+            }
+            nodes {
+                url
+                name
+                nameWithOwner
+                owner {
+                    login
+                }
+                stargazerCount
+                description
+                pushedAt
+                primaryLanguage {
+                    name
+                }
+                languages(
+                    first: 100
+                ) {
+                edges{
+                    node {
+                        name
+                    }
+                    size
+                }
+                }
+            }
+        }
+    }
+    }
+    ` $username $step $continuation -}}
+    {{- $reposBody := dict "query" $reposQuery | jsonify (dict "noHTMLEscape" true) -}}
+    {{- $reposOpts := dict "method" "post" "body" $reposBody "headers" $githubHeaders -}}
+
+    {{- $reposCount := 0 -}}
+    {{- with resources.GetRemote "https://api.github.com/graphql" $reposOpts -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+        {{- with .Content | transform.Unmarshal -}}
+            {{- with .data.user.repositories.nodes -}}
+                {{- $reposData = append $reposData . -}}
+            {{- end -}}
+            {{- with .data.user.repositories.pageInfo.endCursor -}}
+                {{- $continuation = printf `"%s"` . -}}
+            {{- else -}}
+                {{- break -}}
+            {{- end -}}
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
+    {{- else -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
+    {{- end -}}
+{{- end -}}
 
 {{/* Count repositories and bytes per language. */}}
 {{- $languageRepos := dict -}}
+{{- $primaryLanguageRepos := dict -}}
+{{- $languageOwnRepos := dict -}}
 {{- $languageBytes := dict -}}
 {{- range $reposData -}}
-    {{/* Count repository. */}}
-    {{- with .language -}}
-        {{- $languageName := . -}}
-        {{- $oldLanguageRepos := index $languageRepos $languageName | default 0 -}}
-        {{- $newLanguageRepos := add $oldLanguageRepos 1 -}}
-        {{- $languageRepos = merge $languageRepos (dict $languageName $newLanguageRepos) -}}
+    {{- $owner := .owner.login -}}
+    {{- $primaryLanguage := "" -}}
+    {{- with .primaryLanguage -}}
+        {{- $primaryLanguage = .name -}}
     {{- end -}}
-    {{/* Count bytes. */}}
-    {{- $languagesData := getJSON .languages_url $githubHeaders -}}
-    {{- range $languageName, $languageCount := $languagesData -}}
-        {{- $oldLanguageBytes := index $languageBytes $languageName | default 0 -}}
-        {{- $newLanguageBytes := add $oldLanguageBytes $languageCount -}}
-        {{- $languageBytes = merge $languageBytes (dict $languageName $newLanguageBytes) -}}
+    {{/* Count repositories and bytes. */}}
+    {{- range .languages.edges -}}
+        {{- $oldLanguageRepos := index $languageRepos .node.name | default 0 -}}
+        {{- $newLanguageRepos := add $oldLanguageRepos 1 -}}
+        {{- $languageRepos = merge $languageRepos (dict .node.name $newLanguageRepos) -}}
+        {{- if eq .node.name $primaryLanguage -}}
+            {{- $oldPrimaryLanguageRepos := index $primaryLanguageRepos .node.name | default 0 -}}
+            {{- $newPrimaryLanguageRepos := add $oldPrimaryLanguageRepos 1 -}}
+            {{- $primaryLanguageRepos = merge $primaryLanguageRepos (dict .node.name $newPrimaryLanguageRepos) -}}
+        {{- end -}}
+        {{- if eq $owner $username -}}
+            {{- $oldLanguageOwnRepos := index $languageOwnRepos .node.name | default 0 -}}
+            {{- $newLanguageOwnRepos := add $oldLanguageOwnRepos 1 -}}
+            {{- $languageOwnRepos = merge $languageOwnRepos (dict .node.name $newLanguageOwnRepos) -}}
+        {{- end -}}
+        {{- $oldLanguageBytes := index $languageBytes .node.name | default 0 -}}
+        {{- $newLanguageBytes := add $oldLanguageBytes .size -}}
+        {{- $languageBytes = merge $languageBytes (dict .node.name $newLanguageBytes) -}}
     {{- end -}}
 {{- end -}}
 
@@ -44,21 +168,24 @@
 {{- range $languageName, $_ := $languageRepos -}}
     {{- $languageNames = append $languageName $languageNames -}}
 {{- end -}}
-{{- range $languageName, $_ := $languageBytes -}}
-    {{- $languageNames = append $languageName $languageNames -}}
-{{- end -}}
 {{- $languageNames = uniq $languageNames -}}
 
 {{/* Map language counter to dicts. */}}
 {{- $languages := slice -}}
 {{- range $languageNames -}}
     {{- $languageName := . -}}
-    {{- $languageReposCount := index $languageRepos $languageName -}}
-    {{- $languageBytesCount := index $languageBytes $languageName -}}
-    {{- $language := dict "name" $languageName "reposCount" $languageReposCount "bytesCount" $languageBytesCount -}}
+    {{- $languageReposCount := index $languageRepos $languageName | default 0 -}}
+    {{- $primaryLanguageReposCount := index $primaryLanguageRepos $languageName | default 0 -}}
+    {{- $languageOwnReposCount := index $languageOwnRepos $languageName | default 0 -}}
+    {{- $languageBytesCount := index $languageBytes $languageName | default 0 -}}
+    {{- $language := dict "name" $languageName "reposCount" $languageReposCount "primaryReposCount" $primaryLanguageReposCount "ownReposCount" $languageOwnReposCount "bytesCount" $languageBytesCount -}}
     {{- $languages = append $language $languages -}}
 {{- end -}}
 
+{{/* Remove languages with less than 1 owned repo. */}}
+{{- $languages = where $languages "ownReposCount" "ge" 1 -}}
+{{/* Remove languages with less than 1 repo where the language is the primary language. */}}
+{{- $languages = where $languages "primaryReposCount" "ge" 1 -}}
 {{/* Remove languages with less than 3 repos. */}}
 {{- $languages = where $languages "reposCount" "ge" 3 -}}
 {{/* Sort languages by descending bytes count. */}}
@@ -81,10 +208,11 @@
             {{- range . -}}
                 {{- $language := . -}}
                 {{/* Select repos of this language. */}}
-                {{- $languageRepos := where $reposData "language" .name -}}
+                {{- $languageRepos := where $reposData "primaryLanguage" "ne" nil -}}
+                {{- $languageRepos := where $languageRepos "primaryLanguage.name" "eq" .name -}}
                 <tr>
                     <td>
-                        <a href="{{ $userData.html_url }}?tab=repositories&language={{ lower .name }}" rel="noreferrer"
+                        <a href="{{ $userUrl }}?tab=repositories&language={{ lower .name }}" rel="noreferrer"
                            target="_blank">{{ .name }}</a><br>
                         {{- $bytes := .bytesCount -}}
                         {{- $kilobytes := div $bytes 1000 -}}
@@ -97,7 +225,7 @@
 
                     {{- $topRepos := $languageRepos -}}
                     {{/* Sort repositories by descending stargazers count. */}}
-                    {{- $topRepos = sort $topRepos "stargazers_count" "desc" -}}
+                    {{- $topRepos = sort $topRepos "stargazerCount" "desc" -}}
                     {{/* Remove repositories without description. */}}
                     {{- $topRepos = where $topRepos "description" "ne" nil -}}
                     {{/* Get top-ranked repository. */}}
@@ -106,7 +234,7 @@
                     {{- $languageRepos = where $languageRepos "name" "ne" $topRepo.name -}}
                     <td>
                         {{- with $topRepo -}}
-                            <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">{{- .full_name -}}</a><br>
+                            <a href="{{- .url -}}" rel="noreferrer" target="_blank">{{- .nameWithOwner -}}</a><br>
                             <small>
                                 {{- $description := .description -}}
                                 {{- if not (in "abcdefghijklmnopqrstuvwxyz" (substr (lower $description) 0 1)) -}}
@@ -115,8 +243,8 @@
                                 {{- $description -}}
                             </small><br>
                             <small>
-                                📅 {{ time.Format ":date_short" .pushed_at }}&emsp;
-                                ⭐ {{ .stargazers_count }}
+                                📅 {{ time.Format ":date_short" .pushedAt }}&emsp;
+                                ⭐ {{ .stargazerCount }}
                             </small>
                         {{- end -}}
                     </td>
