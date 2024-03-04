@@ -6,7 +6,6 @@
     {{ errorf "Input must be a GitHub username: %s" .Position }}
 {{- end -}}
 
-
 {{/* Get SPDX IDs for OSI-approved licenses. */}}
 {{- $licenseData := getJSON "https://github.com/spdx/license-list-data/raw/main/json/licenses.json" -}}
 {{- $osiApprovedLicenses := slice -}}
@@ -14,39 +13,159 @@
     {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
 {{- end -}}
 
-
-{{- $githubApiUrl := "https://api.github.com/" -}}
-{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- $githubHeaders := dict -}}
 {{- if in $username ":" -}}
     {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
     {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
     {{- $username = index (split $username ":") 0 -}}
 {{- end -}}
 
+{{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+{{- $userQuery := printf `
+query {
+    user(login: "%s") {
+        url
+        login
+        repositories(
+            orderBy: {
+                field: STARGAZERS,
+                direction: DESC,
+            },
+            first: 0,
+            isLocked: false,
+            affiliations: [
+                OWNER,
+                COLLABORATOR,
+                ORGANIZATION_MEMBER,
+            ],
+            privacy: PUBLIC,
+        ) {
+            totalCount
+        }
+        followers {
+            totalCount
+        }
+        organizations {
+            totalCount
+        }
+    }
+}
+` $username -}}
+{{- $userBody := dict "query" $userQuery | jsonify (dict "noHTMLEscape" true) -}}
+{{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
+{{- $repositoriesCount := 0 -}}
+{{- $followersCount := 0 -}}
+{{- $organizationsCount := 0 -}}
+{{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+    {{- with .Content | transform.Unmarshal -}}
+        {{/* Count repos. */}}
+        {{- $repositoriesCount = .data.user.repositories.totalCount -}}
+        {{/* Count followers. */}}
+        {{- $followersCount = .data.user.followers.totalCount -}}
+        {{/* Count organizations. */}}
+        {{- $organizationsCount = .data.user.organizations.totalCount -}}
+    {{- else -}}
+        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+    {{- end -}}
+{{- else -}}
+    {{- errorf "Unable to get GitHub GraphQL API response." -}}
+{{- end -}}
 
-{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
-
-{{/* Count followers. */}}
-{{- $followers := $userData.followers -}}
-
-
-{{/* Adjust pages so that all your repos can be processed. For 10 pages, up to 100*10 = 1000 repos can be listed. */}}
-{{- $pages := slice 1 2 3 4 5 6 7 8 9 10 -}}
-{{- $perPage := 100 -}}
-{{/* Adjust repo types to list. */}}
-{{- $repoTypes := slice "owner" "member" -}}
-
-{{/* List repos. */}}
-{{- $reposData := slice -}}
-{{- range $repoTypes -}}
-    {{- $repoType := . -}}
-    {{- range $pages -}}
-        {{- $ownedReposData := getJSON $userData.repos_url "?per_page=" $perPage "&page=" . "&type=" $repoType $githubHeaders -}}
-        {{- if gt (len $ownedReposData) 0 -}}
-            {{- $reposData = append $reposData $ownedReposData -}}
+{{- $repositories := slice -}}
+{{- $step := 100 -}}
+{{- $continuation := "null" -}}
+{{- range $start := seq 0 $step $repositoriesCount -}}
+    {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+    {{- $reposQuery := printf `
+    query {
+        user(login: "%s") {
+            repositories(
+                orderBy: {
+                    field: STARGAZERS,
+                    direction: DESC,
+                },
+                first: %d,
+                after: %s,
+                isLocked: false,
+                affiliations: [
+                    OWNER,
+                    COLLABORATOR,
+                    ORGANIZATION_MEMBER,
+                ],
+                privacy: PUBLIC,
+            ) {
+                totalCount
+                pageInfo {
+                    endCursor
+                }
+                nodes {
+                    forkCount
+                    stargazerCount
+                    diskUsage
+                    licenseInfo {
+                        spdxId
+                    }
+                }
+            }
+        }
+    }
+    ` $username $step $continuation -}}
+    {{- $reposBody := dict "query" $reposQuery | jsonify (dict "noHTMLEscape" true) -}}
+    {{- $reposOpts := dict "method" "post" "body" $reposBody "headers" $githubHeaders -}}
+    {{- $reposCount := 0 -}}
+    {{- with resources.GetRemote "https://api.github.com/graphql" $reposOpts -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+        {{- with .Content | transform.Unmarshal -}}
+            {{- with .data.user.repositories.nodes -}}
+                {{- $repositories = append $repositories . -}}
+            {{- end -}}
+            {{- with .data.user.repositories.pageInfo.endCursor -}}
+                {{- $continuation = printf `"%s"` . -}}
+            {{- else -}}
+                {{- break -}}
+            {{- end -}}
         {{- else -}}
-            {{- break -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
         {{- end -}}
+    {{- else -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $totalCommitContributions := 0 -}}
+{{- $totalIssueContributions := 0 -}}
+{{- $totalPullRequestContributions := 0 -}}
+{{- range $fromYear := seq 1998 1 now.Year -}}
+    {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+    {{- $contributionsQuery := printf `
+    query {
+        user(login: "%s") {
+            contributionsCollection(
+                from: "%d-01-01T00:00:00Z",
+            ) {
+                totalCommitContributions
+                totalIssueContributions
+                totalPullRequestContributions
+            }
+        }
+    }
+    ` $username $fromYear -}}
+    {{- $contributionsBody := dict "query" $contributionsQuery | jsonify (dict "noHTMLEscape" true) -}}
+    {{- $contributionsOpts := dict "method" "post" "body" $contributionsBody "headers" $githubHeaders -}}
+    {{- with resources.GetRemote "https://api.github.com/graphql" $contributionsOpts -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+        {{- with .Content | transform.Unmarshal -}}
+            {{- with .data.user.contributionsCollection -}}
+                {{- $totalCommitContributions = add $totalCommitContributions .totalCommitContributions -}}
+                {{- $totalIssueContributions = add $totalIssueContributions .totalIssueContributions -}}
+                {{- $totalPullRequestContributions = add $totalPullRequestContributions .totalPullRequestContributions -}}
+            {{- end -}}
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
+    {{- else -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
 {{- end -}}
 
@@ -60,54 +179,22 @@
 {{- $stars := 0 -}}
 {{/* Count forks of repositories. */}}
 {{- $forks := 0 -}}
-{{/* Count commits. */}}
-{{- $commits := 0 -}}
-
-{{- range $reposData -}}
+{{- range $repositories -}}
     {{- $repos = add $repos 1 -}}
-    {{- with .license -}}
-        {{- if in $osiApprovedLicenses .spdx_id -}}
+    {{- with .licenseInfo -}}
+        {{- if in $osiApprovedLicenses .spdxId -}}
             {{- $openSourceRepos = add $openSourceRepos 1 -}}
         {{- end -}}
     {{- end -}}
-    {{- $kilobytes = add $kilobytes .size -}}
-    {{- $stars = add $stars .stargazers_count -}}
-    {{- $forks = add $forks .forks -}}
-
-
-    {{- $repoTooLarge := false -}}
-    {{- if .fork -}}
-        {{- $repoData := getJSON .url $githubHeaders -}}
-        {{- with $repoData -}}
-            {{- $repoTooLarge = and .parent (or (gt .parent.watchers 5000) (gt .parent.forks 500)) -}}
-        {{- end -}}
-    {{- end -}}
-    {{- if and (gt .size 0) (not $repoTooLarge) -}}
-        {{- $contributorsData := getJSON .url "/contributors" $githubHeaders -}}
-        {{- with $contributorsData -}}
-            {{- range . -}}
-                {{- if eq .login $username -}}
-                    {{- $commits = add $commits .contributions -}}
-                {{- end -}}
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
+    {{- $kilobytes = add $kilobytes .diskUsage -}}
+    {{- $stars = add $stars .stargazerCount -}}
+    {{- $forks = add $forks .forkCount -}}
 {{- end -}}
 
 {{/* Convert kilobytes to megabytes. */}}
 {{- $megabytes := div $kilobytes 1000 -}}
 {{/* Convert megabytes to gigabytes. */}}
 {{- $gigabytes := div $megabytes 1000 -}}
-
-
-{{- $orgsData := getJSON $userData.organizations_url $githubHeaders -}}
-
-{{/* Count organizations. */}}
-{{- $orgs := 0 -}}
-{{- range $orgsData -}}
-    {{- $orgs = add $orgs 1 -}}
-{{- end -}}
-
 
 {{/*  Display resulting stats. */}}
 <table>
@@ -131,18 +218,26 @@
     </tr>
     <tr>
         <td>👁️&ensp;{{ i18n "githubFollowers" }}</td>
-        <td style="text-align: right;">{{ $followers | lang.FormatNumber 0 }}</td>
+        <td style="text-align: right;">{{ $followersCount | lang.FormatNumber 0 }}</td>
     </tr>
     <tr>
         <td>💾&ensp;{{ i18n "githubSize" }}</td>
         <td style="text-align: right;">{{ $gigabytes | lang.FormatNumber 1 }}&thinsp;GB</td>
     </tr>
     <tr>
-        <td>💬&ensp;{{ i18n "githubCommits" }}</td>
-        <td style="text-align: right;">{{ $commits | lang.FormatNumber 0 }}</td>
+        <td>✏️&ensp;{{ i18n "githubCommits" }}</td>
+        <td style="text-align: right;">{{ $totalCommitContributions | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>💬&ensp;{{ i18n "githubIssues" }}</td>
+        <td style="text-align: right;">{{ $totalIssueContributions | lang.FormatNumber 0 }}</td>
+    </tr>
+    <tr>
+        <td>🚀&ensp;{{ i18n "githubPullRequests" }}</td>
+        <td style="text-align: right;">{{ $totalPullRequestContributions | lang.FormatNumber 0 }}</td>
     </tr>
     <tr>
         <td>🏢&ensp;{{ i18n "githubOrganizations" }}</td>
-        <td style="text-align: right;">{{ $orgs | lang.FormatNumber 0 }}</td>
+        <td style="text-align: right;">{{ $organizationsCount | lang.FormatNumber 0 }}</td>
     </tr>
 </table>

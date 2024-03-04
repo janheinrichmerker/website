@@ -6,14 +6,31 @@
     {{ errorf "Input must be a GitHub username: %s" .Position }}
 {{- end -}}
 
-{{- $githubApiUrl := "https://api.github.com/" -}}
-{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- $githubHeaders := dict -}}
 {{- if in $username ":" -}}
     {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
     {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
     {{- $username = index (split $username ":") 0 -}}
 {{- end -}}
 
-{{- $userData := getJSON $githubApiUrl "users/" $username $githubHeaders -}}
-
-<a href="{{ $userData.html_url }}" rel="noreferrer" target="_blank">@{{ $userData.login }}</a>
+{{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+{{- $userQuery := printf `
+query {
+    user(login: "%s") {
+        url
+        login
+    }
+}
+` $username -}}
+{{- $userBody := dict "query" $userQuery | jsonify (dict "noHTMLEscape" true) -}}
+{{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
+{{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+    {{- with .Content | transform.Unmarshal -}}
+        <a href="{{ .data.user.url }}" rel="noreferrer" target="_blank">@{{ .data.user.login }}</a>
+    {{- else -}}
+        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+    {{- end -}}
+{{- else -}}
+    {{- errorf "Unable to get GitHub GraphQL API response." -}}
+{{- end -}}

@@ -19,18 +19,18 @@ query {
     user(login: "%s") {
         url
         repositories(
-        orderBy: {
-            field: STARGAZERS,
-            direction: DESC,
-        },
-        first: 0,
-        isLocked: false,
-        affiliations: [
-            OWNER,
-            COLLABORATOR,
-            ORGANIZATION_MEMBER,
-        ],
-        privacy: PUBLIC,
+            orderBy: {
+                field: STARGAZERS,
+                direction: DESC,
+            },
+            first: 0,
+            isLocked: false,
+            affiliations: [
+                OWNER,
+                COLLABORATOR,
+                ORGANIZATION_MEMBER,
+            ],
+            privacy: PUBLIC,
         ) {
             totalCount
         }
@@ -39,12 +39,12 @@ query {
 ` $username -}}
 {{- $userBody := dict "query" $userQuery | jsonify (dict "noHTMLEscape" true) -}}
 {{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
-{{- $totalReposCount := 0 -}}
+{{- $repositoriesCount := 0 -}}
 {{- $userUrl := "" -}}
 {{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
     {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
     {{- with .Content | transform.Unmarshal -}}
-        {{- $totalReposCount = .data.user.repositories.totalCount -}}
+        {{- $repositoriesCount = .data.user.repositories.totalCount -}}
         {{- $userUrl = .data.user.url -}}
     {{- else -}}
         {{- errorf "Unable to parse GitHub GraphQL API response." -}}
@@ -53,70 +53,68 @@ query {
     {{- errorf "Unable to get GitHub GraphQL API response." -}}
 {{- end -}}
 
-{{- $reposData := slice -}}
+{{- $repositories := slice -}}
 {{- $step := 100 -}}
 {{- $continuation := "null" -}}
-{{- range $start := seq 0 $step $totalReposCount -}}
+{{- range $start := seq 0 $step $repositoriesCount -}}
     {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
     {{- $reposQuery := printf `
     query {
-    user(login: "%s") {
-        repositories(
-        orderBy: {
-            field: STARGAZERS,
-            direction: DESC,
-        },
-        first: %d,
-        after: %s,
-        isLocked: false,
-        affiliations: [
-            OWNER,
-            COLLABORATOR,
-            ORGANIZATION_MEMBER,
-        ],
-        privacy: PUBLIC,
-        ) {
-            totalCount
-            pageInfo {
-                endCursor
-            }
-            nodes {
-                url
-                name
-                nameWithOwner
-                owner {
-                    login
+        user(login: "%s") {
+            repositories(
+                orderBy: {
+                    field: STARGAZERS,
+                    direction: DESC,
+                },
+                first: %d,
+                after: %s,
+                isLocked: false,
+                affiliations: [
+                    OWNER,
+                    COLLABORATOR,
+                    ORGANIZATION_MEMBER,
+                ],
+                privacy: PUBLIC,
+            ) {
+                totalCount
+                pageInfo {
+                    endCursor
                 }
-                stargazerCount
-                description
-                pushedAt
-                primaryLanguage {
+                nodes {
                     name
-                }
-                languages(
-                    first: 100
-                ) {
-                edges{
-                    node {
+                    nameWithOwner
+                    owner {
+                        login
+                    }
+                    stargazerCount
+                    description
+                    pushedAt
+                    primaryLanguage {
                         name
                     }
-                    size
-                }
+                    languages(
+                        first: 100
+                    ) {
+                        edges{
+                            node {
+                                name
+                            }
+                            size
+                        }
+                    }
                 }
             }
         }
     }
-    }
     ` $username $step $continuation -}}
     {{- $reposBody := dict "query" $reposQuery | jsonify (dict "noHTMLEscape" true) -}}
     {{- $reposOpts := dict "method" "post" "body" $reposBody "headers" $githubHeaders -}}
-
     {{- $reposCount := 0 -}}
     {{- with resources.GetRemote "https://api.github.com/graphql" $reposOpts -}}
         {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
         {{- with .Content | transform.Unmarshal -}}
             {{- with .data.user.repositories.nodes -}}
-                {{- $reposData = append $reposData . -}}
+                {{- $repositories = append $repositories . -}}
             {{- end -}}
             {{- with .data.user.repositories.pageInfo.endCursor -}}
                 {{- $continuation = printf `"%s"` . -}}
@@ -136,7 +134,7 @@ query {
 {{- $primaryLanguageRepos := dict -}}
 {{- $languageOwnRepos := dict -}}
 {{- $languageBytes := dict -}}
-{{- range $reposData -}}
+{{- range $repositories -}}
     {{- $owner := .owner.login -}}
     {{- $primaryLanguage := "" -}}
     {{- with .primaryLanguage -}}
@@ -208,7 +206,7 @@ query {
             {{- range . -}}
                 {{- $language := . -}}
                 {{/* Select repos of this language. */}}
-                {{- $languageRepos := where $reposData "primaryLanguage" "ne" nil -}}
+                {{- $languageRepos := where $repositories "primaryLanguage" "ne" nil -}}
                 {{- $languageRepos := where $languageRepos "primaryLanguage.name" "eq" .name -}}
                 <tr>
                     <td>
