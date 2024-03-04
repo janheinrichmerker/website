@@ -3,43 +3,75 @@
     {{- $username = print $username ":" . -}}
 {{- end -}}
 
-TODO
-
-{{- $githubPinnedApiUrl := "https://gh-pinned-repos.egoist.dev/" -}}
-
-{{- $githubApiUrl := "https://api.github.com/" -}}
-{{- $githubHeaders := dict "Accept" "application/vnd.github.v3+json" -}}
+{{- $githubHeaders := dict -}}
 {{- if in $username ":" -}}
     {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
     {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
     {{- $username = index (split $username ":") 0 -}}
 {{- end -}}
 
-{{- $pinnedReposData := getJSON $githubPinnedApiUrl "?username=" $username -}}
-{{- with $pinnedReposData -}}
-    <figure>
-        <table>
-            <tbody>
-            {{- range . -}}
-                {{- $repoData := getJSON $githubApiUrl "repos/" .owner "/" .repo $githubHeaders -}}
-                {{- with $repoData -}}
+{{- $githubApiUrl := "https://api.github.com/" -}}
+{{- $githubGraphQLApiUrl := urls.JoinPath $githubApiUrl "graphql" -}}
+
+{{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+{{- $pinnedReposQuery := printf `
+{
+  user(login: "%s") {
+    pinnedItems(first: 6, types: REPOSITORY) {
+      nodes {
+        ... on Repository {
+          name
+          nameWithOwner
+          createdAt
+          url
+          homepageUrl
+          stargazerCount
+          forkCount
+          licenseInfo {
+            spdxId
+          }
+          description
+          primaryLanguage {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+` $username -}}
+
+{{- $pinnedReposBody := dict "query" $pinnedReposQuery | jsonify (dict "noHTMLEscape" true) -}}
+{{- $pinnedReposOpts := dict "method" "post" "body" $pinnedReposBody "headers" $githubHeaders -}}
+
+{{ with resources.GetRemote $githubGraphQLApiUrl $pinnedReposOpts }}
+    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+
+    {{ $pinnedReposData := .Content | transform.Unmarshal }}
+    {{- with $pinnedReposData.data.user.pinnedItems.nodes -}}
+        <figure>
+            <table>
+                <tbody>
+                {{- range . -}}
                     <tr>
                         <th>
-                            {{- time.Format "01/2006" .created_at -}}
+                            {{- time.Format "01/2006" .createdAt -}}
                         </th>
                         <td>
-                            <a href="{{- .html_url -}}" rel="noreferrer" target="_blank" title="{{- .full_name -}}">
+                            <a href="{{- .url -}}" rel="noreferrer" target="_blank" title="{{- .nameWithOwner -}}">
                                 {{- .name -}}
                             </a>&emsp;
                             <small>
-                                {{- .language -}}
-                                {{- ", " -}}
-                                {{- .stargazers_count -}}&nbsp;{{- i18n "githubStars" -}}
-                                {{- if gt .forks 0 -}}
+                                {{- .primaryLanguage.name -}}
+                                {{- if gt .stargazerCount 0 -}}
                                     {{- ", " -}}
-                                    {{- .forks -}}&nbsp;{{- i18n "githubForks" -}}
+                                    {{- .stargazerCount -}}&nbsp;{{- i18n "githubStars" -}}
                                 {{- end -}}
-                                {{- with .license.spdx_id -}}
+                                {{- if gt .forkCount 0 -}}
+                                    {{- ", " -}}
+                                    {{- .forkCount -}}&nbsp;{{- i18n "githubForks" -}}
+                                {{- end -}}
+                                {{- with .licenseInfo.spdxId -}}
                                     {{- if ne . "NOASSERTION" -}}
                                         {{- ", " -}}
                                         {{- . -}}
@@ -53,7 +85,7 @@ TODO
                             {{- $description | truncate 80 -}}
                         </td>
                         <td class="actions">
-                            {{- with .homepage -}}
+                            {{- with .homepageUrl -}}
                                 {{- " " -}}
                                 <a href="{{- . -}}" rel="noreferrer" target="_blank">
                                     {{- if strings.Contains . "doi.org" -}}
@@ -78,14 +110,16 @@ TODO
                                 </a>
                                 {{- " " -}}
                             {{- end -}}
-                            <a href="{{- .html_url -}}" rel="noreferrer" target="_blank">
+                            <a href="{{- .url -}}" rel="noreferrer" target="_blank">
                                 <i class="fa-solid fa-code"></i>
                             </a>
                         </td>
                     </tr>
                 {{- end -}}
-            {{- end -}}
-            </tbody>
-        </table>
-    </figure>
-{{- end -}}
+                </tbody>
+            </table>
+        </figure>
+    {{- end -}}
+{{ else }}
+    {{ errorf "Unable to get remote resource %q" $githubGraphQLApiUrl }}
+{{ end }}
