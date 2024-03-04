@@ -1,10 +1,10 @@
-{{ if not $.IsHome }}
+{{ if not page.IsHome }}
     <nav>
         <span>
-            <a href='{{ relref $ "/" }}' title='{{ i18n "homepage" }}'>
+            <a href='{{ relref page "/" }}' title='{{ i18n "homepage" }}'>
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
-            <a href='{{ relref $ "/" }}' title='{{ i18n "homepage" }}'>
+            <a href='{{ relref page "/" }}' title='{{ i18n "homepage" }}'>
                 {{- i18n "home" -}}
             </a>
         </span>

@@ -1,12 +1,11 @@
-{{- $options := dict "transpiler" "dartsass" "outputStyle" "compressed"   -}}
-{{- $style := resources.Get "/css/main.scss" | resources.ToCSS $options -}}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{- $options := dict "transpiler" "dartsass" "outputStyle" "compressed" -}}
+{{- with resources.Get "/css/main.scss" | resources.ToCSS $options -}}
+<link rel="stylesheet" href="{{ .Permalink }}">
+{{- end -}}
 
 {{/* Publish fonts. */}}
-{{- $fontsPathPrefixes := collections.Slice "/node_modules/@fortawesome/fontawesome-free/webfonts/" "/node_modules/academicons/fonts/" -}}
-{{- range $fontsPathPrefix := $fontsPathPrefixes -}}
-  {{- $fonts := resources.Match (printf "%s/*" $fontsPathPrefix) -}}
-  {{- range $fonts -}}
+{{- range $fontsPathPrefix := slice "/node_modules/@fortawesome/fontawesome-free/webfonts/" "/node_modules/academicons/fonts/" -}}
+  {{- range resources.Match (printf "%s/*" $fontsPathPrefix) -}}
     {{- $name := .Name | strings.TrimPrefix $fontsPathPrefix | printf "/fonts/%s" -}}
     {{- with resources.Copy $name . -}}
       {{- .Publish -}}

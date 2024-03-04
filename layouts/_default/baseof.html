@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang='{{ $.Site.LanguageCode | default "en" }}'>
+<html lang='{{ site.LanguageCode | default "en" }}'>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
-    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} • {{ end }}{{ $.Site.Title }}{{ end }}</title>
+    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} • {{ end }}{{ site.Title }}{{ end }}</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     {{- hugo.Generator -}}
 
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
-    {{- if eq $.Site.Params.env "production" -}}
+    {{- if eq site.Params.env "production" -}}
         <meta name="robots" content="index, follow">
     {{- else -}}
         <meta name="robots" content="noindex, nofollow">
     {{- end -}}
 
     {{- block "styles" . -}}
-        {{- partial "site/styles" $ -}}
+        {{- partial "site/styles" page -}}
     {{- end -}}
 
     {{- block "favicon" . -}}
-        {{- partial "site/favicon" $ -}}
+        {{- partial "site/favicon" page -}}
     {{- end -}}
 
     {{- with .OutputFormats.Get "RSS" -}}
-        <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}"/>
-        <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}"/>
+        <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ site.Title }}"/>
+        <link href="{{ .RelPermalink }}" rel="feed" type="application/rss+xml" title="{{ site.Title }}"/>
     {{- end -}}
 
-    {{- range $.Site.Languages -}}
-        {{- if ne . $.Site.Language -}}
-            {{- range $.Translations -}}
+    {{- range site.Languages -}}
+        {{- if ne . site.Language -}}
+            {{- range page.Translations -}}
                 <link href="{{ .Permalink }}" hreflang="{{ .Language }}" rel="alternate"/>
             {{- end -}}
         {{- end -}}
@@ -45,14 +45,14 @@
 <body class="{{ if .IsHome }} home {{ else }} page-{{ anchorize .Title }} {{ end }}">
 
 {{ block "navigation" . }}
-    {{ partial "site/navigation" $ }}
+    {{ partial "site/navigation" page }}
 {{ end }}
 
 <main>
     {{ block "main" . }}{{ end }}
 </main>
-{{ block "footer" . }}{{ partial "site/footer" $ }}{{ end }}
-{{ block "scripts" . }}{{ partial "site/scripts" $ }}{{ end }}
+{{ block "footer" . }}{{ partial "site/footer" page }}{{ end }}
+{{ block "scripts" . }}{{ partial "site/scripts" page }}{{ end }}
 
 </body>
 </html>

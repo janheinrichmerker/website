@@ -4,14 +4,14 @@
 {{- end -}}
 <footer>
     <p>
-        <a href='{{ relref $ "/imprint#license" }}'
+        <a href='{{ relref page "/imprint#license" }}'
            title="CC0 1.0 Universal Public Domain Dedication">
            <i class="fa-brands fa-creative-commons-zero"></i>
-        </a> {{ now.Format "2006" }} {{ $.Site.Data.facts.name }}.
+        </a> {{ now.Format "2006" }} {{ site.Data.facts.name }}.
     </p>
-    {{ if (or $.Site.Menus.footer $.Site.IsMultiLingual) }}
+    {{ if (or site.Menus.footer site.IsMultiLingual) }}
         <ul>
-            {{ range $.Site.Menus.footer }}
+            {{ range site.Menus.footer }}
                 <li>
                     {{- $url := .URL -}}
                     {{- if eq .Identifier "source" -}}
@@ -20,9 +20,9 @@
                     <a href="{{ $url }}" title="{{ .Name }}">{{ .Name }}</a>
                 </li>
             {{ end }}
-            {{ range $.Site.Languages }}
-                {{ if ne . $.Site.Language }}
-                    {{ range $.Translations }}
+            {{ range site.Languages }}
+                {{ if ne . site.Language }}
+                    {{ range page.Translations }}
                         <li>
                             <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">{{ upper .Language }}</a>
                         </li>

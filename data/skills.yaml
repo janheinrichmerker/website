@@ -23,7 +23,7 @@
     - name: CSS
       url: https://w3.org/Style/CSS/
     - name: TypeScript
-      url: https://www.typescriptlang.org/
+      url: https://typescriptlang.org/
     - name: Elm
       url: https://elm-lang.org/
     - name: Bash Script
