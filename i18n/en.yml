@@ -46,6 +46,10 @@ githubFollowers:
   other: "followers"
 githubCommits:
   other: "commits"
+githubIssues:
+  other: "issues"
+githubPullRequests:
+  other: "pull requests"
 githubClones:
   other: "clones"
 programmingLanguage:
