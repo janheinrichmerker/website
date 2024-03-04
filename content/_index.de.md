@@ -12,7 +12,7 @@ aliases:
 [<i class="fa-solid fa-envelope"></i>](mailto:heinrich@reimer.family "E-Mail")
 [<i class="fa-brands fa-github"></i>](https://github.com/heinrichreimer/ "GitHub")
 [<i class="fa-brands fa-twitter"></i>](https://twitter.com/H1iReimer/ "Twitter")
-<a rel="me" href="https://mastodon.acm.org/@jhreimer"><i class="fa-brands fa-mastodon"></i></a>
+<a rel="me" href="https://mastodon.acm.org/@jhreimer" title="Mastodon"><i class="fa-brands fa-mastodon"></i></a>
 [<i class="fa-brands fa-linkedin"></i>](https://linkedin.com/in/heinrichreimer/ "LinkedIn")
 [<i class="fa-solid fa-person-hiking"></i>](https://komoot.com/user/1467080411664 "Komoot")
 [<i class="fa-brands fa-instagram"></i>](https://instagram.com/heinrichreimer/ "Instagram")
@@ -22,7 +22,7 @@ aliases:
 [<i class="fa-brands fa-paypal"></i>](https://paypal.me/HeinrichReimer/ "PayPal")
 
 Du möchtest mehr über mich erfahren?  
-Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}}) 
+Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}})
 oder schaue dir meine [open-source Arbeit]({{< relref "/open-source.md" >}}) an.
 
 🎄 Mach mit beim großen [Weihnachts-Emoji-Quiz]({{< relref "/christmas-emoji.md" >}})! 🎄
