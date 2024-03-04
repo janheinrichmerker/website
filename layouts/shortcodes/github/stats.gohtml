@@ -7,10 +7,18 @@
 {{- end -}}
 
 {{/* Get SPDX IDs for OSI-approved licenses. */}}
-{{- $licenseData := getJSON "https://github.com/spdx/license-list-data/raw/main/json/licenses.json" -}}
 {{- $osiApprovedLicenses := slice -}}
-{{- range  (where $licenseData.licenses "isOsiApproved" true) -}}
-    {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
+{{- with resources.GetRemote "https://github.com/spdx/license-list-data/raw/main/json/licenses.json" -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
+    {{- with .Content | transform.Unmarshal -}}
+        {{- range (where .licenses "isOsiApproved" true) -}}
+            {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
+        {{- end -}}
+    {{- else -}}
+        {{- errorf "Unable to parse SPDX license list response." -}}
+    {{- end -}}
+{{- else -}}
+    {{- errorf "Unable to get SPDX license list response." -}}
 {{- end -}}
 
 {{- $githubHeaders := dict -}}
