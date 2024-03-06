@@ -18,7 +18,6 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.123.4'
-          extended: true
       - name: 🧰 Install dart-sass-embedded
         run: sudo snap install dart-sass
       - name: 🧰 Install Node

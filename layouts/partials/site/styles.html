@@ -1,7 +1,6 @@
-{{- $options := dict "transpiler" "dartsass" "outputStyle" "compressed" -}}
-{{- with resources.Get "/css/main.scss" | resources.ToCSS $options -}}
-<link rel="stylesheet" href="{{ .Permalink }}">
-{{- end -}}
+{{ $options := dict "transpiler" "dartsass" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)  }}
+{{ $style := resources.Get "/css/main.scss" | resources.ToCSS $options | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 {{/* Publish fonts. */}}
 {{- range $fontsPathPrefix := slice "/node_modules/@fortawesome/fontawesome-free/webfonts/" "/node_modules/academicons/fonts/" -}}
