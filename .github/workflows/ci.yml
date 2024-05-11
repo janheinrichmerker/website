@@ -101,7 +101,7 @@ jobs:
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
       - name: 📥 Download public pages
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v2
         with:
           name: public-pages
           path: public/
