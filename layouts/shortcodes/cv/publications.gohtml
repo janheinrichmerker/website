@@ -91,6 +91,7 @@
                     {{- $publisher = replace $publisher "Association for Computational Linguistics" "ACL" -}}
                     {{- $publisher = replace $publisher "CEUR Workshop Proceedings" "CEUR.ws" -}}
                     {{- $publisher = replace $publisher "National Institute of Standards and Technology (NIST)" "NIST" -}}
+                    {{- $publisher = replace $publisher "International Joint Conferences on Artificial Intelligence Organization" "IJCAI" -}}
                     {{- $links := index . "a" -}}
                     {{- $linksPaper := where $links "-class" "paper" -}}
                     {{- $linkPaper := "" -}}
@@ -146,6 +147,9 @@
                         {{- $booktitle = index (index . 0) 1 -}}
                     {{- end -}}
                     {{- with strings.FindRESubmatch "Working Notes Papers of the (CLEF [0-9]{4}) Evaluation Labs" $booktitle 1 -}}
+                        {{- $booktitle = index (index . 0) 1 -}}
+                    {{- end -}}
+                    {{- with strings.FindRESubmatch "Lernen. Wissen. Daten. Analysen. – (LWDA [0-9]{4})" $booktitle 1 -}}
                         {{- $booktitle = index (index . 0) 1 -}}
                     {{- end -}}
                     {{- $series := "" -}}
