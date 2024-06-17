@@ -1,4 +1,7 @@
-{{- $author := site.Data.facts.name -}}
+{{- $authors := slice site.Data.facts.name -}}
+{{- with site.Data.facts.aliases -}}
+    {{- $authors = $authors | collections.Append . -}}
+{{- end -}}
 
 {{- $webisPublicationsUrl := "https://webis.de/publications.html" -}}
 
@@ -73,8 +76,15 @@
         {{/* Filter author entries. */}}
         {{- $authorEntries := slice -}}
         {{- range $entries -}}
-            {{- if or (not $author) (in (index . "-data-author") $author) -}}
-                {{- $authorEntries = $authorEntries | append . -}}
+            {{- $entry := . -}}
+            {{- $fromAuthor := false -}}
+            {{- range $authors -}}
+                {{- if in (index $entry "-data-author") . -}}
+                    {{- $fromAuthor = true -}}
+                {{- end -}}
+            {{- end -}}
+            {{- if $fromAuthor -}}
+                {{- $authorEntries = $authorEntries | append $entry -}}
             {{- end -}}
         {{- end -}}
 
@@ -221,13 +231,17 @@
                         </th>
                         <td>
                             {{- range $coauthorIndex, $coauthor := $coauthors -}}
+                                {{- $marked := false -}}
+                                {{- range $authors -}}
+                                    {{- if in . $coauthor -}}
+                                        {{- $marked = true -}}
+                                    {{- end -}}
+                                {{- end -}}
                                 {{- if gt $coauthorIndex 0 -}}
                                     {{- ", " -}}
                                 {{- end -}}
-                                {{- if $author -}}
-                                    {{- if in $author $coauthor -}}
-                                        <mark>
-                                    {{- end -}}
+                                {{- if $marked -}}
+                                    <mark>
                                 {{- end -}}
                                 {{- $nameParts := split $coauthor " " -}}
                                 {{- range $namePartIndex, $namePart := $nameParts -}}
@@ -238,10 +252,8 @@
                                         {{- ". " -}}
                                     {{- end -}}
                                 {{- end -}}
-                                {{- if $author -}}
-                                    {{- if in $author $coauthor -}}
-                                        </mark>
-                                    {{- end -}}
+                                {{- if $marked -}}
+                                    </mark>
                                 {{- end -}}
                             {{- end -}}
                             {{- ". " -}}
