@@ -5,7 +5,7 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: "0 7 * * *"
+    - cron: '0 7 * * *'
 
 jobs:
   build:
@@ -15,16 +15,11 @@ jobs:
       - name: 📥 Check-out
         uses: actions/checkout@v4
       - name: 🧰 Install Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.123.4'
-          extended: true
       - name: 🧰 Install dart-sass-embedded
-        run: |
-          curl -LJO https://github.com/sass/dart-sass-embedded/releases/download/1.56.2/sass_embedded-1.56.2-linux-x64.tar.gz;
-          echo "9e4f455f7b8619959d7878af2862383be58392eb963a14ff87cc512c03701e2a  sass_embedded-1.56.2-linux-x64.tar.gz" | sha256sum -c;
-          tar -xvf sass_embedded-1.56.2-linux-x64.tar.gz;
-          echo "$GITHUB_WORKSPACE/sass_embedded/" >> $GITHUB_PATH
+        run: sudo snap install dart-sass
       - name: 🧰 Install Node
         uses: actions/setup-node@v4
         with:
@@ -55,7 +50,7 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         with:
           lycheeVersion: '0.13.0'
-          args: --require-https --verbose --no-progress --base public/ --cache --max-cache-age 1d --exclude https://twitter.com/H1iReimer/ --exclude heinrich@reimer.family --accept 999 --max-retries 10 --max-redirects 10 public/
+          args: --require-https --verbose --no-progress --max-concurrency 2 --base public/ --cache --max-cache-age 1d --exclude https://twitter.com/H1iReimer/ --exclude heinrich@reimer.family --accept 999 --max-retries 10 --max-redirects 10 public/
           fail: true
       - name: 📤 Upload public pages
         uses: actions/upload-artifact@v4
@@ -106,14 +101,14 @@ jobs:
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
       - name: 📥 Download public pages
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v4
         with:
           name: public-pages
           path: public/
       - name: 🗜️ Create public pages archive
         run: zip -r public.zip public/
       - name: 🚀 Create GitHub release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: Release ${{ steps.get-version.outputs.tag }}
           draft: false
