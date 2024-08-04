@@ -6,11 +6,11 @@ aliases:
 
 {{< profile-image >}}
 
-# Jan Heinrich Reimer
+# Jan Heinrich Merker
 
 📚&nbsp;Researcher • 💻&nbsp;Developer • 🇪🇺&nbsp;European
 
-[<i class="fa-solid fa-envelope"></i>](mailto:heinrich@reimer.family "E-Mail")
+[<i class="fa-solid fa-envelope"></i>](mailto:heinrich@merker.id "E-Mail")
 [<i class="fa-brands fa-github"></i>](https://github.com/heinrichreimer/ "GitHub")
 [<i class="fa-brands fa-twitter"></i>](https://twitter.com/H1iReimer/ "Twitter")
 <a rel="me" href="https://mastodon.acm.org/@jhreimer" title="Mastodon"><i class="fa-brands fa-mastodon"></i></a>
