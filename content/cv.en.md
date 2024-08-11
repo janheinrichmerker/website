@@ -6,7 +6,7 @@ aliases:
 - /resumé/
 ---
 
-<cite>Jan Heinrich Reimer, {{< cv/highest-degree >}}</cite>
+<cite>Jan Heinrich Merker, {{< cv/highest-degree >}}</cite>
 
 {{< profile-image >}}
 
