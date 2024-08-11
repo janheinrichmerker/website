@@ -25,7 +25,7 @@ Meistens schreibe ich Code für Python, Kotlin, Android oder Java, aber ich erku
 Open-source Projekte zu betreuen, während man Vollzeit arbeitet, ist herausfordernd.
 Spenden helfen mir, mehr Zeit für open-source Contributions zu finden und Ausgaben für Hosting zu decken.
 
-Du kannst mich einfach über [GitHub Sponsors](https://github.com/sponsors/heinrichreimer) oder über [PayPal](https://paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BNZBNG2GJXXVW) unterstützen. Danke dir!
+Du kannst mich einfach über [GitHub Sponsors](https://github.com/sponsors/janheinrichmerker) oder über [PayPal](https://paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BNZBNG2GJXXVW) unterstützen. Danke dir!
 
 Ein großes Dankeschön geht an die Leute, die meine open-source Arbeit bereits unterstützen (oder unterstützt haben):
 

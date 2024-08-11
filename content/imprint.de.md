@@ -18,7 +18,7 @@ Hohestieg 12
 Germany
 
 Telefon: [+49 174 9273954](tel:+491749273954)  
-E-Mail: [heinrich@reimer.family](mailto:heinrich@reimer.family)  
+E-Mail: [heinrich@merker.id](mailto:heinrich@merker.id)  
 USt.-IDNr.: [DE315339671](https://ec.europa.eu/taxation_customs/vies/)
 
 ### Haftung für Inhalte
@@ -54,6 +54,6 @@ Der Inhalt dieser Webseite ist unter der
 [_CC0 1.0 Universal Public Domain Dedication_](https://creativecommons.org/publicdomain/zero/1.0/)
 lizenziert.
 
-Der [Quellcode](https://github.com/heinrichreimer/portfolio) dieser Webseite ist unter der 
+Der [Quellcode](https://github.com/janheinrichmerker/website) dieser Webseite ist unter der 
 [_MIT License_](https://opensource.org/licenses/MIT)
 lizensiert.

@@ -45,13 +45,13 @@ jobs:
           path: .lycheecache
           key: link-checker-${{ github.sha }}
           restore-keys: link-checker-
-      # - name: 🔄 Check links
-      #   id: linkCheck
-      #   uses: lycheeverse/lychee-action@v1
-      #   with:
-      #     lycheeVersion: '0.13.0'
-      #     args: --require-https --verbose --no-progress --max-concurrency 2 --base public/ --cache --max-cache-age 1d --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/heinrichreimer/ --exclude heinrich@reimer.family --accept 999 --max-retries 10 --retry-wait-time 10 --max-redirects 10 --timeout 60 --method HEAD public/
-      #     fail: true
+      - name: 🔄 Check links
+        id: linkCheck
+        uses: lycheeverse/lychee-action@v1
+        with:
+          lycheeVersion: '0.13.0'
+          args: --require-https --verbose --no-progress --max-concurrency 2 --base public/ --cache --max-cache-age 1d --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/janheinrichmerker/ --accept 999 --max-retries 10 --retry-wait-time 10 --max-redirects 10 --timeout 60 --method HEAD public/
+          fail: true
       - name: 📤 Upload public pages
         uses: actions/upload-artifact@v4
         with:

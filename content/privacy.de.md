@@ -103,7 +103,7 @@ Hohestieg 12
 Germany
 
 Telefon: [+49 174 9273954](tel:+491749273954)  
-E-Mail: [heinrich@reimer.family](mailto:heinrich@reimer.family)  
+E-Mail: [heinrich@merker.id](mailto:heinrich@merker.id)  
 USt.-IDNr.: [DE315339671](https://ec.europa.eu/taxation_customs/vies/)
 
 Verantwortliche Stelle ist die natürliche oder juristische Person,

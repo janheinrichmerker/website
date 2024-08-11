@@ -1,5 +1,5 @@
-title: Jan Heinrich Reimer
-baseURL: https://heinrich.reimer.family/
+title: Jan Heinrich Merker
+baseURL: https://heinrich.merker.id/
 
 defaultContentLanguage: en
 languages:
@@ -11,7 +11,7 @@ languages:
       footer:
         - identifier: source
           name: Source
-          url: https://github.com/heinrichreimer/portfolio
+          url: https://github.com/janheinrichmerker/website
           weight: 3
   de:
     weight: 2
@@ -21,7 +21,7 @@ languages:
       footer:
         - identifier: source
           name: Quellcode
-          url: https://github.com/heinrichreimer/portfolio
+          url: https://github.com/janheinrichmerker/website
           weight: 3
 
 

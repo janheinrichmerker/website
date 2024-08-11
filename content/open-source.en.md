@@ -21,7 +21,7 @@ Most of the time, I write code for Python, Kotlin, Android or Java, but I also e
 Maintaining open-source projects while working full-time is challenging.
 Sponsoring helps me to assign more time for open source contributions and to cover hosting expenses.
 
-You can sponsor me via [GitHub Sponsors](https://github.com/sponsors/heinrichreimer) or [PayPal](https://paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6XPPSCX7MQD3W). Thank you very much!
+You can sponsor me via [GitHub Sponsors](https://github.com/sponsors/janheinrichmerker) or [PayPal](https://paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6XPPSCX7MQD3W). Thank you very much!
 
 A big thanks to the people who already sponsor (or have sponsored) my open source work:
 
