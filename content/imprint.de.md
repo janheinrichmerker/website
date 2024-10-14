@@ -11,7 +11,7 @@ menu:
 
 Angaben gemäß § 5 TMG:
 
-Jan Heinrich Reimer  
+Jan Heinrich Merker  
 (Reimer Software)  
 Hohestieg 12  
 38118 Braunschweig  
