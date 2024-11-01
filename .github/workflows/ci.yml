@@ -41,7 +41,7 @@ jobs:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: 🔄 Check links
         id: linkCheck
-        uses: lycheeverse/lychee-action@v1
+        uses: lycheeverse/lychee-action@v2
         with:
           lycheeVersion: '0.13.0'
           args: --require-https --verbose --no-progress --max-concurrency 1 --base public/ --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/janheinrichmerker/ --exclude heinrich@merker.id --accept 999 --max-retries 10 --retry-wait-time 30 --max-redirects 10 --timeout 120 --method HEAD public/
