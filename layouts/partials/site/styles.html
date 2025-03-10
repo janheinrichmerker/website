@@ -1,5 +1,5 @@
 {{ $options := dict "transpiler" "dartsass" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)  }}
-{{ $style := resources.Get "/css/main.scss" | resources.ToCSS $options | resources.Fingerprint }}
+{{ $style := resources.Get "/css/main.scss" | css.Sass $options | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
 {{/* Publish fonts. */}}
