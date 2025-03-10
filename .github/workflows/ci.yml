@@ -17,7 +17,7 @@ jobs:
       - name: 🧰 Install Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.123.4'
+          hugo-version: '0.145.0'
       - name: 🧰 Install dart-sass-embedded
         run: sudo snap install dart-sass
       - name: 🧰 Install Node
