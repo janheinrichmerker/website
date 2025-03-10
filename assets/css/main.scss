@@ -1,6 +1,8 @@
+@use "sass:color";
+
 $text-color: #000000;
 $text-color-active: #00236e;
-$background-color-marker: transparentize(#fff4ab, 0.55);
+$background-color-marker: color.scale(#fff4ab, $alpha: -55%);
 $background-color: #FFFFFF;
 $body-max-width: 1000px;
 $breakpoint-width-mobile: 800px;
@@ -42,11 +44,11 @@ body {
         text-decoration: none;
 
         &:visited {
-            color: desaturate($text-color-active, 30%);
+            color: color.adjust($text-color-active, $saturation: -30%);
         }
 
         &:hover, &:active {
-            color: lighten(desaturate($text-color-active, 40%), 20%);
+            color: color.adjust($text-color-active, $saturation: -40%, $lightness: 20%);
             text-decoration-style: dashed;
         }
 
