@@ -41,16 +41,18 @@ query {
 {{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
 {{- $repositoriesCount := 0 -}}
 {{- $userUrl := "" -}}
-{{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
-    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | unmarshal -}}
-        {{- $repositoriesCount = .data.user.repositories.totalCount -}}
-        {{- $userUrl = .data.user.url -}}
+{{- with try (resources.GetRemote "https://api.github.com/graphql" $userOpts) -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}
+    {{- else with .Value -}}
+        {{- with .Content | unmarshal -}}
+            {{- $repositoriesCount = .data.user.repositories.totalCount -}}
+            {{- $userUrl = .data.user.url -}}
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
     {{- else -}}
-        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
-{{- else -}}
-    {{- errorf "Unable to get GitHub GraphQL API response." -}}
 {{- end -}}
 
 {{- $repositories := slice -}}
@@ -110,22 +112,24 @@ query {
     {{- $reposBody := dict "query" $reposQuery | jsonify (dict "noHTMLEscape" true) -}}
     {{- $reposOpts := dict "method" "post" "body" $reposBody "headers" $githubHeaders -}}
     {{- $reposCount := 0 -}}
-    {{- with resources.GetRemote "https://api.github.com/graphql" $reposOpts -}}
-        {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-        {{- with .Content | unmarshal -}}
-            {{- with .data.user.repositories.nodes -}}
-                {{- $repositories = append $repositories . -}}
-            {{- end -}}
-            {{- with .data.user.repositories.pageInfo.endCursor -}}
-                {{- $continuation = printf `"%s"` . -}}
+    {{- with try (resources.GetRemote "https://api.github.com/graphql" $reposOpts) -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}
+        {{- else with .Value -}}
+            {{- with .Content | unmarshal -}}
+                {{- with .data.user.repositories.nodes -}}
+                    {{- $repositories = append $repositories . -}}
+                {{- end -}}
+                {{- with .data.user.repositories.pageInfo.endCursor -}}
+                    {{- $continuation = printf `"%s"` . -}}
+                {{- else -}}
+                    {{- break -}}
+                {{- end -}}
             {{- else -}}
-                {{- break -}}
+                {{- errorf "Unable to parse GitHub GraphQL API response." -}}
             {{- end -}}
         {{- else -}}
-            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+            {{- errorf "Unable to get GitHub GraphQL API response." -}}
         {{- end -}}
-    {{- else -}}
-        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
 {{- end -}}
 

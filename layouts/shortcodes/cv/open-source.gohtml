@@ -41,82 +41,84 @@ query {
 {{- $pinnedReposBody := dict "query" $pinnedReposQuery | jsonify (dict "noHTMLEscape" true) -}}
 {{- $pinnedReposOpts := dict "method" "post" "body" $pinnedReposBody "headers" $githubHeaders -}}
 
-{{- with resources.GetRemote "https://api.github.com/graphql" $pinnedReposOpts -}}
-    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | unmarshal -}}
-        <figure>
-            <table>
-                <tbody>
-                {{- range .data.user.pinnedItems.nodes -}}
-                    <tr>
-                        <th>
-                            {{- dateFormat "01/2006" .createdAt -}}
-                        </th>
-                        <td>
-                            <a href="{{- .url -}}" rel="noreferrer" target="_blank" title="{{- .nameWithOwner -}}">
-                                {{- .name -}}
-                            </a>&emsp;
-                            <small>
-                                {{- .primaryLanguage.name -}}
-                                {{- if gt .stargazerCount 0 -}}
-                                    {{- ", " -}}
-                                    {{- .stargazerCount -}}&nbsp;{{- i18n "githubStars" -}}
-                                {{- end -}}
-                                {{- if gt .forkCount 0 -}}
-                                    {{- ", " -}}
-                                    {{- .forkCount -}}&nbsp;{{- i18n "githubForks" -}}
-                                {{- end -}}
-                                {{- with .licenseInfo.spdxId -}}
-                                    {{- if ne . "NOASSERTION" -}}
+{{- with try (resources.GetRemote "https://api.github.com/graphql" $pinnedReposOpts) -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}
+    {{- else with .Value -}}
+        {{- with .Content | unmarshal -}}
+            <figure>
+                <table>
+                    <tbody>
+                    {{- range .data.user.pinnedItems.nodes -}}
+                        <tr>
+                            <th>
+                                {{- dateFormat "01/2006" .createdAt -}}
+                            </th>
+                            <td>
+                                <a href="{{- .url -}}" rel="noreferrer" target="_blank" title="{{- .nameWithOwner -}}">
+                                    {{- .name -}}
+                                </a>&emsp;
+                                <small>
+                                    {{- .primaryLanguage.name -}}
+                                    {{- if gt .stargazerCount 0 -}}
                                         {{- ", " -}}
-                                        {{- . -}}
+                                        {{- .stargazerCount -}}&nbsp;{{- i18n "githubStars" -}}
                                     {{- end -}}
+                                    {{- if gt .forkCount 0 -}}
+                                        {{- ", " -}}
+                                        {{- .forkCount -}}&nbsp;{{- i18n "githubForks" -}}
+                                    {{- end -}}
+                                    {{- with .licenseInfo.spdxId -}}
+                                        {{- if ne . "NOASSERTION" -}}
+                                            {{- ", " -}}
+                                            {{- . -}}
+                                        {{- end -}}
+                                    {{- end -}}
+                                </small><br>
+                                {{- $description := .description -}}
+                                {{- if not (in "abcdefghijklmnopqrstuvwxyz" (substr (lower $description) 0 1)) -}}
+                                    {{- $description = substr $description 2 -}}
                                 {{- end -}}
-                            </small><br>
-                            {{- $description := .description -}}
-                            {{- if not (in "abcdefghijklmnopqrstuvwxyz" (substr (lower $description) 0 1)) -}}
-                                {{- $description = substr $description 2 -}}
-                            {{- end -}}
-                            {{- $description | truncate 80 -}}
-                        </td>
-                        <td class="actions">
-                            {{- with .homepageUrl -}}
-                                {{- " " -}}
-                                <a href="{{- . -}}" rel="noreferrer" target="_blank">
-                                    {{- if strings.Contains . "doi.org" -}}
-                                        <i class="fa-solid fa-file-alt"></i>
-                                    {{- else if strings.Contains . "aclanthology.org" -}}
-                                        <i class="fa-solid fa-file-alt"></i>
-                                    {{- else if strings.Contains . "ceur-ws.org" -}}
-                                        <i class="fa-solid fa-file-alt"></i>
-                                    {{- else if strings.Contains . "zenodo.org" -}}
-                                        <i class="fa-solid fa-database"></i>
-                                    {{- else if strings.Contains . "tira.io" -}}
-                                        <i class="fa-solid fa-database"></i>
-                                    {{- else if strings.Contains . "jitpack.io" -}}
-                                        <i class="fa-solid fa-cube"></i>
-                                    {{- else if strings.Contains . "pypi.org" -}}
-                                        <i class="fa-solid fa-cube"></i>
-                                    {{- else if strings.Contains . "play.google.com" -}}
-                                        <i class="fa-brands fa-google-play"></i>
-                                    {{- else -}}
-                                        <i class="fa-solid fa-link"></i>
-                                    {{- end -}}
+                                {{- $description | truncate 80 -}}
+                            </td>
+                            <td class="actions">
+                                {{- with .homepageUrl -}}
+                                    {{- " " -}}
+                                    <a href="{{- . -}}" rel="noreferrer" target="_blank">
+                                        {{- if strings.Contains . "doi.org" -}}
+                                            <i class="fa-solid fa-file-alt"></i>
+                                        {{- else if strings.Contains . "aclanthology.org" -}}
+                                            <i class="fa-solid fa-file-alt"></i>
+                                        {{- else if strings.Contains . "ceur-ws.org" -}}
+                                            <i class="fa-solid fa-file-alt"></i>
+                                        {{- else if strings.Contains . "zenodo.org" -}}
+                                            <i class="fa-solid fa-database"></i>
+                                        {{- else if strings.Contains . "tira.io" -}}
+                                            <i class="fa-solid fa-database"></i>
+                                        {{- else if strings.Contains . "jitpack.io" -}}
+                                            <i class="fa-solid fa-cube"></i>
+                                        {{- else if strings.Contains . "pypi.org" -}}
+                                            <i class="fa-solid fa-cube"></i>
+                                        {{- else if strings.Contains . "play.google.com" -}}
+                                            <i class="fa-brands fa-google-play"></i>
+                                        {{- else -}}
+                                            <i class="fa-solid fa-link"></i>
+                                        {{- end -}}
+                                    </a>
+                                    {{- " " -}}
+                                {{- end -}}
+                                <a href="{{- .url -}}" rel="noreferrer" target="_blank">
+                                    <i class="fa-solid fa-code"></i>
                                 </a>
-                                {{- " " -}}
-                            {{- end -}}
-                            <a href="{{- .url -}}" rel="noreferrer" target="_blank">
-                                <i class="fa-solid fa-code"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {{- end -}}
-                </tbody>
-            </table>
-        </figure>
+                            </td>
+                        </tr>
+                    {{- end -}}
+                    </tbody>
+                </table>
+            </figure>
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
     {{- else -}}
-        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
-{{- else -}}
-    {{- errorf "Unable to get GitHub GraphQL API response." -}}
 {{- end -}}

@@ -8,17 +8,19 @@
 
 {{/* Get SPDX IDs for OSI-approved licenses. */}}
 {{- $osiApprovedLicenses := slice -}}
-{{- with resources.GetRemote "https://github.com/spdx/license-list-data/raw/main/json/licenses.json" -}}
-    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | unmarshal -}}
-        {{- range (where .licenses "isOsiApproved" true) -}}
-            {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
+{{- with try (resources.GetRemote "https://github.com/spdx/license-list-data/raw/main/json/licenses.json") -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}
+    {{- else with .Value -}}
+        {{- with .Content | unmarshal -}}
+            {{- range (where .licenses "isOsiApproved" true) -}}
+                {{- $osiApprovedLicenses = append .licenseId $osiApprovedLicenses -}}
+            {{- end -}}
+        {{- else -}}
+            {{- errorf "Unable to parse SPDX license list response." -}}
         {{- end -}}
     {{- else -}}
-        {{- errorf "Unable to parse SPDX license list response." -}}
+        {{- errorf "Unable to get SPDX license list response." -}}
     {{- end -}}
-{{- else -}}
-    {{- errorf "Unable to get SPDX license list response." -}}
 {{- end -}}
 
 {{- $githubHeaders := dict -}}
@@ -64,20 +66,22 @@ query {
 {{- $repositoriesCount := 0 -}}
 {{- $followersCount := 0 -}}
 {{- $organizationsCount := 0 -}}
-{{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
-    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | unmarshal -}}
-        {{/* Count repos. */}}
-        {{- $repositoriesCount = .data.user.repositories.totalCount -}}
-        {{/* Count followers. */}}
-        {{- $followersCount = .data.user.followers.totalCount -}}
-        {{/* Count organizations. */}}
-        {{- $organizationsCount = .data.user.organizations.totalCount -}}
+{{- with try (resources.GetRemote "https://api.github.com/graphql" $userOpts) -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}
+    {{- else with .Value -}}
+        {{- with .Content | unmarshal -}}
+            {{/* Count repos. */}}
+            {{- $repositoriesCount = .data.user.repositories.totalCount -}}
+            {{/* Count followers. */}}
+            {{- $followersCount = .data.user.followers.totalCount -}}
+            {{/* Count organizations. */}}
+            {{- $organizationsCount = .data.user.organizations.totalCount -}}
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
     {{- else -}}
-        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
-{{- else -}}
-    {{- errorf "Unable to get GitHub GraphQL API response." -}}
 {{- end -}}
 
 {{- $repositories := slice -}}
@@ -122,22 +126,24 @@ query {
     {{- $reposBody := dict "query" $reposQuery | jsonify (dict "noHTMLEscape" true) -}}
     {{- $reposOpts := dict "method" "post" "body" $reposBody "headers" $githubHeaders -}}
     {{- $reposCount := 0 -}}
-    {{- with resources.GetRemote "https://api.github.com/graphql" $reposOpts -}}
-        {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-        {{- with .Content | unmarshal -}}
-            {{- with .data.user.repositories.nodes -}}
-                {{- $repositories = append $repositories . -}}
-            {{- end -}}
-            {{- with .data.user.repositories.pageInfo.endCursor -}}
-                {{- $continuation = printf `"%s"` . -}}
+    {{- with try (resources.GetRemote "https://api.github.com/graphql" $reposOpts) -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}
+        {{- else with .Value -}}
+            {{- with .Content | unmarshal -}}
+                {{- with .data.user.repositories.nodes -}}
+                    {{- $repositories = append $repositories . -}}
+                {{- end -}}
+                {{- with .data.user.repositories.pageInfo.endCursor -}}
+                    {{- $continuation = printf `"%s"` . -}}
+                {{- else -}}
+                    {{- break -}}
+                {{- end -}}
             {{- else -}}
-                {{- break -}}
+                {{- errorf "Unable to parse GitHub GraphQL API response." -}}
             {{- end -}}
         {{- else -}}
-            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+            {{- errorf "Unable to get GitHub GraphQL API response." -}}
         {{- end -}}
-    {{- else -}}
-        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
 {{- end -}}
 
@@ -161,19 +167,21 @@ query {
     ` $username $fromYear -}}
     {{- $contributionsBody := dict "query" $contributionsQuery | jsonify (dict "noHTMLEscape" true) -}}
     {{- $contributionsOpts := dict "method" "post" "body" $contributionsBody "headers" $githubHeaders -}}
-    {{- with resources.GetRemote "https://api.github.com/graphql" $contributionsOpts -}}
-        {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-        {{- with .Content | unmarshal -}}
-            {{- with .data.user.contributionsCollection -}}
-                {{- $totalCommitContributions = add $totalCommitContributions .totalCommitContributions -}}
-                {{- $totalIssueContributions = add $totalIssueContributions .totalIssueContributions -}}
-                {{- $totalPullRequestContributions = add $totalPullRequestContributions .totalPullRequestContributions -}}
+    {{- with try (resources.GetRemote "https://api.github.com/graphql" $contributionsOpts) -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}
+        {{- else with .Value -}}
+            {{- with .Content | unmarshal -}}
+                {{- with .data.user.contributionsCollection -}}
+                    {{- $totalCommitContributions = add $totalCommitContributions .totalCommitContributions -}}
+                    {{- $totalIssueContributions = add $totalIssueContributions .totalIssueContributions -}}
+                    {{- $totalPullRequestContributions = add $totalPullRequestContributions .totalPullRequestContributions -}}
+                {{- end -}}
+            {{- else -}}
+                {{- errorf "Unable to parse GitHub GraphQL API response." -}}
             {{- end -}}
         {{- else -}}
-            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+            {{- errorf "Unable to get GitHub GraphQL API response." -}}
         {{- end -}}
-    {{- else -}}
-        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
 {{- end -}}
 

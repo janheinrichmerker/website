@@ -24,13 +24,15 @@ query {
 ` $username -}}
 {{- $userBody := dict "query" $userQuery | jsonify (dict "noHTMLEscape" true) -}}
 {{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
-{{- with resources.GetRemote "https://api.github.com/graphql" $userOpts -}}
-    {{- with .Err -}}{{- errorf "%s" . -}}{{- end -}}
-    {{- with .Content | unmarshal -}}
-        <a href="{{ .data.user.url }}" rel="noreferrer" target="_blank">@{{ .data.user.login }}</a>
+{{- with try (resources.GetRemote "https://api.github.com/graphql" $userOpts) -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}
+    {{- else with .Value -}}
+        {{- with .Content | unmarshal -}}
+            <a href="{{ .data.user.url }}" rel="noreferrer" target="_blank">@{{ .data.user.login }}</a>
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
     {{- else -}}
-        {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
     {{- end -}}
-{{- else -}}
-    {{- errorf "Unable to get GitHub GraphQL API response." -}}
 {{- end -}}
