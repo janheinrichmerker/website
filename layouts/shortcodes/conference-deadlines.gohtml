@@ -1,0 +1,127 @@
+{{- $conferenceSlugs := collections.Dictionary "aaai" "AI" "acl" "AI" "coling" "AI" "emnlp" "AI" "naacl" "AI" "cikm" "DB" "ecir" "DB" "sigir" "DB" "wsdm" "DB" "chi" "HI" "www" "MX" -}}
+{{- $conferenceData := collections.Slice -}}
+{{- range  $conferenceSlug, $conferenceGroup := $conferenceSlugs -}}
+    {{- $conferenceDataUrl := fmt.Printf "https://github.com/ccfddl/ccf-deadlines/raw/refs/heads/main/conference/%s/%s.yml" $conferenceGroup $conferenceSlug -}}
+    {{- with try (resources.GetRemote $conferenceDataUrl) -}}
+        {{- with .Err -}}
+            {{- errorf "%s" . -}}
+        {{- else -}}
+            {{- with .Value -}}
+                {{- with .Content | transform.Unmarshal -}}
+                    {{- range . -}}
+                        {{- $conferenceInfo := collections.Merge . (collections.Dictionary "confs" "") -}}
+                        {{- range .confs -}}
+                            {{- $conferenceInstance := collections.Merge . $conferenceInfo -}}
+                            {{- $deadlines := collections.Slice (time.AsTime "0001-01-01") -}}
+                            {{- $upcomingDeadlines := collections.Slice (time.AsTime "9999-12-31") -}}
+                            {{- range .timeline -}}
+                                {{- with .deadline -}}
+                                    {{- if not (eq . "TBD") -}}
+                                        {{- $deadline := time.AsTime . -}}
+                                        {{- $deadlines = collections.Append $deadline $deadlines -}}
+                                        {{- if ge $deadline time.Now -}}
+                                            {{- $upcomingDeadlines = collections.Append $deadline $upcomingDeadlines -}}
+                                        {{- end -}}
+                                    {{- end -}}
+                                {{- end -}}
+                                {{- with .abstract_deadline -}}
+                                    {{- if not (eq . "TBD") -}}
+                                        {{- $deadline := time.AsTime . -}}
+                                        {{- $deadlines = collections.Append $deadline $deadlines -}}
+                                        {{- if ge $deadline time.Now -}}
+                                            {{- $upcomingDeadlines = collections.Append $deadline $upcomingDeadlines -}}
+                                        {{- end -}}
+                                    {{- end -}}
+                                {{- end -}}
+                            {{- end -}}
+                            {{- $latestDeadline := collections.Index (collections.Sort $deadlines "value" "desc") 0 -}}
+                            {{- $earliestUpcomingDeadline := collections.Index (collections.Sort $upcomingDeadlines) 0 -}}
+                            {{- $conferenceInstance = collections.Merge $conferenceInstance (collections.Dictionary "latest_deadline" $latestDeadline "earliest_upcoming_deadline" $earliestUpcomingDeadline) -}}
+                            {{- $conferenceData = collections.Append $conferenceInstance $conferenceData -}}
+                        {{- end -}}
+                    {{- end -}}
+                {{- else -}}
+                    {{- errorf "Unable to parse %s." $conferenceDataUrl -}}
+                {{- end -}}
+            {{- else -}}
+                {{- errorf "Unable to get %s." $conferenceDataUrl -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- $conferenceData = sort $conferenceData "earliest_upcoming_deadline" "asc" -}}
+{{- $printedConferences := slice -}}
+<figure>
+    <table>
+        <tbody>
+        {{- range $conferenceData -}}
+            {{- if and (not (collections.In $printedConferences .title)) (or (ge .latest_deadline time.Now) (eq .latest_deadline (time.AsTime "0001-01-01"))) -}}
+                {{ $printedConferences = collections.Append .title $printedConferences }}
+                {{- $date := .date -}}
+                {{- $date = strings.Replace $date " - " "-" -}}
+                {{- $coreRank := .rank.core -}}
+                <tr>
+                    <th>
+                        <a title="{{ .description }}" href="{{ .link }}">{{ .title }}&nbsp;{{ .year }}</a>
+                    </th>
+                    <td>
+                        {{ $date }}, {{ .place }}{{- if $coreRank -}}, CORE: {{ $coreRank }}{{- end -}}
+                        {{- with .timeline -}}
+                            <br><small>
+                                {{- range . -}}
+                                    {{- with .abstract_deadline -}}Abstract deadline:{{" "}}
+                                    {{- if not (eq . "TBD") -}}
+                                        {{- time.Format "January 2, 2006" (time.AsTime .) -}}
+                                    {{- else -}}
+                                        {{- . -}}
+                                    {{- end -}}
+
+                                    {{- end -}}
+                                    {{- if and .abstract_deadline .deadline -}}{{", "}}{{- end -}}
+                                    {{- with .deadline -}}
+                                        Deadline:{{" "}}
+                                        {{- if not (eq . "TBD") -}}
+                                            {{- time.Format "January 2, 2006" (time.AsTime .) -}}
+                                        {{- else -}}
+                                            {{- . -}}
+                                        {{- end -}}
+                                    {{- end -}}
+                                {{- end -}}
+                            </small>
+                        {{- end -}}
+                    </td>
+                    <td>
+                        {{- if .dblp -}}<a href="https://dblp.org/db/conf/{{ .dblp }}/index.html" title="DBLP"><i class="ai ai-dblp"></i></a>{{- end -}}
+                    </td>
+                </tr>
+            {{- end -}}
+        {{- end -}}
+        </tbody>
+    </table>
+</figure>
+{{- $conferenceData = sort $conferenceData "year" "desc" "earliest_deadline" "desc" -}}
+<figure>
+    <table>
+        <tbody>
+        {{- range $conferenceData -}}
+            {{- if not (collections.In $printedConferences .title) -}}
+                {{ $printedConferences = collections.Append .title $printedConferences }}
+                {{- $date := .date -}}
+                {{- $date = strings.Replace $date " - " "-" -}}
+                {{- $coreRank := .rank.core -}}
+                <tr>
+                    <th>
+                        <a title="{{ .description }}" href="{{ .link }}">{{ .title }}&nbsp;{{ .year }}</a>
+                    </th>
+                    <td>
+                        {{ $date }}, {{ .place }}{{- if $coreRank -}}, CORE: {{ $coreRank }}{{- end -}}
+                    </td>
+                    <td>
+                        {{- if .dblp -}}<a href="https://dblp.org/db/conf/{{ .dblp }}/index.html" title="DBLP"><i class="ai ai-dblp"></i></a>{{- end -}}
+                    </td>
+                </tr>
+            {{- end -}}
+        {{- end -}}
+        </tbody>
+    </table>
+</figure>
