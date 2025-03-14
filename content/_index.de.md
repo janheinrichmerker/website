@@ -25,4 +25,6 @@ Du möchtest mehr über mich erfahren?
 Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}})
 oder schaue dir meine [open-source Arbeit]({{< relref "/open-source.md" >}}) an.
 
-🎄 Mach mit beim großen [Weihnachts-Emoji-Quiz]({{< relref "/christmas-emoji.md" >}})! 🎄
+Hier findest du eine Übersicht über [wichtige Konferenzen]({{< relref "/conferences" >}}).
+
+[//]: # (🎄 Mach mit beim großen [Weihnachts-Emoji-Quiz]&#40;{{< relref "/christmas-emoji.md" >}}&#41;! 🎄)

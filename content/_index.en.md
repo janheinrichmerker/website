@@ -25,3 +25,5 @@ aliases:
 Want to learn more about me?  
 Read my [resume]({{< relref "/cv.md" >}})
 or look at my [open source work]({{< relref "/open-source.md" >}}).
+
+Here you can also find an overview of [important conferences]({{< relref "/conferences" >}}).
