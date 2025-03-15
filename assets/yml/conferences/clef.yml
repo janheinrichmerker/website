@@ -1,0 +1,25 @@
+  - title: CLEF
+    description: Conference and Labs of the Evaluation Forum
+    rank: {}
+    dblp: clef
+    confs:
+      - year: 2023
+        link: https://clef2023.clef-initiative.eu/
+        timeline:
+          - deadline: 2023-05-21
+        date: September 18-21, 2023
+        place: Thessaloniki, Greece
+      - year: 2024
+        link: https://clef2024.clef-initiative.eu/
+        timeline:
+          - deadline: 2024-05-17
+        date: September 9-12, 2024
+        place: Grenoble, France
+      - year: 2025
+        link: https://clef2025.clef-initiative.eu/
+        timeline:
+          - abstract_deadline: 2025-05-06
+            deadline: 2025-05-13
+        date: September 9-12, 2025
+        place: Madrid, Spain
+

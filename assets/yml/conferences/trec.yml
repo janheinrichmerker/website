@@ -1,0 +1,21 @@
+  - title: TREC
+    description: Text Retrieval Conference
+    rank: {}
+    dblp: trec
+    confs:
+      - year: 2023
+        link: https://trec.nist.gov/pubs/trec32/index.html
+        timeline: []
+        date: November 14-17, 2023
+        place: Virtual
+      - year: 2024
+        link: https://trec.nist.gov/pubs/trec33/index.html
+        timeline: []
+        date: November 18-22, 2024
+        place: Gaithersburg, Maryland, USA
+      - year: 2025
+        link: https://trec.nist.gov/cfp.html
+        timeline: []
+        date: November 17-21, 2025
+        place: Gaithersburg, Maryland, USA
+
