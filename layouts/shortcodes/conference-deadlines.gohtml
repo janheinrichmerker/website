@@ -40,6 +40,9 @@
         {{- errorf "Unable to parse %s." $resource -}}
     {{- end -}}
 {{- end -}}
+
+{{/* TODO: Check if I have some paper published at that conference, otherwise hide it. */}}
+
 {{- $conferenceData := collections.Slice -}}
 {{- range $conferenceCollections -}}
     {{- $conferenceInfo := collections.Merge . (collections.Dictionary "confs" "") -}}
