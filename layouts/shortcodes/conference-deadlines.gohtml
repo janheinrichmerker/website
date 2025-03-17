@@ -136,8 +136,13 @@
                         {{- end -}}
                     {{- end -}}
                     {{- $deadlines := .deadlines -}}
+                    {{- $lastYear := $now.Add (time.ParseDuration "-8766h") -}}
 
-                    <a title="{{- $description -}}" href="{{- .link -}}">{{- .title -}}&nbsp;{{- .year -}}</a>
+                    {{- if .end_date.After $lastYear -}}
+                        <a title="{{- $description -}}" href="{{- .link -}}">{{- .title -}}&nbsp;{{- .year -}}</a>
+                    {{- else -}}
+                        <span title="{{- $description -}}">{{- .title -}}&nbsp;{{- .year -}}</span>
+                    {{- end -}}
                     {{- ", " -}}
                     {{- if eq (.start_date.Month) (.end_date.Month) -}}
                         {{- if eq (.start_date.Day) (.end_date.Day) -}}
