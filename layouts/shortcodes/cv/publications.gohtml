@@ -153,7 +153,7 @@
                     {{- with where $spans "-class" "booktitle" -}}
                         {{- $booktitle = index (index . 0) "#text" -}}
                     {{- end -}}
-                    {{- with strings.FindRESubmatch "\\(([a-zA-Z]+ [0-9]{4})\\)" $booktitle 1 -}}
+                    {{- with strings.FindRESubmatch "\\(([a-zA-Z+]+ [0-9]{4})\\)" $booktitle 1 -}}
                         {{- $booktitle = index (index . 0) 1 -}}
                     {{- end -}}
                     {{- with strings.FindRESubmatch "Working Notes Papers of the (CLEF [0-9]{4}) Evaluation Labs" $booktitle 1 -}}
