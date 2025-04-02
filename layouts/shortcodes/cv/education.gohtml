@@ -33,7 +33,11 @@
                     {{- $note := .note -}}
                     {{- with .degree -}}
                         <span title="{{- .description -}}">
+                            {{- if reflect.IsMap .title -}}
+                                {{- i18n .title.i18n -}}
+                            {{- else -}}
                                 {{- .title -}}
+                            {{- end -}}
                             {{- with .program -}}
                                 {{- " " -}}
                                 {{- $program := . -}}

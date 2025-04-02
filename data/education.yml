@@ -5,8 +5,11 @@
     name: "Friedrich-Schiller-Universität Jena"
     url: https://uni-jena.de/
   degree:
-    title: "Dr. rer. nat."
-    description: "Doctor rerum naturalium"
+    title:
+      i18n: drRerNat
+    program:
+      i18n: degreeProgramComputerScience
+  topic:
 - from:
     year: 2020
     month: 04
