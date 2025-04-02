@@ -1,0 +1,242 @@
+{{- $username := site.Data.social.github -}}
+{{- with site.Params.gitHubToken -}}
+    {{- $username = print $username ":" . -}}
+{{- end -}}
+{{- if not $username -}}
+    {{ errorf "Input must be a GitHub username: %s" .Position }}
+{{- end -}}
+
+{{- $githubHeaders := dict -}}
+{{- if in $username ":" -}}
+    {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
+    {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
+    {{- $username = index (split $username ":") 0 -}}
+{{- end -}}
+
+{{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+{{- $userQuery := printf `
+query {
+    user(login: "%s") {
+        url
+        login
+        repositories(
+            orderBy: {
+                field: STARGAZERS,
+                direction: DESC,
+            },
+            first: 0,
+            isLocked: false,
+            affiliations: [
+                OWNER,
+                COLLABORATOR,
+                ORGANIZATION_MEMBER,
+            ],
+            privacy: PUBLIC,
+        ) {
+            totalCount
+        }
+        followers {
+            totalCount
+        }
+        organizations {
+            totalCount
+        }
+        contributionsCollection {
+            contributionYears
+        }
+    }
+}
+` $username -}}
+{{- $userBody := dict "query" $userQuery | jsonify (dict "noHTMLEscape" true) -}}
+{{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
+{{- $repositoriesCount := 0 -}}
+{{- $followersCount := 0 -}}
+{{- $organizationsCount := 0 -}}
+{{- $contributionYears := slice -}}
+{{- $userUrl := "" -}}
+{{- with try (resources.GetRemote "https://api.github.com/graphql" $userOpts) -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}
+    {{- else with .Value -}}
+        {{- with .Content | unmarshal -}}
+            {{/* Count repos. */}}
+            {{- $repositoriesCount = .data.user.repositories.totalCount -}}
+            {{/* Count followers. */}}
+            {{- $followersCount = .data.user.followers.totalCount -}}
+            {{/* Count organizations. */}}
+            {{- $organizationsCount = .data.user.organizations.totalCount -}}
+            {{/* Years in which contibutions were made. */}}
+            {{- $contributionYears = .data.user.contributionsCollection.contributionYears -}}
+            {{- $userUrl = .data.user.url -}}
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
+    {{- else -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $repositories := slice -}}
+{{- $step := 100 -}}
+{{- $continuation := "null" -}}
+{{- range $start := seq 0 $step $repositoriesCount -}}
+    {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+    {{- $reposQuery := printf `
+    query {
+        user(login: "%s") {
+            repositories(
+                orderBy: {
+                    field: STARGAZERS,
+                    direction: DESC,
+                },
+                first: %d,
+                after: %s,
+                isLocked: false,
+                affiliations: [
+                    OWNER,
+                    COLLABORATOR,
+                    ORGANIZATION_MEMBER,
+                ],
+                privacy: PUBLIC,
+            ) {
+                totalCount
+                pageInfo {
+                    endCursor
+                }
+                nodes {
+                    stargazerCount
+                }
+            }
+        }
+    }
+    ` $username $step $continuation -}}
+    {{- $reposBody := dict "query" $reposQuery | jsonify (dict "noHTMLEscape" true) -}}
+    {{- $reposOpts := dict "method" "post" "body" $reposBody "headers" $githubHeaders -}}
+    {{- $reposCount := 0 -}}
+    {{- with try (resources.GetRemote "https://api.github.com/graphql" $reposOpts) -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}
+        {{- else with .Value -}}
+            {{- with .Content | unmarshal -}}
+                {{- with .data.user.repositories.nodes -}}
+                    {{- $repositories = append $repositories . -}}
+                {{- end -}}
+                {{- with .data.user.repositories.pageInfo.endCursor -}}
+                    {{- $continuation = printf `"%s"` . -}}
+                {{- else -}}
+                    {{- break -}}
+                {{- end -}}
+            {{- else -}}
+                {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+            {{- end -}}
+        {{- else -}}
+            {{- errorf "Unable to get GitHub GraphQL API response." -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* Count repositories. */}}
+{{- $repos := 0 -}}
+{{/* Count stargazers. */}}
+{{- $stars := 0 -}}
+{{- range $repositories -}}
+    {{- $repos = add $repos 1 -}}
+    {{- $stars = add $stars .stargazerCount -}}
+{{- end -}}
+
+
+
+{{- $termsResearcher := slice "research" "wissenschaft" -}}
+{{- $termsDeveloper := slice "developer" "development" "software" "entwickler" -}}
+{{- $startTimeResearcher := time.Now -}}
+{{- $startTimeDeveloper := time.Now -}}
+{{- $endTimeResearcher := time.AsTime "0000-01-01" -}}
+{{- $endTimeDeveloper := time.AsTime "0000-01-01" -}}
+{{- range site.Data.experience -}}
+    {{- $job := .job -}}
+    {{- if reflect.IsMap $job -}}
+        {{- $job = i18n $job.i18n -}}
+    {{- end -}}
+    {{- $isResearcherJob := false -}}
+    {{- $isDeveloperJob := false -}}
+    {{- range $termsResearcher -}}
+        {{- if strings.Contains (strings.ToLower $job) . -}}
+            {{- $isResearcherJob = true -}}
+        {{- end -}}
+    {{- end -}}
+    {{- range $termsDeveloper -}}
+        {{- if strings.Contains (strings.ToLower $job) . -}}
+            {{- $isDeveloperJob = true -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- $jobStartTime := time.AsTime (printf "%04d-01-01" .from.year) -}}
+    {{- if .from.month -}}
+        {{- $jobStartTime = time.AsTime (printf "%04d-%02d-01" .from.year .from.month) -}}
+    {{-  end -}}
+
+    {{- $jobEndTime := time.Now -}}
+    {{- with .to -}}
+        {{- $jobEndTime = time.AsTime (printf "%04d-01-01" .year) -}}
+        {{- if .month -}}
+            {{- $jobEndTime = time.AsTime (printf "%04d-%02d-01" .year .month) -}}
+        {{-  end -}}
+    {{- end -}}
+
+    {{- if $isResearcherJob -}}
+        {{- if $jobStartTime.Before $startTimeResearcher -}}
+            {{- $startTimeResearcher = $jobStartTime -}}
+        {{- end -}}
+        {{- if $jobEndTime.After $endTimeResearcher -}}
+            {{- $endTimeResearcher = $jobEndTime -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if $isDeveloperJob -}}
+        {{- if $jobStartTime.Before $startTimeDeveloper -}}
+            {{- $startTimeDeveloper = $jobStartTime -}}
+        {{- end -}}
+        {{- if $jobEndTime.After $endTimeDeveloper -}}
+            {{- $endTimeDeveloper = $jobEndTime -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- $yearsResearcher := div (sub $endTimeResearcher.Unix $startTimeResearcher.Unix) (mul 60 60 24 365) -}}
+{{- $yearsDeveloper := div (sub $endTimeDeveloper.Unix $startTimeDeveloper.Unix) (mul 60 60 24 365) -}}
+
+
+
+{{ $topCode := slice }}
+{{- range site.Data.skills -}}
+    {{- if or (eq .name "Code") (and (reflect.IsMap .name) (eq .name.i18n "code")) -}}
+        {{- range .items -}}
+            {{- if reflect.IsMap .name -}}
+                {{- $topCode = append (i18n .name.i18n) $topCode -}}
+            {{- else -}}
+                {{- $topCode = append .name $topCode -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{ end }}
+{{ $topCode = collections.First 3 $topCode }}
+
+
+
+{{/*  Display TL;DR. */}}
+<ul>
+    <li>{{- i18n "tldrEducation" -}}</li>
+{{/*    <li>I've published X papers with X citations and a h-index of X (X long papers at top-ranked conferences).</li>*/}}
+    <li>
+        {{- $yearsResearcherString := i18n "tldrExperienceYears" $yearsResearcher -}}
+        {{- $yearsDeveloperString := i18n "tldrExperienceYears" $yearsDeveloper -}}
+        {{- i18n "tldrExperience" (dict "researcher" $yearsResearcherString "developer" $yearsDeveloperString) -}}
+    </li>
+    <li>
+        {{- $reposString := i18n "tldrOpenSourceRepos" $repos -}}
+        {{- $starsString := i18n "tldrOpenSourceStars" $stars -}}
+        {{- $usingString := "" -}}
+        {{- with $topCode -}}
+            {{- $usingString = i18n "tldrOpenSourceUsing" (delimit . ", " (i18n "delimitAnd")) -}}
+        {{- end -}}
+        {{- i18n "tldrOpenSource" (dict "repos" $reposString "stars" $starsString "using" $usingString) -}}
+    </li>
+    <li>{{- i18n "tldrAwards" -}}</li>
+    <li>{{- i18n "tldrSkills" -}}</li>
+</ul>

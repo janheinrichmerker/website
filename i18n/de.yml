@@ -126,3 +126,28 @@ germanScholarshipDescription:
   other: "Gemeinsames Stipendium der Landesbank Baden-Württemberg und der Bundesregierung."
 researcherDatabasesInformationSystems:
   other: "Wissenschaftlicher Mitarbeiter Datenbanken und Informationssysteme."
+drRerNat:
+  other: "Dr. rer. nat."
+tldrEducation:
+  other: "Ich promoviere aktuell über bessere Suchmaschinen für gesundheitsbezogene Themen."
+tldrExperience:
+  other: "Ich arbeite seit {{ .researcher }} als Wissenschaftler und seit {{ .developer }} als Software-Entwickler."
+tldrExperienceYears:
+  one: "{{ . }} Jahr"
+  other: "{{ . }} Jahren"
+tldrOpenSource:
+  other: "Ich unterstütze Open-Source mit {{ .repos }} und {{ .stars }} auf GitHub{{ .using }}."
+tldrOpenSourceRepos:
+  one: "{{ . }} Repo"
+  other: "{{ . }} Repos"
+tldrOpenSourceStars:
+  one: "{{ . }} Stern"
+  other: "{{ . }} Sternen"
+tldrOpenSourceUsing:
+  other: ", meist für {{ . }}"
+tldrAwards:
+  other: "Ich habe das Deutschlandstipendium und mehrere Auszeichnungen auf Top-Konferenzen gewonnen."
+tldrSkills:
+  other: "Ich spreche fließend englisch und deutsch, und ich mag es, Dinge zu coden, zu designen und zu entwerfen."
+delimitAnd:
+  other: " und "

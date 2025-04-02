@@ -126,3 +126,28 @@ germanScholarshipDescription:
   other: "Joint scholarship from the Landesbank Baden-Württemberg and the German Government."
 researcherDatabasesInformationSystems:
   other: "Research associate Databases and Information Systems."
+drRerNat:
+  other: "PhD"
+tldrEducation:
+  other: "I'm currently pursuing my PhD on building better search engines for health-related topics."
+tldrExperience:
+  other: "I have been working as a researcher for {{ .researcher }} and as a software developer for {{ .developer }}."
+tldrExperienceYears:
+  one: "{{ . }} year"
+  other: "{{ . }} years"
+tldrOpenSource:
+  other: "I support open source with {{ .repos }} and {{ .stars }} on GitHub{{ .using }}."
+tldrOpenSourceRepos:
+  one: "{{ . }} repo"
+  other: "{{ . }} repos"
+tldrOpenSourceStars:
+  one: "{{ . }} star"
+  other: "{{ . }} stars"
+tldrOpenSourceUsing:
+  other: ", often for {{ . }}"
+tldrAwards:
+  other: "I was awarded the Deutschlandstipendium and won multiple awards at top conferences."
+tldrSkills:
+  other: "I'm fluent in English and German, and I like to code, design, and engineer stuff."
+delimitAnd:
+  other: ", and "

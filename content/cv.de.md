@@ -9,6 +9,10 @@ aliases:
 
 <cite>Jan Heinrich Merker, {{< cv/highest-degree >}}</cite>
 
+#### TL;DR
+
+{{< cv/tldr >}}
+
 {{< profile-image >}}
 
 <section>
