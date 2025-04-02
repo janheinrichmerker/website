@@ -1,0 +1,129 @@
+{{- $username := site.Data.social.github -}}
+{{- with site.Params.gitHubToken -}}
+    {{- $username = print $username ":" . -}}
+{{- end -}}
+{{- if not $username -}}
+    {{ errorf "Input must be a GitHub username: %s" .Position }}
+{{- end -}}
+
+{{- $githubHeaders := dict -}}
+{{- if in $username ":" -}}
+    {{- $githubAuthorization := print "Basic " (base64Encode $username) -}}
+    {{- $githubHeaders = merge $githubHeaders (dict "Authorization" $githubAuthorization) -}}
+    {{- $username = index (split $username ":") 0 -}}
+{{- end -}}
+
+{{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+{{- $userQuery := printf `
+query {
+    user(login: "%s") {
+        contributionsCollection {
+            contributionYears
+        }
+    }
+}
+` $username -}}
+{{- $userBody := dict "query" $userQuery | jsonify (dict "noHTMLEscape" true) -}}
+{{- $userOpts := dict "method" "post" "body" $userBody "headers" $githubHeaders -}}
+{{- $contributionYears := slice -}}
+{{- with try (resources.GetRemote "https://api.github.com/graphql" $userOpts) -}}
+    {{- with .Err -}}{{- errorf "%s" . -}}
+    {{- else with .Value -}}
+        {{- with .Content | unmarshal -}}
+            {{- $contributionYears = .data.user.contributionsCollection.contributionYears -}}
+        {{- else -}}
+            {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+        {{- end -}}
+    {{- else -}}
+        {{- errorf "Unable to get GitHub GraphQL API response." -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* Count "weight" per language. */}}
+{{- $languageWeights := dict -}}
+{{- range $fromYear := $contributionYears -}}
+    {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
+    {{- $contributionsQuery := printf `
+    query {
+        user(login: "%s") {
+            contributionsCollection(
+                from: "%.0f-01-01T00:00:00Z",
+            ) {
+                commitContributionsByRepository(
+                    maxRepositories: 100
+                ) {
+                    repository {
+                        name
+                        languages(
+                            orderBy: { field: SIZE, direction: DESC },
+                            first: 100
+                        ) {
+                            edges {
+                                node {
+                                    name
+                                }
+                                size
+                            }
+                        }
+                    }
+                    contributions {
+                        totalCount
+                    }
+                }
+            }
+        }
+    }
+    ` $username $fromYear -}}
+    {{- $contributionsBody := dict "query" $contributionsQuery | jsonify (dict "noHTMLEscape" true) -}}
+    {{- $contributionsOpts := dict "method" "post" "body" $contributionsBody "headers" $githubHeaders -}}
+    {{- with try (resources.GetRemote "https://api.github.com/graphql" $contributionsOpts) -}}
+        {{- with .Err -}}{{- errorf "%s" . -}}
+        {{- else with .Value -}}
+            {{- with .Content | unmarshal -}}
+                {{- range .data.user.contributionsCollection -}}
+                    {{- range . -}}
+                        {{- $totalContributions := .contributions.totalCount -}}
+                        {{- range .repository.languages.edges -}}
+                            {{- $oldLanguageWeight := index $languageWeights .node.name | default 0 -}}
+                            {{- $newLanguageWeight := add $oldLanguageWeight (mul (math.Pow .size 0.5) (math.Pow $totalContributions 4)) -}}
+                            {{- $languageWeights = merge $languageWeights (dict .node.name $newLanguageWeight) -}}
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- else -}}
+                {{- errorf "Unable to parse GitHub GraphQL API response." -}}
+            {{- end -}}
+        {{- else -}}
+            {{- errorf "Unable to get GitHub GraphQL API response." -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{/* Join all language names. */}}
+{{- $languageNames := slice -}}
+{{- range $languageName, $_ := $languageWeights -}}
+    {{- $languageNames = append $languageName $languageNames -}}
+{{- end -}}
+{{- $languageNames = uniq $languageNames -}}
+
+{{/* Map language counter to dicts. */}}
+{{- $languages := slice -}}
+{{- range $languageNames -}}
+    {{- $languageName := . -}}
+    {{- $languageWeight := index $languageWeights $languageName | default 0 -}}
+    {{- $language := dict "name" $languageName "weight" $languageWeight -}}
+    {{- $languages = append $language $languages -}}
+{{- end -}}
+
+{{/* Sort languages by descending weight. */}}
+{{- $languages = sort $languages "weight" "desc" -}}
+{{/* Cut-off after top-25. */}}
+{{/*{{- $languages = first 25 $languages -}}*/}}
+
+{{/* List most common languages. */}}
+{{- $sortedLanguageNames := slice -}}
+{{- range $languages -}}
+    {{- $sortedLanguageNames = append .name $sortedLanguageNames -}}
+{{- end -}}
+
+{{ delimit $sortedLanguageNames ", " }}
