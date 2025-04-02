@@ -22,8 +22,4 @@ aliases:
 [<i class="fa-brands fa-whatsapp"></i>](https://api.whatsapp.com/send/?phone=491749273954 "WhatsApp")
 [<i class="fa-brands fa-paypal"></i>](https://paypal.me/HeinrichReimer/ "PayPal")
 
-Want to learn more about me?  
-Read my [resume]({{< relref "/cv.md" >}})
-or look at my [open source work]({{< relref "/open-source.md" >}}).
-
-Here you can also find an overview of [important conferences]({{< relref "/conferences" >}}).
+Want to learn more about me? Read my [resume]({{< relref "/cv.md" >}}) or look at my [open source work]({{< relref "/open-source.md" >}}).

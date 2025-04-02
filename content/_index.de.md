@@ -21,10 +21,6 @@ aliases:
 [<i class="fa-brands fa-whatsapp"></i>](https://api.whatsapp.com/send/?phone=491749273954 "WhatsApp")
 [<i class="fa-brands fa-paypal"></i>](https://paypal.me/HeinrichReimer/ "PayPal")
 
-Du möchtest mehr über mich erfahren?  
-Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}})
-oder schaue dir meine [open-source Arbeit]({{< relref "/open-source.md" >}}) an.
-
-Hier findest du eine Übersicht über [wichtige Konferenzen]({{< relref "/conferences" >}}).
+Du möchtest mehr über mich erfahren? Dann lies meinen [Lebenslauf]({{< relref "/cv.md" >}}) oder schaue dir meine [open-source Arbeit]({{< relref "/open-source.md" >}}) an.
 
 [//]: # (🎄 Mach mit beim großen [Weihnachts-Emoji-Quiz]&#40;{{< relref "/christmas-emoji.md" >}}&#41;! 🎄)
