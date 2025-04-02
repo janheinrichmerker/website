@@ -1,3 +1,11 @@
+- year: 2024
+  month: 9
+  name: "BioASQ Challenge Winner"
+  description: "MiBi at BioASQ 2024: Retrieval-Augmented Generation for Answering Biomedical Questions."
+  url: https://bioasq.org/participate/twelfth-challenge-winners
+  value:
+    sum: 100
+    unit: EUR
 - year: 2023
   month: 8
   name: "ESSIR Student Registration Fee Waiver"
