@@ -58,6 +58,9 @@ query {
         organizations {
             totalCount
         }
+        contributionsCollection {
+            contributionYears
+        }
     }
 }
 ` $username -}}
@@ -66,6 +69,7 @@ query {
 {{- $repositoriesCount := 0 -}}
 {{- $followersCount := 0 -}}
 {{- $organizationsCount := 0 -}}
+{{- $contributionYears := slice -}}
 {{- with try (resources.GetRemote "https://api.github.com/graphql" $userOpts) -}}
     {{- with .Err -}}{{- errorf "%s" . -}}
     {{- else with .Value -}}
@@ -76,6 +80,8 @@ query {
             {{- $followersCount = .data.user.followers.totalCount -}}
             {{/* Count organizations. */}}
             {{- $organizationsCount = .data.user.organizations.totalCount -}}
+            {{/* Years in which contibutions were made. */}}
+            {{- $contributionYears = .data.user.contributionsCollection.contributionYears -}}
         {{- else -}}
             {{- errorf "Unable to parse GitHub GraphQL API response." -}}
         {{- end -}}
@@ -150,13 +156,13 @@ query {
 {{- $totalCommitContributions := 0 -}}
 {{- $totalIssueContributions := 0 -}}
 {{- $totalPullRequestContributions := 0 -}}
-{{- range $fromYear := seq 1998 1 now.Year -}}
+{{- range $fromYear := $contributionYears -}}
     {{/* For debugging, use https://docs.github.com/en/graphql/overview/explorer. */}}
     {{- $contributionsQuery := printf `
     query {
         user(login: "%s") {
             contributionsCollection(
-                from: "%d-01-01T00:00:00Z",
+                from: "%.0f-01-01T00:00:00Z",
             ) {
                 totalCommitContributions
                 totalIssueContributions
