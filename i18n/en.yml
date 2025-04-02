@@ -106,6 +106,12 @@ design:
   other: "Design"
 social:
   other: "Social"
+serviceReviewer:
+  other: "Reviewer"
+kitchenDesign:
+  other: "kitchen construction"
+microcontrollers:
+  other: "microcontrollers"
 researchAssistantBigDataAnalytics:
   other: "Research assistant Big Data Analytics."
 researchAssistantMediaContentWeb:

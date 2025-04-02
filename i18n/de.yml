@@ -106,6 +106,12 @@ data:
   other: "Daten"
 social:
   other: "Sozial"
+serviceReviewer:
+  other: "Reviewer"
+kitchenDesign:
+  other: "Küchenbau"
+microcontrollers:
+  other: "Mikrocontroller"
 researchAssistantBigDataAnalytics:
   other: "Wissenschaftliche Hilfskraft Big Data Analytics."
 researchAssistantMediaContentWeb:

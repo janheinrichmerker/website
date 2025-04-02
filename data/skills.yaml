@@ -14,65 +14,109 @@
       url: https://kotlinlang.org/
     - name: Java
       url: https://oracle.com/java/
-    - name: TeX
-      url: https://tug.org/
-    - name: JSON
-      url: https://json.org/
-    - name: HTML
-      url: https://w3.org/html/
-    - name: CSS
-      url: https://w3.org/Style/CSS/
-    - name: TypeScript
-      url: https://typescriptlang.org/
-    - name: Elm
-      url: https://elm-lang.org/
-    - name: Bash Script
-      url: https://gnu.org/software/bash/
-    - name: SQL
-      url: https://mysql.com/
-    - name: XML
-      url: https://w3.org/standards/xml/
-    - name: Julia
-      url: https://julialang.org/
-    - name: Dart
-      url: https://dart.dev/
-    - name: GraphQL
-      url: https://graphql.org/
-    - name: C
-      url: https://open-std.org/jtc1/sc22/wg14/
-    - name: Haskell
-      url: https://haskell.org/
-    - name: Go
-      url: https://golang.org/
-- name:
-    i18n: frameworks
-  items:
-    - name: IntelliJ IDEA
-      url: https://jetbrains.com/idea/
-    - name: VS Code
-      url: https://code.visualstudio.com/
     - name: Git
       url: https://git-scm.com/
     - name: Docker
       url: https://docker.com/
-    - name: Android
-      url: https://android.com/
     - name: Kubernetes
       url: https://kubernetes.io/
-    - name: Spark/Hadoop
-      url: https://spark.apache.org/
+    - name: TeX
+      url: https://tug.org/
     - name: Elasticsearch
       url: https://elastic.co/elastic-stack/
+    - name: Ray
+      url: https://docs.ray.io/
+    - name: Shell
+      url: https://gnu.org/software/bash/
+    - name: HTML
+      url: https://w3.org/html/
+    - name: CSS
+      url: https://w3.org/Style/CSS/
+    - name: SCSS
+      url: https://sass-lang.com/
+    - name: TypeScript
+      url: https://typescriptlang.org/
+    - name: JavaScript
+      url: https://ecma-international.org/publications-and-standards/standards/ecma-262/
+    - name: Android
+      url: https://android.com/
+    - name: SQL
+      url: https://mysql.com/
+    - name: C++
+      url: https://cppreference.com/
+    - name: C
+      url: https://open-std.org/jtc1/sc22/wg14/
+    - name: GraphQL
+      url: https://graphql.org/
+    - name: JSON
+      url: https://json.org/
+    - name: XML
+      url: https://w3.org/standards/xml/
+    - name: Transformers
+      url: https://huggingface.co/transformers/
+    - name: Jupyter
+      url: https://jupyter.org/
+    - name: Pandas
+      url: https://pandas.pydata.org/
+    - name: NumPy
+      url: https://numpy.org/
+    - name: scikit-learn
+      url: https://scikit-learn.org/
+    - name: Spark
+      url: https://spark.apache.org/
+    - name: Hadoop
+      url: https://hadoop.apache.org/
+    - name: S3
+      url: https://aws.amazon.com/s3/
+    - name: Go
+      url: https://golang.org/
+    - name: Vue
+      url: https://vuejs.org/
+    - name: Elm
+      url: https://elm-lang.org/
+    - name: Julia
+      url: https://julialang.org/
+    - name: Haskell
+      url: https://haskell.org/
+    - name: PHP
+      url: https://php.net/
+    - name: Dart
+      url: https://dart.dev/
     - name: Flutter
       url: https://flutter.dev/
+    - name: VS Code
+      url: https://code.visualstudio.com/
+    - name: IntelliJ
+      url: https://jetbrains.com/idea/
 - name:
     i18n: design
   items:
     - name: UI
+    - name: LaTeX
+      url: https://tug.org/
+    - name: Material
+      url: https://material.io/
     - name: Figma
       url: https://figma.com/
     - name:
         i18n: appIcons
+    - name:
+        i18n: kitchenDesign
+    - name:
+        i18n: microcontrollers
+- name:
+    i18n: serviceReviewer
+  items:
+    - name: SIGIR 2025
+      url: https://sigir2025.dei.unipd.it/
+    - name: WOWS 2025
+      url: https://opensearchfoundation.org/events-d/wows2025/
+    - name: SIGIR 2024
+      url: https://sigir-2024.github.io/index.html
+    - name: WOWS 2024
+      url: https://opensearchfoundation.org/wows2024/
+    - name: Touché 2023
+      url: https://touche.webis.de/clef23/touche23-web/index.html
 - name:
     i18n: social
   items:
