@@ -62,6 +62,7 @@
         {{- $date = strings.Replace $date " - " "-" -}}
         {{- $date = strings.ReplaceRE `([A-Z][a-z]+) 0?([1-9][0-9]?)-0?([1-9][0-9]?), ([1-9][0-9]*)` "$2 $1 $4 #to# $3 $1 $4" $date 1 -}}
         {{- $date = strings.ReplaceRE `([A-Z][a-z]+) 0?([1-9][0-9]?)-([A-Z][a-z]+) 0?([1-9][0-9]?), ([1-9][0-9]*)` "$2 $1 $5 #to# $4 $3 $5" $date 1 -}}
+        {{- $date = strings.ReplaceRE `([A-Z][a-z]+) 0?([1-9][0-9]?), ([1-9][0-9]*)` "$2 $1 $3 #to# $2 $1 $3" $date 1 -}}
         {{- $date = strings.ReplaceRE `\b([1-9])\b` "0$1" $date -}}
         {{- $date = strings.Replace $date "January" "Jan" -}}
         {{- $date = strings.Replace $date "February" "Feb" -}}
