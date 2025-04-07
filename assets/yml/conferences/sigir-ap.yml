@@ -1,0 +1,26 @@
+  - title: SIGIR-AP
+    description: International ACM SIGIR Conference on Information Retrieval in the Asia Pacific
+    rank: {}
+    dblp: sigir-ap
+    confs:
+      - year: 2023
+        link: https://www.sigir-ap.org/sigir-ap-2023/
+        timeline:
+          - abstract_deadline: 2023-06-26
+            deadline: 2023-07-03
+        date: November 26-28, 2023
+        place: Beijing, China
+      - year: 2024
+        link: https://www.sigir-ap.org/sigir-ap-2024/
+        timeline:
+          - abstract_deadline: 2024-07-01
+            deadline: 2024-07-10
+        date: December 9-12, 2024
+        place: Tokyo, Japan
+      - year: 2025
+        link: https://www.sigir-ap.org/sigir-ap-2025/
+        timeline:
+          - abstract_deadline: 2025-07-01
+            deadline: 2025-07-08
+        date: December 7-10, 2025
+        place: Xi'an, China

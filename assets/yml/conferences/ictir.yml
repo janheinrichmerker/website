@@ -1,0 +1,23 @@
+  - title: ICTIR
+    description: ACM SIGIR International Conference on Innovative Concepts and Theories in Information Retrieval
+    rank: {}
+    dblp: ictir
+    confs:
+      - year: 2023
+        link: https://sigir.org/ictir2023/home/
+        timeline:
+          - deadline: 2023-05-05
+        date: July 23, 2023
+        place: Taipei, Taiwan
+      - year: 2024
+        link: https://www.ictir2024.org/
+        timeline:
+          - deadline: 2024-04-25
+        date: July 13, 2024
+        place: Washington D.C., USA
+      - year: 2025
+        link: https://ictir2025.cs.umass.edu/
+        timeline:
+          - deadline: 2025-04-24
+        date: July 18, 2025
+        place: Padua, Italy
