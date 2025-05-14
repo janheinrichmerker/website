@@ -37,6 +37,7 @@
     {{- $xmlText = replace $xmlText "data-uk-sticky>" "data-uk-sticky=\"\">" -}}
     {{- $xmlText = replace $xmlText "data-uk-grid>" "data-uk-grid=\"\">" -}}
     {{- $xmlText = replace $xmlText "readonly>" "readonly=\"\">" -}}
+    {{- $xmlText = replace $xmlText "defer " "defer=\"\" " -}}
 
     {{/* Save as XML. */}}
     {{- $xmlTargetPath := "xml/webis-publications.xml" -}}
