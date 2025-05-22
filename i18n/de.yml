@@ -146,7 +146,7 @@ tldrOpenSourceStars:
 tldrOpenSourceUsing:
   other: ", meist für {{ . }}"
 tldrAwards:
-  other: "Ich habe das Deutschlandstipendium und mehrere Auszeichnungen auf Top-Konferenzen gewonnen."
+  other: "Ich habe das Deutschlandstipendium und Auszeichnungen auf Top-Konferenzen gewonnen."
 tldrSkills:
   other: "Ich spreche fließend englisch und deutsch, und ich mag es, Dinge zu coden, zu designen und zu entwerfen."
 delimitAnd:
