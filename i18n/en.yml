@@ -146,7 +146,7 @@ tldrOpenSourceStars:
 tldrOpenSourceUsing:
   other: ", often for {{ . }}"
 tldrAwards:
-  other: "I was awarded the Deutschlandstipendium and won multiple awards at top conferences."
+  other: "I was awarded the Deutschlandstipendium and won awards at top conferences."
 tldrSkills:
   other: "I'm fluent in English and German, and I like to code, design, and engineer stuff."
 delimitAnd:
