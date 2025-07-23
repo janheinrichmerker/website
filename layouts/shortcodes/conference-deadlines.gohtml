@@ -1,8 +1,7 @@
 {{- $conferenceSlugs := collections.Dictionary "aaai" "AI" "acl" "AI" "coling" "AI" "emnlp" "AI" "iclr" "AI" "icml" "AI" "ijcai" "AI" "naacl" "AI" "nips" "AI" "cikm" "DB" "ecir" "DB" "sigir" "DB" "wsdm" "DB" "chi" "HI" "www" "MX" -}}
 {{- $deadlineType := collections.Dictionary "deadline" "Submission" "abstract_deadline" "Abstract" -}}
 {{- $invalidDeadlineKeys := collections.Slice "comment" -}}
-{{- $invalidDeadlineStrings := collections.Slice "TBD" -}}
-{{- $protectedAcronyms := collections.Slice "ACM" "ACL" -}}
+{{- $protectedAcronyms := collections.Slice "ACM" "ACL" "SIGIR" "IEEE" -}}
 
 {{- $variant := .Get "variant" -}}
 {{- if not $variant -}}
@@ -51,10 +50,16 @@
         {{- $deadlines := collections.Dictionary -}}
         {{- range .timeline -}}
             {{- range $deadlineKey, $deadlineString := . -}}
-                {{- if not (or (collections.In $invalidDeadlineKeys $deadlineKey) (collections.In $invalidDeadlineStrings $deadlineString)) -}}
-                    {{- $deadline := time.AsTime $deadlineString "Etc/UTC" -}}
-                    {{- $deadline = $deadline.Round (time.ParseDuration "24h") -}}
-                    {{- $deadlines = collections.Merge $deadlines (collections.Dictionary (collections.Index $deadlineType $deadlineKey) $deadline) -}}
+                {{- $deadlineKey = strings.TrimSpace $deadlineKey -}}
+                {{- $deadlineString = strings.TrimSpace $deadlineString -}}
+                {{- if not (collections.In $invalidDeadlineKeys $deadlineKey) -}}
+                    {{ with try (time.AsTime $deadlineString "Etc/UTC") }}
+                        {{ with .Value }}
+                            {{- $deadline := . -}}
+                            {{- $deadline = $deadline.Round (time.ParseDuration "24h") -}}
+                            {{- $deadlines = collections.Merge $deadlines (collections.Dictionary (collections.Index $deadlineType $deadlineKey) $deadline) -}}
+                        {{ end }}
+                    {{ end }}
                 {{- end -}}
             {{- end -}}
         {{- end -}}
@@ -76,8 +81,18 @@
         {{- $date = strings.Replace $date "November" "Nov" -}}
         {{- $date = strings.Replace $date "December" "Dec" -}}
         {{- $startEndDates := strings.Split $date " #to# " -}}
-        {{- $startDate := time.AsTime (collections.Index $startEndDates 0) "Etc/UTC" -}}
-        {{- $endDate := time.AsTime (collections.Index $startEndDates 1) "Etc/UTC" -}}
+        {{- $startDate := "" -}}
+        {{ with try (time.AsTime (collections.Index $startEndDates 0) "Etc/UTC") }}
+            {{ with .Value }}
+                {{- $startDate = . -}}
+            {{ end }}
+        {{ end }}
+        {{- $endDate := "" -}}
+        {{ with try (time.AsTime (collections.Index $startEndDates 1) "Etc/UTC") }}
+            {{ with .Value }}
+                {{- $endDate = . -}}
+            {{ end }}
+        {{ end }}
         {{- $conferenceInstance = collections.Merge $conferenceInstance (collections.Dictionary "start_date" $startDate "end_date" $endDate "deadlines" $deadlines) -}}
         {{- $conferenceData = collections.Append $conferenceInstance $conferenceData -}}
     {{- end -}}
