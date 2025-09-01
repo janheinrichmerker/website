@@ -59,7 +59,7 @@ jobs:
           path: public/
           if-no-files-found: error
       - name: 📤 Upload public pages (for GitHub Pages)
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: public/
   deploy:
