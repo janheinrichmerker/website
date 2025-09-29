@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.7.2.tgz#8249de9b7e22fcb3ceb5e66090c30a1d5492b81a"
   integrity sha512-JUOtgFW6k9u4Y+xeIaEiLr3+cjoUPiAuLXoyKOJSia6Duzb7pq+A76P9ZdPDoAoxHdHzq6gE9/jKBGXlZT8FbA==
 
-academicons@^1.9.2:
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/academicons/-/academicons-1.9.2.tgz#6b1ce8acfa4e657b28fb11ab9cac60d5dc6b16e5"
-  integrity sha512-LjlkK1E/daUUWqMJOXa/YeXL26K0FmN3cdyILgGCJKgo5bzgVYOO712DZDREzETrrC0MnKui8/hGYpM8kCTgZg==
+academicons@^1.9.5:
+  version "1.9.5"
+  resolved "https://registry.yarnpkg.com/academicons/-/academicons-1.9.5.tgz#45ddae70ee68fdb3c5a897371996fb3545243b01"
+  integrity sha512-ZXyNuotcqMNLmfc48W3BnRP/RzSs9cxvLrSk9fLgmgxAFDC+ecB9viNn1hzs2eJARre7N6tCfDiVQTia+uegEQ==
 
 normalize-scss@^8.0.0:
   version "8.0.0"
