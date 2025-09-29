@@ -49,7 +49,7 @@ jobs:
         id: linkCheck
         uses: lycheeverse/lychee-action@v2.0.2
         with:
-          args: --require-https --verbose --no-progress --max-concurrency 1 --base public/ --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/janheinrichmerker/ --exclude heinrich@merker.id --accept 999 --max-retries 10 --retry-wait-time 30 --max-redirects 10 --timeout 120 --method HEAD public/
+          args: --require-https --verbose --no-progress --max-concurrency 1 --base public/ --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/janheinrichmerker/ --exclude heinrich@merker.id --exclude amzn.to --exclude doi.org --accept 999 --max-retries 10 --retry-wait-time 30 --max-redirects 10 --timeout 120 --method HEAD public/
           fail: false
           jobSummary: true
       - name: 📤 Upload public pages
