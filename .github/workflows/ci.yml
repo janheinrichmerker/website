@@ -50,7 +50,7 @@ jobs:
         uses: lycheeverse/lychee-action@v1
         with:
           lycheeVersion: '0.13.0'
-          args: --require-https --verbose --no-progress --max-concurrency 1 --root-dir public/ --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/janheinrichmerker/ --exclude heinrich@merker.id --accept 999 --max-retries 10 --retry-wait-time 30 --max-redirects 10 --timeout 120 --method HEAD public/
+          args: --require-https --verbose --no-progress --max-concurrency 1 --root-dir "$(pwd)/public" --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/janheinrichmerker/ --exclude heinrich@merker.id --accept 999 --max-retries 10 --retry-wait-time 30 --max-redirects 10 --timeout 120 --method HEAD public/
           fail: false
       - name: 📤 Upload public pages
         uses: actions/upload-artifact@v4
