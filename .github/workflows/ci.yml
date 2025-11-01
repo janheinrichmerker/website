@@ -21,7 +21,7 @@ jobs:
       - name: 🧰 Install dart-sass-embedded
         run: sudo snap install dart-sass
       - name: 🧰 Install Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: '20.10'
           cache: yarn
