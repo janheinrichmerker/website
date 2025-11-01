@@ -51,7 +51,7 @@ jobs:
           args: --require-https --verbose --no-progress --max-concurrency 1 --root-dir "$(pwd)/public" --exclude https://twitter.com/H1iReimer/ --exclude https://linkedin.com/in/janheinrichmerker/ --exclude heinrich@merker.id --max-retries 10 --max-redirects 10 public/
           fail: false
       - name: 📤 Upload public pages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: public-pages
           path: public/
