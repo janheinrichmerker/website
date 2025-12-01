@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Check-out
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: 🧰 Install Hugo
         uses: peaceiris/actions-hugo@v3
         with:
@@ -94,7 +94,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Check-out
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: 🏷️ Get version tag
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
