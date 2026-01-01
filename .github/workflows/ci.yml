@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Download public pages
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: public-pages
           path: public/
@@ -99,7 +99,7 @@ jobs:
         id: get-version
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
       - name: 📥 Download public pages
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: public-pages
           path: public/
