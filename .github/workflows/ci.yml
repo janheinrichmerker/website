@@ -30,7 +30,7 @@ jobs:
         working-directory: assets/
         run: yarn
       - name: ♻️ Cache Hugo modules
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/hugo_cache
           key: ${{ runner.os }}-hugo-modules-${{ hashFiles('**/go.sum') }}
@@ -40,7 +40,7 @@ jobs:
         env:
           HUGO_PARAMS_githubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: ♻️ Cache link checker requests
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
